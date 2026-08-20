@@ -3,3 +3,4 @@ dist-*/
 exports/png*/
 exports/final/
 sources.json
+public/figures/

@@ -89,19 +89,35 @@ Three items cannot be produced in a sitting. They start immediately, independent
 
 **Then chapters, in this order:**
 
-| # | Chapter | Why here |
-|---|---|---|
-| 1 | **4 — Measurement** | Unblocked, highest-value chapter in Session 1 by its own brief, and its eval runs have the longest lead time |
-| 2 | **1 — Substrate** | No dependencies; establishes notation every later chapter uses |
-| 3 | **3 — Control** | Low asset cost; supplies the claims Chapter 4 tests |
-| 4 | **5 — Intrinsic failure** | Heavy citation load; gallery keeps accruing underneath |
-| 5 | **2a / 2b — Formation, Annotation** | Once the split is settled |
-| 6 | **7, 8** | Closes Session 1 |
-| 7 | **6 — Extrinsic failure** | Needs the isolated machine |
-| 8 | **9–13** | Session 2. Version-fragile, written late on purpose |
-| 9 | **14–19** | Session 3. Needs open items 7 and 10 answered |
+**Revised 2026-08-19. The previous order put Chapter 4 first and stalled, because Chapter 4 needs the instructor's five cases and nothing else could start behind it. Order by what is unblocked, not by what is most valuable.**
 
-Chapter 3 sits after Chapter 4 in production but before it in teaching. That is deliberate and costs nothing: Chapter 4 needs Chapter 3's *inventory*, which already exists in the brief, not Chapter 3's *slides*.
+| # | Chapter | Status | Needs from the instructor |
+|---|---|---|---|
+| 1 | **1 — Substrate** | **Done.** 15 slides, 2 computed figures, PDF committed | Two captures: tokeniser screenshots, temperature demo |
+| 2 | **7 — Physical limits** | Spike is most of it — derivation, critical batch size, erratum all built | Nothing. Energy, neuromorphic and wetware sections remain |
+| 3 | **3 — Control** | Unblocked | Nothing |
+| 4 | **8 — Brain and model** | Unblocked, but **both primary citations are unverified and load-bearing** | Nothing; verification is mine |
+| 5 | **5 — Intrinsic failure** | Writable except the position curve | Failure gallery accrues alongside |
+| 6 | **19 — Judgement** | Unblocked | Nothing |
+| — | **4 — Measurement** | **Blocked** | The five cases and their pass criteria |
+| — | **2a / 2b** | **Blocked** | The split decision |
+| — | **6 — Extrinsic failure** | Blocked | Isolated machine for the injection demo |
+| — | **9–13** | Deferred by design | Version-fragile; write last. Ch 12 needs the Antigravity config |
+| — | **14–19** | Blocked | Which journals the group publishes in |
+
+Six chapters of runway exist without a single further answer. Chapter 3 sits before Chapter 4 in production and before it in teaching; Chapter 4 needs Chapter 3's *inventory*, which is already in the brief, not its slides.
+
+## 4a. Figures — how they get made
+
+<!-- decision: figure-generation-method | status: adopted | supersedes: none -->
+
+Three kinds, and they are not interchangeable.
+
+- **Computed figures** — anything with an equation behind it. A committed Python script under `../assets/figures/` writes the PNG. The script is the source of truth and the figure can be regenerated and audited. Where a figure needs input values that are not measured, those values are labelled illustrative *on the figure* and the transform applied to them is exact. Nothing is traced from a source figure.
+- **Conceptual diagrams** — Mermaid, inline in the slide. Version-controlled text, editable, survives PDF export, no binary to keep in sync.
+- **Generated imagery** — available via `agy` (Nano Banana), verified working 2026-08-19. **Not used for technical content.** A generated diagram cannot be audited, cannot be regenerated deterministically, and carries no provenance, which is the wrong trade in a course that spends three sessions on verification. Reserved for decorative section dividers if wanted at all.
+
+**The unsolved one.** Chapter 5's position curve is empirical data from a published source. It cannot be computed, cannot be traced, and must not be generated. Either the chapter cites the source and describes the shape without reproducing the figure, or an openly licensed version is found. Decide before Chapter 5 is drafted.
 
 ---
 

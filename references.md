@@ -34,7 +34,7 @@ Two slides need an explicit COI note:
 # Chapter 1 — Substrate
 
 ### Citations
-- Vaswani et al., 2017, *Attention Is All You Need*, arXiv:1706.03762 — **[P]** widely known; confirm the identifier.
+- Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, L. & Polosukhin, I., 2017, *Attention Is All You Need*, arXiv:1706.03762 — **[V]**. arXiv abstract record fetched 2026-08-19; title, full author list, year and identifier confirmed against it. **Bibliographic detail only** — the paper body was not read, so do not attribute a specific formulation to it without reading the PDF. {#vaswani2017 | Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, L. & Polosukhin, I. | 2017 | Attention Is All You Need | arXiv:1706.03762 | paper | -}
 - KV cache as a concept: the Pope lecture gives a clear, non-technical construction. **[V]**
 
 ### Search terms
