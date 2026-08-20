@@ -18,12 +18,13 @@ marked **[holds]**, which means it was tested rather than skipped.
 2. **Attend only this.** What can someone do on Monday having attended this chapter and nothing else?
 3. **Forced next.** What question does this chapter leave open that the next one answers?
 
-A fourth test was added by the review, because three chapters passed the first three and still
-should not run at their current length:
+A fourth test was added by the review, because three chapters passed the first three and were
+still carrying material that does no work:
 
-4. **Earns its minutes.** Session 1 holds about 1.8x what four hours can deliver. A chapter that
-   passes tests 1 to 3 and changes no decision this audience will make is competing for time
-   against a chapter that does.
+4. **Earns its place.** Does this change a decision the audience will make, or teach a lesson the
+   course has not already taught four times? A chapter can pass tests 1 to 3 and still be padded.
+   **Delivery length is not a criterion here and is not discussed anywhere in this repository** —
+   ruled 2026-08-20. Write it in full; the instructor decides what to keep.
 
 ## The course spine
 
@@ -48,9 +49,8 @@ slides, competing with the argument.
 ## Session boundaries are provisional
 
 Chapter numbers are stable, because `architecture.md` references them in five places. **Which
-session a chapter is delivered in is not.** The review recommends moving Chapters 6 and 7 to
-Session 2 to relieve a 165-minute overrun in Session 1. Both moves satisfy the existing
-sequencing constraints. Neither is applied here until the instructor rules.
+session a chapter is delivered in is not**, and that is the instructor's call to make when he
+sees the finished material.
 
 ---
 

@@ -453,6 +453,9 @@ Reverse-engineering KV cache bytes-per-token from a published price break at 200
 
 # Chapters 14–19 — Practice
 
+### Citations — verified 2026-08-20
+- Anthropic, *PDF support*, platform.claude.com — **[V]**. Fetched 2026-08-20 as primary text; see `SOURCE-LOG.md`. Corrects Chapter 14's extraction slide, which describes a text-only pipeline: *"The system converts each page of the document into an image. The text from each page is extracted and provided alongside each page's image."* Limits stated on the page: 32 MB per request, 600 pages, falling to 100 when the context window is under 1M tokens. **Version-fragile — re-fetch before delivery.** {#anthropic-pdf | Anthropic | 2026 | PDF support, platform.claude.com — vendor documentation, fetched 2026-08-20 | - | paper | -}
+
 ### Citations needed
 - Journal AI-use disclosure policies. Gather the actual current text from the journals this group publishes in — **[U]** all of them. Policies change; secondhand summaries go stale.
 - COPE and ICMJE position statements on AI and authorship — **[U]**

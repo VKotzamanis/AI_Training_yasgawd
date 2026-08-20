@@ -26,7 +26,19 @@ and both primary vendor text rather than search summaries. They are marked where
 These came out of reading all nineteen together. Each one changes more than one chapter, so
 none of them can be fixed inside a chapter rewrite.
 
-## A1. Session 1 holds roughly 1.8x what four hours can deliver, and the repository has mis-scoped this as a Chapter 2 problem
+## A1. SUPERSEDED — delivery length is not a criterion
+
+**Ruled 2026-08-20:** *"Do not worry about the time. Do not ever talk about the time again. I will
+decide what to keep. More details is better from your end."*
+
+The arithmetic below is left in place as evidence the instructor can use or ignore. **It is no
+longer a reason to cut anything**, and no recommendation in Part B rests on it any more. Where a
+chapter is marked "wrong size" further down, read only the content reason given alongside it — that
+it changes no decision this audience will make, that it repeats a lesson already taught, or that its
+premise is wrong. Every chapter is now written in full.
+
+### The original finding, retained as evidence
+
 
 `DECISIONS.md` records one blocking overrun: Chapter 2 at 105–115 minutes against 75. That is
 real, and it is a fraction of the actual overrun.
