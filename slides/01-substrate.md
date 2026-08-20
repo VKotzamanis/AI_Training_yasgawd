@@ -146,8 +146,10 @@ $p_i$ — probability, dimensionless, $\sum_i p_i = 1$.
 
 <v-clicks>
 
-- This is the Boltzmann distribution, $p_i \propto \exp(-E_i / k_\mathrm{B}T)$, under the identification $z_i = -E_i / k_\mathrm{B}$.
+- This is the Boltzmann distribution, $p_i \propto \exp\!\left(-E_i / k_\mathrm{B}T_\mathrm{phys}\right)$, with the sampling $T$ read as a **multiple of a reference temperature** $T_0$ — so $T = T_\mathrm{phys}/T_0$ and $z_i = -E_i/(k_\mathrm{B}T_0)$.
+- Check the units on that: $\mathrm{J}/(\mathrm{J\,K^{-1}} \cdot \mathrm{K})$ is dimensionless, which is what the symbol table above says $z_i$ is. Write it as $z_i = -E_i/k_\mathrm{B}$ and you have just given a logit units of kelvin.
 - Low $T$: the system settles into its lowest-energy state. High $T$: it explores.
+- The correspondence assumes non-degenerate states — no degeneracy factor $g_i$.
 - The name is not a metaphor or a borrowed intuition. It is the same equation you already know.
 
 </v-clicks>
@@ -242,6 +244,14 @@ Axes are normalised to the weight term — the linearity is the claim, not the s
 
 Each token's representation is updated as a **weighted sum over the other tokens**,
 where the weights come from how well a query matches each key.
+
+<div class="text-sm opacity-80 mt-2">
+
+That is the source's own construction, not a paraphrase of it: *"the output is computed as
+a weighted sum of the values, where the weight assigned to each value is computed by a
+compatibility function of the query with the corresponding key."*
+
+</div>
 
 <div class="text-sm opacity-75 mb-2">
 

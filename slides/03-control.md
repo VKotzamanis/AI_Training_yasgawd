@@ -58,7 +58,7 @@ an improvement from a coincidence — and neither can the person who told you th
 
 <div v-click class="mt-4 text-sm opacity-75 border-t pt-3">
 
-**Thread opened — verification.** Chapter 4 builds the missing middle item.
+**Forward reference — Chapter 4.** It builds the missing middle item.
 
 </div>
 
@@ -226,23 +226,23 @@ here from intuition, and notice how badly you want to.
 
 ---
 
-## Requesting reasoning — read the original scope
+## Requesting reasoning
 
-Chain-of-thought prompting is real and it is well evidenced. It is also routinely
-described as something it was not.
+Chain-of-thought prompting — supplying worked examples of the reasoning, or asking for
+the working — is a real technique with a published result behind it.
 
 <v-clicks>
 
-- The original result: prompting with **eight worked chain-of-thought exemplars**, on a 540-billion-parameter model, improving arithmetic, commonsense and symbolic reasoning.
-- The paper states the ability emerges in *sufficiently large* models.
-- That is a result about supplying worked examples. It is **not** a result about typing *"think step by step"* at a model that already reasons before answering.
+- Supplying worked examples of the intermediate steps improves performance on arithmetic, commonsense and symbolic reasoning.
+- Asking for the working also leaves you something you can audit, which on your own tasks may matter more than the accuracy question does.
+- **The folk version is a different proposition.** Typing *"think step by step"* at a model that already reasons before it answers is not the thing that was tested.
 
 </v-clicks>
 
-<div v-click class="mt-6 text-sm opacity-80">
+<div v-click class="mt-6 text-lg">
 
-Whether the folk version still buys you anything on the model you actually use is,
-again, **Chapter 4**.
+Contested, and **not settled here**. Chapter 4 reads the original result's scope closely
+enough to show why the question is live, then tests it.
 
 </div>
 
