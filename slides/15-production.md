@@ -17,6 +17,13 @@ something a journal will accept.
 
 </div>
 
+<!--
+- **Says:** Opens the chapter by naming documents, figures and diagrams as version-controlled text that renders into something a journal will accept.
+- **From:** Follows Chapter 14's closing exercise, in which verified citations become the raw material this chapter's pipeline treats as data.
+- **Chapter:** Serves as the chapter's framing slide before any specific pipeline component appears.
+- **To:** Leads into the slide contrasting a text pipeline against a word processor.
+-->
+
 ---
 
 ## Why a text pipeline beats a word processor
@@ -37,6 +44,13 @@ pretending the trade is free.
 
 </div>
 
+<!--
+- **Says:** Gives four reasons a text pipeline beats a word processor — diffing, reproducibility, citations as data, and swappable templates — and names the real setup cost.
+- **From:** Follows the title slide by making its framing concrete with specific advantages.
+- **Chapter:** States the chapter's core argument and explicitly credits the citations-as-data point to Chapter 14's habit.
+- **To:** Leads into the diagram showing the pipeline's actual components.
+-->
+
 ---
 
 ## The pipeline in one line
@@ -56,6 +70,13 @@ flowchart LR
 - The same source produces the preprint, the submission and the slides.
 
 </v-clicks>
+
+<!--
+- **Says:** Shows the pipeline as a flowchart from markdown, a reference database and a journal template through a build step to PDF and submission formats.
+- **From:** Follows the word-processor comparison by showing the mechanism behind the claims just made.
+- **Chapter:** Gives the chapter's central diagram of how the pipeline actually works.
+- **To:** Leads into the slide on how figures fit into that same pipeline.
+-->
 
 ---
 
@@ -78,6 +99,13 @@ text.
 
 </div>
 
+<!--
+- **Says:** Argues that a figure produced by a committed script is auditable and correctable in a way a pasted screenshot is not, and notes that this course's own figures follow the same rule.
+- **From:** Follows the pipeline diagram by examining one of its components, figures, in detail.
+- **Chapter:** Extends the pipeline's reproducibility argument to figures, with a self-referential example from Chapters 1 and 5.
+- **To:** Leads into the slide on the pipeline's other visual output, diagrams.
+-->
+
 ---
 
 ## Diagrams as text
@@ -99,6 +127,13 @@ reproduce, but because the reproducibility is somebody else's to withdraw.
 
 </div>
 
+<!--
+- **Says:** Argues that flowcharts and system maps written as text render, diff and survive export better than a drawing tool's binary output, and warns that generated imagery carries no controllable provenance.
+- **From:** Follows the figures slide by covering the pipeline's other visual output.
+- **Chapter:** Completes the chapter's visual-content argument, distinguishing text diagrams, data plots and AI-generated imagery.
+- **To:** Leads into the narrower ASCII-output slide.
+-->
+
 ---
 
 ## ASCII output has a real use
@@ -110,6 +145,13 @@ reproduce, but because the reproducibility is somebody else's to withdraw.
 - Small, ugly and durable beats beautiful and detached.
 
 </v-clicks>
+
+<!--
+- **Says:** Covers plain-text diagram rendering for terminals, code comments, commit messages and README files.
+- **From:** Follows the diagrams-as-text slide by narrowing from full document pipelines to a smaller, code-adjacent use case.
+- **Chapter:** Adds a minor but distinct content item on where plain-text rendering fits outside the main pipeline.
+- **To:** Leads into the slide on explaining your own code to other people.
+-->
 
 ---
 
@@ -130,6 +172,13 @@ and stops being re-derived every session.
 
 </div>
 
+<!--
+- **Says:** Covers asking the model to explain your own code for a supervisor, collaborator or future self, then checking the explanation against what the code actually does.
+- **From:** Follows the ASCII-output slide by moving from rendering artefacts to producing an explanatory one.
+- **Chapter:** Closes the chapter's content by naming Chapter 16 as the place the same check is applied to someone else's code.
+- **To:** Leads into the closing exercise that puts the pipeline into practice.
+-->
+
 ---
 
 ## Exercise
@@ -148,3 +197,10 @@ If step 2 breaks, you have found the reason to do this now rather than the week 
 a deadline.
 
 </div>
+
+<!--
+- **Says:** Lays out a three-step exercise to run one section through the pipeline with a real citation, retarget it to a second template, and regenerate one figure from a committed script.
+- **From:** Follows the code-explanation slide by turning the chapter's content into a hands-on task.
+- **Chapter:** Closes Chapter 15 by testing the pipeline's reproducibility claims directly.
+- **To:** Hands off to Chapter 16 — Code and numerics, which applies the explanation-and-check method just practiced to code inherited from someone else.
+-->

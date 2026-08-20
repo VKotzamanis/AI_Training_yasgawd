@@ -16,6 +16,13 @@ The model has no hippocampus. **So you have to be its hippocampus.**
 
 </div>
 
+<!--
+- **Says:** Opens Chapter 10 by restating that the model has no hippocampus, so the reader must be its hippocampus.
+- **From:** Reopens Chapter 8's closing line verbatim, the deliberate seam bridging over Chapter 9's agent material.
+- **Chapter:** Titles the chapter's subject -- standing context as the deliberate replacement for a missing organ -- before any mechanism is described.
+- **To:** Sets up the concrete explanation of what 'being its hippocampus' means in practice.
+-->
+
 ---
 
 ## What that means concretely
@@ -27,6 +34,13 @@ The model has no hippocampus. **So you have to be its hippocampus.**
 - That something is a file. You write it, you own it, and it is the deliverable of today.
 
 </v-clicks>
+
+<!--
+- **Says:** States that nothing persists between sessions and that any apparent memory comes from a file being re-inserted into the window.
+- **From:** Follows the opening line by unpacking what it actually means mechanically.
+- **Chapter:** Establishes the chapter's core mechanism, an externally owned file rather than model memory, before naming its contents.
+- **To:** Leads into what a project instruction file, standing context, actually contains.
+-->
 
 ---
 
@@ -46,6 +60,13 @@ project.
 
 <Cite k="claudecode-docs" />
 
+<!--
+- **Says:** Defines a project instruction file and lists what belongs in it -- conventions, build commands, units and sign conventions, known pitfalls.
+- **From:** Follows the mechanical explanation by specifying the artefact itself.
+- **Chapter:** Gives the chapter's positive content specification for the instruction file.
+- **To:** Sets up the contrasting slide on what does not belong in the file.
+-->
+
 ---
 
 ## What does not belong in it
@@ -64,6 +85,13 @@ The test: **would a competent new member of your group need this told to them?**
 it is costing you on every turn and buying nothing.
 
 </div>
+
+<!--
+- **Says:** Lists what to exclude from the file -- anything readable from the code, aspirations, anything indefensible to a colleague.
+- **From:** Follows the 'what belongs' slide with its direct counterpart on exclusions.
+- **Chapter:** Completes the chapter's content specification with the 'competent new member' test for inclusion.
+- **To:** Leads into the cost analysis of keeping that file resident.
+-->
 
 ---
 
@@ -94,6 +122,13 @@ Chapter 13 puts a price on the same tokens.
 
 </div>
 
+<!--
+- **Says:** Derives that standing-context cost scales with file length times session turns, since the file is re-read every turn.
+- **From:** Follows the content specification by pricing the artefact just defined.
+- **Chapter:** Carries the cost thread explicitly, meeting the memory-and-context thread here as the chapter brief specifies.
+- **To:** Sets up the live checkup demonstration that catches a bloated file in practice.
+-->
+
 ---
 
 ## Run the checkup, live
@@ -114,6 +149,13 @@ keep the output. If it flags nothing, that is worth showing too, and worth sayin
 </div>
 
 <Cite k="claudecode-docs" />
+
+<!--
+- **Says:** Describes running the built-in setup checkup live against a real instruction file to flag duplication.
+- **From:** Follows the cost derivation by demonstrating the failure mode, accretion and duplication, in practice.
+- **Chapter:** Supplies the chapter's live demonstration, still marked TODO(capture) pending a pre-session run.
+- **To:** Leads into the memory hierarchy that organises where such files live.
+-->
 
 ---
 
@@ -137,6 +179,13 @@ that survives the person who wrote it.
 
 <Cite k="claudecode-docs" />
 
+<!--
+- **Says:** Lays out the personal, project, and local levels of standing context, and notes keys belong in environment variables, not files.
+- **From:** Follows the checkup demonstration by placing the audited file within the broader hierarchy of memory locations.
+- **Chapter:** Identifies the project level as the one that matters to a research group because it survives its author.
+- **To:** Sets up the caveat that a generated draft of this file is only a starting point.
+-->
+
 ---
 
 ## Generated drafts are a starting point
@@ -156,6 +205,13 @@ candidate, not a result.
 
 </div>
 
+<!--
+- **Says:** Warns that a generated instruction file will be structurally correct but substantively thin, missing what only the author knows.
+- **From:** Follows the hierarchy slide by addressing how to actually produce a project-level file.
+- **Chapter:** Applies the same generated-draft scepticism the course applies to citations, now to the chapter's own artefact.
+- **To:** Leads into commands and skills as the reusable, on-demand extension of the same idea.
+-->
+
 ---
 
 ## Commands and skills
@@ -171,6 +227,13 @@ The same idea, made reusable.
 </v-clicks>
 
 <Cite k="claudecode-docs" />
+
+<!--
+- **Says:** Introduces custom commands and skills as reusable standing context that loads only when needed, keeping resident cost down.
+- **From:** Follows the draft-scepticism slide by extending standing context into on-demand, invoked forms.
+- **Chapter:** Extends the chapter's cost argument by showing how to write things once without paying for them on every turn.
+- **To:** Sets up the slide on turning individual files into shared lab infrastructure.
+-->
 
 ---
 
@@ -190,6 +253,13 @@ The same idea, made reusable.
 record rather than a convenience.
 
 </div>
+
+<!--
+- **Says:** Frames a shared instruction file and committed skills as converting individual conventions into group infrastructure.
+- **From:** Follows commands and skills by scaling the same idea from one person to the whole group.
+- **Chapter:** Delivers the chapter's group-facing material, flagged for revisiting as governance in Chapter 18.
+- **To:** Leads into the hands-on exercise of writing and committing the file.
+-->
 
 ---
 
@@ -217,6 +287,13 @@ You leave today with an artefact. That is the point of this chapter.
 
 </div>
 
+<!--
+- **Says:** Walks through writing, trimming, and committing a project instruction file as the day's deliverable.
+- **From:** Follows the lab-infrastructure framing by turning it into the chapter's concrete, graded task.
+- **Chapter:** Delivers the chapter's stated exercise and deliverable.
+- **To:** Sets up the closing summary of the memory thread's closure.
+-->
+
 ---
 
 ## Where this leaves us
@@ -235,3 +312,10 @@ You leave today with an artefact. That is the point of this chapter.
 **Chapter 11** asks what happens when one session is not enough.
 
 </div>
+
+<!--
+- **Says:** Closes the memory thread, restates that the file is not the missing organ, and notes it now has a calculable running cost.
+- **From:** Follows the exercise with the chapter's closing wrap-up.
+- **Chapter:** Closes the memory-and-context thread begun in Chapter 1, refusing to quietly rebuild the hippocampus analogy Chapter 8 broke.
+- **To:** Hands to Chapter 11, which asks what to do when one session's window is not enough.
+-->

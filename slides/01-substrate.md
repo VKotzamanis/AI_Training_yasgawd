@@ -17,6 +17,13 @@ and nothing else.
 
 </div>
 
+<!--
+- **Says:** Opens the chapter on the claim that everything in the course rests on one operation, without yet naming it.
+- **From:** Opens the course, so there is no previous chapter to hand anything over.
+- **Chapter:** Frames the chapter's scope before any mechanism is introduced.
+- **To:** Leads into the brain question the next slide raises and defers.
+-->
+
 ---
 
 ## The question this chapter opens and will not answer
@@ -34,6 +41,13 @@ and nothing else.
 - The answer is more interesting once you know what it actually computes.
 
 </v-clicks>
+
+<!--
+- **Says:** Poses the question of whether the system is like a brain and explicitly defers it to Chapter 8.
+- **From:** Follows the title slide's promise to cover one operation and nothing else.
+- **Chapter:** Opens the brain question that Chapter 8 answers, deliberately leaving it unanswered here.
+- **To:** Sets up the tokens material that starts describing what the system actually computes.
+-->
 
 ---
 
@@ -59,6 +73,13 @@ guessed here.
 
 </div>
 
+<!--
+- **Says:** Introduces tokens as the fixed-vocabulary fragments the model actually sees, distinct from characters or words.
+- **From:** Turns from the deferred brain question to what the system concretely operates on.
+- **Chapter:** Begins the chapter's technical content with its first building block, tokenisation.
+- **To:** Sets up the next slide's discussion of why tokens matter to this audience specifically.
+-->
+
 ---
 
 ## Why that matters to you specifically
@@ -77,6 +98,13 @@ guessed here.
 becomes the unit of *price*, and in Chapter 13 the unit of *billing*.
 
 </div>
+
+<!--
+- **Says:** Explains why tokens matter practically, as the billing unit, the context-window unit, and the throughput unit, and flags the vocabulary's non-technical origin.
+- **From:** Builds directly on the previous slide's definition of tokens.
+- **Chapter:** Opens the cost thread, marking the token as the unit of meaning that Chapter 7 later reprices.
+- **To:** Leads into the chapter's statement of the model's entire objective.
+-->
 
 ---
 
@@ -103,6 +131,13 @@ it is not an accident of scale.
 
 </div>
 
+<!--
+- **Says:** States the model's whole objective, predicting the next token, with no goal or plan underneath it.
+- **From:** Follows the token material by describing the operation performed on those tokens.
+- **Chapter:** Delivers the chapter's central claim, that everything else is this one operation repeated.
+- **To:** Forward-references Chapter 2's account of how this predictor came to behave like an assistant.
+-->
+
 ---
 
 ## It does not return an answer
@@ -118,6 +153,13 @@ every time.
 
 </v-clicks>
 
+<!--
+- **Says:** Clarifies that the model outputs a probability distribution over the whole vocabulary rather than a chosen answer.
+- **From:** Follows the objective slide by detailing what predicting a next token actually outputs.
+- **Chapter:** Introduces sampling as a separate, tunable step, setting up temperature.
+- **To:** Leads into the figure showing that distribution reshaped at different temperatures.
+-->
+
 ---
 
 ## The same distribution, reshaped
@@ -130,6 +172,13 @@ The logit values are illustrative — they are not measured from any model. The
 softmax applied to them is exact, and the reshaping is the point.
 
 </div>
+
+<!--
+- **Says:** Shows an illustrative figure of one logit vector rendered as probabilities at four temperatures.
+- **From:** Follows directly from the previous slide's introduction of sampling and temperature.
+- **Chapter:** Provides the visual anchor for temperature before its equation is derived.
+- **To:** Sets up the next slide's derivation of why the mechanism is called temperature.
+-->
 
 ---
 
@@ -153,6 +202,13 @@ $p_i$ — probability, dimensionless, $\sum_i p_i = 1$.
 - The name is not a metaphor or a borrowed intuition. It is the same equation you already know.
 
 </v-clicks>
+
+<!--
+- **Says:** States the softmax-with-temperature formula and derives its correspondence to the Boltzmann distribution, with a unit-consistency check.
+- **From:** Follows the reshaped-distribution figure by formalising the mechanism mathematically.
+- **Chapter:** Grounds the name temperature in physics rather than metaphor, part of the chapter's rigour.
+- **To:** Leads into the consequence of temperature, non-reproducible output.
+-->
 
 ---
 
@@ -185,6 +241,13 @@ prompting comparison has to clear.
 
 </div>
 
+<!--
+- **Says:** States that stochastic sampling means one prompt run five times gives five different answers.
+- **From:** Follows directly from the temperature equation just derived.
+- **Chapter:** Draws the practical consequence of temperature, undermining an anecdotal run as evidence.
+- **To:** Forward-references Chapter 4's use of run-to-run variance as a noise floor, then turns to the context window.
+-->
+
 ---
 
 ## The context window is a bounded buffer
@@ -208,6 +271,13 @@ the replacement.
 
 </div>
 
+<!--
+- **Says:** Defines the context window as the single bounded input holding everything the model can condition on.
+- **From:** Shifts from sampling behaviour to the chapter's second core mechanism.
+- **Chapter:** Opens the memory-and-context thread as a bounded buffer, the chapter's second major concept.
+- **To:** Sets up the next slide's point that nothing in that buffer persists between sessions.
+-->
+
 ---
 
 ## Nothing persists
@@ -219,6 +289,13 @@ the replacement.
 - When a tool appears to *remember* your project, something outside the model re-inserted that text into the window. That mechanism is Chapter 10, and it is yours to build.
 
 </v-clicks>
+
+<!--
+- **Says:** States that weights are frozen and the window is discarded between sessions, so nothing is retained.
+- **From:** Follows directly from the context-window definition by stating what happens to it afterward.
+- **Chapter:** Reinforces the memory-and-context thread by ruling out any built-in persistence.
+- **To:** Leads into the KV cache slide, which explains what is retained only within a single generation.
+-->
 
 ---
 
@@ -237,6 +314,13 @@ Axes are normalised to the weight term — the linearity is the claim, not the s
 </div>
 
 <Cite k="pope2026" />
+
+<!--
+- **Says:** Explains the KV cache as cached intermediate results that avoid recomputation, growing linearly with context length.
+- **From:** Follows the nothing-persists slide by describing the one thing that is cached within a session.
+- **Chapter:** Names the KV cache so Chapter 7 can price it later, as the chapter brief specifies.
+- **To:** Sets up the attention slide, the mechanism whose intermediate results are cached.
+-->
 
 ---
 
@@ -270,6 +354,13 @@ flowchart LR
 
 <Cite k="vaswani2017" />
 
+<!--
+- **Says:** Describes attention as a weighted sum over other tokens' values, weighted by query-key compatibility, with a diagram.
+- **From:** Follows the KV cache slide by explaining the operation whose results it caches.
+- **Chapter:** Delivers the one-sentence, one-diagram treatment of attention the chapter brief specifies.
+- **To:** Leads into the slide listing what the chapter deliberately leaves out.
+-->
+
 ---
 
 ## What this chapter deliberately omits
@@ -291,6 +382,13 @@ you make this week, and the time is better spent on the hands-on work.
 habit when a model gives you an answer with no stated scope.
 
 </div>
+
+<!--
+- **Says:** Lists positional encoding, multi-head attention and layer normalisation as deliberate omissions.
+- **From:** Follows the attention slide by scoping how much detail the chapter goes into.
+- **Chapter:** States the chapter's exclusions explicitly, modelling the habit of stating scope.
+- **To:** Sets up the closing summary slide.
+-->
 
 ---
 
@@ -315,3 +413,11 @@ And the question we did not answer: **is this like a brain?**
 Chapter 8, once it is worth answering.
 
 </div>
+
+<!--
+- **Says:** Summarises the chapter, a predictor, sampling, a bounded window, and two opened threads, and restates the unanswered brain question.
+- **From:** Follows the omissions slide by closing out the chapter's content.
+- **Chapter:** Closes Chapter 1 by naming the cost thread and the memory-and-context thread and re-flagging the deferred brain question.
+- **To:** Chapter 2 explains how this next-token predictor was shaped, through training, into something that behaves like an assistant.
+-->
+

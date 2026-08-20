@@ -23,6 +23,13 @@ fail, so the answer is worth something.
 
 </div>
 
+<!--
+- **Says:** Reopens the 'is this like a brain' question from Chapter 1, now that cost and failure have both been established.
+- **From:** Chapter 7 priced inference while Chapters 5 and 6 showed it failing, which is what makes the brain question worth asking now.
+- **Chapter:** Opens the chapter that will run the brain analogy and then deliberately break it, closing Session 1.
+- **To:** Sets up the next slide's opening move -- clearing away what is not true about the analogy.
+-->
+
 ---
 
 ## Start with what is not true
@@ -34,6 +41,13 @@ fail, so the answer is worth something.
 - The resemblance people feel is mostly that both produce language. That is the thing being explained, not evidence for the explanation.
 
 </v-clicks>
+
+<!--
+- **Says:** States that transformers were not derived from neuroscience and that 'attention' only shares a name with its neural counterpart.
+- **From:** Follows the opening question by first clearing away the naive version of the analogy.
+- **Chapter:** Makes the chapter's first move, dismissing the false premise before any real evidence is introduced.
+- **To:** Leads into the defensible encoding-model literature on the next slide.
+-->
 
 ---
 
@@ -67,6 +81,13 @@ on brain data. Hold onto that, because it is precisely what gets attacked two sl
 </div>
 
 <Cite k="schrimpf2021" />
+
+<!--
+- **Says:** Introduces encoding models -- ridge regression from a model's layer activations to human brain responses -- as the real, careful literature.
+- **From:** Follows the dismissal slide by pivoting to what the analogy does have going for it.
+- **Chapter:** Carries the corrected framing, encoding model rather than surprisal, that the chapter brief flags as load-bearing.
+- **To:** Sets up the next slide's scrutiny of the headline near-100% variance figure.
+-->
 
 ---
 
@@ -109,6 +130,13 @@ larger. Per the house rule, a denominator this consequential gets its units stat
 
 <Cite k="schrimpf2021" />
 
+<!--
+- **Says:** Explains that the near-100%-variance headline is normalised by a noise ceiling of only 0.32, 0.17 and 0.20 across the three datasets.
+- **From:** Follows the encoding-model slide by interrogating its most quoted number.
+- **Chapter:** Applies the course's own denominator discipline to its central citation, the same habit the MACs-versus-FLOPs erratum teaches.
+- **To:** Leads into the untrained-model result that further complicates the same paper.
+-->
+
 ---
 
 ## And the result that complicates it
@@ -132,6 +160,13 @@ it about your own field.
 </div>
 
 <Cite k="schrimpf2021" />
+
+<!--
+- **Says:** Reports that untrained models with a trained linear readout also predicted brain data well above chance in the same study.
+- **From:** Follows the ceiling discussion by returning to the same paper for a further complication.
+- **Chapter:** Plants a result the chapter later shows is a confound rather than a curiosity, and notes the paper's Contributed-track review path.
+- **To:** Sets up the stronger, electrode-based evidence on the next slide.
+-->
 
 ---
 
@@ -161,6 +196,13 @@ The authors then say this, and it is the sentence this chapter is built on:
 
 <Cite k="goldstein2022" />
 
+<!--
+- **Says:** Presents intracranial electrode data compared against GPT-2, then quotes the authors calling the models 'not biologically feasible.'
+- **From:** Follows the untrained-model complication with a second, stronger line of evidence and its authors' own caveat.
+- **Chapter:** Supplies the sentence the chapter says it is built on -- shared computational principles without shared implementation.
+- **To:** Leads into the field's own re-analysis and correction of the earlier results.
+-->
+
 ---
 
 ## The field correcting itself, in public
@@ -183,6 +225,13 @@ habit Chapter 17 asks of you.
 
 <Cite k="antonello2024,hadidi2026" />
 
+<!--
+- **Says:** Describes two re-analyses that undercut the between-model correlation and dissolve the untrained-model result into a confound.
+- **From:** Follows the electrode-study slide by showing the field revisiting its own earlier claims.
+- **Chapter:** Demonstrates the self-correction the course asks of its audience, with one author critiquing their own prior paper.
+- **To:** Sets up the chapter's pivot from evidence review to running, then breaking, the hippocampus analogy.
+-->
+
 ---
 
 ## So: run the analogy, then break it
@@ -196,6 +245,13 @@ The analogy is worth running. It is the break that carries the content.
 - The context window is not a hippocampus. It is a **buffer that gets discarded.**
 
 </v-clicks>
+
+<!--
+- **Says:** States the hippocampus analogy -- episodic experience consolidated into durable memory -- and that frozen weights do none of this.
+- **From:** Follows the evidence review by turning from literature to the chapter's central argument.
+- **Chapter:** Delivers the break the chapter says carries its content: the context window is a discarded buffer, not a hippocampus.
+- **To:** Leads into the working-memory comparison the next slide takes apart.
+-->
 
 ---
 
@@ -229,6 +285,13 @@ So retract the whole framing, including "the numbers run opposite to the analogy
 sentence needs the ordering it does not have.
 
 </div>
+
+<!--
+- **Says:** Shows the 'four items versus hundreds of thousands of tokens' comparison has no defined units to compare, not just a wrong number.
+- **From:** Follows the hippocampus break by dismantling the specific numeric comparison people reach for.
+- **Chapter:** Retracts the course's own earlier framing, modelling the evidentiary discipline it demands of the audience.
+- **To:** Sets up the qualitative replacement comparison on the next slide.
+-->
 
 ---
 
@@ -275,6 +338,13 @@ and it is why Chapter 10 hands you a file rather than a bigger window.
 
 <Cite k="cowan2001" />
 
+<!--
+- **Says:** Replaces the retracted numeric comparison with a qualitative contrast -- a passive, discarded buffer against an active, consolidating process.
+- **From:** Follows the retraction by supplying what remains true once the number is dropped.
+- **Chapter:** Gives the chapter's working substitute for the broken analogy, which Chapter 10 builds on directly.
+- **To:** Leads into the frontal-cortex comparison the next slide also refuses.
+-->
+
 ---
 
 ## One more comparison to refuse
@@ -286,6 +356,13 @@ and it is why Chapter 10 hands you a file rather than a bigger window.
 - Chapter 5 already told you the related thing: the model's stated reasoning is not an explanation of the model's behaviour.
 
 </v-clicks>
+
+<!--
+- **Says:** Refuses the 'frontal cortex equals reasoning, so later layers must be reasoning' comparison as resting on a contested neuroscience premise.
+- **From:** Follows the working-memory comparison with a second popular comparison to reject.
+- **Chapter:** Closes the chapter's run of specific analogies before the closing assessment of the analogy's overall value.
+- **To:** Sets up the verdict on what the brain analogy is actually good for.
+-->
 
 ---
 
@@ -304,6 +381,13 @@ and it is why Chapter 10 hands you a file rather than a bigger window.
 You have a better guide. It is Chapters 1 through 7.
 
 </div>
+
+<!--
+- **Says:** Concludes the analogy is useful for generating hypotheses, fails as an explanation, and misleads as a guide to daily use.
+- **From:** Follows the refused comparisons by drawing the chapter's overall verdict on the analogy.
+- **Chapter:** States the chapter's thesis in summary form before the closing slide widens to Session 1 as a whole.
+- **To:** Leads into the final slide's summary of everything Session 1 covered.
+-->
 
 ---
 
@@ -329,3 +413,10 @@ The model has no hippocampus. **So you have to be its hippocampus.**
 That is Session 2, and it starts with a system that acts.
 
 </div>
+
+<!--
+- **Says:** Summarises Session 1 as a next-token predictor shaped by rating, weakly measurable, and structurally failing, then closes on the missing-hippocampus line.
+- **From:** Follows the analogy's verdict by widening to a summary of the whole first session.
+- **Chapter:** Closes both the chapter and Session 1 on the line Chapter 10 reopens verbatim after Chapter 9 intervenes.
+- **To:** Hands to Chapter 9's system that acts, while its own closing line resurfaces verbatim at the start of Chapter 10.
+-->

@@ -17,6 +17,13 @@ a system nobody can open.
 
 </div>
 
+<!--
+- **Says:** Opens Chapter 4 as the method for testing the two claims Chapter 3 left open.
+- **From:** Chapter 3 closed by deliberately leaving the persona and chain-of-thought claims untested.
+- **Chapter:** States the chapter's purpose, converting the course from advice into a testing method, before any method is given.
+- **To:** Leads into the slide diagnosing why prompting advice circulates as folklore.
+-->
+
 ---
 
 ## Why prompting advice circulates as folklore
@@ -35,6 +42,13 @@ a system nobody can open.
 called a prompt an experimental condition in front of you before.
 
 </div>
+
+<!--
+- **Says:** Diagnoses folklore prompting claims as a single run, judged against a pass criterion chosen after seeing the output, with no control condition.
+- **From:** Follows the title slide by explaining the problem the chapter's method will fix.
+- **Chapter:** Establishes the motivating failure mode before introducing the anchor example.
+- **To:** Leads into the MACs-versus-FLOPs erratum as the chapter's anchor artefact.
+-->
 
 ---
 
@@ -60,6 +74,13 @@ two. Everything this chapter teaches is in that sentence.
 
 <Cite k="erratum2026" />
 
+<!--
+- **Says:** Recounts the MACs-versus-FLOPs erratum as a unit-definition error caught by an outside reader after publication.
+- **From:** Follows the folklore-diagnosis slide with a concrete anchor example.
+- **Chapter:** Delivers the chapter's anchor artefact, a peer-review success story with a clean numerical error.
+- **To:** Sets up the next slide's lessons drawn from the erratum.
+-->
+
 ---
 
 ## What the erratum actually teaches
@@ -79,6 +100,13 @@ this chapter comes **before** the output, not after.
 
 </div>
 
+<!--
+- **Says:** Draws three lessons from the erratum, that the expert was not careless, fluency did not help, and review worked because terms were defined.
+- **From:** Follows directly from the erratum's telling by extracting its lessons.
+- **Chapter:** Motivates the requirement that a pass criterion be defined before output is seen.
+- **To:** Leads into the minimal eval, the chapter's core method.
+-->
+
 ---
 
 ## The minimal eval
@@ -97,6 +125,13 @@ Full specification, including the criterion-writing rules, is in
 `assets/eval-worksheet/README.md`. You take a blank copy home.
 
 </div>
+
+<!--
+- **Says:** States the three-step minimal eval, five fixed cases, a pre-defined pass criterion, and a count across two conditions.
+- **From:** Follows the erratum's lesson about pre-defined criteria with the method that applies it.
+- **Chapter:** Presents the chapter's core method in its simplest form.
+- **To:** Leads into the next slide on choosing the five cases correctly.
+-->
 
 ---
 
@@ -118,6 +153,13 @@ material comes out either trivially right or arguably wrong, and both destroy th
 
 </div>
 
+<!--
+- **Says:** Explains that cases must be calibrated to sit near the middle of pass and fail, discarding cases the model always passes or fails.
+- **From:** Follows the minimal-eval statement by detailing how to select its cases.
+- **Chapter:** Adds the calibration step needed to give the minimal eval any statistical power.
+- **To:** Leads into the table of experimental conditions.
+-->
+
 ---
 
 ## The conditions
@@ -137,6 +179,13 @@ material comes out either trivially right or arguably wrong, and both destroy th
 
 </v-clicks>
 
+<!--
+- **Says:** Tabulates the five experimental conditions A, A prime, B1, B2 and B3, and flags A prime and B3 as deliberate.
+- **From:** Follows the case-selection slide by defining what is actually run against those cases.
+- **Chapter:** Lays out the design that the next two slides justify in detail.
+- **To:** Leads into the explanation of why A prime exists.
+-->
+
 ---
 
 ## Why A′ exists
@@ -155,6 +204,13 @@ This is a repeatability check on an instrument. You would not accept a tank resu
 without one.
 
 </div>
+
+<!--
+- **Says:** Explains that A prime, a repeat of the baseline, measures run-to-run spread against which any A-versus-B difference must be judged.
+- **From:** Follows the conditions table by justifying its most important row.
+- **Chapter:** Ties the repeatability check back to Chapter 1's stochastic-sampling material.
+- **To:** Leads into the blinding procedure applied to grading.
+-->
 
 ---
 
@@ -177,6 +233,13 @@ marker are nearly the same thing. Closing that needs a second grader, and there 
 
 </div>
 
+<!--
+- **Says:** Describes the blinding and duplicate-output procedure, and states plainly that it cannot blind the condition-designer's own bias.
+- **From:** Follows the A-prime justification with the grading procedure applied to all conditions.
+- **Chapter:** Adds an explicit, disclosed limitation to the method rather than overselling it.
+- **To:** Leads into the statistical limits of what five cases can support.
+-->
+
 ---
 
 ## What five cases can support
@@ -197,6 +260,13 @@ Paired sign test, ties dropped:
 - Power at α = 0.05 is therefore **exactly zero** — combinatorial, not an estimate.
 
 </v-clicks>
+
+<!--
+- **Says:** Tabulates sign-test p-values by case count, showing five cases cannot reach two-sided p under 0.05 at any outcome.
+- **From:** Follows the blinding slide by quantifying the method's statistical power.
+- **Chapter:** States the eval's central statistical limitation before any result is shown.
+- **To:** Leads into a worked example of how weak even the best-case outcome is.
+-->
 
 ---
 
@@ -222,6 +292,13 @@ limit first is what buys credibility for everything after.
 
 </div>
 
+<!--
+- **Says:** Works a concrete twenty-point true-effect scenario, showing the best outcome is both weak evidence and rarely obtained, needing 103 cases for 80% power.
+- **From:** Follows the p-value table by working through a concrete numerical example of its consequence.
+- **Chapter:** Reinforces, with numbers, the instruction to state the limit before showing any result.
+- **To:** Leads into the slide answering what five cases are actually good for.
+-->
+
 ---
 
 ## So what is five cases for?
@@ -240,6 +317,13 @@ That is more than almost every prompting claim you will read this year has behin
 
 </div>
 
+<!--
+- **Says:** States that five cases serve as a screen, a noise floor, and a habit rather than a definitive finding.
+- **From:** Follows the weak-best-case analysis by reframing what the method is actually useful for.
+- **Chapter:** Reframes the eval positively after two slides establishing its statistical weakness.
+- **To:** Leads into two further traps in interpreting the eval's results.
+-->
+
 ---
 
 ## Two more traps
@@ -257,6 +341,13 @@ Reporting only the interesting arm is post-hoc selection of the winning conditio
 doing that in a chapter about method would be self-refuting.
 
 </div>
+
+<!--
+- **Says:** Warns that the noise floor is imprecise, and that three arms inflate the family-wise error rate to about 18% regardless of how they are reported.
+- **From:** Follows the reframing slide with two additional interpretive cautions.
+- **Chapter:** Closes the method-design material before the instructor's own results are shown.
+- **To:** Leads into the placeholder slide for the instructor's own eval results.
+-->
 
 ---
 
@@ -278,6 +369,13 @@ A demo where the folklore **loses** is worth more than one where it wins. So is 
 where five cases cannot tell — which is the most likely outcome and the most honest one.
 
 </div>
+
+<!--
+- **Says:** Marks where the instructor's own five-case, five-condition eval results are to be inserted, with a header block of run metadata.
+- **From:** Follows the interpretive traps by presenting where the worked example itself will go.
+- **Chapter:** Reserves the slide where the chapter's method is demonstrated on a real run.
+- **To:** Leads into settling the first of Chapter 3's two open claims.
+-->
 
 ---
 
@@ -302,6 +400,13 @@ own five cases will do to you if you let them.
 
 <Cite k="zheng2024" />
 
+<!--
+- **Says:** Reports a published study of 162 roles across four model families finding personas did not improve accuracy, with its scope stated explicitly.
+- **From:** Follows the results placeholder by applying the chapter's evidentiary standard to Chapter 3's persona claim.
+- **Chapter:** Resolves one of the two claims Chapter 3 deliberately left open.
+- **To:** Leads into settling the second open claim, chain-of-thought prompting.
+-->
+
 ---
 
 ## Settling the second: think step by step
@@ -323,6 +428,13 @@ reach this slide until it has been. Your own eval is the evidence you actually o
 
 <Cite k="wei2022" />
 
+<!--
+- **Says:** Distinguishes the original chain-of-thought result, based on worked exemplars, from the folk instruction to a model that already reasons.
+- **From:** Follows the persona slide by settling the second claim Chapter 3 left open.
+- **Chapter:** Resolves the second open claim while marking a re-evaluation source as not yet read or citable.
+- **To:** Leads into the closing instruction to record model version alongside any result.
+-->
+
 ---
 
 ## Record the version, or you have recorded nothing
@@ -342,6 +454,13 @@ reach this slide until it has been. Your own eval is the evidence you actually o
 
 </div>
 
+<!--
+- **Says:** Instructs recording model ID, date and settings alongside every result, and forward-references Chapter 5 on why prompts expire.
+- **From:** Follows the two settled claims with the discipline needed to keep any future result valid.
+- **Chapter:** Opens the verification thread that later chapters extend.
+- **To:** Leads into the chapter's closing summary slide.
+-->
+
 ---
 
 ## Where this leaves us
@@ -359,3 +478,11 @@ reach this slide until it has been. Your own eval is the evidence you actually o
 You can now measure whether something worked. **Chapter 5 is about what breaks anyway.**
 
 </div>
+
+<!--
+- **Says:** Closes the chapter by summarising the method, its honest limits, and the two folk claims it tested.
+- **From:** Follows the version-recording slide by summarising the whole chapter.
+- **Chapter:** Delivers the chapter's closing summary before handing off to failure modes.
+- **To:** Chapter 5 covers what breaks even when a technique has been correctly measured to work.
+-->
+

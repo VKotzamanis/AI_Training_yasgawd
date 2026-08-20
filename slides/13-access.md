@@ -17,6 +17,13 @@ an invoice.
 
 </div>
 
+<!--
+- **Says:** Opens the chapter by naming keys, endpoints and cost as its subject, framing the cost thread as becoming an invoice here.
+- **From:** Follows Chapter 12's closing line naming this chapter as what it costs to keep its opened channels running.
+- **Chapter:** Serves as the chapter's framing slide, setting up cost as the thread this chapter closes.
+- **To:** Leads into the slide on what an API key actually authorises.
+-->
+
 ---
 
 ## What a key authorises
@@ -30,6 +37,13 @@ an invoice.
 </v-clicks>
 
 <Cite k="claudecode-docs" />
+
+<!--
+- **Says:** States that a key is a bearer credential, that a chat subscription does not include API access, and that API billing has no monthly cap.
+- **From:** Follows the title slide's framing of cost-as-invoice by opening on the credential that triggers any charge.
+- **Chapter:** Opens the chapter's credential-mechanics content ahead of the key-hygiene rules that follow.
+- **To:** Leads into the slide on handling that credential safely.
+-->
 
 ---
 
@@ -50,6 +64,13 @@ The group's local gateway issues per-user keys with per-user budgets. That is th
 mechanism that makes an exercise safe to run in a room.
 
 </div>
+
+<!--
+- **Says:** Gives four rules for handling an API key: environment variables, never a shared repository, one key per person, and rotation on doubt.
+- **From:** Follows the key-authorisation slide by turning to how to handle the credential just described.
+- **Chapter:** Delivers practical safety content ahead of the room using its own keys later in the chapter.
+- **To:** Leads into the worked example that reverse-engineers architecture from published pricing.
+-->
 
 ---
 
@@ -143,6 +164,13 @@ $$\frac{\mathrm{cost}}{\mathrm{token}\cdot\mathrm{hour}\cdot\mathrm{cost}\cdot\m
          column-gap: .8rem; row-gap: .9rem; align-items: baseline; font-size: 1.05rem; }
 </style>
 
+<!--
+- **Says:** Sets up the derivation, defining four input quantities and deriving a byte-per-token formula with a dimensional check.
+- **From:** Follows the key-hygiene slide by turning from handling credentials to using published pricing data itself.
+- **Chapter:** Delivers the chapter's named worked example, combining order-of-magnitude estimation with dimensional analysis.
+- **To:** Leads into the slide examining the two unpublished inputs the derivation depends on.
+-->
+
 ---
 
 ## The two inputs that decide the answer
@@ -164,6 +192,13 @@ is exactly that, and it is the first thing a hostile reader attacks. State it on
 do not put the number up.
 
 </div>
+
+<!--
+- **Says:** Identifies residency time and the byte-hour price as the two unpublished inputs the derivation depends on, and reconnects to Chapter 4's denominator rule.
+- **From:** Follows the worked-example slide by scrutinising the two inputs it introduced but did not defend.
+- **Chapter:** Extends the worked example and explicitly reapplies Chapter 4's rule that a non-obvious denominator must be defined beside the equation.
+- **To:** Leads into the slide that sanity-checks the number the derivation produced.
+-->
 
 ---
 
@@ -196,6 +231,13 @@ number does not.
 <Cite k="pope2026" />
 
 
+<!--
+- **Says:** Tests the derived 1.7 kB-per-token figure against plausible architecture parameters, finds it strains, and leaves an open TODO(verify) on what the figure actually measures.
+- **From:** Follows the two-inputs slide by applying the check to the number that derivation produced.
+- **Chapter:** Demonstrates the independent-check discipline and leaves the unresolved question flagged rather than asserted.
+- **To:** Leads into the slide stating why this worked example belongs in the course.
+-->
+
 ---
 
 ## Why that example is in this course
@@ -215,6 +257,13 @@ and dimensional analysis crosses the gap — provided every input is declared. T
 one of them was not, which is why the check strains.
 
 </div>
+
+<!--
+- **Says:** Names order-of-magnitude estimation, dimensional analysis and an independent check as the three skills the worked example demonstrates.
+- **From:** Follows the sanity-check slide by stepping back to state the point of the derivation that just strained.
+- **Chapter:** Closes the worked-example sequence by naming its purpose explicitly.
+- **To:** Leads into the "Your first call" hands-on slide, moving from the worked example to the room's own API use.
+-->
 
 ---
 
@@ -240,6 +289,13 @@ reachable, this becomes an instructor demo and keys go out afterwards.
 
 </div>
 
+<!--
+- **Says:** Lays out a four-step exercise for making an API call and varying one parameter at a time, then states it is BLOCKED pending a locally reachable machine.
+- **From:** Follows the worked-example rationale slide by turning from analysis to the room's own hands-on practice.
+- **Chapter:** Presents the chapter's central exercise but marked blocked per DECISIONS.md item 4 rather than presented as runnable.
+- **To:** Leads into the local-versus-frontier comparison slide, blocked by the same missing machine.
+-->
+
 ---
 
 ## Local against frontier, side by side
@@ -258,6 +314,13 @@ reachable, this becomes an instructor demo and keys go out afterwards.
 this becomes an instructor demo and keys are distributed afterwards. `DECISIONS.md` item 4.
 
 </div>
+
+<!--
+- **Says:** Describes a projected side-by-side comparison of the group's local model against a frontier model, flagged TODO(capture) pending the same reachable local machine.
+- **From:** Follows "Your first call" by extending the hands-on section into a second, comparative demo.
+- **Chapter:** Revisits Chapter 5's failure material live but remains unresolved pending the same blocking dependency.
+- **To:** Leads into the slide that returns to close the chapter's cost thread.
+-->
 
 ---
 
@@ -279,6 +342,13 @@ resident context in Chapter 10, orchestration premium in Chapter 11, and an invo
 
 </div>
 
+<!--
+- **Says:** Closes the cost thread across metered pricing, caching, batch discounts, and subscription-versus-per-token economics.
+- **From:** Follows the two blocked hands-on slides by returning to the chapter's core content and drawing it to a close.
+- **Chapter:** Carries the chapter's explicit cost-thread closing marker, tracing it from Chapter 1 through Chapters 7, 10 and 11 to this invoice.
+- **To:** Leads into the chapter's final summary slide.
+-->
+
 ---
 
 ## Where this leaves us
@@ -296,3 +366,10 @@ resident context in Chapter 10, orchestration premium in Chapter 11, and an invo
 Session 2 ends here. **Session 3 is your actual work.**
 
 </div>
+
+<!--
+- **Says:** Summarises the chapter's three takeaways: the credential model, the worked example, and the now-closed cost thread.
+- **From:** Follows the cost-thread closing slide by giving the chapter's final recap.
+- **Chapter:** Closes Chapter 13 and Session 2 together.
+- **To:** Hands off to Chapter 14 — Literature, opening Session 3 on research practice.
+-->

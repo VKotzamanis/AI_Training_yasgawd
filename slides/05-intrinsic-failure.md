@@ -17,6 +17,13 @@ exactly as designed.
 
 </div>
 
+<!--
+- **Says:** Opens Chapter 5 by framing it as failures that occur with no adversary, from the system working exactly as designed.
+- **From:** Chapter 4's measurement discipline makes this chapter's limitations actionable rather than merely discouraging.
+- **Chapter:** States the chapter's scope, intrinsic failure only, before any specific mechanism is introduced.
+- **To:** Leads into the first mechanism, hallucination.
+-->
+
 ---
 
 ## Hallucination is a mechanism, not a mystery
@@ -35,6 +42,13 @@ exactly as designed.
 a structural property. Chapter 14 turns it into a work habit.
 
 </div>
+
+<!--
+- **Says:** Argues hallucination follows from the next-token objective, which rewards plausibility over knowledge.
+- **From:** Follows the title slide with the chapter's first concrete failure mechanism.
+- **Chapter:** Reframes truthfulness from Chapter 2's rated dimension into a structural property, the thread's second stage.
+- **To:** Leads into the slide describing the specific knowledge band where hallucination is worst.
+-->
 
 ---
 
@@ -56,6 +70,13 @@ material and erratic on your research, and it is not random.
 
 </div>
 
+<!--
+- **Says:** Identifies the middle band between reliable common knowledge and declined obscure knowledge as where confabulation occurs, and places the audience's own literature there.
+- **From:** Follows the hallucination-mechanism slide by locating exactly where it bites hardest.
+- **Chapter:** Applies the mechanism directly to this audience's own research domain.
+- **To:** Leads into the default academic failure mode, fabricated citations.
+-->
+
 ---
 
 ## The default academic failure
@@ -76,6 +97,13 @@ The last field is the one that teaches.
 
 </div>
 
+<!--
+- **Says:** Describes fabricated citations and near-miss misattributed papers as the default academic failure, catchable only by resolving identifiers.
+- **From:** Follows the knowledge-band slide with its most concrete academic consequence.
+- **Chapter:** Names the failure gallery this material is meant to be demonstrated with.
+- **To:** Leads into the calibration slide on stated confidence.
+-->
+
 ---
 
 ## Calibration
@@ -87,6 +115,13 @@ The last field is the one that teaches.
 - **Confidence and correctness come apart** — and you have already produced that data yourself, in Chapter 2, on your own tally sheet.
 
 </v-clicks>
+
+<!--
+- **Says:** States that stated confidence is generated the same way as the answer and is not a measurement, so confidence and correctness come apart.
+- **From:** Follows the citation-failure slide with a related failure in how confidence is expressed.
+- **Chapter:** Ties the point back to the room's own rating data from Chapter 2.
+- **To:** Leads into the arithmetic and units failure slide.
+-->
 
 ---
 
@@ -108,6 +143,13 @@ without being told.
 
 </div>
 
+<!--
+- **Says:** Explains that arithmetic is predicted rather than calculated, and that significant figures and units are the errors most likely to survive review.
+- **From:** Follows the calibration slide with a second class of intrinsic error, numerical rather than referential.
+- **Chapter:** Extends the failure catalogue into the audience's own domain of numerical work.
+- **To:** Leads into the slide on why benchmark scores cannot substitute for the group's own testing.
+-->
+
 ---
 
 ## Why benchmark scores will not tell you
@@ -126,6 +168,13 @@ Which is Chapter 4's argument arriving from the other direction. **Your five cas
 their thousand.**
 
 </div>
+
+<!--
+- **Says:** Argues benchmarks measure a task distribution the audience's own problem is not part of, and that contamination undermines them further.
+- **From:** Follows the arithmetic-failure slide by generalising to why aggregate scores don't help.
+- **Chapter:** Connects back to Chapter 4's five-cases argument from the opposite direction.
+- **To:** Leads into the chapter's long-context material, starting with the cost-versus-accuracy distinction.
+-->
 
 ---
 
@@ -146,6 +195,13 @@ is all there is.
 
 </v-clicks>
 
+<!--
+- **Says:** States plainly that Chapter 7 derives a cost equation for long context while accuracy has only empirical curves and mechanisms, no closed form.
+- **From:** Follows the benchmark slide by turning to the specific case of long-context accuracy.
+- **Chapter:** Sets the frame for the rest of the long-context sequence and distinguishes it from Chapter 7's material.
+- **To:** Leads into the position curve, the chapter's load-bearing long-context figure.
+-->
+
 ---
 
 ## The position curve
@@ -161,6 +217,13 @@ is all there is.
 </v-clicks>
 
 <Cite k="liu2024" />
+
+<!--
+- **Says:** Presents the schematic position curve, weakest in the middle of context, and notes the measured version's scope and one exception model.
+- **From:** Follows the cost-versus-accuracy framing with the chapter's central empirical figure.
+- **Chapter:** Delivers the load-bearing figure the chapter brief specifies for this material.
+- **To:** Leads into the slide on the figure's own licensing and reproduction status.
+-->
 
 ---
 
@@ -189,6 +252,13 @@ asks you to notice. **The figure above is a schematic and says so on its face.**
 
 <Cite k="liu2024" />
 
+<!--
+- **Says:** Explains that the paper's two versions carry different reuse licences, and that the schematic shown is not a copy of the measured curve.
+- **From:** Follows the position-curve figure by addressing how it may legitimately be reproduced.
+- **Chapter:** Models the governance habit Chapter 18 later formalises, applied here to a real citation.
+- **To:** Leads into the needle-in-a-haystack method as a second long-context probe.
+-->
+
 ---
 
 ## Needle in a haystack
@@ -202,6 +272,13 @@ asks you to notice. **The figure above is a schematic and says so on its face.**
 </v-clicks>
 
 <Cite k="kamradt2023" />
+
+<!--
+- **Says:** Describes the needle-in-a-haystack method, notes it has no paper behind it, and that it tests only literal matching.
+- **From:** Follows the position-curve material with a second, different long-context probe.
+- **Chapter:** Adds a caveat about sourcing standards, labelling an implementation output as such rather than a published result.
+- **To:** Leads into the context-rot findings and their declared conflict of interest.
+-->
 
 ---
 
@@ -223,6 +300,13 @@ interest is declared here because that is the standard this course asks of you.
 </div>
 
 <Cite k="chroma2025" />
+
+<!--
+- **Says:** Reports extended needle-variant findings of degradation with length across 18 models, and declares the publishing organisation's commercial interest.
+- **From:** Follows the needle-in-a-haystack slide with an extended version of the same probe.
+- **Chapter:** Applies the course's conflict-of-interest disclosure standard to a source used in the chapter's own argument.
+- **To:** Leads into the nearest thing available to a mechanistic proof.
+-->
 
 ---
 
@@ -248,6 +332,13 @@ mechanistic argument available, and it is still not that claim.
 
 <Cite k="velickovic2025" />
 
+<!--
+- **Says:** Presents the softmax-dispersion result as a proved bound on selection sharpness, explicitly not a bound on task accuracy.
+- **From:** Follows the context-rot findings with the strongest available mechanistic argument.
+- **Chapter:** Delivers the chapter brief's nearest thing to a proof while explicitly limiting its scope.
+- **To:** Leads into the remaining supporting mechanisms, none of which are proofs.
+-->
+
 ---
 
 ## Supporting mechanisms — none of them proofs
@@ -267,6 +358,13 @@ explanation. **They are a list of candidates**, and saying so is the honest vers
 
 </div>
 
+<!--
+- **Says:** Lists positional-encoding extrapolation, undertraining at long context, and nominal-versus-effective context as further, non-proof mechanisms.
+- **From:** Follows the softmax-dispersion proof with the remaining, weaker mechanistic candidates.
+- **Chapter:** Closes the long-context sequence by naming these as a list of candidates rather than an explanation.
+- **To:** Leads into model drift, a shift from long-context accuracy to version stability.
+-->
+
 ---
 
 ## Model drift
@@ -285,6 +383,13 @@ This is why Chapter 4's worksheet has a header block, and why Chapter 18 makes t
 governance requirement rather than a good habit.
 
 </div>
+
+<!--
+- **Says:** States that a working prompt has a shelf life because the model behind it changes, and instructs pinning versions and logging model ID and date.
+- **From:** Follows the long-context material with a distinct intrinsic failure, drift over time rather than over context length.
+- **Chapter:** Links back to Chapter 4's worksheet header and forward to Chapter 18's governance requirement.
+- **To:** Leads into AI-text detection, a different kind of reliability failure.
+-->
 
 ---
 
@@ -308,6 +413,13 @@ products that have since changed — quote the direction, date the numbers.
 
 <Cite k="liang2023" />
 
+<!--
+- **Says:** Distinguishes detection from watermarking and reports a 61% false-positive rate on non-native English writing, dated to March 2023.
+- **From:** Follows the model-drift slide with a different reliability failure, one affecting how the audience's own writing is judged.
+- **Chapter:** Flags the practical finding of the chapter for an international research group.
+- **To:** Leads into practical guidance for what to do if accused.
+-->
+
 ---
 
 ## What to do if you are accused
@@ -327,6 +439,13 @@ standard.
 
 </div>
 
+<!--
+- **Says:** States that the accusation is unfalsifiable, and that process, version history, drafts, notes, is what protects the accused.
+- **From:** Follows the detection false-positive rate with the practical response to it.
+- **Chapter:** Converts the detection finding into actionable guidance, forward-referencing Chapters 17 and 18.
+- **To:** Leads into the separate topic of watermarking.
+-->
+
 ---
 
 ## Watermarking is a different topic
@@ -340,6 +459,13 @@ standard.
 </v-clicks>
 
 <Cite k="dathathri2024" />
+
+<!--
+- **Says:** Describes watermarking as a sampling-procedure signal, distinct from detection, that applies to text only and only from the system that generated it.
+- **From:** Follows the accusation-response slide by separating out watermarking, which the detection slides deliberately did not cover.
+- **Chapter:** Prevents watermarking and detection from being conflated, as the chapter brief requires.
+- **To:** Leads into the black-boxes interpretability correction.
+-->
 
 ---
 
@@ -357,6 +483,13 @@ That framing is too strong, and by now it is lazy. The accurate word is
 </v-clicks>
 
 <Cite k="templeton2024" />
+
+<!--
+- **Says:** Corrects the black-box framing to partially instrumented, citing sparse autoencoders and attribution graphs as real but partial tools.
+- **From:** Follows the watermarking slide with a shift to interpretability, the chapter's next major topic.
+- **Chapter:** Delivers the chapter brief's required correction to a commonly overstated claim.
+- **To:** Leads into the four qualifications that must accompany the claim.
+-->
 
 ---
 
@@ -382,6 +515,13 @@ interest is still declared.
 
 <Cite k="lindsey2025" />
 
+<!--
+- **Says:** Lists four qualifications on interpretability, partial coverage, human labour bottleneck, and open faithfulness, and declares the publishing lab's conflict of interest.
+- **From:** Follows the interpretability correction with the qualifications the chapter brief requires alongside it.
+- **Chapter:** Applies the conflict-of-interest disclosure standard to the interpretability source itself.
+- **To:** Leads into the distinction between stated reasoning and actual explanation.
+-->
+
 ---
 
 ## The distinction people miss
@@ -406,7 +546,14 @@ The model's stated reasoning is **not** an explanation.
 
 </div>
 
-<Cite k="turpin2023" />
+<Cite k="turpin2023,chen2025" />
+
+<!--
+- **Says:** Shows that chain-of-thought can rationalise around an injected bias without ever naming it, so stated reasoning is not a guaranteed explanation.
+- **From:** Follows the interpretability qualifications with the related but distinct claim about chain-of-thought faithfulness.
+- **Chapter:** Delivers the chapter brief's key distinction, already forward-referenced in Chapter 3.
+- **To:** Leads into the chapter's closing summary slide.
+-->
 
 ---
 
@@ -426,3 +573,11 @@ The model's stated reasoning is **not** an explanation.
 Nobody has attacked you yet. **Chapter 6 is what happens when someone does.**
 
 </div>
+
+<!--
+- **Says:** Closes the chapter by summarising hallucination, long-context accuracy, detection, and the limits of interpretability and stated reasoning.
+- **From:** Follows the stated-reasoning slide by summarising the whole chapter.
+- **Chapter:** Delivers the chapter's closing summary before handing off to deliberate attacks.
+- **To:** Chapter 6 covers what breaks when the input is hostile rather than the system merely working as designed.
+-->
+

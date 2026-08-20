@@ -12,10 +12,17 @@ mdc: true
 
 <div class="mt-10 text-xl opacity-85">
 
-Eighteen chapters of capability. This one is about the four places you should put it
+Eighteen chapters of capability. This one is about the five places you should put it
 down.
 
 </div>
+
+<!--
+- **Says:** The title slide frames the chapter as identifying where to put eighteen chapters of capability down, describing five places to stop.
+- **From:** Chapter 18 closed on writing down a group's data rule, a disclosure sentence, and one agreed convention, and this chapter turns to when none of that infrastructure should be used at all.
+- **Chapter:** Opens the capstone chapter that the course architecture designates as the final one.
+- **To:** Sets up the full list of tests on the next slide.
+-->
 
 ---
 
@@ -38,6 +45,13 @@ you let in**, and it is the one a confidentiality rule will not cover for you.
 
 </div>
 
+<!--
+- **Says:** Enumerates the five tests for when not to use the tool — a novel derivation, anything unverifiable, a failure that would be silent, data that cannot leave the building, and untrusted input with file access — and splits them into four outbound tests plus one inbound test.
+- **From:** Follows the title slide's framing by delivering the actual list the chapter is built around.
+- **Chapter:** Is the "one slide held in the head" that the deck names as its central content.
+- **To:** Sets up the slide explaining why these five and not a longer list.
+-->
+
 ---
 
 ## Why these five and not a longer list
@@ -59,6 +73,13 @@ which is why they will survive it.
 
 </div>
 
+<!--
+- **Says:** Traces each of the five tests back to the chapter it derives from — novel derivation to Chapter 5, unverifiability to Chapter 4, silent failure to the failure gallery, data that cannot leave to Chapters 12 and 18, and untrusted input to Chapter 6.
+- **From:** Follows the five-tests slide by justifying each test's presence rather than adding new ones.
+- **Chapter:** Ties the capstone list back to the whole course, arguing the five are memorable because they are derivable rather than arbitrary.
+- **To:** Sets up the "what has not changed" slide.
+-->
+
 ---
 
 ## What has not changed
@@ -70,6 +91,13 @@ which is why they will survive it.
 - A tool that drafts faster raises the volume you are accountable for. That is the trade you have actually made this term.
 
 </v-clicks>
+
+<!--
+- **Says:** Restates that the claim, the interpretation, and the responsibility for correctness remain the attendee's, and names faster drafting as raising the volume they are accountable for.
+- **From:** Follows the derivation-tracing slide by restating the non-delegable core first stated in Chapter 18, now as the course's standing conclusion.
+- **Chapter:** Reasserts the chapter's non-delegable-three point immediately before the capstone task that exercises it.
+- **To:** Leads into the capstone task slide.
+-->
 
 ---
 
@@ -102,6 +130,13 @@ useful than a finished artefact.
 
 </div>
 
+<!--
+- **Says:** Defines the capstone task as one end-to-end piece of the attendee's own work using the project instruction file, eval worksheet, verification habit, and disclosure position from Chapters 10, 4, 14, and 18, with the check stated in advance as naming what was verified, how, and what could not be.
+- **From:** Follows the "what has not changed" slide by turning its accountability claim into the graded task that tests it.
+- **Chapter:** Is the course's capstone exercise, drawing on artefacts from four earlier chapters at once.
+- **To:** Sets up the round-robin commitment slide.
+-->
+
 ---
 
 ## Round-robin
@@ -118,6 +153,13 @@ One thing each person will use this week.
 - Say it out loud. Committing in front of five colleagues is the only enforcement mechanism this course has.
 
 </v-clicks>
+
+<!--
+- **Says:** Has each attendee commit out loud to one thing they will actually use before Friday, rather than the most impressive option.
+- **From:** Follows the capstone slide by turning the just-completed task into a public, near-term commitment.
+- **Chapter:** Gives the course its only enforcement mechanism, according to the slide itself.
+- **To:** Leads into the closing distribution slide.
+-->
 
 ---
 
@@ -143,3 +185,10 @@ work.**
 Everything else here has a shelf life. That does not.
 
 </div>
+
+<!--
+- **Says:** Lists what attendees take away — the repository, the one-page reference card, and the group's shared instruction file — and names "state the check before you do the work" as the habit the whole course was built around.
+- **From:** Follows the round-robin commitment by moving from a spoken commitment to the tangible and habitual things attendees carry out the door.
+- **Chapter:** Closes Chapter 19 and the course on the single durable habit, distinguished explicitly from everything else that the slide says has a shelf life.
+- **To:** Closes the course, so there is no next chapter — the attendee leaves with the repository, the reference card, the shared instruction file, and the "state the check before the work" habit.
+-->

@@ -17,6 +17,13 @@ quietly wrong.
 
 </div>
 
+<!--
+- **Says:** Opens the chapter by naming finding, screening and citing without fabricating as its subject.
+- **From:** Follows Chapter 13's close of Session 2, opening Session 3 on the group's own research practice.
+- **Chapter:** Introduces the chapter that closes the truthfulness thread as a citation-verification work habit.
+- **To:** Leads into the slide grounding the chapter in a prior fabricated-citation example.
+-->
+
 ---
 
 ## Start from the failure gallery
@@ -37,6 +44,13 @@ and what it took to catch it.
 Everything in this chapter is downstream of that one demonstration.
 
 </div>
+
+<!--
+- **Says:** Recalls a fabricated citation attendees have already seen and states that it was caught by resolving the identifier, not by reading the sentence.
+- **From:** Follows the title slide by grounding the chapter's motivation in a specific prior failure rather than starting from theory.
+- **Chapter:** Reconnects to Chapter 5's fabrication material as the generating example for everything that follows.
+- **To:** Leads into the PDF-extraction slide, the first concrete literature-handling skill.
+-->
 
 ---
 
@@ -72,6 +86,13 @@ before interpreting the result.
 
 </div>
 
+<!--
+- **Says:** Covers what breaks in PDF extraction — two-column layouts, equations and tables — and states that extraction must be checked before content is reasoned about.
+- **From:** Follows the failure-gallery slide by moving from why verification matters to the first place it must happen.
+- **Chapter:** Develops the verification thread into source-checking by applying Chapter 4's verify-the-intermediate-step discipline to a new file format, with a live extraction demo still marked TODO(capture).
+- **To:** Leads into the reference-manager slide on recording a source correctly once it has been read.
+-->
+
 ---
 
 ## Reference managers and the document pipeline
@@ -83,6 +104,13 @@ before interpreting the result.
 - The identifier — DOI, arXiv ID — is the field that matters. Author and year are convenience; the identifier is the thing you can check.
 
 </v-clicks>
+
+<!--
+- **Says:** Advises one source of truth for bibliography data, testing the export format early, and treating the identifier rather than author or year as the field that matters.
+- **From:** Follows the PDF-extraction slide by moving from reading a source to recording it correctly.
+- **Chapter:** Bridges extraction to the citation-verification habit the chapter closes on.
+- **To:** Leads into the screening slide on deciding which found papers to keep.
+-->
 
 ---
 
@@ -104,6 +132,13 @@ That is a five-case eval wearing different clothes.
 
 </div>
 
+<!--
+- **Says:** Covers writing inclusion and exclusion criteria before screening, screening as a checkable classification task, and the risk of papers being silently dropped.
+- **From:** Follows the reference-manager slide by moving from recording found papers to deciding which to keep.
+- **Chapter:** Continues the verification thread by reapplying Chapter 4's pre-registered-criteria and small-n-eval discipline to a screening task.
+- **To:** Leads into the summarising slide on what happens to a paper's claims once it passes screening.
+-->
+
 ---
 
 ## Summarising without laundering
@@ -123,6 +158,13 @@ benchmark, circulating as though the technology were deployed. Chapter 7 correct
 front of you.
 
 </div>
+
+<!--
+- **Says:** Warns against dropping an authors' stated scope when summarising and says to keep the authors' own hedges intact.
+- **From:** Follows the screening slide by moving from which papers to keep to how their claims get represented afterward.
+- **Chapter:** Extends the truthfulness thread to summarisation, citing the Chapter 7 hardware-claim correction as a concrete precedent.
+- **To:** Leads into the closing slide on verifying the citation itself.
+-->
 
 ---
 
@@ -152,6 +194,13 @@ for.
 
 </div>
 
+<!--
+- **Says:** States the chapter's core rule that every citation is verified against a primary identifier, with no exceptions.
+- **From:** Follows the summarising slide by moving from representing a source's claims to verifying the source itself.
+- **Chapter:** Carries the chapter's explicit truthfulness-thread closing marker, stating that only the citation case closes here and the general case is left to Chapter 17.
+- **To:** Leads into the closing exercise, where attendees apply the verification habit themselves.
+-->
+
 ---
 
 ## Exercise
@@ -170,3 +219,10 @@ Step 3 is the one you will remember. Write the numbers down — they are your ow
 gallery, and they are more persuasive to you than anyone else's.
 
 </div>
+
+<!--
+- **Says:** Lays out a three-step exercise to check what survives extraction, check a summary's scope sentence, and resolve five reference identifiers by hand.
+- **From:** Follows the "habit that closes the thread" slide by turning its stated rule into something attendees do themselves.
+- **Chapter:** Closes Chapter 14 by converting the chapter's rule into the attendees' own failure-gallery data.
+- **To:** Hands off to Chapter 15 — Production, where verified citations become the mechanical citation step of a document pipeline.
+-->

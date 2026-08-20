@@ -17,6 +17,13 @@ here and not before Chapter 2.
 
 </div>
 
+<!--
+- **Says:** Opens Chapter 3 by framing prompting technique as acting on what was rated in Formation.
+- **From:** Chapter 2 handed over the rating mechanism and rubric dimensions the room just applied in the live exercise.
+- **Chapter:** States the chapter's organising principle before any technique is taught.
+- **To:** Sets up the next slide's explanation of why Control follows Formation rather than preceding it.
+-->
+
 ---
 
 ## Why this chapter comes second
@@ -34,6 +41,13 @@ here and not before Chapter 2.
 And the ones that have no answer to that question get flagged, not taught.
 
 </div>
+
+<!--
+- **Says:** Explains that technique before mechanism produces cargo-cult prompting, and that each technique must answer what rated behaviour it steers.
+- **From:** Follows the title slide's claim by justifying the chapter's position in the sequence.
+- **Chapter:** States the test every technique in the chapter must pass, a rated behaviour it steers.
+- **To:** Leads into the vendor documentation's prerequisites for prompt tuning.
+-->
 
 ---
 
@@ -63,6 +77,13 @@ an improvement from a coincidence — and neither can the person who told you th
 </div>
 
 <Cite k="anthropic-prompting" />
+
+<!--
+- **Says:** Lists the vendor documentation's three prerequisites for prompting, including empirical testing against success criteria.
+- **From:** Follows the what-was-rated framing by naming what must exist before technique is applied.
+- **Chapter:** Flags that most prompting advice skips the empirical-testing prerequisite.
+- **To:** Forward-references Chapter 4 as the source of that missing testing method, then moves into specificity.
+-->
 
 ---
 
@@ -94,6 +115,13 @@ instruction to follow.
 </div>
 
 <Cite k="anthropic-prompting" />
+
+<!--
+- **Says:** Gives the documentation's colleague test for specificity and maps it to the instruction-following rubric dimension.
+- **From:** Follows the prerequisites slide with the first concrete technique.
+- **Chapter:** Ties a named technique explicitly back to a Chapter 2 rubric dimension, as the chapter's method requires.
+- **To:** Leads into the next technique, explaining constraints by their reason.
+-->
 
 ---
 
@@ -128,6 +156,13 @@ bare number gets converted wrongly.
 
 <Cite k="anthropic-prompting" />
 
+<!--
+- **Says:** Contrasts a bare rule with one that states its reason, arguing the explained version generalises further.
+- **From:** Follows the specificity slide with a related but distinct technique.
+- **Chapter:** Continues building the list of rated, mechanism-backed techniques.
+- **To:** Sets up the next slide's technique of structuring mixed input with tags.
+-->
+
 ---
 
 ## Structure the input
@@ -158,6 +193,13 @@ cannot be confused with one another.
 
 <Cite k="anthropic-prompting" />
 
+<!--
+- **Says:** Shows XML-style tagging to separate instructions, context and input, and notes it as a first defence against prompt injection.
+- **From:** Follows the say-why slide with another structural technique.
+- **Chapter:** Extends the technique list and forward-references Chapter 6's injection material.
+- **To:** Leads into the next slide on using examples.
+-->
+
 ---
 
 ## Examples do more than instructions
@@ -183,6 +225,13 @@ you are now the one specifying the voice.
 
 <Cite k="anthropic-prompting" />
 
+<!--
+- **Says:** Gives criteria for good examples, relevant, diverse and structured, and maps them to house style from Chapter 2.
+- **From:** Follows the input-structuring slide by covering examples as a distinct technique.
+- **Chapter:** Links the technique back to the rewrite-checklist mechanism taught in Chapter 2.
+- **To:** Sets up the next slide's discussion of negative examples specifically.
+-->
+
 ---
 
 ## Negative examples, and their cost
@@ -198,6 +247,13 @@ Showing what you do **not** want works, and it carries a risk the positive case 
 </v-clicks>
 
 <Cite k="anthropic-prompting" />
+
+<!--
+- **Says:** Warns that negative examples still place the unwanted pattern in context and gives the documentation's preferred alternative.
+- **From:** Follows directly from the general examples slide by treating the negative case separately.
+- **Chapter:** Adds a caveat to the examples technique rather than introducing a new one.
+- **To:** Leads into the role and persona technique.
+-->
 
 ---
 
@@ -224,6 +280,13 @@ here from intuition, and notice how badly you want to.
 
 <Cite k="anthropic-prompting" />
 
+<!--
+- **Says:** States that role-setting is documented to affect tone and behaviour only, not accuracy, and flags the accuracy claim as untested here.
+- **From:** Follows the examples material with the next named technique, role.
+- **Chapter:** Draws the line between documented and undocumented claims that the chapter insists on.
+- **To:** Forward-references Chapter 4, which tests the accuracy claim left open here.
+-->
+
 ---
 
 ## Requesting reasoning
@@ -248,6 +311,13 @@ enough to show why the question is live, then tests it.
 
 <Cite k="wei2022" />
 
+<!--
+- **Says:** Covers chain-of-thought prompting, distinguishing the published worked-example result from the folk instruction to think step by step.
+- **From:** Follows the role slide with the next technique, requesting reasoning.
+- **Chapter:** Marks a second claim as contested and left open for Chapter 4.
+- **To:** Leads into the related but distinct topic of thinking and effort controls.
+-->
+
 ---
 
 ## Thinking and effort
@@ -270,6 +340,13 @@ reliably change visible response length; ask for concision explicitly instead.
 </div>
 
 <Cite k="anthropic-prompting" />
+
+<!--
+- **Says:** Describes adaptive thinking and the effort setting, including two version-specific facts about budget_tokens and Opus 5 verbosity.
+- **From:** Follows the reasoning-request slide with the mechanism governing how much reasoning occurs.
+- **Chapter:** Connects thinking effort to cost, forward-referencing Chapters 7 and 13.
+- **To:** Sets up the pivot slide into anti-patterns.
+-->
 
 ---
 
@@ -294,6 +371,13 @@ The next three slides are not style advice. They are ways of accidentally asking
 behaviour you were warned about.
 
 </div>
+
+<!--
+- **Says:** Reframes the room as prompt-writers who can now invite back the sycophancy, confidence and verbosity they saw rewarded in Chapter 2.
+- **From:** Follows the technique slides by turning to their potential misuse.
+- **Chapter:** Pivots the chapter from techniques to anti-patterns using the rating diagram.
+- **To:** Introduces the first anti-pattern, the leading question.
+-->
 
 ---
 
@@ -327,6 +411,13 @@ behaviour you were warned about.
 
 </v-clicks>
 
+<!--
+- **Says:** Contrasts a leading question that invites agreement with one that invites analysis.
+- **From:** Follows the pivot slide with the first concrete anti-pattern.
+- **Chapter:** Illustrates how a prompt can accidentally request trained sycophantic behaviour.
+- **To:** Leads into the second anti-pattern, asking for a verdict.
+-->
+
 ---
 
 ## Anti-pattern: asking for a verdict
@@ -352,6 +443,13 @@ mechanism. Asking for the working helps you catch errors; it does not prove the 
 caused the answer.
 
 </div>
+
+<!--
+- **Says:** Contrasts asking for a verdict with asking for an auditable analysis, and forward-references Chapter 5 on stated reasoning.
+- **From:** Follows the leading-question anti-pattern with a second distinct one.
+- **Chapter:** Continues the anti-pattern sequence and links it forward to Chapter 5.
+- **To:** Leads into the third anti-pattern, constraint stacking.
+-->
 
 ---
 
@@ -380,6 +478,13 @@ answer that silently missed half the brief.
 
 </div>
 
+<!--
+- **Says:** Shows a prompt with conflicting requirements and explains that the model silently drops some rather than flagging the conflict.
+- **From:** Follows the verdict anti-pattern with the third and final one.
+- **Chapter:** Closes the anti-pattern sequence by tying it back to the over-specified rubric problem from Chapter 2.
+- **To:** Sets up the slide on prompts not porting between providers.
+-->
+
 ---
 
 ## Prompts do not port
@@ -402,6 +507,13 @@ retrieval tool, an agent someone else wrote — you are re-testing, not reusing.
 </div>
 
 <Cite k="anthropic-prompting" />
+
+<!--
+- **Says:** States that the chapter's techniques are calibrated to one provider and do not transfer untested to another.
+- **From:** Follows the anti-patterns by returning to a caveat on the techniques already taught.
+- **Chapter:** Adds the portability caveat before the chapter's summary table.
+- **To:** Forward-references Chapter 12 and leads into the summary table of what can be trusted.
+-->
 
 ---
 
@@ -428,6 +540,13 @@ can act on tomorrow; those two you should test before you believe.
 
 </div>
 
+<!--
+- **Says:** Tabulates each technique's evidential standing, flagging the two accuracy claims as not established.
+- **From:** Follows the portability slide by consolidating everything taught into one table.
+- **Chapter:** Summarises the chapter's central distinction between documented technique and untested claim.
+- **To:** Leads into the closing slide restating that Chapter 4 will test the open claims.
+-->
+
 ---
 
 ## Where this leaves us
@@ -445,3 +564,11 @@ can act on tomorrow; those two you should test before you believe.
 You now have claims. **Chapter 4 is how you test one.**
 
 </div>
+
+<!--
+- **Says:** Closes the chapter by restating the mechanism-backed techniques, the three anti-patterns, and the two open claims.
+- **From:** Follows the trust table by summarising the whole chapter.
+- **Chapter:** Delivers the chapter's closing summary before handing off its unresolved claims.
+- **To:** Chapter 4 tests the two claims Control deliberately left open, converting them from claims into measured results.
+-->
+

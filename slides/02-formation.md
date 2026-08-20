@@ -17,6 +17,13 @@ objective produces an assistant. This is what was added.
 
 </div>
 
+<!--
+- **Says:** This title slide frames Chapter 2 as the account of what was added on top of next-token prediction to produce an assistant.
+- **From:** Chapter 1 handed over a model that only predicts the next token, which this slide immediately names as insufficient for an assistant.
+- **Chapter:** It states the question the whole chapter answers, what was added, without yet naming any of the additions.
+- **To:** It sets up the Pretraining slide, the first stage the chapter walks through.
+-->
+
 ---
 
 ## Pretraining
@@ -35,6 +42,13 @@ What comes out of this stage is not an assistant. It is a very good autocomplete
 happily continue your question with three more questions.
 
 </div>
+
+<!--
+- **Says:** Describes pretraining as unsupervised next-token prediction over a large corpus that ends at a knowledge-cutoff date, producing autocomplete rather than an assistant.
+- **From:** Follows the title slide by giving the first concrete stage behind its claim that prediction alone does not produce an assistant.
+- **Chapter:** It fixes the starting point, a capable autocomplete, that every later addition in the chapter modifies.
+- **To:** It sets up "What scale bought, and what it did not," which asks whether scaling this same stage further closes the gap.
+-->
 
 ---
 
@@ -56,6 +70,13 @@ fits over a range that was tested, extrapolated by everyone since.
 </div>
 
 <Cite k="kaplan2020,hoffmann2022" />
+
+<!--
+- **Says:** Reports that scaling laws make loss predictable, that a later correction found models undertrained relative to their size, and states plainly that neither result promises assistant-like behaviour.
+- **From:** Follows Pretraining by testing the obvious next move, making that same stage bigger, against the assistant question just raised.
+- **Chapter:** It rules out scale alone as the explanation before the chapter turns to what was actually trained on top.
+- **To:** It sets up "Not every parameter runs," a further architectural qualification before the chapter moves into fine-tuning.
+-->
 
 ---
 
@@ -79,6 +100,13 @@ derive. Cost depends on it.
 
 <Cite k="fedus2021,lepikhin2020,clark2022" />
 
+<!--
+- **Says:** Introduces sparse routed models, where each token activates only a subset of parameters, and names that total-to-active ratio as sparsity.
+- **From:** Follows the scaling slide by adding a second axis, architecture, that a pure parameter-count view of scale does not capture.
+- **Chapter:** It carries the cost thread forward with an explicit forward reference to Chapter 7, where sparsity enters the critical-batch-size derivation.
+- **To:** It sets up "Supervised fine-tuning," where the chapter turns from pretraining architecture to what is deliberately added on top.
+-->
+
 ---
 
 ## Supervised fine-tuning
@@ -100,6 +128,13 @@ Everything after this is about **quality**, not about format.
 </div>
 
 <Cite k="ouyang2022" />
+
+<!--
+- **Says:** Introduces supervised fine-tuning as the first addition on top of pretraining, where human-written demonstrations teach the model the shape of an answer.
+- **From:** Follows the sparsity slide, turning from how the pretrained model is built to the first thing added on top of it.
+- **Chapter:** It marks the pivot from how the base model is built to what is layered on top to make it an assistant.
+- **To:** It sets up "Learning a preference," which explains why demonstrations alone cannot cover everything.
+-->
 
 ---
 
@@ -123,6 +158,13 @@ particular people under particular instructions. Hold onto that sentence.
 </div>
 
 <Cite k="stiennon2020" />
+
+<!--
+- **Says:** Explains reward modelling, training a model on human pairwise comparisons so it can score any response, including ones no human has rated.
+- **From:** Follows supervised fine-tuning by stating its limit directly, that demonstrations cannot be written for everything, and introducing preference learning as the next layer.
+- **Chapter:** It defines the reward model as "a model of a rater," the concept the chapter's rubric material depends on.
+- **To:** It sets up "What a rating task actually contains," which unpacks what that rater's judgement is built from.
+-->
 
 ---
 
@@ -151,6 +193,13 @@ formatted, or fluent and wrong.
 
 </div>
 
+<!--
+- **Says:** Presents the six rubric dimensions, truthfulness, instruction following, harmlessness, formatting, verbosity and tone, used to rate a response, and states that they conflict with each other.
+- **From:** Follows "Learning a preference" by opening up what the human judgement behind a comparison actually consists of.
+- **Chapter:** It names the six rated dimensions, introducing truthfulness and trust boundary where the thread map places them and forward-referencing cost, which began in Chapter 1.
+- **To:** It sets up "What disagreement does downstream," which asks what happens when two raters apply this same rubric differently.
+-->
+
 ---
 
 ## What disagreement does downstream
@@ -173,6 +222,13 @@ against the same instrument.
 
 </div>
 
+<!--
+- **Says:** Explains that a reviewer layer audits ratings against the rubric, reports one document's rule for tolerating adjacent-band disagreement, and states that unresolved disagreement enters the preference data as inconsistency.
+- **From:** Follows the six-dimension rubric slide by asking what happens once two raters apply that same rubric and disagree.
+- **Chapter:** It introduces one single-document annotation finding, explicitly marked as one of five documents, ahead of the dedicated Part 2b findings section.
+- **To:** It sets up "Reinforcement learning from human feedback," where the chapter turns from how ratings are produced to how they are used to optimise the model.
+-->
+
 ---
 
 ## Reinforcement learning from human feedback
@@ -194,6 +250,13 @@ in preference, not in correctness.
 
 <Cite k="ouyang2022" />
 
+<!--
+- **Says:** Defines RLHF as generating a response, scoring it against the reward model and adjusting the policy, and reports that a 1.3-billion-parameter fine-tuned model was preferred to a 175-billion-parameter base model.
+- **From:** Follows the disagreement slide, which ends on inconsistency entering the preference data that this stage then optimises against.
+- **Chapter:** It adds the caution that the gain was in preference rather than correctness, crediting the whole post-training pipeline rather than the reinforcement step alone.
+- **To:** It sets up "Helpful, and harmless," which introduces the second signal trained alongside helpfulness.
+-->
+
 ---
 
 ## Helpful, and harmless
@@ -214,6 +277,13 @@ from outside in Chapter 6; opened deliberately in Chapter 12; governed in Chapte
 </div>
 
 <Cite k="bai2022hh" />
+
+<!--
+- **Says:** States that harmlessness is trained as a separate signal that conflicts with helpfulness, so refusal behaviour is trained in rather than bolted on as a filter.
+- **From:** Follows RLHF by naming the second objective, harmlessness, that the reward model is actually trained against alongside helpfulness.
+- **Chapter:** It opens the trust-boundary thread explicitly on the slide, naming harmlessness as trained behaviour here before Chapter 6 attacks it from outside.
+- **To:** It sets up "Taking the human out of part of the loop," which asks how the same written criteria could be applied by a machine.
+-->
 
 ---
 
@@ -241,6 +311,13 @@ costs.
 
 <Cite k="bai2022cai" />
 
+<!--
+- **Says:** Introduces Constitutional AI and the general RLAIF pattern, where a model applies written principles instead of a human rating each comparison, and states that a criterion must be checkable without context for a machine to apply it.
+- **From:** Follows the harmlessness slide by asking how that same trained judgement could be produced without a human in the loop for every comparison.
+- **Chapter:** It names itself the hinge of the chapter, the pivot that Part 2b's annotation findings will show operating in practice.
+- **To:** It sets up "And a simplification worth knowing," a further refinement of the same reward-model machinery.
+-->
+
 ---
 
 ## And a simplification worth knowing
@@ -261,6 +338,13 @@ input. Simplifying the machinery does not remove the layer this chapter is about
 </div>
 
 <Cite k="rafailov2023" />
+
+<!--
+- **Says:** Describes direct preference optimisation as a way to update the policy directly from preference data without training a separate reward model.
+- **From:** Follows the RLAIF slide by returning to the standard reward-model pipeline's mechanics and offering a simplification of them.
+- **Chapter:** It reinforces that even this simplified method still runs on human comparisons, keeping the chapter's actual subject, the human layer, load-bearing.
+- **To:** It sets up "Behaviour, traced to mechanism," which asks what observable behaviours this whole training stack produces.
+-->
 
 ---
 
@@ -307,6 +391,13 @@ recorded at `[P]` and has not been read. **It does not reach a slide until it ha
 
 </div>
 
+<!--
+- **Says:** Traces three observed behaviours, firm refusal, agreement under pushback, and long confident answers, to training mechanisms, rating each claim's evidential standing from published to not known.
+- **From:** Follows the DPO slide by turning from training mechanics to the behavioural symptoms that mechanics produces.
+- **Chapter:** It separates the instructor's own synthesis from evidenced claims and flags an unverified reward-hacking claim with an explicit TODO rather than asserting it.
+- **To:** It sets up "A cautionary case: the discovered prompt," the first of two examples testing a specific behavioural claim against evidence.
+-->
+
 ---
 
 ## A cautionary case: the discovered prompt
@@ -332,6 +423,13 @@ consistently **across models** — a different claim, and the one this course ma
 </div>
 
 <Cite k="yang2023,ye2024" />
+
+<!--
+- **Says:** Reports the OPRO case, where an automated search found an encouragement-like instruction that scored best on two benchmarks for one scorer model, and corrects an earlier draft's overstated transfer claim.
+- **From:** Follows the behaviour-to-mechanism slide with the first of two case studies on prompting claims that did not survive scrutiny.
+- **Chapter:** It models the chapter's own evidential discipline, replacing an unsupported "does not transfer to newer models" line with the narrower claim actually evidenced.
+- **To:** It sets up "And a replication that failed," a second case study on the same theme.
+-->
 
 ---
 
@@ -370,6 +468,13 @@ own five cases.
 
 <Cite k="li2023emotion,vaugrante2024" />
 
+<!--
+- **Says:** Reports an independent replication of the EmotionPrompt claim, showing the headline +115% figure was the best of eleven stimuli rather than an average, against a replicated effect of about one percent.
+- **From:** Follows the OPRO slide as the second of two paired case studies testing a specific prompting claim against replication evidence.
+- **Chapter:** It closes the 2a case-study sequence by naming the replicators' own methodological limits alongside their result, not only the result itself.
+- **To:** It sets up the Part 2b split-point slide, which pauses the chapter to mark where an as-yet-undecided cut would fall.
+-->
+
 ---
 layout: center
 class: text-center
@@ -395,6 +500,13 @@ them again.
 
 </div>
 
+<!--
+- **Says:** Opens Part 2b, the annotation-layer material told from inside the rating seat, and marks this slide as the candidate 2a/2b cut point, with the split itself still undecided per DECISIONS.md.
+- **From:** Follows the replication-failure slide by closing the pipeline-from-outside material before turning to the instructor's own annotation observations.
+- **Chapter:** This is the marked split-point slide: it states where a 2a/2b division would fall without asserting that the division has been adopted.
+- **To:** It sets up "What this rests on, stated first," which states the evidential basis for everything that follows.
+-->
+
 ---
 
 ## What this rests on, stated first
@@ -415,6 +527,13 @@ is a third — and this deck prints the count rather than asking you to trust th
 prompt, rubric row or banned-phrase list from any of them appears anywhere in this course.
 
 </div>
+
+<!--
+- **Says:** States the evidential basis for Part 2b, five vendor documents, two of unverified provenance, and that every finding is a structural observation that is never citable and carries no source footer.
+- **From:** Follows the split-point slide by immediately grounding the annotation-layer material in what it does and does not rest on.
+- **Chapter:** It sets the rule the rest of Part 2b follows, that every finding states how many of the five documents support it rather than asserting unearned authority.
+- **To:** It sets up "Corroborated across documents," the first block of findings graded against that same document count.
+-->
 
 ---
 
@@ -437,6 +556,13 @@ end up stripped to the checkable surface.
 
 </div>
 
+<!--
+- **Says:** Lists Part 2b's first corroborated findings with their document counts: house-style editing as a written specification on three of five, the weaker claim that repaired text is collected on two of five, equivalence engineered out of preference data on two of five, and the judge's blindness dictating criterion design on two of five.
+- **From:** Follows "What this rests on" by putting the document-count rule into practice on the first block of findings.
+- **Chapter:** It preserves the corroborated-versus-single-document distinction on the slide, including separating two claims about house style that an earlier draft had welded together.
+- **To:** It sets up "Corroborated across documents, continued," the second block of corroborated findings.
+-->
+
 ---
 
 ## Corroborated across documents, continued
@@ -456,6 +582,13 @@ That last one dismantles "trained on human preferences" as a sentence. **Which h
 which job, under which instrument?**
 
 </div>
+
+<!--
+- **Says:** Continues the corroborated findings: the human attempting the task before judging it on three of five, staleness designed against at both ends of the pipeline, structural rather than lexical divergence between instruments, and two incompatible labour models coexisting.
+- **From:** Follows the first corroborated-findings slide as its direct continuation, in the same evidential band.
+- **Chapter:** It continues preserving the document-count distinction, closing the corroborated-across-documents band before the chapter drops to single-document findings.
+- **To:** It sets up "Stated once, as a rule, in one document," which moves to the next evidential band.
+-->
 
 ---
 
@@ -479,6 +612,13 @@ erratic on your research. Not random — targeted.
 
 </div>
 
+<!--
+- **Says:** Presents two single-document findings stated as explicit rules: an instrument rebuilt mid-collection within one week, and a pipeline's operational theory that hallucination clusters in a specific band of model knowledge.
+- **From:** Follows the second corroborated-findings slide by dropping one evidential band, to findings stated once rather than corroborated.
+- **Chapter:** It explicitly ranks the more memorable finding, the rebuild, below the corroborated findings because it rests on a single changelog, modelling the chapter's evidence-over-force rule.
+- **To:** It sets up "The gap between force and rank," which names that exact tension directly.
+-->
+
 ---
 
 ## The gap between force and rank
@@ -497,6 +637,13 @@ Saying that out loud is the point of the segment. You are about to be asked to r
 and the pressure you will feel is exactly the pressure that ordering resists.
 
 </div>
+
+<!--
+- **Says:** States that the mid-collection rebuild, the finding the room will remember most, ranks eighth by evidence, and that the whole ordering is deliberately by evidential strength rather than narrative interest.
+- **From:** Follows the single-document findings slide by naming the tension between those findings' narrative force and their actual evidential rank.
+- **Chapter:** It makes explicit the chapter's rule of ranking by evidence over interest, ahead of the rating exercise that will apply pressure in the same direction.
+- **To:** It sets up "Five more, held back," the findings judged too weak or too peripheral to teach directly.
+-->
 
 ---
 
@@ -518,6 +665,13 @@ These sit in the facilitator notes. They are answers to questions that will get 
 material the chapter can carry.
 
 </div>
+
+<!--
+- **Says:** Lists five further findings, the fifteen-minute verification time box, manufactured realism, an uncorroborated score-versus-rationale mismatch, Goodhart structure with its countermeasures, and role variation by client, held back from the taught slides.
+- **From:** Follows "The gap between force and rank" by showing what the evidence-over-interest rule actually excluded from the main deck.
+- **Chapter:** It closes the annotation-findings block by naming what the room can ask about but the chapter itself does not carry, preserving each finding's weaker standing.
+- **To:** It sets up "Now you do it," the live rating exercise that puts the room through the same process.
+-->
 
 ---
 
@@ -544,6 +698,13 @@ Full specification in `assets/rating-exercise/README.md`. The rubric is a synthe
 instrument built for this course on your domain — never a client instrument.
 
 </div>
+
+<!--
+- **Says:** Introduces the live rating exercise, two responses in the shared engineering domain, rated in eight minutes under visible time pressure, with a two-minute verification time box and a synthetic rubric built for this course.
+- **From:** Follows "Five more, held back" by moving from reporting findings to putting the room through the same rating process those findings describe.
+- **Chapter:** It applies the chapter's own annotation findings directly, since the confidence self-report and the verification time box both come from the Part 2b material just taught.
+- **To:** It sets up "How the session runs," the minute-by-minute schedule for the exercise just introduced.
+-->
 
 ---
 
@@ -576,6 +737,13 @@ void the demonstration the chapter is built on.
 
 </div>
 
+<!--
+- **Says:** Lays out the exercise's six-step timed schedule, from rating through collecting the tally, revealing the planted errors, naming what happened, a reviewer round and adjudication.
+- **From:** Follows "Now you do it" by giving the procedural detail, timing and step order, for the exercise just described.
+- **Chapter:** It specifies that steps one through four carry the lesson, so a facilitator under time pressure knows step five is the one to cut.
+- **To:** It sets up "Step 4 — naming what happened," which expands on the step given the least detail here.
+-->
+
 ---
 
 ## Step 4 — naming what happened
@@ -605,6 +773,13 @@ that tally meant anything?** Nobody here knows yet.
 
 </div>
 
+<!--
+- **Says:** Scripts step 4 of the exercise, reading the tally back as a tally, checking whether confidence tracked preference, and asking how many raters marked the fabricated citation unassessable, then states that the room's own preference is a reward signal.
+- **From:** Follows "How the session runs" by expanding step 4, the step the schedule table gave the least detail on.
+- **Chapter:** It delivers the chapter's central point experientially, that the room just generated training data, and ends on the sample-size question Chapter 4 exists to answer.
+- **To:** It sets up "Where this leaves us," the closing summary slide.
+-->
+
 ---
 
 ## Where this leaves us
@@ -630,3 +805,10 @@ You now know where the behaviour comes from. **Chapter 3 is how to steer it** �
 is how to find out whether the steering worked.
 
 </div>
+
+<!--
+- **Says:** Summarises the chapter's stack, demonstrations plus a learned rater model optimised against, and restates that the human layer behind it is smaller, more variable and more time-pressured than "trained on human preferences" implies.
+- **From:** Follows the naming-what-happened slide by pulling back from the exercise to summarise the chapter's whole argument.
+- **Chapter:** It closes by explicitly naming both threads the chapter opened, truthfulness and trust boundary, and where each is picked up next.
+- **To:** Chapter 3 picks up steering the behaviour this chapter just explained, with Chapter 4 following to test whether that steering worked.
+-->

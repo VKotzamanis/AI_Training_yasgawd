@@ -19,6 +19,13 @@ and limit states: find the binding constraint, then reason about what relaxes it
 
 <Cite k="pope2026" />
 
+<!--
+- **Says:** Opens the chapter by reframing tokens from a unit of meaning into a unit of price, and names the analysis as governing-constraint reasoning.
+- **From:** Chapter 6 finished the failure modes, so this chapter turns from what breaks to what it costs to run.
+- **Chapter:** States the chapter's method and its analogy to load paths and limit states before any derivation begins.
+- **To:** Leads into the slide scoping the chapter to cost and latency only, not accuracy.
+-->
+
 ---
 
 ## What this chapter does not tell you
@@ -39,6 +46,13 @@ A long context is expensive and slow. Whether it is also **wrong** is a differen
 question with a different kind of answer.
 
 </div>
+
+<!--
+- **Says:** States explicitly that the chapter covers cost and latency only, and that long-context accuracy is Chapter 5's material.
+- **From:** Follows the opening slide's framing by immediately bounding what the chapter claims.
+- **Chapter:** Pre-empts the cost-versus-accuracy conflation the project's own house rules flag as the likeliest error.
+- **To:** Leads into the slide disclosing the source and its conflicts of interest.
+-->
 
 ---
 
@@ -65,6 +79,13 @@ gets you in trouble, and it is the habit Chapter 18 asks of you in your own writ
 
 <Cite k="pope2026" />
 
+<!--
+- **Says:** Discloses that the derivation comes from expert testimony, not peer review, and names the speaker's and interviewer's commercial interests.
+- **From:** Follows the scope-limiting slide by disclosing the source before any number from it is used.
+- **Chapter:** Applies the course's conflict-of-interest standard to the chapter's own primary source.
+- **To:** Leads into the symbol table the derivation will use.
+-->
+
 ---
 
 ## Symbols
@@ -84,6 +105,13 @@ All quantities positive definite — no sign convention is required. SI througho
 | $\beta$ | memory bandwidth | $\mathrm{byte\,s^{-1}}$ |
 
 <Cite k="pope2026" />
+
+<!--
+- **Says:** Defines every symbol and unit used in the roofline derivation that follows.
+- **From:** Follows the source-disclosure slide by setting up notation before deriving anything.
+- **Chapter:** Supplies the dimensional bookkeeping the chapter's house style requires for every equation.
+- **To:** Leads into the roofline bound derivation itself.
+-->
 
 ---
 
@@ -194,6 +222,13 @@ $N_\mathrm{tot}b_w + BLb_\mathrm{kv}$ is bytes, so $T_\mathrm{mem}$ is $\mathrm{
 }
 </style>
 
+<!--
+- **Says:** Derives the roofline bound, splitting memory time into a weight-fetch term and a KV-fetch term, with a dimensional check.
+- **From:** Follows the symbol table by carrying out the derivation those symbols were defined for.
+- **Chapter:** Delivers the chapter's central governing-constraint result.
+- **To:** Leads into the interpretation of the resulting hyperbola in cost per token.
+-->
+
 ---
 
 ## What the hyperbola says
@@ -222,6 +257,13 @@ no equation and is Chapter 5's material.
 </div>
 
 <Cite k="pope2026" />
+
+<!--
+- **Says:** Interprets the roofline result, the weight-fetch cost amortising with batch size while the KV floor stays fixed per token.
+- **From:** Follows the roofline derivation by interpreting what it means physically.
+- **Chapter:** States the chapter's key consequence, that long context is memory-bound rather than compute-bound.
+- **To:** Leads into the critical batch size derivation.
+-->
 
 ---
 
@@ -297,6 +339,13 @@ across several GPU generations. Critical batch size is then $\approx 300 \times$
 }
 </style>
 
+<!--
+- **Says:** Derives critical batch size as a hardware ratio times model sparsity, citing the source's reported value of about 300.
+- **From:** Follows the hyperbola interpretation by deriving the batch size at which the two cost terms balance.
+- **Chapter:** Extends the roofline result into a second concrete, checkable number.
+- **To:** Leads into the slide isolating the denominator convention as the whole argument.
+-->
+
 ---
 
 ## The denominator is the whole argument
@@ -363,6 +412,13 @@ clean factor of two. Chapter 4 uses this as its anchor.
          column-gap: .6rem; row-gap: 1.05rem; align-items: baseline; font-size: 1.05rem; }
 </style>
 
+<!--
+- **Says:** Shows that the compute-time term written in MACs and in FLOPs is not interchangeable, and substituting one for the other is wrong by exactly two.
+- **From:** Follows the critical-batch-size derivation by returning to the compute term used inside it.
+- **Chapter:** Delivers the MACs-versus-FLOPs erratum that Chapter 4 later uses as its anchor.
+- **To:** Leads into the two related FLOP-counting figures for training.
+-->
+
 ---
 
 ## Two numbers you will see quoted
@@ -395,6 +451,13 @@ does not, and is standard accounting rather than something derived here. Search:
 
 <Cite k="pope2026" />
 
+<!--
+- **Says:** States the 2ND forward-pass FLOP estimate and the conventional 6ND training estimate, flagging the factor of three as unreferenced here.
+- **From:** Follows the denominator slide by extending the same compute term to training-scale accounting.
+- **Chapter:** Extends the roofline numerator to a widely quoted training-cost figure, with an open citation task.
+- **To:** Leads into the device memory-capacity formula.
+-->
+
 ---
 
 ## What has to fit on the device
@@ -415,6 +478,13 @@ $E_\mathrm{p}$ — expert parallelism, $P_\mathrm{p}$ — pipeline parallelism. 
 </v-clicks>
 
 <Cite k="pope2026" />
+
+<!--
+- **Says:** Gives the device memory-capacity formula across expert and pipeline parallelism, flagging the same units caveat as the denominator slide.
+- **From:** Follows the training-FLOPs slide by returning to the memory side of the roofline bound.
+- **Chapter:** Applies the same units discipline to a second formula from the same source.
+- **To:** Leads into the specific claim that pipelining does not help the KV cache.
+-->
 
 ---
 
@@ -438,6 +508,13 @@ transcript before teaching it as the reason.
 
 <Cite k="pope2026" />
 
+<!--
+- **Says:** States that pipeline parallelism reduces weight storage but not KV storage, and flags the mechanism itself as unverified.
+- **From:** Follows the device-capacity formula by drawing out one consequence of it.
+- **Chapter:** Marks an unverified reading of the source rather than teaching it as settled.
+- **To:** Leads into the summary claim that long context is a memory problem.
+-->
+
 ---
 
 ## Long context is a memory problem, not a compute problem
@@ -459,6 +536,13 @@ Chapter 11 on the orchestration premium, Chapter 13 on what you are actually bil
 </div>
 
 <Cite k="pope2026" />
+
+<!--
+- **Says:** Summarises that both KV bandwidth and KV capacity scale linearly with context length, binding long context at both ends.
+- **From:** Follows the pipelining slide by consolidating the memory-side results into one statement.
+- **Chapter:** Closes the first half of the cost thread, as the chapter brief specifies.
+- **To:** Leads into the energy comparison between training and inference.
+-->
 
 ---
 
@@ -499,6 +583,13 @@ than no number, in front of a room that will ask where it came from.
 
 </div>
 
+<!--
+- **Says:** States what can be defended about training-versus-inference energy and what cannot, deliberately omitting any per-query number.
+- **From:** Follows the memory-problem summary by turning to energy, a related but distinct cost dimension.
+- **Chapter:** Applies the course's data-integrity standard by refusing an indefensible number.
+- **To:** Leads into the comparison table of three alternative compute substrates.
+-->
+
 ---
 
 ## Three alternative substrates. They are not equivalent.
@@ -521,6 +612,13 @@ this section, and stating them is the point.
 
 </div>
 
+<!--
+- **Says:** Tabulates invertible architectures, neuromorphic hardware and organoid computing against what has actually been shown for each.
+- **From:** Follows the energy slide by turning to alternative substrates as a related cost topic.
+- **Chapter:** States that the three substrates are not equivalent before treating each individually.
+- **To:** Leads into the first of the three, reversible architectures.
+-->
+
 ---
 
 ## Trading compute for memory
@@ -538,6 +636,13 @@ identical accuracy.
 </v-clicks>
 
 <Cite k="revnets" />
+
+<!--
+- **Says:** Explains reversible architectures trading FLOPs for stored bytes, and flags this as a training-time result, not the inference-time KV cache priced earlier.
+- **From:** Follows the comparison table with the first substrate treated in detail.
+- **Chapter:** Keeps the reversible-architecture parallel from sliding into an inference-time claim.
+- **To:** Leads into neuromorphic hardware, the second substrate.
+-->
 
 ---
 
@@ -561,6 +666,13 @@ source corrected it. That correction is worth more to you than the claim was.
 </div>
 
 <Cite k="ornes2025" />
+
+<!--
+- **Says:** Reports real benchmark-specific gains for neuromorphic chips while stating they are not commercially deployed, correcting an earlier draft's stronger claim.
+- **From:** Follows the reversible-architecture slide with the second substrate.
+- **Chapter:** Models the course's own correction habit, naming an earlier overstatement and fixing it against a verified source.
+- **To:** Leads into organoid and wetware computing, the third substrate.
+-->
 
 ---
 
@@ -591,6 +703,13 @@ From the foundational paper itself:
 
 <Cite k="smirnova2023" />
 
+<!--
+- **Says:** Lists what has been demonstrated in organoid tissue and quotes the foundational paper stating no learning system has been reported.
+- **From:** Follows the neuromorphic slide with the third and weakest-evidenced substrate.
+- **Chapter:** Closes the three-substrate comparison by holding the organoid claim to the same evidential standard as the others.
+- **To:** Leads into the chapter's closing summary of the cost thread.
+-->
+
 ---
 
 ## Where this leaves the cost thread
@@ -611,3 +730,11 @@ None of this says anything about whether the answer is **correct**.
 That is Chapter 5, and it has no equation.
 
 </div>
+
+<!--
+- **Says:** Closes the chapter by restating the roofline bound, the batch-size hyperbola, the memory-bound long-context result, and the MACs/FLOPs erratum.
+- **From:** Follows the organoid slide by summarising the whole chapter's cost material.
+- **Chapter:** Delivers the chapter's closing summary and explicitly excludes any claim about correctness.
+- **To:** Chapter 8 returns to the brain question now that cost has been made concrete, and closes Session 1.
+-->
+

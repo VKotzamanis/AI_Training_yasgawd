@@ -16,6 +16,13 @@ Much of what Part II identified as a risk appears here as documented practice. W
 
 </div>
 
+<!--
+- **Says:** The title slide frames Chapter 18 as converting Part II's risks into documented practice, while flagging that some sections cannot yet do so.
+- **From:** Chapter 17 closed on ranking self-generated objections and named disclosure as a question this chapter would make concrete against the actual policies attendees write under.
+- **Chapter:** Opens the chapter that the course architecture marks as closing both the trust-boundary and verification threads.
+- **To:** Sets up the disclosure section, presented as blocked rather than populated.
+-->
+
 ---
 
 ## Disclosure — against your actual policies
@@ -40,9 +47,16 @@ The structure below holds regardless of which journals they turn out to be.
 
 </div>
 
+<!--
+- **Says:** Marks the disclosure section BLOCKED pending the list of journals the group actually publishes in, naming ASCE as the expected but unconfirmed candidate with every citation still tagged [U].
+- **From:** Follows the title slide's flagged gap by presenting the disclosure section itself as unresolved rather than populated.
+- **Chapter:** Is the slide the production brief calls out as blocked, withholding policy content instead of asserting it, consistent with the project's citation-verification rule.
+- **To:** Sets up the generic questions the deck can still put to any policy once one is named.
+-->
+
 ---
 
-## The three questions every policy answers
+## The four questions every policy answers
 
 These are the **questions to put to each policy**, not answers this deck can supply.
 
@@ -62,6 +76,13 @@ only slide in this section that does not need a policy is the next one, because 
 from what the word *author* means.
 
 </div>
+
+<!--
+- **Says:** Lists the questions to put to any named policy — the disclosure threshold, where the statement goes, what is prohibited outright, and what must be retained — as questions this deck poses rather than answers it supplies.
+- **From:** Follows the blocked disclosure slide by giving the framework to apply once the journal list is known.
+- **Chapter:** Turns the disclosure gap left open by the previous slide into a reusable checklist.
+- **To:** Leads into the one slide in this section that needs no named policy, because it argues from what "author" means instead.
+-->
 
 ---
 
@@ -89,6 +110,13 @@ statement transfers them.
 
 </div>
 
+<!--
+- **Says:** Argues from authorship as a claim of accountability rather than a record of who typed to conclude a tool cannot be an author, and names the claim, the interpretation, and the responsibility for correctness as never delegable.
+- **From:** Follows the policy-questions slide exactly as that slide's own closing line promised, arguing from what "author" means rather than from any named policy.
+- **Chapter:** States the chapter's non-negotiable core, the three things no disclosure statement can transfer.
+- **To:** Sets up the data-governance slide that follows.
+-->
+
 ---
 
 ## Data governance
@@ -110,6 +138,13 @@ Write the rule down before you need it. A rule decided under deadline pressure i
 in favour of the deadline.
 
 </div>
+
+<!--
+- **Says:** Reframes data governance around what left the building rather than whether the tool is secure, and restates Chapter 12's distinction between the local code pass and the semantic pass over documents that leaves the machine, verified at a pinned version.
+- **From:** Follows the authorship slide by moving from what can never be delegated to what data can never leave the machine.
+- **Chapter:** Carries the trust-boundary thread's outbound half forward with its own citation footer, ahead of the explicit thread closure three slides later.
+- **To:** Leads into the reproducibility slide.
+-->
 
 ---
 
@@ -149,6 +184,13 @@ Version control is the record. It timestamps, it diffs, and it is already in you
 
 </div>
 
+<!--
+- **Says:** States that stochastic output cannot be reproduced by re-running a prompt, and lists what must be logged instead — the exact prompt, the model ID and date, the settings that change behaviour, and what was checked.
+- **From:** Follows the data-governance slide by turning from what leaves the machine to what must be recorded about what happens inside it.
+- **Chapter:** Develops the verification thread's logging content that the later two-threads slide names as this chapter's closure, tying back to Chapter 1's sampling explanation and Chapter 4's measured spread.
+- **To:** Sets up the lab-level standardisation slide.
+-->
+
 ---
 
 ## Lab-level standardisation
@@ -172,6 +214,13 @@ This is Chapter 10's artefact, promoted from a personal convenience to a group s
 
 </div>
 
+<!--
+- **Says:** Lists five practices that convert individual capability into shared lab infrastructure — a shared instruction file, agreed conventions, committed skills, a shared code map, and a source rule for what may be opened into a session.
+- **From:** Follows the reproducibility slide by moving from individual logging practice to group-level standardisation.
+- **Chapter:** Promotes Chapter 10's personal project instruction file into a group standard, as the slide states directly.
+- **To:** Leads into the slide naming the two threads this chapter closes.
+-->
+
 ---
 
 ## Two threads close here
@@ -189,6 +238,13 @@ This is Chapter 10's artefact, promoted from a personal convenience to a group s
 Both threads end in the same place: **something written down that someone else can check.**
 
 </div>
+
+<!--
+- **Says:** Names the two threads the chapter closes — trust boundary, governed here in both the outbound data rule and the inbound source rule, and verification, closed here as logging and reproducibility.
+- **From:** Follows the lab-standardisation slide by naming the source rule just introduced as the inbound half of the trust-boundary thread.
+- **Chapter:** Is the deck's explicit closure of both the trust-boundary and verification threads that the course architecture tracks.
+- **To:** Sets up the closing exercise slide.
+-->
 
 ---
 
@@ -208,3 +264,10 @@ Step 3 is the whole chapter. A convention agreed and not written down is a conve
 that does not exist.
 
 </div>
+
+<!--
+- **Says:** Closes the chapter with an exercise to write the group's data rule, write a disclosure sentence in advance, and agree one convention today.
+- **From:** Follows the two-threads slide by turning both closed threads into three concrete, time-boxed actions.
+- **Chapter:** Ends Chapter 18 on the same write-it-down imperative that ran through the whole chapter.
+- **To:** Hands off to Chapter 19, the capstone, where attendees bring this chapter's written disclosure position into their end-to-end task.
+-->

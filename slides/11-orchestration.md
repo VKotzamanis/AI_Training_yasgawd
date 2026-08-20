@@ -17,6 +17,13 @@ and how to tell when one was.
 
 </div>
 
+<!--
+- **Says:** Opens Chapter 11 by framing orchestration as what to do when one session's window is not enough.
+- **From:** Chapter 10 closed by asking what happens when one session is not enough, which this slide answers directly.
+- **Chapter:** Frames the chapter's subject as delegation beyond a single competent session.
+- **To:** Sets up the argument for why orchestration exists at all.
+-->
+
 ---
 
 ## Why this exists at all
@@ -35,6 +42,13 @@ The unit of delegation is a context window, not a task. That reframing is most o
 
 </div>
 
+<!--
+- **Says:** Argues a task too large for one window must be split into several sessions rather than solved with a bigger window.
+- **From:** Follows the opening framing by justifying orchestration against the bounded-window limits from Chapters 1 and 5.
+- **Chapter:** States the chapter's core reframing -- the unit of delegation is a context window, not a task.
+- **To:** Leads into plan mode's role at this larger scale.
+-->
+
 ---
 
 ## Plan mode at scale
@@ -48,6 +62,13 @@ The unit of delegation is a context window, not a task. That reframing is most o
 </v-clicks>
 
 <Cite k="claudecode-docs" />
+
+<!--
+- **Says:** Argues that at large scale the plan, not the diff, becomes the only workable review point.
+- **From:** Follows the window-splitting argument by addressing how review has to change at that scale.
+- **Chapter:** Extends Chapter 9's plan-and-diff discipline to a scale where the diff arrives too late to review.
+- **To:** Sets up subagents as the mechanism that does the actual splitting.
+-->
 
 ---
 
@@ -78,6 +99,13 @@ Mechanism from the documentation; the framing above the line is mine.
 
 <Cite k="claudecode-docs" />
 
+<!--
+- **Says:** Defines a subagent as a fresh, scoped session that returns a result, good for breadth and bad for judgement-heavy work.
+- **From:** Follows the plan-mode slide by introducing the concrete unit that plans at scale are made of.
+- **Chapter:** Supplies the chapter's practical guidance on subagent use, marked as instructor practice rather than documentation.
+- **To:** Leads into hooks as a second orchestration mechanism aimed at enforcement rather than delegation.
+-->
+
 ---
 
 ## Hooks — lab standards, enforced
@@ -100,6 +128,13 @@ automatically, and the rewrite is announced.
 
 <Cite k="claudecode-docs" />
 
+<!--
+- **Says:** Describes hooks as event-triggered automation that turns a written convention into a guarantee rather than a request.
+- **From:** Follows subagents by introducing a second orchestration mechanism aimed at enforcement rather than delegation.
+- **Chapter:** Distinguishes prose conventions from mechanically enforced ones, with a worked example from this repository.
+- **To:** Sets up workflows and the ultracode setting that combine both mechanisms.
+-->
+
 ---
 
 ## Workflows, and the setting that runs them
@@ -114,6 +149,13 @@ automatically, and the rewrite is announced.
 </v-clicks>
 
 <Cite k="claudecode-docs" />
+
+<!--
+- **Says:** Defines a workflow as saved, deterministic orchestration around non-deterministic workers, and introduces ultracode and its three entry points.
+- **From:** Follows hooks by combining delegation and enforcement into a single re-runnable procedure.
+- **Chapter:** Introduces ultracode, the setting the next slide immediately warns about.
+- **To:** Leads into the three specific traps people fall into with ultracode.
+-->
 
 ---
 
@@ -136,6 +178,13 @@ ultracode afterwards — the premium keeps applying to work that does not need i
 
 <Cite k="claudecode-docs" />
 
+<!--
+- **Says:** Lists ultracode's three traps -- session scope silently ignored in settings, auto-approved subagent edits, and an unpublished cost premium.
+- **From:** Follows the ultracode introduction directly with the warnings the chapter brief names.
+- **Chapter:** Delivers the chapter's named list of ultracode traps, all flagged as silent failures.
+- **To:** Sets up the practical need to inspect running orchestrated work.
+-->
+
 ---
 
 ## Inspecting running work
@@ -155,6 +204,13 @@ recorded and are re-checked in the week before the session.
 </div>
 
 <Cite k="claudecode-docs" />
+
+<!--
+- **Says:** States that long fan-outs are opaque by default and must be watched once on something small before being trusted.
+- **From:** Follows the ultracode traps by addressing how to actually observe orchestration once it is running.
+- **Chapter:** Adds the observability practice needed to debug the traps just listed, hedged as version-fragile.
+- **To:** Leads into the judgement call on when orchestration is worth using at all.
+-->
 
 ---
 
@@ -190,6 +246,13 @@ agent is for before you spawn it.
 
 </div>
 
+<!--
+- **Says:** Contrasts conditions where orchestration is worth it against conditions where it is an expensive way to do something simple.
+- **From:** Follows the mechanics and traps with the chapter's evaluative judgement on when to use any of it.
+- **Chapter:** Delivers the chapter's stated judgement call on worth versus expense.
+- **To:** Sets up the cost thread's pickup on the next slide.
+-->
+
 ---
 
 ## Cost, picked up
@@ -207,6 +270,13 @@ agent is for before you spawn it.
 **Thread — cost.** Chapter 13 closes it, with what a call is actually billed at.
 
 </div>
+
+<!--
+- **Says:** States that orchestration runs many passes concurrently at the highest effort setting, carrying an unpublished but non-trivial premium.
+- **From:** Follows the judgement call by pricing the 'worth it' side of that judgement explicitly.
+- **Chapter:** Picks up the cost thread from Chapter 7, flagged as the point where individual-subscription limits actually get hit.
+- **To:** Leads into the chapter's closing summary.
+-->
 
 ---
 
@@ -226,3 +296,10 @@ agent is for before you spawn it.
 Chapter 6 drew.
 
 </div>
+
+<!--
+- **Says:** Summarises the chapter -- delegation by context window, hooks as guarantees, and one setting with three silent traps.
+- **From:** Follows the cost slide with the chapter's closing wrap-up.
+- **Chapter:** Closes the chapter's argument with a compact recap of delegation, enforcement, and the ultracode traps.
+- **To:** Hands to Chapter 12, which reaches outside the session entirely and reopens the trust boundary Chapter 6 drew.
+-->

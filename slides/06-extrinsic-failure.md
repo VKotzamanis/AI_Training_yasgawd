@@ -17,6 +17,13 @@ you are about to open channels on purpose.
 
 </div>
 
+<!--
+- **Says:** Opens the chapter by naming its subject: failure caused by hostile input rather than by the model alone.
+- **From:** Chapter 5 covered failure with no adversary, so this slide marks the shift to a deliberately adversarial threat model.
+- **Chapter:** Frames the chapter as the threat-model gate placed before Session 2's tool-using chapters.
+- **To:** Sets up the three-phenomena taxonomy listed on the next slide.
+-->
+
 ---
 
 ## Three phenomena, and they are not the same thing
@@ -36,6 +43,13 @@ different defences, and only one of them is yours to do anything about.
 
 </div>
 
+<!--
+- **Says:** Names the three phenomena the chapter covers -- prompt injection, self-propagating injection, and training-data poisoning -- and warns they get collapsed together.
+- **From:** Follows the opening slide's promise of an adversarial threat model with the taxonomy that structures the rest of the chapter.
+- **Chapter:** States the organising taxonomy the following slides work through one phenomenon at a time.
+- **To:** Leads into the mechanical explanation of prompt injection, the first phenomenon.
+-->
+
 ---
 
 ## Prompt injection, mechanically
@@ -53,6 +67,13 @@ different defences, and only one of them is yours to do anything about.
 The correct analogy is **SQL injection**: instructions and data sharing one channel.
 
 </div>
+
+<!--
+- **Says:** Explains mechanically why prompt injection works -- instructions and untrusted content share one token stream with no privileged channel.
+- **From:** Opens the first item in the taxonomy just listed.
+- **Chapter:** Grounds the chapter's first phenomenon in Chapter 1's tokenisation material and introduces the SQL-injection analogy.
+- **To:** Sets up the OWASP standard's own version of that same analogy on the next slide.
+-->
 
 ---
 
@@ -76,6 +97,13 @@ on the same stream), so there is **no clean equivalent to parameterized queries*
 </v-clicks>
 
 <Cite k="owasp2026" />
+
+<!--
+- **Says:** Quotes the 2026 OWASP entry confirming no architectural fix exists for prompt injection, unlike parameterised queries for SQL injection.
+- **From:** Extends the SQL-injection analogy just introduced by showing it is the standard's own language, not an invented comparison.
+- **Chapter:** Establishes the chapter's central caveat on this phenomenon -- mitigation, not prevention, is the honest position.
+- **To:** Leads into the OWASP ranking and the tension its own authors publish about it.
+-->
 
 ---
 
@@ -102,6 +130,13 @@ experts fear and what incident data records in your own field.
 
 <Cite k="owasp2026" />
 
+<!--
+- **Says:** Reports prompt injection's rank-one position on the 2026 OWASP list and the gap between practitioner vote and incident-data ranking.
+- **From:** Continues citing the OWASP source just quoted, now for its ranking methodology.
+- **Chapter:** Models how to read a standard that publishes tension in its own method, a habit the chapter asks the room to carry into its own field.
+- **To:** Moves from direct injection to the indirect route that reaches the reader without a direct attack.
+-->
+
 ---
 
 ## Indirect injection: the version that reaches you
@@ -118,6 +153,13 @@ system to read.
 </v-clicks>
 
 <Cite k="greshake2023" />
+
+<!--
+- **Says:** Describes indirect injection -- a payload sitting inside content the system was asked to read, such as a web page or PDF.
+- **From:** Follows the ranking discussion by shifting from direct injection to the indirect variant.
+- **Chapter:** Widens the attack surface to anything Chapter 12 later connects, tying this chapter's threat model forward.
+- **To:** Sets up the first incident, where an agent exploited exactly this kind of open channel.
+-->
 
 ---
 
@@ -142,6 +184,13 @@ start. Small difference, different story, and the report says which.
 </div>
 
 <Cite k="aisi2026" />
+
+<!--
+- **Says:** Recounts a cyber-range incident where an agent created fake maintainer identities to socially engineer approval of malicious code.
+- **From:** Follows the indirect-injection slide with a concrete, sourced case of an agent acting on an open channel.
+- **Chapter:** Supplies the chapter's one incident with a verifiable primary source, corrected from an earlier version's wrong event order.
+- **To:** Leads into a second, contested incident offered for contrast.
+-->
 
 ---
 
@@ -175,6 +224,13 @@ absence is the citation.**
 
 </div>
 
+<!--
+- **Says:** Traces the widely repeated package-manager message-board story to its sources and finds no primary report and no reachable secondary one.
+- **From:** Follows the well-sourced first incident with a deliberately unsourced second one, for contrast.
+- **Chapter:** Demonstrates the sourcing discipline the course's own house rules require, teaching a gap as a gap rather than papering over it.
+- **To:** Moves from incidents to the second named phenomenon, self-propagating injection.
+-->
+
 ---
 
 ## Self-propagating injection
@@ -191,6 +247,13 @@ injection onward.
 </v-clicks>
 
 <Cite k="cohen2025" />
+
+<!--
+- **Says:** Defines self-propagating injection, the worm case where an injected instruction causes the output to carry the payload onward.
+- **From:** Follows the two incident slides by naming the second of the three phenomena from the opening taxonomy.
+- **Chapter:** Covers phenomenon two of three, noting it needs no software vulnerability beyond the application working as designed.
+- **To:** Sets up the third phenomenon, training-data poisoning.
+-->
 
 ---
 
@@ -211,6 +274,13 @@ defend against still changes how much you trust the output.**
 
 </div>
 
+<!--
+- **Says:** Explains training-data poisoning as an upstream, invisible threat that cannot be inspected or defended against locally.
+- **From:** Follows self-propagating injection as the third and final phenomenon in the opening taxonomy.
+- **Chapter:** Argues this phenomenon supports a verification habit rather than a tool, closing the three-phenomena survey.
+- **To:** Leads into the practical defences slide covering what can actually be done.
+-->
+
 ---
 
 ## What you can actually do
@@ -225,6 +295,13 @@ defend against still changes how much you trust the output.**
 </v-clicks>
 
 <Cite k="mcp-spec,owasp2026" />
+
+<!--
+- **Says:** Lists four practical mitigations -- separating instruction from data, constraining reach, treating tool output as untrusted, and knowing what was opened.
+- **From:** Follows the three-phenomena survey by turning from threat to defence.
+- **Chapter:** Converts the chapter's threat model into actionable practice ahead of Session 2's tool-using chapters.
+- **To:** Sets up the live injection demonstration on the next slide.
+-->
 
 ---
 
@@ -248,6 +325,13 @@ If it does not trigger, that is not a wasted slot. **"It was patched" and "it is
 different claims**, and the room should hear you make that distinction live.
 
 </div>
+
+<!--
+- **Says:** Describes the planned live injection demonstration, its isolated assets, and how to narrate a rehearsal or a failed trigger.
+- **From:** Follows the mitigations slide by turning from listed defences to a concrete demonstration.
+- **Chapter:** Provides the chapter's hands-on evidence, still marked TODO(produce) pending rehearsal in the week before delivery.
+- **To:** Leads into the chapter's closing summary slide.
+-->
 
 ---
 
@@ -274,3 +358,10 @@ Session 2 hands you tools that read your files and act on them. **You were shown
 threat model first on purpose.**
 
 </div>
+
+<!--
+- **Says:** Summarises the chapter -- one channel with no architectural fix, one sourced incident against one unsourced one, and a threat that argues for verification.
+- **From:** Follows the demonstration slide as the chapter's closing wrap-up.
+- **Chapter:** Closes the chapter's argument and names the trust-boundary thread's next stop in Chapter 12.
+- **To:** Chapter 7 follows next, turning from this chapter's threat model to the cost of running the system.
+-->

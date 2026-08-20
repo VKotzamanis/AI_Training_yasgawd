@@ -16,6 +16,13 @@ Session 1 was a system that answers. This one edits your files.
 
 </div>
 
+<!--
+- **Says:** Opens Chapter 9 by contrasting Session 1's answering system with Session 2's file-editing agent.
+- **From:** Chapter 8 closed Session 1 on the line that the model has no hippocampus and hands over a system that acts.
+- **Chapter:** Frames the chapter's subject as working with an agent rather than a chat interface.
+- **To:** Sets up the choice of entry point -- desktop app before terminal -- on the next slide.
+-->
+
 ---
 
 ## Start where the barrier is lowest
@@ -36,6 +43,13 @@ and the filter would remove the audience rather than the difficulty.
 </div>
 
 <Cite k="claudecode-docs" />
+
+<!--
+- **Says:** Recommends the desktop app and editor extension over the terminal as the lowest-barrier entry points, with a browser fallback.
+- **From:** Follows the opening framing by addressing the practical question of how to start.
+- **Chapter:** Sets the chapter's teaching order for an audience without existing terminal fluency.
+- **To:** Leads into the permission model that governs what the agent may do once running.
+-->
 
 ---
 
@@ -58,6 +72,13 @@ yours. Approving a diff you have not read is the whole risk of this chapter in o
 
 <Cite k="claudecode-docs" />
 
+<!--
+- **Says:** Describes the read-only default, per-action permissions, and the diff as the moment a change becomes the user's own.
+- **From:** Follows the entry-point slide once the agent is running, by covering what it is allowed to do.
+- **Chapter:** States the chapter's core safety claim, that the diff is the artefact of responsibility.
+- **To:** Sets up the working-loop diagram that places the diff inside a repeatable cycle.
+-->
+
 ---
 
 ## The working loop
@@ -79,6 +100,13 @@ flowchart LR
 </v-clicks>
 
 <Cite k="claudecode-docs" />
+
+<!--
+- **Says:** Diagrams the ask-plan-edit-review loop and notes plan mode makes rejecting a plan cheaper than rejecting a patch.
+- **From:** Follows the permission-model slide by placing the diff review inside the full repeatable cycle.
+- **Chapter:** Gives the chapter's procedural skeleton, later reused at scale in Chapter 11's plan-mode slide.
+- **To:** Leads into context engineering, the skill the chapter treats as central.
+-->
 
 ---
 
@@ -103,6 +131,13 @@ manage it. Chapter 10 is where you replace it.
 
 </div>
 
+<!--
+- **Says:** Names context engineering as the single skill separating competent from incompetent agent use, since the shared window fills silently.
+- **From:** Follows the working loop by addressing what happens to it as the session's window fills.
+- **Chapter:** Carries the memory-and-context thread explicitly, naming it the chapter's central skill rather than a footnote.
+- **To:** Sets up the three specific moves for managing that window.
+-->
+
 ---
 
 ## Three moves, and knowing which one
@@ -121,6 +156,13 @@ The third is the one people will not do, because the session feels expensive to 
 It is not. **It has already cost you the thing you were protecting.**
 
 </div>
+
+<!--
+- **Says:** Defines compact, clear, and abandon as the three moves for managing a filling context window, and flags abandon as underused.
+- **From:** Follows the naming of context engineering with the concrete moves that implement it.
+- **Chapter:** Operationalises the chapter's central skill into three named actions.
+- **To:** Leads into a demonstration of what contamination from a full window looks like.
+-->
 
 ---
 
@@ -149,6 +191,13 @@ forbidding. If the two sets overlap completely, say so; that is a result too.
 
 </div>
 
+<!--
+- **Says:** Describes a six-run comparison, fresh session against long-conversation session, explicitly flagged as illustration rather than measurement.
+- **From:** Follows the three moves by showing why managing context matters in practice.
+- **Chapter:** Applies Chapter 4's evaluation discipline to the chapter's own demonstration rather than exempting it.
+- **To:** Sets up the session-commands slide that follows the demonstration.
+-->
+
 ---
 
 ## Session commands worth knowing on day one
@@ -171,6 +220,13 @@ week before the session, per `DECISIONS.md` item 6.
 </div>
 
 <Cite k="claudecode-docs" />
+
+<!--
+- **Says:** Lists /doctor, early usage checks, and session resume as day-one commands, flagged as version-fragile.
+- **From:** Follows the contamination demonstration with practical commands for running sessions day to day.
+- **Chapter:** Supplies the chapter's reference material for daily use, hedged against version drift.
+- **To:** Leads into the hands-on exercise applying everything to the attendee's own script.
+-->
 
 ---
 
@@ -198,6 +254,13 @@ path during something that matters.
 
 </div>
 
+<!--
+- **Says:** Walks through pointing the agent at a MATLAB script, requesting a change, reviewing the diff, and deliberately rejecting it once.
+- **From:** Follows the commands reference by turning the chapter's material into a hands-on task.
+- **Chapter:** Delivers the chapter's stated exercise, closing the loop from the diff discipline to a rejection the room actually performs.
+- **To:** Sets up the closing summary of what the chapter covered.
+-->
+
 ---
 
 ## Where this leaves us
@@ -215,3 +278,10 @@ path during something that matters.
 Everything here still dies with the session. **Chapter 10 is where you stop losing it.**
 
 </div>
+
+<!--
+- **Says:** Summarises the chapter -- a system that acts, a diff as the point of responsibility, and a window now actively managed.
+- **From:** Follows the exercise with the chapter's closing wrap-up.
+- **Chapter:** Closes the chapter by stating that everything covered still dies with the session.
+- **To:** Hands to Chapter 10, where standing context replaces what the session loses.
+-->

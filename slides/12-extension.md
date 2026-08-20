@@ -17,6 +17,13 @@ knowing what it costs.
 
 </div>
 
+<!--
+- **Says:** Opens the chapter by naming reaching outside the session as its subject, framing it as the room reopening Chapter 6's trust boundary on purpose.
+- **From:** Follows Chapter 11's orchestration content, moving from delegating work within a session to reaching for capability outside it entirely.
+- **Chapter:** Serves as the chapter's framing slide, opening the trust-boundary thread's next stage before any protocol mechanics appear.
+- **To:** Leads into the slide naming the integration problem a protocol like MCP solves.
+-->
+
 ---
 
 ## The problem a protocol solves
@@ -28,6 +35,13 @@ knowing what it costs.
 - A protocol collapses that to N plus M. That is the entire motivation, and it is the same argument as any other interface standard you have met.
 
 </v-clicks>
+
+<!--
+- **Says:** States the N-tools-by-M-clients integration problem and how a shared protocol collapses it to N plus M.
+- **From:** Follows the title slide's framing of "reaching outside the session" with the concrete problem that motivates a protocol.
+- **Chapter:** Lays the motivating argument before the chapter names MCP's own architecture.
+- **To:** Leads into the slide naming the protocol's three architectural roles.
+-->
 
 ---
 
@@ -48,6 +62,13 @@ flowchart LR
 - The **host** is the application you are already using.
 
 </v-clicks>
+
+<!--
+- **Says:** Defines host, client and server as the three roles in the protocol, illustrated with a flowchart.
+- **From:** Follows the protocol-motivation slide by naming the concrete pieces that implement the N-plus-M argument just made.
+- **Chapter:** Delivers the chapter's core architecture vocabulary for everything that follows.
+- **To:** Leads into the slide on what a server can actually expose.
+-->
 
 ---
 
@@ -81,6 +102,13 @@ bolted on by this course.
 
 <Cite k="mcp-spec" />
 
+<!--
+- **Says:** Names tools, resources and prompts as what a server exposes, then quotes the protocol specification's own warning about tool risk.
+- **From:** Follows the host/client/server slide by detailing what actually passes through the server role just defined.
+- **Chapter:** Ties the tools-versus-resources distinction to Chapter 6's injection failure mode, continuing the trust-boundary thread into the protocol's own vocabulary.
+- **To:** Leads into the codebase-and-document-graphing slide, the chapter's first worked application of a server.
+-->
+
 ---
 
 ## Graphing a codebase or a document set
@@ -113,6 +141,13 @@ Chapter 18 routes an NDA decision through it.
 
 <Cite k="graphify" />
 
+<!--
+- **Says:** Describes building a local, queryable map of code and documents, distinguishing extracted from inferred edges, and flags version-pinning and data-governance cautions.
+- **From:** Follows the tools/resources/prompts slide with a concrete instance of a server capability in use.
+- **Chapter:** Illustrates one of the chapter's voluntarily opened channels and previews the Chapter 18 data-governance question the trust-boundary thread closes on.
+- **To:** Leads into the cross-provider retrieval slide, the chapter's second worked application.
+-->
+
 ---
 
 ## Cross-provider retrieval: a licensing asymmetry
@@ -136,6 +171,13 @@ an obligation attached, it survives a question from a librarian.
 
 </div>
 
+<!--
+- **Says:** Frames retrieving sources through a second provider as a licensing asymmetry with a provenance obligation, not as circumvention.
+- **From:** Follows the codebase-graphing slide with the chapter's second example of a deliberately opened channel.
+- **Chapter:** Extends the trust-boundary thread as a licensing asymmetry rather than the circumvention Chapter 6's threat model might suggest.
+- **To:** Leads into the slide that names the trust-boundary thread explicitly.
+-->
+
 ---
 
 ## Trust boundary, reopened
@@ -154,6 +196,13 @@ an obligation attached, it survives a question from a librarian.
 Chapter 6, opened voluntarily here, and governed in Chapter 18.
 
 </div>
+
+<!--
+- **Says:** States plainly that nothing about the Chapter 6 threat changed here except that the room now chooses to open the channel.
+- **From:** Follows the two worked examples by naming the thread they both belong to.
+- **Chapter:** Carries the chapter's explicit trust-boundary thread marker, tracing its arc from Chapter 2 through Chapter 6 to here and forward to Chapter 18.
+- **To:** Leads into the hands-on slide, where the chapter would put this choice into practice.
+-->
 
 ---
 
@@ -180,6 +229,13 @@ read one resource, and record where the data went.
 
 </div>
 
+<!--
+- **Says:** States that the hands-on exercise is BLOCKED pending the working Antigravity configuration referenced in DECISIONS.md item 2.
+- **From:** Follows the trust-boundary slide by attempting to turn its mechanism into a hands-on exercise.
+- **Chapter:** Marks the chapter's exercise as unresolved rather than describing an exercise that does not currently run.
+- **To:** Leads into the closing summary slide regardless of the block.
+-->
+
 ---
 
 ## Where this leaves us
@@ -199,3 +255,10 @@ Every channel in this chapter was opened deliberately. **Chapter 13 is what it c
 keep them open** — and Chapter 18 is who answers for what went through them.
 
 </div>
+
+<!--
+- **Says:** Summarises the chapter's four takeaways: the protocol, the tools-versus-resources distinction, the codebase map, and the retrieval asymmetry.
+- **From:** Follows the blocked hands-on slide by closing out the chapter's content regardless.
+- **Chapter:** Closes Chapter 12 by naming what the next two chapters do with what was opened here.
+- **To:** Hands off to Chapter 13 — Access, on what it costs to keep these channels open.
+-->
