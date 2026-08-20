@@ -276,8 +276,8 @@ Poisoned-document demo assets, held in an isolated directory. Build and test the
 
 Primary sources are official documentation. Re-check the week before delivery; all of this is version-dependent.
 
-- Claude Code documentation, code.claude.com — **[V]**
-- Anthropic support centre, support.claude.com — **[V]**
+- Claude Code documentation, code.claude.com — **[V]**. **Version-fragile: re-fetch in the week before each session per `../DECISIONS.md` item 6.** {#claudecode-docs | Anthropic | 2026 | Claude Code documentation, code.claude.com — vendor documentation, version-dependent | - | paper | -}
+- Anthropic support centre, support.claude.com — **[V]**. **Version-fragile: re-fetch before delivery.** {#anthropic-support | Anthropic | 2026 | Anthropic support centre, support.claude.com — vendor documentation, version-dependent | - | paper | -}
 - Ultracode: session-scoped setting pairing xhigh reasoning with automatic workflow orchestration; `/effort ultracode`, `claude --effort ultracode` (v2.1.203+), or the bare keyword for a single task. Silently ignored in persistent settings fields; subagents auto-approve edits; significant cost premium. — **[V]**
 - `/doctor`: setup checkup that diagnoses and can fix installation and configuration issues; `/checkup` is an alias; expanded in v2.1.205 to audit memory files and unused components. — **[V]**
 - Claude Cowork availability and capabilities, support.claude.com — **[V]**
