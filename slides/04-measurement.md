@@ -208,9 +208,10 @@ assumption available.
 <v-clicks>
 
 - Only about **2.5 of the five cases** are expected to be informative. The rest tie.
-- A clean sweep occurs with probability 0.41 under that true effect, and 0.21 under no effect at all.
-- **Likelihood ratio: 2.0.** The most convincing result this design can produce barely separates a real effect from nothing.
-- For 80% power you would need roughly **93 cases**.
+- *No case contradicts B* occurs with probability 0.41 under that true effect and 0.21 under no effect. **Likelihood ratio 2.0** — and that outcome is mostly ties, so it is not the best result available.
+- The genuinely best result is the 5–0 row in the table opposite: five informative cases, all favouring B. **Likelihood ratio 5.4.**
+- But a real +20-point effect produces that outcome only **0.5% of the time**. The design's best case is both weak evidence *and* almost never obtained.
+- For 80% power you would need **103 cases** — exactly, by the same sign test. The normal approximation says 93; the discreteness of the exact test costs the other ten.
 
 </v-clicks>
 
@@ -246,7 +247,7 @@ That is more than almost every prompting claim you will read this year has behin
 <v-clicks>
 
 - **The noise floor is not a precise reading.** Two disagreements out of five gives a 95% interval of roughly (0.05, 0.85). Treat the rule as a conservative screen, not an instrument.
-- **Three arms means three comparisons.** Family-wise, that is about a 14% chance one looks interesting by accident, not 5%. **Declare every arm**, including the boring ones.
+- **Three arms means three comparisons.** And the per-arm rate cannot be 5%, because two slides ago you proved five cases have no 5% rejection region at all. At the only level actually attainable, 0.0625 per arm, three arms give a family-wise rate of about **18%**. **Declare every arm**, including the boring ones.
 
 </v-clicks>
 
@@ -286,6 +287,7 @@ where five cases cannot tell — which is the most likely outcome and the most h
 
 - Chapter 3 was careful: the documentation claims a role focuses **behaviour and tone**. It never claimed accuracy.
 - The published test of the accuracy claim: 162 roles, four model families, 2,410 factual questions. **Personas in system prompts did not improve performance** over no persona at all.
+- **Its scope, in the source's own terms:** those model families, that question set. Not Opus 5, and not civil engineering. It is evidence against the folk claim, not a measurement of your task.
 
 </v-clicks>
 
