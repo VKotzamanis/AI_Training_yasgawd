@@ -1,11 +1,38 @@
 <script setup>
 import sources from '../sources.json'
-// k accepts one key or several, comma-separated: k="kaplan2020,hoffmann2022".
-// Several slides draw on more than one source and previously cited only the first,
-// which attributed claims to a paper that did not make them.
-const props = defineProps({ k: { type: String, required: true } })
+// Every slide carries a footer. Ruled 2026-08-20 — no exceptions.
+//
+// A slide either rests on an external source, or it does not. Both cases get a footer,
+// because a reader needs to know which. Inventing a citation to satisfy the rule would be
+// the exact failure this course spends three sessions warning against, so slides that make
+// no external claim declare their provenance instead.
+//
+//   <Cite k="vaswani2017" />                     one key, or several comma-separated
+//   <Cite own="definition" />                    a term this course introduces
+//   <Cite own="derived" note="slides 4 to 7" />  follows from what is already on the board
+//   <Cite own="computed" />                      arithmetic checkable in this repository
+//   <Cite own="observation" />                   established by running it, not by reading it
+//   <Cite own="schematic" />                     a drawn figure, values illustrative
+//   <Cite own="none" />                          no claim is made on this slide
+const props = defineProps({
+  k: { type: String, default: '' },
+  own: { type: String, default: '' },
+  note: { type: String, default: '' },
+})
+
+const PROVENANCE = {
+  definition: 'Definition — this term is introduced by the course. No external source.',
+  derived: 'Follows from earlier slides in this chapter. No external source.',
+  computed: 'Computed in this repository — see assets/figures/gen-figures.py. No external source.',
+  observation: 'Direct observation, made by running it. No external source.',
+  schematic: 'Schematic drawn for this course. Values illustrative and labelled on the figure.',
+  none: 'No claim is made on this slide.',
+}
+
 const keys = props.k.split(',').map(s => s.trim()).filter(Boolean)
 const entries = keys.map(key => ({ key, s: sources[key] }))
+// An unrecognised provenance word is an error, not a silent pass — same treatment as a bad key.
+const prov = props.own ? (PROVENANCE[props.own] || null) : null
 </script>
 
 <template>
@@ -20,6 +47,13 @@ const entries = keys.map(key => ({ key, s: sources[key] }))
         </span>
       </template>
       <span v-else class="missing">Unresolved citation key "{{ e.key }}"</span>
+    </div>
+    <div v-if="own" class="row">
+      <template v-if="prov">
+        <span class="tag tag-own">[—]</span>
+        <span class="body prov">{{ prov }}<template v-if="note"> {{ note }}</template></span>
+      </template>
+      <span v-else class="missing">Unknown provenance "{{ own }}"</span>
     </div>
   </footer>
 </template>
@@ -36,6 +70,8 @@ const entries = keys.map(key => ({ key, s: sources[key] }))
 .tag { font-family: ui-monospace, monospace; font-weight: 700; }
 .tag-V { color: #2f7d3a; } .tag-P { color: #9a6b12; }
 .tag-U, .tag-X { color: #b3261e; }
+.tag-own { color: #6b7a7a; }
+.prov { font-style: italic; }
 .kind, .coi { font-weight: 600; margin-left: .35rem; }
 .missing { color: #b3261e; font-weight: 700; }
 </style>

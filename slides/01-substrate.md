@@ -32,6 +32,8 @@ Nothing in this chapter assumes you have seen any of it before.
 
 </div>
 
+<Cite own="none" />
+
 <!--
 - **Says:** Names the chapter and the two questions it answers — what the object is, and what one run of it computes — and shows the loop it will spend the chapter unpacking.
 - **From:** Opens the course. Nothing precedes it.
@@ -66,6 +68,8 @@ what each piece costs to produce
 </div>
 </div>
 
+<Cite own="observation" note="The figure is a schematic of the interface; a real screenshot is still to be captured." />
+
 <!--
 - **Says:** Starts from the one observation every attendee has already made — the reply is written progressively rather than delivered whole — and names it as the thing the chapter explains.
 - **From:** Follows the title by grounding the chapter in an artefact the room owns rather than in an abstraction.
@@ -85,6 +89,8 @@ what each piece costs to produce
 **Large language model** — a neural network fitted to predict text. Shortened to **LLM**.
 
 </div>
+
+<Cite own="definition" />
 
 <!--
 - **Says:** Places language models inside machine learning inside artificial intelligence, and gives each outer band an example of something in it that is not a language model.
@@ -121,6 +127,8 @@ how many parameters
 
 </div>
 </div>
+
+<Cite own="definition" />
 
 <!--
 - **Says:** Defines a model as a concrete artefact — a stored list of numbers plus the program that evaluates them — and names the three terms the rest of the course uses for its parts.
@@ -164,6 +172,8 @@ Everything you will ever do with it happens to the right of the line. One **sess
 
 </div>
 
+<Cite own="definition" />
+
 <!--
 - **Says:** Separates the phase in which the parameters change from the phase in which they are only read, and names them training and inference.
 - **From:** Follows the definition of a model by answering where the numbers came from.
@@ -199,6 +209,8 @@ for the values at the minimum
 
 </div>
 </div>
+
+<Cite own="definition" note="The fitted line and the error curve on the figure are a real least-squares fit, not a drawing." />
 
 <!--
 - **Says:** Gives training as curve fitting, using a procedure the audience has run many times, and shows the error surface whose minimum training searches for.
@@ -274,6 +286,8 @@ flowchart LR
 
 </div>
 
+<Cite own="definition" note="Each stage is defined on the slides that follow." />
+
 <!--
 - **Says:** Gives the entire data path as one diagram before any stage is explained, and glosses the one term on it that has not yet been defined.
 - **From:** Follows the training slide, which finished the account of the object. This begins the account of what one run of it does.
@@ -309,6 +323,8 @@ never letters
 
 </div>
 </div>
+
+<Cite own="definition" />
 
 <!--
 - **Says:** Defines a token positively as an entry in a fixed list of character chunks, shows one sentence split into them, and states that the network is handed integers rather than text.
@@ -347,6 +363,8 @@ quoted per token
 </div>
 </div>
 
+<Cite own="schematic" note="Run a real tokeniser on the group's own vocabulary before delivery." />
+
 <!--
 - **Says:** Shows that the vocabulary this audience writes in splits into more tokens than everyday English, and names the three places that costs them.
 - **From:** Follows the token definition with the consequence that makes the definition worth having.
@@ -367,6 +385,8 @@ quoted per token
 The raw scores are called **logits**. A higher score means the token fits the text so far better, according to the fitted numbers. One run of the network over the window is one **pass**.
 
 </div>
+
+<Cite own="definition" />
 
 <!--
 - **Says:** Establishes that the network emits one number per entry in the token list, names those numbers logits, and gives the reason the output takes that shape.
@@ -424,6 +444,8 @@ All quantities dimensionless. $z$ and $T$ carry no units, and $p$ is a probabili
 </div>
 </div>
 
+<Cite own="computed" note="The worked case and the three marked points on the figure are the same arithmetic." />
+
 <!--
 - **Says:** Gives the softmax formula with every symbol annotated on the equation itself, one worked case with the arithmetic shown, and the same case swept across temperature.
 - **From:** Follows the scoring slide by converting raw scores into quantities that can be sampled from.
@@ -459,6 +481,8 @@ the probability spreads across many tokens
 
 </div>
 </div>
+
+<Cite own="computed" />
 
 <!--
 - **Says:** Shows one score vector rendered as probabilities at four temperatures, so the sharpening is visible rather than asserted.
@@ -502,6 +526,8 @@ draws from the probabilities, so it can land elsewhere
 </div>
 </div>
 
+<Cite own="derived" note="From the network on slide 4 and the sampler on slide 13." />
+
 <!--
 - **Says:** Locates the run-to-run variation in the sampling step rather than in the network, and shows the two stages separately.
 - **From:** Follows the temperature slide by applying it to something the room has already experienced and had no explanation for.
@@ -523,6 +549,8 @@ draws from the probabilities, so it can land elsewhere
 Four passes here, four scores over the whole token list, four choices. A paragraph is a few hundred of these.
 
 </div>
+
+<Cite own="schematic" note="Four passes drawn; the distributions are illustrative." />
 
 <!--
 - **Says:** Unrolls the loop over four passes, showing that the parameters are re-read each time and only the input has grown.
@@ -555,6 +583,8 @@ Taking the top-scoring token every time is called **greedy** selection. Same num
 
 </div>
 
+<Cite own="derived" note="From determinism on slide 15. The live demonstration is still to be captured." />
+
 <!--
 - **Says:** Derives repetition under greedy selection from determinism, which the chapter established two slides ago, rather than asserting it as an observed quirk.
 - **From:** Follows the loop slide by asking what the simplest possible selection rule does.
@@ -584,6 +614,8 @@ flowchart LR
 The window is the input to one pass. It holds tokens, it has a maximum size, and it is re-read in full on every pass. **Standing instructions** are text placed in the window at the start of every session, which Chapter 10 is about.
 
 </div>
+
+<Cite own="definition" />
 
 <!--
 - **Says:** Bounds what the scores can be conditioned on: the tokens currently in the window, up to a fixed maximum, and nothing outside it.
@@ -616,6 +648,8 @@ flowchart LR
 A **tool** is a program the system can run alongside the network. It fetches or computes, its result is written into the window as tokens, and the pass that follows is the one already described.
 
 </div>
+
+<Cite k="anthropic-code-exec" />
 
 <!--
 - **Says:** Corrects two over-simplifications at once — that the model never looks anything up, and that every number it reports was predicted rather than computed — by showing tools as separate stages that write into the window.
@@ -652,6 +686,8 @@ the parameters, in every session
 When the system appears to remember your project, something outside the network put that text back into the window.
 
 </div>
+
+<Cite own="definition" />
 
 <!--
 - **Says:** States that the window is discarded at session end and that use leaves the parameters untouched.
@@ -693,6 +729,8 @@ flowchart LR
 | ⑥ | The window is **discarded** at the end of the session | Ch 9, Ch 10 |
 
 </div>
+
+<Cite own="derived" note="Every fact restates a slide above." />
 
 <!--
 - **Says:** Collects the chapter into six numbered facts pinned to the stages of the pipeline, and names the chapter where each one is spent.
