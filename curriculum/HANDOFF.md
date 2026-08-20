@@ -170,7 +170,45 @@ Any hit is a rewrite, not a judgement call.
 
 ---
 
-## 6. Slide specification
+## 6. Teach from zero
+
+The reviewer's verdict on the rebuilt Chapter 1 was that it improved but is "still not really
+explanatory. It needs to be completely educational from 0 to 100."
+
+The gap is measurable. The rebuilt Chapter 1 uses the word **network** eight times and
+**model** six times without defining either. **Training**, **weights** and **forward pass**
+each appear once, undefined. **AI**, **LLM** and **inference** do not appear at all, in the
+opening chapter of a course about AI. The chapter explains the data path, meaning text in,
+tokens, scores, selection and output, and never explains what the thing processing that data
+is or where it came from.
+
+Rules:
+
+1. **No term is used before it is defined.** Not once, anywhere in the course. A forward
+   reference to a term defined three chapters later counts as undefined.
+
+2. **Chapter 1 needs a front section before the data path.** What people mean by AI, and
+   where language models sit inside it. What a model is as a concrete artefact. What training
+   did, and that it finished before the audience ever touched the tool. What happens when you
+   run the finished model.
+
+3. **Explain rather than state.** "The network is deterministic" asserts a property of
+   something the audience has not been told the nature of. Give the thing, then the property,
+   then the reason the property holds.
+
+4. **Every mechanism carries its reason.** Why does the model score every token in the
+   vocabulary rather than produce an answer directly? Because scoring is the only operation it
+   performs. Without that sentence the scoring step looks like an arbitrary design choice.
+
+5. **A term audit is part of finishing a chapter.** List every technical term the chapter uses
+   and the slide number where it is defined. Any term without a defining slide is a defect, and
+   the audit goes in the commit.
+
+6. **Assume the audience has used a chatbot and knows nothing about how one works.** They have
+   the mathematics for the equations. They do not have the vocabulary, and nobody in the room
+   will interrupt to say so.
+
+## 7. Slide specification
 
 Derived from research in `research-slide-design.md`, which grades each item as evidenced,
 convention, or judgement. Read that file for the sources and the caveats.
@@ -198,7 +236,7 @@ hand-written SVG. Generated imagery is not needed and should not be used.
 
 ---
 
-## 7. Narrative method
+## 8. Narrative method
 
 Read `narrative-spine.md`. It gives every chapter a one-sentence premise, a standalone
 takeaway, and the question that chapter leaves for the next one.
@@ -219,7 +257,7 @@ sitting on slides and competing with the argument.
 
 ---
 
-## 8. What research says about teaching this specific subject
+## 9. What research says about teaching this specific subject
 
 From `research-teaching-exemplars.md`. Six sources read in full: Wolfram's ChatGPT essay, the
 Financial Times transformer explainer, Douglas (arXiv:2307.05782, written for mathematicians
@@ -275,7 +313,7 @@ of them are inferred from captions and a published method note. Karpathy's slide
 opened, so his text density is unmeasured. Figure-reuse licensing was verified for only one
 source, so check licensing before reproducing any figure.
 
-## 9. Your task
+## 10. Your task
 
 **Peer-review the premise of every chapter before rewriting any of it.** Do not start from the
 briefs. For each of the nineteen:
@@ -294,9 +332,14 @@ content inventory.
 verdict.** Building eighteen more chapters before a human reads one is the mistake that
 produced this handover.
 
+Start with Chapter 1. It has been rebuilt once already and still fails section 6: it explains
+the data path without ever defining what a model, a network or training is. Fixing it is the
+smallest complete demonstration of the standard, and the reviewer has already seen two versions
+of it, so his judgement on a third will be fast and precise.
+
 ---
 
-## 10. Constraints that do not change
+## 11. Constraints that do not change
 
 - **Only `[V]` sources may appear on a slide.** `npm run check:cites` enforces it. Never
   fabricate a citation; write `TODO(cite)` with search terms instead.
@@ -312,7 +355,7 @@ produced this handover.
 
 ---
 
-## 11. Open questions only the instructor can answer
+## 12. Open questions only the instructor can answer
 
 - Chapter 2 is 105 to 115 minutes against a 75-minute budget. A 2a/2b split is recommended and
   undecided. The cut point is marked on one slide.
@@ -324,9 +367,20 @@ produced this handover.
 
 ---
 
-## 12. Done looks like
+## 13. Done looks like
 
-A chapter is finished when the premise survives review, the slides follow the argument rather
-than a list, at least half carry a figure, every headline is a full-sentence claim, no banned
-construction appears, every term is defined before use, the citation check passes, the PDF is
-exported and committed, and the instructor has read it and agreed.
+A chapter is finished when all of the following hold.
+
+- The premise survives the review in section 10.
+- The slides follow the argument rather than a content list.
+- At least half of the slides carry a figure.
+- Every headline is a full-sentence claim.
+- No banned construction from section 5 survives the grep.
+- **A term audit is attached**: every technical term the chapter uses, with the slide number
+  where it is defined. No term is left without one.
+- The citation check passes.
+- The PDF is exported and committed.
+- The instructor has read the chapter and agreed.
+
+Chapter 1 currently fails the term audit. Fix it first, and use it as the worked example of
+the standard before touching Chapter 2.
