@@ -221,19 +221,59 @@ sitting on slides and competing with the argument.
 
 ## 8. What research says about teaching this specific subject
 
-From `research-teaching-exemplars.md`, six sources read in full.
+From `research-teaching-exemplars.md`. Six sources read in full: Wolfram's ChatGPT essay, the
+Financial Times transformer explainer, Douglas (arXiv:2307.05782, written for mathematicians
+and physicists), Bob Carpenter's slides for statisticians, 3Blue1Brown chapter 5, and
+Karpathy's one-hour introduction.
 
-- **No good source opens on a rhetorical question about an undefined subject.** General
-  audiences get an artefact they already own. Mathematically trained audiences get the object
-  named first.
-- **This audience is mathematically trained but has no artefact-level familiarity**, so it
-  needs both: something they have used, then the object named quickly.
-- **Sources that walk the data path introduce the token first**, because the data path starts
-  there. Sources that open on an artefact defer it.
-- **State the objective plainly, then show where it breaks.** The gap between the trivial
-  algorithm and the observed behaviour is the teaching content.
+**None of the eight sources examined defines a token by negation.** Every one gives a positive
+definition and an instance. The old Chapter 1 opened with "Tokens are not words", and the
+reviewer's objection to that is confirmed independently by the sample.
 
----
+**There is no single consensus opening, and the split runs by audience.** Sources for general
+readers open on an artefact the reader already owns, such as a phone keyboard's suggestion
+strip or a generated story read before any mechanism. Sources for mathematically trained
+readers name the object first, for example language as a stochastic process over a finite
+token set. This group is the second type of reader with the first type of exposure: they have
+the mathematics and lack artefact-level familiarity, so they need something they have used,
+followed quickly by the object named.
+
+**No good source opens on a rhetorical question about an undefined subject.**
+
+**Token placement is genuinely split, and predictable from format.** Sources that walk the data
+path define the token first, because the data path starts there. Sources that walk the
+motivation show the loop first and defer the token. Either works. Mixing them does not.
+
+**Keeping the objective from sounding trivial or mystical uses one shared move: state it
+plainly, then immediately show it breaking.** Wolfram makes next-token prediction banal, then
+shows that always taking the top-ranked word produces flat repetitive text. The FT states that
+these are pattern-spotting engines rather than search engines, then shows greedy selection
+producing a locally plausible and globally wrong phrase. The failure carries the teaching.
+Where the reason for something is unknown, Wolfram says so and moves on rather than dressing
+the gap up.
+
+**Three techniques worth taking directly.**
+
+- Karpathy defines a model as a concrete artefact in one slide: two files on disk. The course
+  was faulted for never defining what a model is, and this solves it in a single slide.
+- Wolfram defers the full definition of a token with a short parenthetical, which keeps the
+  data path moving without leaving the term undefined.
+- Douglas uses a token example drawn from the reader's own field. Use a term from this group's
+  vocabulary, for instance overtopping or poroelasticity, so the token-splitting cost lands on
+  words they actually type.
+
+**Nothing was found written for an engineering audience.** The closest matches are physics and
+statistics. The bridge to civil and environmental engineering has to be built here, and it is
+the part with no exemplar to copy.
+
+**A process finding for your own searches.** Keyword searches on this topic returned mostly
+LinkedIn reposts, Medium listicles, vendor pages and patent filings. Going to institutions and
+named authors directly worked. Budget your search time accordingly.
+
+**Caveats recorded by the research.** The FT graphics could not be viewed, so the descriptions
+of them are inferred from captions and a published method note. Karpathy's slide deck was not
+opened, so his text density is unmeasured. Figure-reuse licensing was verified for only one
+source, so check licensing before reproducing any figure.
 
 ## 9. Your task
 
