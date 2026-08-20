@@ -138,7 +138,55 @@ def fig_position_schematic():
     print("wrote 05-position-schematic.png")
 
 
+
+
+def fig_scores():
+    """Logits, then probabilities. Two panels: the raw scores the network emits,
+    and the same scores after softmax. Values are illustrative and labelled as such."""
+    labels = ["the", "a", "this", "each", "any", "such", "one", "its"]
+    z = np.array([4.2, 3.6, 2.9, 2.1, 1.7, 1.0, 0.4, -0.3])
+    p = softmax(z, 1.0)
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(10.5, 3.2))
+    x = np.arange(len(labels))
+    a1.bar(x, z, color=ACCENT[1], edgecolor=INK, linewidth=.6)
+    a1.set_title("1. the network emits a score per token", fontsize=11, pad=8)
+    a1.set_ylabel("logit  [—]")
+    a2.bar(x, p, color=ACCENT[0], edgecolor=INK, linewidth=.6)
+    a2.set_title("2. softmax turns scores into probabilities", fontsize=11, pad=8)
+    a2.set_ylabel("probability  [—]"); a2.set_ylim(0, 1)
+    for a in (a1, a2):
+        a.set_xticks(x); a.set_xticklabels(labels, rotation=60, ha="right", fontsize=9)
+        a.yaxis.grid(True, color=GRID, linewidth=.6); a.set_axisbelow(True)
+    a2.annotate("they now sum to 1", xy=(0, p[0]), xytext=(2.6, .72), fontsize=9.5, color=INK,
+                arrowprops=dict(arrowstyle="->", color=INK, lw=.9))
+    fig.suptitle("illustrative values — the transform is exact", fontsize=9.5, y=1.04, color="#97591A")
+    fig.tight_layout()
+    for d in (OUT, PUB): fig.savefig(d / "01-scores.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 01-scores.png")
+
+
+def fig_token_cost():
+    """Why token count matters: a schematic comparison of how many tokens a common
+    word and a technical term take. SCHEMATIC — no tokeniser was run."""
+    terms = ["the", "and", "concrete", "prestressed", "consolidation", "hydrodynamic"]
+    counts = [1, 1, 2, 3, 4, 4]                      # schematic, not measured
+    fig, ax = plt.subplots(figsize=(7.6, 3.1))
+    cols = [ACCENT[3] if c <= 1 else ACCENT[0] for c in counts]
+    ax.barh(range(len(terms)), counts, color=cols, edgecolor=INK, linewidth=.6)
+    ax.set_yticks(range(len(terms))); ax.set_yticklabels(terms, fontsize=11)
+    ax.invert_yaxis()
+    ax.set_xlabel("tokens per word  [—]"); ax.set_xticks(range(0, 6))
+    ax.xaxis.grid(True, color=GRID, linewidth=.6); ax.set_axisbelow(True)
+    ax.set_title("SCHEMATIC — no tokeniser was run. Capture real splits before delivery.",
+                 fontsize=10, pad=10, color="#97591A")
+    fig.tight_layout()
+    for d in (OUT, PUB): fig.savefig(d / "01-token-cost.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 01-token-cost.png")
+
+
 if __name__ == "__main__":
     fig_temperature()
     fig_kv_growth()
     fig_position_schematic()
+    fig_scores()
+    fig_token_cost()
