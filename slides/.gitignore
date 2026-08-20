@@ -1,6 +1,6 @@
 node_modules/
 dist-*/
-exports/png*/
-exports/final/
-sources.json
 public/figures/
+sources.json
+# PNG frame exports are derived; the PDF is the committed deliverable
+exports/*/
