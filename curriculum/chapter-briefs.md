@@ -158,9 +158,9 @@ Also: critical batch size as a dimensionless hardware ratio times sparsity; the 
 
 **Energy.** The brain-versus-model comparison handled carefully, with the training-versus-inference distinction held firmly. Published per-query figures are contested and routinely conflate one-off training cost with per-query inference. Cite precisely or keep the qualitative point and drop the number.
 
-**Neuromorphic hardware.** Deployed, engineering-grade, defensible.
+**Neuromorphic hardware.** ~~Deployed, engineering-grade, defensible.~~ **Corrected 2026-08-19 against a verified source.** Demonstrated in the lab and not commercially deployed: Loihi 2, NorthPole and SpiNNcloud are described by the source as demonstration tools, the reported gains are benchmark-specific, and the source states plainly that these chips cannot simply be dropped into today's LLM systems. Teach it as a real engineering result whose transfer to frontier-scale inference is unproven. See `../references.md`, Chapter 7.
 
-**Wetware and organoid computing.** Real research, early stage, modest results. Do not oversell to a room of engineers.
+**Wetware and organoid computing.** Real research, and weaker than "early stage, modest results" implies. The foundational paper is a research *programme* and states that no approach using brain organoids as learning systems has been reported. What exists is tissue characterisation, not computation. Do not oversell to a room of engineers — and the honest version is more interesting than the oversold one.
 
 State the evidential standing of each of the three alternative-substrate topics on the slide. They are not equivalent.
 

@@ -94,8 +94,8 @@ Three items cannot be produced in a sitting. They start immediately, independent
 | # | Chapter | Status | Needs from the instructor |
 |---|---|---|---|
 | 1 | **1 — Substrate** | **Done.** 15 slides, 2 computed figures, PDF committed | Two captures: tokeniser screenshots, temperature demo |
-| 2 | **7 — Physical limits** | Spike is most of it — derivation, critical batch size, erratum all built | Nothing. Energy, neuromorphic and wetware sections remain |
-| 3 | **3 — Control** | Unblocked | Nothing |
+| 2 | **7 — Physical limits** | **Done.** 18 slides, PDF committed. Two brief claims corrected against verified sources | Nothing |
+| 3 | **3 — Control** | **Next.** Unblocked | Nothing |
 | 4 | **8 — Brain and model** | Unblocked, but **both primary citations are unverified and load-bearing** | Nothing; verification is mine |
 | 5 | **5 — Intrinsic failure** | Writable except the position curve | Failure gallery accrues alongside |
 | 6 | **19 — Judgement** | Unblocked | Nothing |

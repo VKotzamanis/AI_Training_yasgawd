@@ -21,8 +21,10 @@ for (const deck of decks) {
     cited++
     const src = sources[key]
     if (!src) { console.error(`  ${deck}: unknown citation key "${key}"`); unknown++; continue }
-    if (src.tag === 'U' || src.tag === 'X') {
-      console.error(`  ${deck}: key "${key}" is tagged [${src.tag}] — not permitted on a slide`)
+    // CLAUDE.md hard rule 1: "Only [V] may appear in slide content."
+    // [P] is partially verified and is NOT permitted either.
+    if (src.tag !== 'V') {
+      console.error(`  ${deck}: key "${key}" is tagged [${src.tag}] — only [V] may appear on a slide`)
       unverified++
     }
   }
