@@ -28,7 +28,7 @@ Where a chapter picks up a thread, its brief says so. That referencing is what s
 | 5 | Intrinsic failure | What breaks with nobody attacking you |
 | 6 | Extrinsic failure | What breaks when the input is hostile |
 | 7 | Physical limits | What it costs to run |
-| 8 | Brain and model | The question from Chapter 1, answered |
+| 8 | Brain and model | **Appendix, not delivered.** Answered on Chapter 1's training slide — see `../DECISIONS.md` |
 
 ### Part III — Instruments
 | # | Chapter | One line |
@@ -56,7 +56,7 @@ Where a chapter picks up a thread, its brief says so. That referencing is what s
 | Thread | Introduced | Developed | Closed |
 |---|---|---|---|
 | **Truthfulness** | Ch 2 — a rated rubric dimension | Ch 5 — a structural impossibility | Ch 14 — a verification procedure |
-| **Memory & context** | Ch 1 — a bounded buffer | Ch 5 degradation → Ch 8 the missing hippocampus → Ch 9 management | Ch 10 — external memory you build |
+| **Memory & context** | Ch 1 — a bounded buffer discarded at session end | Ch 5 degradation → Ch 9 management | Ch 10 — external memory you build, opening on the units point moved out of the Ch 8 appendix |
 | **Cost** | Ch 1 — token as unit of meaning | Ch 7 unit of price → Ch 10 resident context → Ch 11 orchestration premium | Ch 13 — pricing and plan economics |
 | **Trust boundary** | Ch 2 — harmlessness as trained behaviour | Ch 6 adversarial input → Ch 12 voluntarily opened channels | Ch 18 — data governance |
 | **Verification** | Ch 4 — evaluating prompts | Ch 5 drift → Ch 14 sources → Ch 17 arguments | Ch 18 — logging and reproducibility |
@@ -74,8 +74,8 @@ Non-negotiable orderings and why:
 3. **3 before 4.** You need claims before you can test claims.
 4. **4 before 5.** Measurement makes the limitations chapter actionable rather than discouraging.
 5. **6 before Part III.** Threat model before capability. By Chapter 12 the room opens channels voluntarily.
-6. **7 before 8.** Cost is concrete, the brain comparison is abstract; abstraction lands better second.
-7. **8 before 10.** The memory gap must be felt before the fix is offered.
+6. ~~**7 before 8.**~~ **Dissolved 2026-08-20.** Chapter 8 is no longer delivered, so there is nothing to order against. The number is kept so the list's numbering stays stable.
+7. **The memory gap before Chapter 10.** Still binding, and now carried by Chapter 1 — the window is discarded at the end of the session — reinforced by Chapter 5's degradation material. Chapter 8 used to carry it and no longer does.
 8. **9 before 11.** Single-agent competence before orchestration.
 9. **12 before 14.** Retrieval capability before literature work depends on it.
 10. **Part IV last.** Every applied chapter draws on at least two threads.

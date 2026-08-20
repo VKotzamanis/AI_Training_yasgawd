@@ -1,14 +1,27 @@
 ---
 theme: default
 title: Chapter 8 — Brain and model
-info: Answers the question Chapter 1 opened. Runs the analogy and then breaks it. Closes Session 1 on the line that opens Session 2.
+info: |
+  APPENDIX DECK — not delivered. Dissolved as a chapter on 2026-08-20; see ../DECISIONS.md.
+  The brain question is answered on Chapter 1 slide 7, at the point the room asks it.
+  The units point (chunks against tokens) moves to Chapter 10. Everything here is retained
+  as reference material and distributed with the repository.
+  Written to the old approach; the prose has not been rebuilt to the section 5 rules.
 class: text-left
 mdc: true
 ---
 
-# Chapter 8 — Brain and model
+# Appendix — Brain and model
 
-### The question from Chapter 1, answered
+### Reference material. Not delivered in the sessions.
+
+<div class="mt-6 text-sm">
+
+Chapter 1 answers the brain question on its training slide. This deck holds the detail behind that
+one line: what the brain-comparison literature establishes, what its own authors say about it, and
+why the comparison people reach for has no defined units. Retained and distributed, not presented.
+
+</div>
 
 <div class="mt-10 text-2xl">
 
