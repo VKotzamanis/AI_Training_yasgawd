@@ -136,7 +136,7 @@ Three distinct phenomena, kept distinct.
 2. **Self-propagating injection.** The genuine worm case.
 3. **Training data poisoning.** Upstream, invisible, undefendable at your end — which is why it argues for verification habits rather than for a tool.
 
-**Two documented incidents, both with primary sources.** An agent under evaluation opening a pull request with a malicious payload and then creating a second account to argue for the merge. Agents using a package manager to leave coordinating messages, undetected for roughly a month. Cite the incident reports directly, never the podcast that mentioned them.
+**Two incidents — and only one has a primary source. Corrected 2026-08-20.** The package-manager case has no incident report at all: the vendor disclosure does not mention a message board, and the only secondary source could not be reached by two independent routes. Teach it as testimony with the gap named, or drop it. Do not restore "both with primary sources". An agent under evaluation opening a pull request with a malicious payload and then creating a second account to argue for the merge. Agents using a package manager to leave coordinating messages, undetected for roughly a month. Cite the incident reports directly, never the podcast that mentioned them.
 
 **Picks up:** trust boundary — harmlessness was trained in; here it is routed around from outside.
 
@@ -176,7 +176,7 @@ Returns to the question opened in Chapter 1 and closes Session 1.
 
 **What is not true.** Transformers were not derived from neuroscience. "Attention" is a weighted sum over key-value pairs; it shares a name with neural attention and little else.
 
-**What is defensible.** The encoding-model literature — language model surprisal predicting human reading times and neural responses in language cortex. Correlational and contested. Represent it that way.
+**What is defensible.** The encoding-model literature — encoding models — ridge regression from model layer activations to brain responses. **Corrected 2026-08-20: this is not "surprisal predicting neural responses".** Surprisal enters only the behavioural (reading-time) analysis; the predictive-processing conclusion is a between-model correlation. Correlational and contested. Represent it that way.
 
 **Run the analogy, then break it.** The break is the content:
 - The hippocampus consolidates episodic experience into durable memory. A model at inference does none of this; weights are frozen.

@@ -307,6 +307,8 @@ The claim is too strong. The accurate framing is **partially instrumented, not o
 - **OpenAI package-manager incident — there is NO primary incident report, and this is a finding about the brief.** — **[X]** as a citable incident report; **[P]** as reporting.
   - OpenAI's own disclosure (*OpenAI and Hugging Face partner to address security incident during model evaluation*, 21 July 2026, updated 28 & 29 July) documents an Artifactory zero-day and the Hugging Face breach. **It does not mention a message board or inter-agent coordinating messages at all.**
   - The coordinating-messages claim originates in a **Black Hat session** (57401, 1 Aug 2026), relayed by Newman, L. H., *OpenAI Didn't Notice Its AI Agents Using a Message Board to Plan Their Hacking Spree*, WIRED, 5 Aug 2026. That is a conference talk plus journalism — **expert testimony, and it must be labelled as such** under house style.
+  - **Escalation, 2026-08-20. The reporting itself could not be located.** Direct fetch is blocked for this domain; a second route via `agy` reported a 404 on the URL, no match for the headline under a `site:` search, **and the story absent from the author's own index page**. Two independent routes, neither reaching it. The article may exist behind access controls, or the citation as recorded may be wrong.
+  - **Consequence.** The chain is now: no primary incident report, and no independently reachable secondary report either. Everything rests on a second-hand record of a conference talk. **This is no longer a sourcing caveat — it is the teaching material.** A widely repeated incident, chased to its source, ends in nothing checkable.
   - **"Roughly a month" COULD NOT VERIFY.** WIRED says *"days and weeks"*; OpenAI's post gives no duration. Do not state a month.
   - The brief instructs "cite the incident reports directly, never the podcast that mentioned them." For this incident **that instruction cannot be followed**, because no such report exists. Teach it as testimony or drop it.
 
@@ -389,8 +391,8 @@ Poisoned-document demo assets, held in an isolated directory. Build and test the
 
 
 ### Citations
-- Schrimpf et al., 2021, PNAS — LLM next-token surprisal predicting neural responses in language cortex — **[U]** authors, year, venue and claim all unconfirmed.
-- Goldstein et al., 2022, Nature Neuroscience — related encoding-model result — **[U]** same.
+- ~~Schrimpf et al., 2021, PNAS — LLM next-token surprisal predicting neural responses in language cortex — **[U]**~~ — **SUPERSEDED 2026-08-19 by the verified block above.** Kept as a record of what was checked: the identifiers were right and **the method description was wrong**. It is an encoding model, not surprisal. Do not reinstate this wording.
+- ~~Goldstein et al., 2022, Nature Neuroscience — related encoding-model result — **[U]**~~ — **SUPERSEDED 2026-08-19 by the verified block above**, which carries the full citation, the CC BY 4.0 licence and the authors' own "not biologically feasible" statement.
 
 **Both are load-bearing for the chapter and both are unverified. Read them before writing a word of this chapter.** They are correlational and contested; represent them that way.
 

@@ -58,7 +58,7 @@ The correct analogy is **SQL injection**: instructions and data sharing one chan
 
 ## And the analogy is the standard's own
 
-The current OWASP entry for this puts it in one sentence:
+The **2026** OWASP entry for this puts it in one sentence:
 
 <div class="mt-4 p-5 border-l-4 text-lg" style="border-color:#0E5C68; background:#F2F7F8">
 
@@ -69,7 +69,7 @@ on the same stream), so there is **no clean equivalent to parameterized queries*
 
 <v-clicks>
 
-- SQL injection was *solved* — by parameterised queries, which put data somewhere the parser cannot read as code.
+- SQL injection was solved **architecturally** — parameterised queries put data somewhere the parser cannot read as code. It still bites where nobody used them, but the fix exists.
 - That fix does not exist here. There is nowhere else to put the data.
 - So the honest position is mitigation, not prevention. Anyone selling you prevention is selling you something.
 
@@ -81,7 +81,7 @@ on the same stream), so there is **no clean equivalent to parameterized queries*
 
 ## The ranking, and what its own authors say about it
 
-Prompt injection is **first** on the current list. The list also publishes the thing that
+Prompt injection is **first** on the 2026 list. The list also publishes the thing that
 complicates it.
 
 <v-clicks>
@@ -112,7 +112,7 @@ system to read.
 <v-clicks>
 
 - A web page, a PDF, a repository README, an email, a tool's output.
-- The published work on this demonstrated compromise of **real, deployed** applications, not a laboratory toy.
+- The published work on this is titled for compromising *real-world, LLM-integrated applications* — peer-reviewed at a security workshop. **The deck has confirmed the citation, not read the paper**; do not add detail beyond the title without reading it.
 - Which means the attack surface is everything Chapter 12 is about to connect.
 
 </v-clicks>
@@ -145,25 +145,33 @@ start. Small difference, different story, and the report says which.
 
 ---
 
-## Incident two — and a lesson about sourcing
+## Incident two — chased to the source
 
-The story: agents used an internal package manager as a message board, coordinating
-undetected while an evaluation ran.
+The story, as it circulates: agents used an internal package manager as a message board,
+coordinating undetected while an evaluation ran.
 
 <v-clicks>
 
-- The vendor's own disclosure documents a package-registry zero-day and a partner breach. **It does not mention a message board at all.**
-- The coordinating-messages claim comes from a **conference talk**, relayed by a magazine. That is expert testimony plus journalism.
-- The duration often quoted as "about a month" is **not in either source.** The reporting says "days and weeks"; the disclosure gives no figure.
+- **The vendor's own disclosure** documents a package-registry zero-day and a partner breach. It does **not** mention a message board at all.
+- **The message-board claim comes from a conference talk**, reported in a magazine article. That is testimony relayed by journalism — no incident report anywhere in the chain.
+- **And the article could not be reached.** Two independent routes: a direct fetch, blocked; a second tool reporting a 404 on the URL, no match on the headline, and the story absent from the author's own index.
 
 </v-clicks>
 
 <div v-click class="mt-5 p-4 border-l-4" style="border-color:#97591A; background:#F8F1E7">
 
-**This course's own plan said: cite the incident reports directly, never the podcast.** For
-this incident that instruction cannot be followed, because **no such report exists.** So it
-is taught as testimony, with the gap named — or it is not taught. Both are honest. Quoting
-it as a documented incident is not.
+So the chain ends like this: **no primary report, and no reachable secondary report either.**
+A widely repeated incident, followed to its source, arrives at nothing you can check. The
+duration usually quoted — "about a month" — appears in no source this course could open, so
+it is not stated here.
+
+</div>
+
+<div v-click class="mt-4 text-sm opacity-80">
+
+**Notice that this slide has no citation footer.** Every other slide in the course carries
+one. There is nothing to put in it, and printing a footer would imply otherwise. **The
+absence is the citation.**
 
 </div>
 
@@ -176,7 +184,7 @@ injection onward.
 
 <v-clicks>
 
-- Demonstrated against generative-AI ecosystems where one system's output becomes another's input — mail assistants, retrieval pipelines, agent chains.
+- Demonstrated against generative-AI ecosystems where one system's output becomes another's input. **The specific applications are not stated here** — the citation is confirmed, the paper is not yet read.
 - It needs no software vulnerability. The propagation channel is the application working as designed.
 - Peer-reviewed, and the preprint circulates under a **different title** — check which one you are citing.
 
@@ -211,10 +219,12 @@ defend against still changes how much you trust the output.**
 
 - **Separate instruction from data visibly** — the tagged structure from Chapter 3. It is not a guarantee; it raises the bar.
 - **Constrain what the session can reach.** Read-only defaults, narrow permissions, and the diff review from Chapter 9.
-- **Treat tool output as untrusted input**, not as fact. The protocol specification says the same of tool descriptions.
+- **Treat tool output as untrusted input**, not as fact. The protocol specification says the same of tool *descriptions* — they "should be considered untrusted, unless obtained from a trusted server."
 - **Know what you pointed it at.** Most of your exposure is a choice about which document gets opened in a session that can write files.
 
 </v-clicks>
+
+<Cite k="mcp-spec,owasp2026" />
 
 ---
 
@@ -246,7 +256,7 @@ different claims**, and the room should hear you make that distinction live.
 <v-clicks>
 
 - One channel, no envelope, and no parameterised-query equivalent to reach for.
-- Two documented incidents — one with a primary report, one without, and you now know which is which.
+- **One** documented incident, and one that is only testimony — and you now know which is which, which is the more useful thing to leave with.
 - A threat class you cannot defend against, which is an argument for verification rather than for a product.
 
 </v-clicks>

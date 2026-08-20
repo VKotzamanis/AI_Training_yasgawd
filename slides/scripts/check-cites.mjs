@@ -20,15 +20,17 @@ for (const deck of decks) {
   if (!KEY.test(text)) uncited.push(deck)
   KEY.lastIndex = 0
   for (const m of text.matchAll(KEY)) {
-    const key = m[1]
-    cited++
-    const src = sources[key]
-    if (!src) { console.error(`  ${deck}: unknown citation key "${key}"`); unknown++; continue }
-    // CLAUDE.md hard rule 1: "Only [V] may appear in slide content."
-    // [P] is partially verified and is NOT permitted either.
-    if (src.tag !== 'V') {
-      console.error(`  ${deck}: key "${key}" is tagged [${src.tag}] — only [V] may appear on a slide`)
-      unverified++
+    // a Cite may carry several comma-separated keys; every one is checked
+    for (const key of m[1].split(',').map(x => x.trim()).filter(Boolean)) {
+      cited++
+      const src = sources[key]
+      if (!src) { console.error(`  ${deck}: unknown citation key "${key}"`); unknown++; continue }
+      // CLAUDE.md hard rule 1: "Only [V] may appear in slide content."
+      // [P] is partially verified and is NOT permitted either.
+      if (src.tag !== 'V') {
+        console.error(`  ${deck}: key "${key}" is tagged [${src.tag}] — only [V] may appear on a slide`)
+        unverified++
+      }
     }
   }
 }

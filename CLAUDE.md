@@ -13,6 +13,8 @@ Teaching materials for a three-session AI training for PhD researchers in civil 
 
 **1a. Two tag systems exist and they are not interchangeable.** `references.md` uses `[V]/[P]/[U]/[X]` for whether a *published source* has been checked. `curriculum/ch02-annotation-findings.md` uses `[E1]–[E4]` for the evidential strength of an *observation drawn from vendor documents*. An `[E1]` finding is corroborated across documents but is still not citable and never earns a `[V]`. Do not convert between the scales, and do not let an `[E1]` tag imply a source exists.
 
+**1b. A slide may *discuss* a non-`[V]` source, provided it rests no claim on it.** Chapter 6 teaches an incident whose only sources are a conference talk and an unreachable article. The slide's assertions are about the *sourcing situation* — which this project established and can defend — not about the incident. Such a slide carries **no citation footer**, and says on its face that the absence is deliberate. This is the only permitted exception to the every-slide-carries-a-footer rule, and it is not a route for smuggling `[P]` material onto a slide by declining to cite it.
+
 **2. Never invent a citation.** No author names, years, venues, or arXiv identifiers from memory. If you don't have it, write `TODO(cite)` and list the search terms.
 
 **3. Distinguish cost from accuracy in long-context material.** The roofline analysis in Chapter 7 explains why long context is expensive and slow. It says nothing about accuracy. Chapter 5 covers accuracy degradation, which has empirical curves and mechanisms but no closed-form equation. Conflating these is the single most likely error in this project.

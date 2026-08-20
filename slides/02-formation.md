@@ -55,7 +55,7 @@ fits over a range that was tested, extrapolated by everyone since.
 
 </div>
 
-<Cite k="hoffmann2022" />
+<Cite k="kaplan2020,hoffmann2022" />
 
 ---
 
@@ -77,7 +77,7 @@ derive. Cost depends on it.
 
 </div>
 
-<Cite k="clark2022" />
+<Cite k="fedus2021,lepikhin2020,clark2022" />
 
 ---
 
@@ -126,13 +126,62 @@ particular people under particular instructions. Hold onto that sentence.
 
 ---
 
+## What a rating task actually contains
+
+A rubric, and the same six dimensions recur across this course. **Learn them here; they do
+not get replaced.**
+
+<div class="text-sm mt-2">
+
+| Dimension | Returns as |
+|---|---|
+| **Truthfulness** | a structural failure in Chapter 5; a work habit in Chapter 14 |
+| **Instruction following** | the lever Chapter 3 spends most of its time on |
+| **Harmlessness** | the trust boundary, from Chapter 6 to Chapter 18 |
+| **Formatting** | the thing that wins when nobody can check the physics |
+| **Verbosity** | a cost in Chapter 7 and a bill in Chapter 13 |
+| **Tone** | where house style comes from, and Chapter 10's instruction file |
+
+</div>
+
+<div v-click class="mt-4 text-lg">
+
+Six axes, one judgement, and they **conflict**. A response can be truthful and badly
+formatted, or fluent and wrong.
+
+</div>
+
+---
+
+## What disagreement does downstream
+
+Two competent raters, same rubric, same pair, different answer. That is not noise to be
+eliminated — it is information, and what happens to it matters.
+
+<v-clicks>
+
+- A **reviewer layer** audits ratings against the rubric. One instrument treats disagreement between *adjacent* bands as acceptable and only fails a rating when two assignments land in opposite bands. **One document of five** — a sensible rule, not an industry standard.
+- Where raters diverge, the question is **whether the rubric or the rater is at fault.** An ambiguous dimension produces disagreement that no amount of rater training fixes.
+- Unresolved disagreement does not vanish. It enters the preference data as inconsistency, and the reward model fits it.
+
+</v-clicks>
+
+<div v-click class="mt-4 text-sm opacity-80">
+
+You will occupy both sides of this in the exercise: rate, then audit somebody else's rating
+against the same instrument.
+
+</div>
+
+---
+
 ## Reinforcement learning from human feedback
 
 <v-clicks>
 
 - Generate a response, score it with the reward model, adjust the policy to score higher. Repeat.
 - The result reported for the canonical work: outputs from a **1.3-billion-parameter** fine-tuned model were preferred to those of a **175-billion-parameter** base model.
-- A hundred-fold size difference, reversed by the layer on top. That is the measure of how much this stage does.
+- A hundred-fold size difference, reversed by what was added on top. **Credit the post-training pipeline as a whole** — the reported comparison is supervised fine-tuning *plus* RLHF, not the reinforcement step alone.
 
 </v-clicks>
 
@@ -172,7 +221,8 @@ from outside in Chapter 6; opened deliberately in Chapter 12; governed in Chapte
 
 <v-clicks>
 
-- Write the principles down. Have the **model** critique and revise its own responses against them, and train on that.
+- **Constitutional AI:** write the principles down, have the **model** critique and revise its own responses against them, and train on that.
+- The general pattern is **RLAIF** — reinforcement learning from *AI* feedback, with the model standing in for the rater.
 - Human labour moves from labelling individual comparisons to writing and maintaining the principles.
 - The published version of this reports harmlessness signals generated from AI feedback rather than human feedback.
 
@@ -182,7 +232,10 @@ from outside in Chapter 6; opened deliberately in Chapter 12; governed in Chapte
 
 **This is the hinge of the chapter.** Once a written criterion can be applied by a machine,
 the question becomes: what does a criterion have to look like for a machine to apply it?
-Part 2b is what that does to the criteria.
+
+**The answer, in one line:** it must be checkable without context — which means stripped of
+everything except the observable surface. Part 2b is what that does in practice, and what it
+costs.
 
 </div>
 
@@ -217,20 +270,40 @@ Not "the model is sycophantic." **Why** it is.
 
 <div class="text-sm mt-3">
 
-| What you see | Where it comes from |
-|---|---|
-| Agrees with you when you push back | Agreement was preferred by raters, at scale |
-| Long, structured, confident answers | Those were preferred under time pressure |
-| Refuses some requests firmly | Harmlessness trained as a competing objective |
-| Sounds the same across topics | House style specified in writing and enforced |
-| Confident on your literature, right on textbooks | Where data was dense, plausible and true coincide |
+| What you see | Where it comes from | Standing |
+|---|---|---|
+| Refuses some requests firmly | Harmlessness trained as a competing objective | Published |
+| Agrees with you when you push back | Preference data rewards agreement | Plausible, **not evidenced in the documents** |
+| Long, structured, confident answers | **Not known** — see below | **The folk answer is contradicted** |
 
 </div>
 
-<div v-click class="mt-5 text-lg">
+<div v-click class="mt-4 p-4 border-l-4 text-sm" style="border-color:#97591A; background:#F8F1E7">
 
-Every row is a design consequence, not a personality. That is the difference between this
-chapter and a list of quirks.
+**The verbosity row is the interesting one, because the obvious answer is wrong.** The folk
+story says raters liked long answers, so models got long. Two of the reviewed instruments say
+otherwise: one broke ties deliberately toward **brevity**, the other **deleted length as a
+grading category** partway through the project — after which nothing in it penalises length
+at all. And models are verbose anyway.
+
+**So the mechanism is not visible in these documents.** Saying that is more credible than
+repeating the folk version.
+
+</div>
+
+<div v-click class="mt-3 text-sm opacity-80">
+
+This table is the instructor's synthesis, which is why it carries no source footer — the
+middle column is an argument and the third column says how far each one goes.
+
+</div>
+
+<div v-click class="mt-3 p-3 border-l-4 text-sm" style="border-color:#97591A; background:#F8F1E7">
+
+**TODO(verify)** — the brief also requires test-case hardcoding as a concrete reinforced
+reward hack: a model special-casing to pass tests rather than solving the problem, attributed
+by its own vendor to reward hacking during training. The system card carrying that quote is
+recorded at `[P]` and has not been read. **It does not reach a slide until it has been.**
 
 </div>
 
@@ -245,7 +318,7 @@ two benchmarks — and the phrasing looked like encouragement.
 
 - **Scorer: PaLM 2-L. Benchmarks: GSM8K and Big-Bench Hard.** Reported gains up to 8% and up to 50% respectively.
 - It was **found by search**, not by testing a hypothesis about encouragement. The narrative arrived afterwards.
-- Run the same search with a different optimiser model and you get a **different** winning instruction.
+- The winning instruction is specific to **the model it is scored on**, not to the search that found it. Change the task model and the best phrasing changes with it.
 
 </v-clicks>
 
@@ -254,35 +327,48 @@ two benchmarks — and the phrasing looked like encouragement.
 **What this course will not claim.** An earlier draft of these notes said later evaluations
 found the phrase "does not transfer to newer models". No primary re-evaluation could be
 found saying that. What *is* evidenced is that optimised prompts do not transfer
-consistently **across models** — which is a different claim, and the one we will make.
+consistently **across models** — a different claim, and the one this course makes.
 
 </div>
 
-<Cite k="yang2023" />
+<Cite k="yang2023,ye2024" />
 
 ---
 
 ## And a replication that failed
 
-A widely cited result reported that appending emotional stimuli to prompts improved
-performance — including a headline **+115%** on one benchmark suite.
+A much-cited **technical report** — not a peer-reviewed paper — found that appending
+emotional stimuli to prompts improved performance, with a headline **+115%** on one
+benchmark suite.
 
 <v-clicks>
 
 - An independent replication across six current models found *"an insignificant performance increase of 1%… (χ² = 0.11, p = .74)."*
-- The replicators then re-derived the original's own arithmetic. **The 115% is the best of eleven stimuli, not an average.** Averaged across all eleven, the original's own reported numbers give **4.42%**.
+- The replicators then re-derived the original's own arithmetic. **The 115% is the best of eleven stimuli, not an average.** Averaged over all eleven, the original's own reported numbers give **4.42% on that suite and 2.58% across all benchmarks.**
 - Their words: *"the numerical values communicated in the study itself do not coincide with these claims."*
 
 </v-clicks>
 
-<div v-click class="mt-5 text-lg">
+<div v-click class="mt-4 p-4 border-l-4 text-sm" style="border-color:#0E5C68; background:#F2F7F8">
 
-Best-of-eleven, reported as the result. **You will meet this again in Chapter 4**, where it
-is the exact trap a five-case eval sets for you.
+**The replicators' own limits, which belong beside their result.** They did not use identical
+tasks or models, wording varied slightly, they **sampled one stimulus per task by seed rather
+than reproducing the best-of-eleven protocol**, and they dropped one stimulus because models
+answered it instead of the task.
+
+That third one matters most: the 1% figure comes from a design that deliberately did **not**
+run best-of-eleven — which is precisely why the two numbers are not in contradiction.
 
 </div>
 
-<Cite k="vaugrante2024" />
+<div v-click class="mt-4 text-lg">
+
+Best-of-eleven, reported as the result. **Chapter 4 shows you the same trap**, set by your
+own five cases.
+
+</div>
+
+<Cite k="li2023emotion,vaugrante2024" />
 
 ---
 layout: center
@@ -323,9 +409,9 @@ them again.
 
 <div v-click class="mt-5 p-4 border-l-4" style="border-color:#97591A; background:#F8F1E7">
 
-**Findings are tagged by how many documents support them, and that tag is shown.** Corroborated
+**Each finding carries how many of the five documents support it, on the slide.** Corroborated
 across independent documents is one thing; stated once is another; inferred from structure
-is a third. **Five documents of unknown provenance are not a sample**, and no worked example,
+is a third — and this deck prints the count rather than asking you to trust the ordering. **Five documents, two of them of unverified provenance, are not a sample**, and no worked example,
 prompt, rubric row or banned-phrase list from any of them appears anywhere in this course.
 
 </div>
@@ -336,9 +422,11 @@ prompt, rubric row or banned-phrase list from any of them appears anywhere in th
 
 <v-clicks>
 
-- **House style is a written edit specification, and the corrected response is collected.** Raters do not only judge; they repair, to a written specification, and the repaired text is the artefact that gets kept.
-- **Equivalence is engineered out.** Two instruments, opposite mechanisms, same result: you cannot record "these are equally good". Preference data is conditioned on one being worse.
-- **The judge's blindness dictates criterion design.** Where a model grades, it is given one criterion and the deliverable — not the prompt, not the other criteria. So every criterion must carry its own context.
+- **House style is a written edit specification.** Raters do not only judge; they repair, to a written specification. **Three of five documents.**
+- **And in two of them the repaired text is what gets collected.** That is a separate claim on weaker evidence, and an earlier draft of these notes welded the two together — which is why they are separated here.
+- **Equivalence is engineered out.** Two instruments, opposite mechanisms, same result: you cannot record "these are equally good". **Two of five.**
+- **One instrument goes further** and collects comparisons only where a model has already failed — so its preference data is conditioned on failure. **That is one document, not two.**
+- **The judge's blindness dictates criterion design.** Where a model grades, it is given one criterion and the deliverable — not the prompt, not the other criteria. So every criterion must carry its own context. **Two of five, and the causal direction is stated outright in one of them.**
 
 </v-clicks>
 
@@ -355,10 +443,10 @@ end up stripped to the checkable surface.
 
 <v-clicks>
 
-- **The human is made to attempt the task before judging it.** The pipeline buys the attempt in order to get a reliable verdict.
-- **Staleness is designed against, at both ends.** Tasks are built so they will not age, and instructions say so explicitly.
+- **The human is made to attempt the task before judging it.** The pipeline buys the attempt in order to get a reliable verdict. **Three of five.**
+- **Staleness is designed against, at both ends.** Tasks are built so they will not age, and instructions say so explicitly. **Corroborated.**
 - **Instruments diverge — structurally more than lexically.** An instruction-following dimension recurs, and a truthfulness dimension recurs; almost everything else about *what* is measured, at what granularity, under what weighting, differs.
-- **Two incompatible labour models coexist.** Generalist raters and domain professionals, doing work that is described with the same vocabulary and is not the same job.
+- **Two incompatible labour models coexist.** Generalist raters and domain professionals, doing work described with the same vocabulary that is not the same job. **Corroborated.**
 
 </v-clicks>
 
@@ -378,7 +466,7 @@ why they are here — and they are still one document each.
 
 <v-clicks>
 
-- **An instrument was rebuilt mid-collection, in one week.** Dated and itemised in a changelog. For a room of experimentalists this may be the most persuasive item in the chapter — and it rests on one changelog, which is exactly why it is ranked below the ones above it.
+- **An instrument was rebuilt mid-collection, in one week.** Grading categories deleted, task authorship moved from contributor to vendor, mandatory rewrites imposed. **Data gathered a fortnight apart was graded by materially different instruments, with nothing in the output to distinguish them.** One changelog — which is exactly why it ranks below everything above it, and it may still be the item you remember.
 - **The pipeline has an operational theory of where hallucination lives.** Contributors are instructed to aim at a specific band of model knowledge: not common knowledge, where the model is reliable; not genuinely obscure material, where it declines; the band between, where it believes it knows.
 
 </v-clicks>
@@ -459,22 +547,61 @@ instrument built for this course on your domain — never a client instrument.
 
 ---
 
-## What the exercise is for
+## How the session runs
+
+<div class="text-sm mt-3">
+
+| | Step | Minutes |
+|---|---|---|
+| 1 | **Rate**, individually, in silence, under visible time pressure | 8 |
+| 2 | **Collect the tally** — preference, then confidence beside it | 3 |
+| 3 | **Reveal** the physical error and the fabricated citation | 5 |
+| 4 | **Name what happened** | 5 |
+| 5 | **Reviewer round** — swap sheets, audit against the rubric | 10 |
+| 6 | **Adjudicate** — the defensible grade per axis, including where the rubric is ambiguous | 4 |
+
+</div>
 
 <v-clicks>
 
-- Most rooms prefer the fluent, well-formatted response containing an error.
-- The tally will be small — five or six raters is **a tally, not a distribution**, and we will call it that.
-- Then the question that hands you to Chapter 4: **how many raters would we need before this meant anything?** Nobody in the room will know, and that is the honest starting position.
+- Steps 1–4 carry the lesson. If time runs short, **cut step 5 before anything else.**
+- With an odd number in the room, make one group of three at step 5 and rotate rather than swap.
 
 </v-clicks>
 
-<div v-click class="mt-6 text-lg">
+<div v-click class="mt-4 text-sm opacity-80">
 
-Under mild time pressure, competent engineers reward verbosity, confidence and formatting
-over correctness — and are most confident where they are most wrong.
+Nothing about the expected outcome is said before step 3. Announcing it in advance would
+void the demonstration the chapter is built on.
 
-**That preference is a reward signal.** You have just generated training data.
+</div>
+
+---
+
+## Step 4 — naming what happened
+
+*Delivered after the reveal, not before it.*
+
+<v-clicks>
+
+- Read the tally back. Whatever it says, **call it a tally** — five or six raters is not a distribution, and this course does not present six points as one.
+- Put confidence beside preference and ask whether the two track each other. **If they do, say so.** The interesting version is not guaranteed to happen.
+- Ask how many marked the fabricated citation *unassessable* rather than false. That is the correct action under the instrument — and it is exactly how a fabricated citation passes into a dataset as acceptable.
+
+</v-clicks>
+
+<div v-click class="mt-4 text-lg">
+
+Then the sentence the chapter has been building toward: whatever preference this room just
+expressed, at scale **that preference is a reward signal.** You have spent eight minutes
+generating training data.
+
+</div>
+
+<div v-click class="mt-3 text-sm opacity-80">
+
+And the question that hands you to Chapter 4: **how many raters would we have needed before
+that tally meant anything?** Nobody here knows yet.
 
 </div>
 
