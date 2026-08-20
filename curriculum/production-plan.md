@@ -39,7 +39,9 @@ The rule's own stated reason is what kills it. The file argues that an audience 
 
 The instructor's wave-energy work does not disappear. It becomes the worked instance — *here is mine, filled in; now fill in yours* — which is what a template is for, and which is honest about who graded what.
 
-**Files this touches:** `../assets/rating-exercise/README.md` (the non-negotiable, and the planted-error guidance), `../assets/failure-gallery/README.md` (the hydrodynamic-coefficient item), `../DECISIONS.md` item 3 (synthetic rubric domain), `../README.md` (the domain-specificity claim), `../references.md` Chapter 1 (tokenizer demo material).
+**Files this touched — all corrected 2026-08-19.** `../assets/rating-exercise/README.md` (the non-negotiable and the planted-error guidance), `../assets/failure-gallery/README.md` (the coefficient item, plus the code-clause demotion), `../curriculum/chapter-briefs.md` (Ch 1 tokeniser demo, Ch 2 non-negotiable, Ch 5 coefficient), `../references.md` (Ch 1 demo, Ch 2 synthetic rubric and exercise), `../CLAUDE.md` (sign-convention rule broadened beyond wave and hydrodynamic quantities), `../START_HERE.md` (the sample prompt).
+
+**An earlier version of this list was wrong in both directions.** It named `../DECISIONS.md` item 3 and `../README.md`, neither of which carries the assumption — both already say "this group's domain" and "their own data", which are neutral. And it missed `chapter-briefs.md`, `CLAUDE.md` and `START_HERE.md`, which do. The list was written from memory of the files rather than from a grep. Four became six.
 
 **Precondition — resolved 2026-08-19.** Five to six attendees. Shared competence: mechanics, concrete, fluids. This closes `../DECISIONS.md` open item 5 for content purposes and answers two of its logistics questions outright: pairing is viable when someone hits a usage limit, and item 8 (console accounts at roughly $5 each) is a $25–30 decision rather than a real cost question.
 

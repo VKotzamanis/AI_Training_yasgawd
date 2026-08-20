@@ -41,7 +41,7 @@ Two slides need an explicit COI note:
 `tokenization BPE byte-pair encoding LLM` · `subword tokenization scientific terminology` · `tokenizer visualization tool` · `temperature top-p sampling explained` · `autoregressive decoding KV cache explained` · `context window vs effective context`
 
 ### Still needed
-A tokenizer demo run on a MATLAB snippet and a wave-energy abstract, captured as screenshots so it doesn't depend on live internet.
+A tokenizer demo run on a MATLAB snippet and an abstract from the shared domain (mechanics, concrete or fluids), captured as screenshots so it doesn't depend on live internet.
 
 ---
 
@@ -83,9 +83,9 @@ Structure to reconstruct:
 - How rater disagreement is adjudicated
 - What causes a submission to be rejected
 
-**Build a synthetic instrument.** Structure and method are facts and are not protected; the specific expression of any internal document is. Reconstruct an original rubric on this group's own domain — two candidate responses about wave energy conversion, rated on named dimensions. This is also better teaching: attendees learn more watching their own field being judged than a generic exchange.
+**Build a synthetic instrument.** Structure and method are facts and are not protected; the specific expression of any internal document is. Reconstruct an original rubric on the shared domain — two candidate responses about mechanics, concrete or fluids, rated on named dimensions. This is also better teaching: attendees learn more watching their own field being judged than a generic exchange.
 
-**The live rating exercise carries this chapter.** Attendees rate two domain-specific responses against the synthetic rubric, then review each other. Specification in `assets/rating-exercise/README.md`. Both responses written from scratch on wave energy, PTO or experimental testing — an audience cannot judge truthfulness on a domain it doesn't know, and the lesson depends on them catching a physical error they nearly missed.
+**The live rating exercise carries this chapter.** Attendees rate two domain-specific responses against the synthetic rubric, then review each other. Specification in `assets/rating-exercise/README.md`. Both responses written from scratch on mechanics, concrete or fluids — an audience cannot judge truthfulness on a domain it doesn't know, and the lesson depends on them catching a physical error they nearly missed.
 
 **Structural findings** from five reviewed vendor documents are recorded in `curriculum/ch02-annotation-findings.md` (v3.1). Observations only — not citations, and not a substitute for the published guidelines above. That file uses its own `[E1]–[E4]` evidential scale, which is not interchangeable with the `[V]/[P]/[U]/[X]` tags here: an `[E1]` finding is corroborated across documents and still has no citable source.
 

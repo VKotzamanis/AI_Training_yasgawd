@@ -57,8 +57,8 @@ Summarise what blocks drafting and what you'd do first.
 Build the Chapter 7 derivation spike described in slides/README.md.
 Stop at the spike — don't write the rest of the chapter.
 
-Draft the eval worksheet for Module 4: five test cases from
-wave-energy work, a pass criterion, and a tally sheet.
+Read assets/eval-worksheet/README.md. Fill in the five cases and
+their pass criteria — mechanics, concrete or fluids only.
 ```
 
 ---

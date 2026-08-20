@@ -8,7 +8,9 @@ The centrepiece of Chapter 2. Attendees rate two responses against a rubric, the
 
 ## Non-negotiable: the material is domain-specific
 
-Both responses must be about wave energy conversion, PTO mechanisms, or experimental testing. Not coding, not general knowledge, not anything borrowed.
+Both responses must be about **mechanics, concrete or fluids**. Not coding, not general knowledge, not anything borrowed.
+
+That is the stated intersection of what all five or six attendees know. Wave energy, PTO and experimental testing are the instructor's field and are known by *some* of the room — and *some* is the failure condition here, because the raters who cannot check the physics will grade fluency instead, which is the exact behaviour this exercise exists to expose. The rule below is unchanged and is what forced the domain to change.
 
 **An audience cannot judge truthfulness on a domain it doesn't know.** Given two responses about an unfamiliar topic, people grade fluency, structure and confidence — because that is all they can see. The whole lesson depends on the room being able to catch a physical error, and then noticing that they nearly didn't.
 
@@ -72,7 +74,7 @@ Not a failure — use it. Ask what they used to decide, and whether they would h
 
 **The instructor must verify the physics before delivery.** The planted error in B has to be subtle enough to slip past a first reading and unambiguous enough to be indefensible once named. If it is too obvious the exercise collapses; if it is arguable, the adjudication turns into a debate about the error instead of about rating.
 
-**Choosing the error, from `../../curriculum/ch02-annotation-findings.md` §11.** One vendor instructs contributors to aim prompts at a specific band of model knowledge: not common knowledge, where the model is reliable, and not genuinely obscure material, where it correctly declines, but the band between, where it believes it knows and confabulates. Use the same rule here. The planted physical error should be the kind a capable model would actually produce on this group's own literature — a plausible-sounding claim about PTO damping, wave-tank scaling or energy-flux accounting — rather than an error invented for the exercise. It makes the response realistic, and it means the room is catching a failure mode they will meet again on Thursday.
+**Choosing the error, from `../../curriculum/ch02-annotation-findings.md` §11.** One vendor instructs contributors to aim prompts at a specific band of model knowledge: not common knowledge, where the model is reliable, and not genuinely obscure material, where it correctly declines, but the band between, where it believes it knows and confabulates. Use the same rule here. The planted physical error should be the kind a capable model would actually produce on this group's own literature — a plausible-sounding claim about a material property, a flow-regime boundary, or a section capacity — rather than an error invented for the exercise. It makes the response realistic, and it means the room is catching a failure mode they will meet again on Thursday.
 
 Rehearse on two colleagues who are not attending.
 

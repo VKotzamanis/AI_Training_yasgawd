@@ -14,7 +14,8 @@
 | Paywall circumvention | Excluded | Institutional licence violation; risk lands on the student |
 | Chapter 6 placement | Before Session 2 | Threat model precedes capability |
 | Chapter 7 before Chapter 8 | Cost before brain comparison | Concrete before abstract; Session 1 ends on the memory-gap line that opens Session 2 |
-| Slide toolchain | **Slidev** | Instructor's call. Markdown source suits agent authoring; code stepping and Mermaid are strong for Sessions 2–3. Adopted on trial — see reversal triggers below |
+| Slide toolchain | **Slidev** | Instructor's call. Markdown source suits agent authoring; code stepping and Mermaid are strong for Sessions 2–3. Adopted on trial — see reversal triggers below. **Both spikes passed 2026-08-19; no trigger fired** |
+| Domain of shared material | **Mechanics, concrete, fluids** | The intersection of what all 5–6 attendees know. Anything the whole room grades together sits here; anything an attendee runs alone stays in their own field. Overturns the wave-energy-only rule in `assets/rating-exercise/README.md`, by that rule's own argument — an audience cannot judge truthfulness on a domain it does not know. The instructor's own field becomes the worked instance, not the shared material |
 
 ## Open — blocking
 
@@ -68,7 +69,9 @@ Accepted losses:
 
 **4. Local machine reachable from the training room.** Blocks the Chapter 13 exercise. If not, that chapter becomes instructor demo and keys are distributed afterwards.
 
-**5. Attendee count.** Determines room logistics, local gateway capacity, and whether pairing is viable when someone hits a usage limit.
+**5. Attendee count — resolved 2026-08-19.** Five to six, sharing mechanics, concrete and fluids. Pairing is viable when someone hits a usage limit. Local gateway capacity is not a constraint at this size. Item 8 below becomes a $25–30 decision rather than a cost question.
+
+Two consequences beyond logistics. The shared-material domain is now fixed (see Locked). And six raters is not a distribution — the Chapter 2 exercise's "show two distributions" step needs rescoping to a tally named as an anecdote, and its pair-swap step needs a rule for an odd room. **Not yet applied to `assets/rating-exercise/README.md`.**
 
 **6. Delivery dates.** Version-dependent facts — command behaviour, plan boundaries, pricing — must be re-checked in the week before each session.
 

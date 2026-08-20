@@ -35,7 +35,7 @@ Teaching materials for a three-session AI training for PhD researchers in civil 
 
 ## Conventions
 
-- **Units and notation:** SI throughout. State sign conventions for any wave or hydrodynamic quantity. Define every symbol on first use, including in equations lifted from a source.
+- **Units and notation:** SI throughout. State sign conventions for any quantity whose sign is a convention rather than a measurement — bending moment, axial force, flow direction, and any wave or hydrodynamic quantity. Define every symbol on first use, including in equations lifted from a source.
 - **Equations:** carry dimensional analysis. If an equation's denominator is defined non-obviously (see the MACs-vs-FLOPs erratum in Chapter 4), state the definition alongside it.
 - **Filenames:** `NN-short-name.md`, zero-padded, matching chapter numbers.
 - **Chapter numbering is stable.** Threads in `curriculum/architecture.md` reference chapters by number. Renumbering breaks the thread map. Don't renumber without updating it.

@@ -18,7 +18,7 @@ Excluded: positional encoding, multi-head attention, layer norm.
 
 **Starts threads:** memory & context; cost (token as unit of meaning, later unit of price).
 
-**To produce:** tokeniser demo on a MATLAB snippet and a wave-energy abstract, captured as screenshots so it survives a dead wifi connection. Temperature demo: one prompt, five runs, five answers.
+**To produce:** tokeniser demo on a MATLAB snippet and an abstract from the shared domain — mechanics, concrete or fluids — captured as screenshots so it survives a dead wifi connection. Temperature demo: one prompt, five runs, five answers.
 
 ---
 
@@ -68,7 +68,7 @@ Closes with behaviour traced to mechanism: sycophancy, verbosity bias, confident
 
 **Time overrun — unresolved, blocking.** Pipeline mechanics, the OPRO case, behaviour-to-mechanism, nine taught findings and the exercise total roughly 105–115 minutes against a 75-minute budget. See `../DECISIONS.md`. Do not draft slides for this chapter until it is settled.
 
-**Non-negotiable for the exercise:** both responses must be about this group's own domain — wave energy conversion, PTO mechanisms, experimental testing. An audience cannot judge truthfulness on a domain it doesn't know; given unfamiliar material people grade fluency, structure and confidence, because that is all they can see. The lesson depends on the room being able to catch a physical error and then noticing they nearly didn't. Write both responses from scratch; borrow nothing.
+**Non-negotiable for the exercise:** both responses must be about the shared domain — mechanics, concrete or fluids. Not the instructor's own field, which only part of the room can check. An audience cannot judge truthfulness on a domain it doesn't know; given unfamiliar material people grade fluency, structure and confidence, because that is all they can see. The lesson depends on the room being able to catch a physical error and then noticing they nearly didn't. Write both responses from scratch; borrow nothing.
 
 ---
 
@@ -102,7 +102,7 @@ Framed as a control experiment with small n. The audience already has this skill
 
 ## Chapter 5 — Intrinsic failure
 
-Contains: hallucination as a mechanism rather than a mystery, with fabricated citations as the default academic failure; calibration and stated confidence; arithmetic, units and significant figures, demonstrated on a hydrodynamic coefficient; why benchmark scores do not predict performance on your problem.
+Contains: hallucination as a mechanism rather than a mystery, with fabricated citations as the default academic failure; calibration and stated confidence; arithmetic, units and significant figures, demonstrated on a coefficient from mechanics, concrete or fluids; why benchmark scores do not predict performance on your problem.
 
 **Long-context accuracy degradation.** State plainly: cost has an equation (Chapter 7), accuracy has curves and mechanisms. There is no closed-form equation and no proof. What exists:
 - The position curve — accuracy against the location of relevant information, strong at the beginning and end, weakest in the middle. The load-bearing figure of the chapter.

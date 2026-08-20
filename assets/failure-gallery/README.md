@@ -4,8 +4,8 @@ Ten real wrong outputs from this group's own domain. Collect over the weeks befo
 
 Target mix:
 - A fabricated citation, with the DOI check that exposed it
-- A wrong hydrodynamic coefficient
-- A confidently invented standard or code clause
+- A wrong coefficient in mechanics, concrete or fluids
+- A confidently invented standard or code clause — **keep, but not among the ten the room grades together.** Design codes are not in the stated intersection of this cohort's knowledge, so a fabricated clause is checkable by some of the room and not all of it
 - A unit or sign-convention error
 - The interview-sourced claim about model "depression", presented alongside what happened when it was traced to a source
 
