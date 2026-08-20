@@ -101,6 +101,44 @@ def fig_kv_growth():
     print("wrote 01-kv-growth.png")
 
 
+def fig_position_schematic():
+    """SCHEMATIC of the position effect. This is a drawn shape, not data.
+
+    The measured curves are Liu et al. (2024), TACL 12:157-173, Figure 5, which is
+    CC BY 4.0 via the ACL Anthology PDF and may be reproduced with attribution.
+    This schematic exists so the deck can show the shape without implying it is a
+    measurement, and so nothing is traced from the source figure.
+    """
+    x = np.linspace(0, 1, 400)
+    # a drawn U: high at both ends, lowest in the middle. No data behind it.
+    y = 0.55 + 0.45 * (2 * (x - 0.5)) ** 2
+    y = y - 0.06 * x                      # recency slightly below primacy, as described
+
+    fig, ax = plt.subplots(figsize=(7.4, 3.6))
+    ax.plot(x, y, color=ACCENT[0], lw=2.6)
+    ax.fill_between(x, 0, y, color=ACCENT[0], alpha=.07)
+    ax.annotate("primacy", xy=(0.02, y[0]), xytext=(0.06, 0.62),
+                fontsize=10, color=INK, arrowprops=dict(arrowstyle="->", color=INK, lw=.9))
+    ax.annotate("recency", xy=(0.98, y[-1]), xytext=(0.74, 0.60),
+                fontsize=10, color=INK, arrowprops=dict(arrowstyle="->", color=INK, lw=.9))
+    ax.annotate("worst in the middle", xy=(0.5, y[200]), xytext=(0.36, 0.30),
+                fontsize=10, color=INK, arrowprops=dict(arrowstyle="->", color=INK, lw=.9))
+    ax.set_xlabel("position of the relevant information within the context  [normalised]")
+    ax.set_ylabel("accuracy  [arbitrary]")
+    ax.set_xlim(0, 1); ax.set_ylim(0, 1.15)
+    ax.set_yticks([])
+    ax.set_xticks([0, 0.5, 1]); ax.set_xticklabels(["start", "middle", "end"])
+    ax.grid(True, axis="x", color=GRID, linewidth=.6); ax.set_axisbelow(True)
+    ax.set_title("SCHEMATIC — the shape only. Not measured data.",
+                 fontsize=11, pad=10, color="#97591A")
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "05-position-schematic.png", dpi=200, bbox_inches="tight")
+    plt.close(fig)
+    print("wrote 05-position-schematic.png")
+
+
 if __name__ == "__main__":
     fig_temperature()
     fig_kv_growth()
+    fig_position_schematic()

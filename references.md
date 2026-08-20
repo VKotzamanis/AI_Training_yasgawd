@@ -118,7 +118,7 @@ Structure to reconstruct:
 # Chapter 4 — Measurement
 
 ### Citations
-- **The MACs-versus-FLOPs erratum.** A reader comment on the Pope transcript notes that the compute-time equation defines its denominator as multiply-accumulates per second, so substituting spec-sheet FLOPs makes the result wrong by a factor of two; the numerator needs a factor of 2. **[V]** — visible in the gist comment thread, dated May 2026.
+- **The MACs-versus-FLOPs erratum.** A reader comment on the Pope transcript notes that the compute-time equation defines its denominator as multiply-accumulates per second, so substituting spec-sheet FLOPs makes the result wrong by a factor of two; the numerator needs a factor of 2. **[V]** — visible in the gist comment thread, dated May 2026. **Attribute it to the reader, not to the lecturer** — the whole teaching point is that an outside reader caught it. {#erratum2026 | Reader comment (unattributed) | 2026 | Comment thread on the Pope lecture transcript gist — reader correction, not a primary result | - | testimony | -}
   - **This is the anchor artefact of the chapter.** A unit-definition error, in an expert lecture, caught by an outside reader, producing a clean factor of two.
 - Later re-evaluations finding the "take a deep breath" phrasing does not transfer to newer models — **[P]**. Find a primary re-evaluation rather than a blog summary.
 - Zheng, Pei, Logeswaran, Lee & Jurgens, 2024, *When "A Helpful Assistant" Is Not Really Helpful: Personas in System Prompts Do Not Improve Performances of Large Language Models*, Findings of the ACL: EMNLP 2024, pp. 15126–15154, DOI 10.18653/v1/2024.findings-emnlp.888 — **[V]**. ACL Anthology record fetched 2026-08-19. {#zheng2024 | Zheng, M., Pei, J., Logeswaran, L., Lee, M. & Jurgens, D. | 2024 | Findings of the ACL: EMNLP 2024, pp. 15126–15154 | DOI 10.18653/v1/2024.findings-emnlp.888 | paper | -} 162 roles, four model families, 2,410 factual questions; personas in system prompts do not improve performance over the no-persona control.
@@ -137,6 +137,59 @@ Two or three prompting claims tested by the instructor in advance, with results.
 ---
 
 # Chapter 5 — Intrinsic failure
+
+### Verified 2026-08-19 — primary records fetched. These supersede the reconstructed entries below.
+
+- Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F. & Liang, P., 2024, *Lost in the Middle: How Language Models Use Long Contexts*, Transactions of the ACL 12, pp. 157–173, DOI 10.1162/tacl_a_00638 — **[V]** {#liu2024 | Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F. & Liang, P. | 2024 | Transactions of the ACL 12, pp. 157–173 | DOI 10.1162/tacl_a_00638 | paper | -}
+  - **The position-curve licensing problem is solved.** The TACL version of record is **CC BY 4.0**, printed on page 1 of `aclanthology.org/2024.tacl-1.9.pdf` and corroborated in Crossref. **Reproduce from the ACL Anthology PDF, never from arXiv** — arXiv:2307.03172 is under `nonexclusive-distrib/1.0`, which grants no redistribution right. Attribution: Liu et al. (2024), TACL 12:157–173, DOI 10.1162/tacl_a_00638, CC BY 4.0, stating whether the figure is modified. Figure 5 is the empirical curve; Figure 1 is the schematic. The authors' code repo is MIT, so the curve can be regenerated in house style instead.
+  - **Cite the year as 2024**, not 2023. The arXiv comment says "TACL 2023"; the volume is 2024.
+  - Scope: two tasks only — multi-document QA and synthetic key–value retrieval. Greedy decoding only, stated by the authors as a limitation. Claude-1.3 was near-perfect on the synthetic task, so **the effect is not universal across models or tasks**.
+
+- Veličković, P., Perivolaropoulos, C., Barbero, F. & Pascanu, R., 2025, *Softmax is not Enough (for Sharp Size Generalisation)*, ICML 2025, PMLR 267, pp. 61190–61211, arXiv:2410.01104 — **[V]**, CC BY 4.0 on arXiv {#velickovic2025 | Veličković, P., Perivolaropoulos, C., Barbero, F. & Pascanu, R. | 2025 | ICML 2025, PMLR 267, pp. 61190–61211 | arXiv:2410.01104 | paper | -}
+  - **The title recorded here from memory was wrong twice.** It is not "for sharp out-of-distribution behaviour" — the word "behaviour" appears in no version, and the final title says "Sharp Size Generalisation".
+  - Proves attention coefficients must disperse as the item count grows at test time. Demonstrated on small controlled max-retrieval tasks, **not** production benchmarks. The existing caveat stands: it bounds sharpness of selection, not task accuracy.
+
+- Kamradt, G., 2023, *Needle in a Haystack*, github.com/gkamradt/needle-in-a-haystack, MIT licence — **[V]** {#kamradt2023 | Kamradt, G. | 2023 | Needle in a Haystack — software implementation, not a peer-reviewed result | github.com/gkamradt/needle-in-a-haystack | paper | -}
+  - **There is no paper.** Label any heatmap an implementation output. The probe inserts one lexically distinctive sentence, so it tests literal matching — which is the weakness NoLiMa was built to expose.
+
+- Hong, K., Troynikov, A. & Huber, J., 2025, *Context Rot: How Increasing Input Tokens Impacts LLM Performance*, Chroma, trychroma.com/research/context-rot — **[V]** {#chroma2025 | Hong, K., Troynikov, A. & Huber, J. | 2025 | Chroma technical report — COI, see below | trychroma.com/research/context-rot | paper | coi}
+  - **COI required under hard rule 4.** Chroma sells a retrieval/vector database. "Long context degrades" is commercially favourable to them. Declare it on the slide.
+  - 18 models, extended needle variants plus LongMemEval. Authors state they have no mechanistic explanation, and that the tasks do not cover real-world synthesis where they *expect* worse degradation — an expectation, not a measurement.
+  - **Report text and figures carry no stated licence.** Code is MIT. Do not reproduce their figures; redraw or link.
+
+- Liang, W., Yuksekgonul, M., Mao, Y., Wu, E. & Zou, J., 2023, *GPT detectors are biased against non-native English writers*, Patterns 4(7):100779, DOI 10.1016/j.patter.2023.100779 — **[V]** {#liang2023 | Liang, W., Yuksekgonul, M., Mao, Y., Wu, E. & Zou, J. | 2023 | Patterns 4(7):100779 | DOI 10.1016/j.patter.2023.100779 | paper | -}
+  - Seven detectors, accessed **March 2023**, over 91 human-written TOEFL essays and 88 US 8th-grade essays. Mean false-positive rate on the TOEFL essays **61.22%**; near-zero on the 8th-grade essays. One rewording prompt cut it to 11.77%.
+  - **Licence CC BY-NC-ND 4.0 — no derivatives.** Reproduce a figure unmodified for non-commercial teaching only; do not recrop or restyle. Safest is to quote the numbers and cite.
+  - **State the snapshot problem alongside it.** n=91 and n=88, one TOEFL corpus of unstated provenance, detectors as of March 2023. The direction is well supported; the specific percentages are dated.
+
+- Dathathri, S., See, A., Ghaisas, S., et al. (24 authors, Google DeepMind), 2024, *Scalable watermarking for identifying large language model outputs*, Nature 634(8035), pp. 818–823, DOI 10.1038/s41586-024-08025-4 — **[V]**, CC BY 4.0 {#dathathri2024 | Dathathri, S., See, A., Ghaisas, S., et al. | 2024 | Nature 634(8035), pp. 818–823 | DOI 10.1038/s41586-024-08025-4 | paper | -}
+  - **Scope correction: this is SynthID-Text. Text only.** Do not use it to support claims about image or audio watermarking. Modifies sampling, not training; evaluated over roughly 20 million Gemini responses.
+  - Metadata from the Crossref publisher record; nature.com blocked automated access, so **the body was not read**. Treat any numeric claim beyond the ~20M figure as unverified.
+
+- Bricken, T., Templeton, A., Batson, J., et al., 2023, *Towards Monosemanticity: Decomposing Language Models With Dictionary Learning*, Anthropic, Transformer Circuits Thread, 4 October 2023 — **[V]** {#bricken2023 | Bricken, T., Templeton, A., Batson, J., et al. | 2023 | Anthropic, Transformer Circuits Thread — COI, lab publishing on its own models | transformer-circuits.pub | paper | coi}
+  - **Scope: a one-layer transformer.** A proof of concept, not a production model. Say so.
+
+- Templeton, A., Conerly, T., Marcus, J., et al. (26 authors), 2024, *Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet*, Anthropic, Transformer Circuits Thread, 21 May 2024; also arXiv:2605.29358, CC BY 4.0 — **[V]** {#templeton2024 | Templeton, A., Conerly, T., Marcus, J., et al. | 2024 | Anthropic, Transformer Circuits Thread — COI, lab publishing on its own models | arXiv:2605.29358 | paper | coi}
+  - **Authors' own limitation, use verbatim:** "significant limitations remain: our suite of features is incomplete, and we lack rigorous methods for evaluating whether our features faithfully capture model computations."
+  - The arXiv deposit does not state that it is the 2024 article. Cite the 2024 date; treat arXiv as an alternate location whose CC BY 4.0 is what makes the figures reusable. The transformer-circuits.pub pages carry no licence found.
+
+- Ameisen, E., Lindsey, J., Pearce, A., et al., 2025, *Circuit Tracing: Revealing Computational Graphs in Language Models*, Anthropic, Transformer Circuits Thread, 27 March 2025 — **[V]** {#ameisen2025 | Ameisen, E., Lindsey, J., Pearce, A., et al. | 2025 | Anthropic, Transformer Circuits Thread — COI, lab publishing on its own models | transformer-circuits.pub | paper | coi}
+
+- Lindsey, J., Gurnee, W., Ameisen, E., et al., 2025, *On the Biology of a Large Language Model*, Anthropic, Transformer Circuits Thread, 27 March 2025 — **[V]** {#lindsey2025 | Lindsey, J., Gurnee, W., Ameisen, E., et al. | 2025 | Anthropic, Transformer Circuits Thread — COI, lab publishing on its own models | transformer-circuits.pub | paper | coi}
+  - **The hard number for "coverage is partial", in the authors' words:** "We've found that our attribution graphs provide us with satisfying insight for about a quarter of the prompts we've tried."
+  - Claude 3.5 Haiku only. The replacement model does not replace attention layers, so QK-circuit computation is invisible to the method.
+  - **No licence found on either page.** Do not reuse their diagrams. Redraw or ask.
+
+- Turpin, M., Michael, J., Perez, E. & Bowman, S. R., 2023, *Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting*, NeurIPS 2023, arXiv:2305.04388, CC BY 4.0 — **[V]** {#turpin2023 | Turpin, M., Michael, J., Perez, E. & Bowman, S. R. | 2023 | NeurIPS 2023 | arXiv:2305.04388 | paper | -}
+  - GPT-3.5 and Claude 1.0, 13 BIG-Bench Hard tasks plus BBQ. Injecting a biasing feature makes models switch answers and rationalise **without ever mentioning the bias**. Accuracy drops up to 36%.
+
+- Chen, Y., Benton, J., Radhakrishnan, A., et al. (Anthropic), 2025, *Reasoning Models Don't Always Say What They Think*, arXiv:2505.05410 — **[V]**, arXiv nonexclusive-distrib, not CC {#chen2025 | Chen, Y., Benton, J., Radhakrishnan, A., et al. | 2025 | Anthropic — COI, lab publishing on its own models | arXiv:2505.05410 | paper | coi}
+  - Claude 3.7 Sonnet and DeepSeek R1 against non-reasoning counterparts, on MMLU and GPQA. CoTs reveal hint usage in at least 1% of cases but the reveal rate is "often below 20%".
+  - **Authors' own narrowing, from §7.2:** all hints are "very easy to exploit", which "prevents us from drawing conclusions about the potential of CoT monitoring in situations where a CoT is necessary to perform the unintended behavior." So this shows CoT monitoring is **unreliable**, not that CoT is always post-hoc.
+
+### Effective-context benchmarks — metadata verified, bodies not read
+RULER (Hsieh et al., COLM 2024, arXiv:2404.06654, CC BY 4.0) · NoLiMa (Modarressi et al., ICML 2025, arXiv:2502.05167, **CC BY-NC-SA**) · LongBench (Bai et al., ACL 2024, DOI 10.18653/v1/2024.acl-long.172, CC BY 4.0) · BABILong (Kuratov et al., NeurIPS 2024 D&B, arXiv:2406.10149, not CC). **Abstract-level only — read the papers before any of their numbers reach a slide.**
+
 
 ## Long-context accuracy degradation
 
