@@ -1,14 +1,14 @@
 ---
 theme: default
 title: Chapter 10 — Memory
-info: Building the hippocampus Chapter 8 said was missing. Produces the artefact attendees keep. Closes the memory thread and picks up cost.
+info: The artefact attendees keep. Closes the memory thread and picks up cost. Deliberately does not claim the file is the missing organ - Chapter 8 exists to break that analogy.
 class: text-left
 mdc: true
 ---
 
 # Chapter 10 — Memory
 
-### Building the hippocampus Chapter 8 said was missing
+### Standing context, and why it is not a hippocampus
 
 <div class="mt-10 text-2xl">
 
@@ -75,13 +75,13 @@ $$\text{cost}_\text{standing} \;\propto\; N_\text{file} \times T_\text{turns}$$
 
 <div class="text-sm opacity-80 mt-1">
 
-$N_\text{file}$ — tokens in the instruction file. $T_\text{turns}$ — turns in the session. Both dimensionless counts.
+$N_\text{file}$ — tokens in the instruction file. $T_\text{turns}$ — turns in the session. Both dimensionless counts, so the constant of proportionality carries the currency: $\$\,\mathrm{token^{-1}\,turn^{-1}}$.
 
 </div>
 
 <v-clicks>
 
-- A file twice as long costs twice as much, on every turn, forever.
+- A file twice as long costs twice as much, on every turn, forever — **before caching.** Standing context is the canonical cached prefix, and Chapter 13 puts the discount on it. The relation is the uncached bound; the direction survives, the magnitude does not.
 - It also occupies window that Chapter 5's degradation curve is already competing for.
 - **So a bloated instruction file is an engineering problem, not an untidiness problem.** That is the difference between this and a style guide.
 
@@ -123,7 +123,8 @@ keep the output. If it flags nothing, that is worth showing too, and worth sayin
 
 - **Personal** — how you like to work. Travels with you across projects.
 - **Project** — how this work is done. Committed, shared, reviewed like code.
-- **Local** — machine-specific paths and keys. Never committed.
+- **Local** — machine-specific paths and settings. Never committed.
+- **Not keys.** Keys go in environment variables, never in a file in the project directory — Chapter 13 explains why, and "never committed" depending on a gitignore entry surviving is exactly the assumption that fails.
 
 </v-clicks>
 
@@ -222,7 +223,8 @@ You leave today with an artefact. That is the point of this chapter.
 
 <v-clicks>
 
-- The memory thread closes here: bounded buffer, degradation, missing hippocampus, management, and now a replacement you built.
+- The memory thread closes here: bounded buffer, degradation, the gap Chapter 8 names, management, and now standing context you own.
+- **It is not the missing organ.** Consolidation writes experience into durable memory; a file re-inserted into a fresh window is re-prompting, and the weights never move. Chapter 8 breaks that analogy on purpose and this chapter does not quietly rebuild it.
 - The replacement is a file. It is auditable, versioned and shared, which the window never was.
 - And it has a running cost you can now calculate.
 

@@ -278,7 +278,7 @@ Contains: markdown-to-document pipelines with citation styles, journal templates
 
 Contains: understanding undocumented code inherited from a graduated student; translation between MATLAB and Python; vectorisation and performance; tests for numerical code including tolerance choice; units, sign conventions and coordinate systems.
 
-**Contains a demonstrated weakness.** Model performance on MATLAB is materially worse than on Python because of corpus composition. Show it live. A limitation that costs the instructor something buys credibility for everything else in the course.
+**Contains a demonstrated weakness.** Model performance on MATLAB is materially worse than on Python. Show it live. **Corrected 2026-08-20:** this brief previously stated corpus composition as the cause. That is a plausible and widely repeated hypothesis, not an established result, and the deck is right to separate the demonstrable gap from the unestablished explanation. Do not restore the causal claim without a citation. A limitation that costs the instructor something buys credibility for everything else in the course.
 
 ---
 

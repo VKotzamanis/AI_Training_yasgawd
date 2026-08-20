@@ -13,7 +13,7 @@
 | Cross-provider retrieval | Taught as a licensing asymmetry with a provenance obligation | Accurate, and survives a question in a way "bypassing Claude" would not |
 | Paywall circumvention | Excluded | Institutional licence violation; risk lands on the student |
 | Chapter 6 placement | Before Session 2 | Threat model precedes capability |
-| Chapter 7 before Chapter 8 | Cost before brain comparison | Concrete before abstract; Session 1 ends on the memory-gap line that opens Session 2 |
+| Chapter 7 before Chapter 8 | Cost before brain comparison | Concrete before abstract; Session 1 **ends** on the memory-gap line. **Clarified 2026-08-20:** Session 2 opens with Chapter 9, and the brief puts the callback at the top of **Chapter 10**, roughly ninety minutes later. Both are intended — the line closes Session 1 and is picked up in Chapter 10, not in Chapter 9. Chapter 8 owns the wording; Chapter 10 quotes it. |
 | Slide toolchain | **Slidev** | Instructor's call. Markdown source suits agent authoring; code stepping and Mermaid are strong for Sessions 2–3. Adopted on trial — see reversal triggers below. **Both spikes passed 2026-08-19; no trigger fired** |
 | Domain of shared material | **Mechanics, concrete, fluids** | The intersection of what all 5–6 attendees know. Anything the whole room grades together sits here; anything an attendee runs alone stays in their own field. Overturns the wave-energy-only rule in `assets/rating-exercise/README.md`, by that rule's own argument — an audience cannot judge truthfulness on a domain it does not know. The instructor's own field becomes the worked instance, not the shared material |
 

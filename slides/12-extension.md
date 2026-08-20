@@ -58,6 +58,7 @@ flowchart LR
 - **Tools** — actions the model may call. This is the one with consequences.
 - **Resources** — data the model may read. Files, records, documents.
 - **Prompts** — reusable prompt templates the server offers to the host.
+- The spec also lets *clients* offer features back to servers — sampling, roots, elicitation. Out of scope here; know they exist.
 
 </v-clicks>
 
@@ -68,6 +69,17 @@ something read. Chapter 6's whole failure mode is content from the second class 
 treated as an instruction from the first.
 
 </div>
+
+<div v-click class="mt-5 p-4 border-l-4 text-sm" style="border-color:#97591A; background:#F8F1E7">
+
+**The protocol says this itself.** Tools "represent arbitrary code execution and must be
+treated with appropriate caution", and tool descriptions "should be considered untrusted,
+unless obtained from a trusted server." The threat model is in the specification, not
+bolted on by this course.
+
+</div>
+
+<Cite k="mcp-spec" />
 
 ---
 
@@ -89,6 +101,17 @@ documents leaves the machine while the code pass does not** — which makes it a
 data-governance question, not a convenience question.
 
 </div>
+
+<div v-click class="mt-4 text-sm opacity-80">
+
+That split was confirmed by running it: on version 0.9.16 the document pass refuses without
+an external API key, and the code pass runs on a local syntax tree without one. **It is a
+version-pinned observation, not a documented guarantee** — re-check it on upgrade, because
+Chapter 18 routes an NDA decision through it.
+
+</div>
+
+<Cite k="graphify" />
 
 ---
 
@@ -143,7 +166,10 @@ Chapter 6, opened voluntarily here, and governed in Chapter 18.
 This chapter cannot be finished until the group's Gemini access path is documented:
 what is actually invoked, and how results come back. See `DECISIONS.md` item 2.
 
-Nothing on the preceding slides depends on it. The hands-on exercise does, entirely.
+The preceding slides state the **mechanism**, which stands. But the cross-provider slide's
+central factual claim — that a second provider is reachable from this session and returns
+sources the first cannot — is **exactly what the missing configuration would establish**, so
+it is unverified until then. The hands-on exercise depends on it entirely.
 
 </div>
 
@@ -151,5 +177,25 @@ Nothing on the preceding slides depends on it. The hands-on exercise does, entir
 
 The exercise, once unblocked: connect one server, list what it exposes, call one tool,
 read one resource, and record where the data went.
+
+</div>
+
+---
+
+## Where this leaves us
+
+<v-clicks>
+
+- A protocol, so a tool written once is reachable from anything that speaks it.
+- Three server primitives, and the distinction between the one that **acts** and the one that is **read** — which is Chapter 6's failure mode restated as an interface.
+- A map of your own code and documents, with the local and the remote halves told apart.
+- A retrieval asymmetry you may use, with an obligation attached rather than a trick.
+
+</v-clicks>
+
+<div v-click class="mt-8 text-lg">
+
+Every channel in this chapter was opened deliberately. **Chapter 13 is what it costs to
+keep them open** — and Chapter 18 is who answers for what went through them.
 
 </div>

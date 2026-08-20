@@ -12,7 +12,7 @@ mdc: true
 
 <div class="mt-10 text-xl opacity-85">
 
-Everything Part II identified as a risk appears here as documented practice.
+Much of what Part II identified as a risk appears here as documented practice. Where it does not, this chapter says so.
 
 </div>
 
@@ -28,9 +28,9 @@ This section ships the **current text of the named policies**, not a generic sum
 Policies change, and secondhand summaries go stale in a way that is invisible until a
 desk rejection. `DECISIONS.md` item 7.
 
-ASCE is expected to matter most for this cohort and is the one most often missing from
-general guides. `TODO(cite)` — publisher policies, plus COPE and ICMJE position
-statements, all currently `[U]`.
+ASCE is expected to matter most for this cohort. `TODO(cite)` — publisher policies, plus
+COPE and ICMJE position statements, all currently `[U]`. Whether generic guides omit ASCE
+is an impression, not a checked claim, and is not asserted here.
 
 </div>
 
@@ -44,13 +44,24 @@ The structure below holds regardless of which journals they turn out to be.
 
 ## The three questions every policy answers
 
+These are the **questions to put to each policy**, not answers this deck can supply.
+
 <v-clicks>
 
-- **Must you disclose?** Almost always yes for substantive use, and the threshold differs by publisher.
-- **Where does it go?** Methods, acknowledgements, or a dedicated statement. Getting this wrong is a desk rejection over formatting.
-- **What is prohibited outright?** Authorship is the usual one — and it is prohibited everywhere, for a reason worth understanding rather than memorising.
+- **Does this use require disclosure at all?** Find the threshold. It is set per publisher and it is not obvious.
+- **Where does the statement go?** Methods, acknowledgements, or a dedicated section — and a manuscript can be desk-rejected on the wrong one.
+- **What is prohibited outright rather than merely disclosed?** Read the prohibition, do not infer it.
+- **What must be retained** — prompts, drafts, logs — and for how long?
 
 </v-clicks>
+
+<div v-click class="mt-5 text-sm opacity-80">
+
+Answering these from memory is what the block on the previous slide exists to prevent. The
+only slide in this section that does not need a policy is the next one, because it argues
+from what the word *author* means.
+
+</div>
 
 ---
 
@@ -87,8 +98,11 @@ statement transfers them.
 - Unpublished experimental data. Sponsor NDAs. Confidential geometry. Anything under embargo.
 - The question is not "is this tool secure". It is **what left the building, and can you say so precisely.**
 - Chapter 12's distinction returns and it is load-bearing: on a document graph, the code pass is local while the **semantic pass over documents leaves the machine.** Two features of one tool, two different answers.
+- That was confirmed by running the tool at a pinned version, not read off a webpage. **Re-check it on upgrade** — it is the factual basis for what you are about to decide is safe to process locally.
 
 </v-clicks>
+
+<Cite k="graphify" />
 
 <div v-click class="mt-6 text-lg">
 
@@ -148,6 +162,7 @@ infrastructure.
 - **Agreed conventions**: units, sign conventions, coordinate systems, and the definition of every derived quantity the group reports.
 - **Committed skills**, so a procedure survives the person who wrote it.
 - **A shared code and document map**, so everyone queries the same picture.
+- **A source rule**: which documents may be opened in a session that can read your files, and who signs off the exceptions.
 
 </v-clicks>
 
@@ -163,7 +178,8 @@ This is Chapter 10's artefact, promoted from a personal convenience to a group s
 
 <v-clicks>
 
-- **Trust boundary** — trained harmlessness in Chapter 2, hostile input in Chapter 6, channels opened deliberately in Chapter 12, and governed here as a written data rule.
+- **Trust boundary** — trained harmlessness in Chapter 2, hostile input in Chapter 6, channels opened deliberately in Chapter 12, governed here in **both directions**: a data rule for what leaves, and a source rule for what is allowed in.
+- The inbound half is the one people forget. Name which sources may be read into a session that has file access, and who approves an exception. Chapter 6 showed why: instructions and data share one channel, and there is no complete defence.
 - **Verification** — prompts in Chapter 4, sources in Chapter 14, arguments in Chapter 17, and here as logging and reproducibility.
 
 </v-clicks>

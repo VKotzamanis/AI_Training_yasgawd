@@ -109,7 +109,7 @@ manage it. Chapter 10 is where you replace it.
 
 <v-clicks>
 
-- **Compact** — summarise the session so far and continue. Cheap, lossy, and the loss is invisible.
+- **Compact** — summarise the session so far and continue. Cheap *relative to continuing on a full window*, but not free: the summarising call itself reads the whole context, which by Chapter 7 is the most expensive call available at that moment. Lossy, and the loss is invisible.
 - **Clear** — discard and start fresh in the same project. Loses everything not written to a file.
 - **Abandon** — start a new session because this one has gone wrong in a way summarising will not fix.
 
@@ -128,24 +128,24 @@ It is not. **It has already cost you the thing you were protecting.**
 
 <v-clicks>
 
-- Run one task in a fresh session. Record the answer.
-- Run the same task after a long, unrelated conversation in the same session. Record the answer.
-- Compare.
+- Run one task in a fresh session, **three times**. Record the answers.
+- Run the same task after a long, unrelated conversation in the same session, **three times**. Record those.
+- Put the two sets side by side and look at the spread, not at one pair.
 
 </v-clicks>
 
-<div v-click class="mt-6 p-4 border-l-4" style="border-color:#0E5C68; background:#F2F7F8">
+<div v-click class="mt-5 p-4 border-l-4" style="border-color:#0E5C68; background:#F2F7F8">
 
-**TODO(capture)** — instructor to record this pair in advance, with the model ID and the
-date. The point is not that the second answer is wrong; often it is not. The point is
-that you could not have predicted which.
+**TODO(capture)** — instructor records both sets in advance, with model ID and date.
 
 </div>
 
-<div v-click class="mt-4 text-sm opacity-80">
+<div v-click class="mt-4 p-4 border-l-4 text-sm" style="border-color:#97591A; background:#F8F1E7">
 
-This is Chapter 4's noise floor, met again in a place where it costs you working hours
-instead of a grading sheet.
+**Say what this is.** Six runs is an **illustration**, not a measurement — it is under the
+floor Chapter 4 set, and Chapter 4 is the reason you know that. Running one pair and
+declaring a difference would be the exact design that chapter spent forty minutes
+forbidding. If the two sets overlap completely, say so; that is a result too.
 
 </div>
 
@@ -155,17 +155,18 @@ instead of a grading sheet.
 
 <v-clicks>
 
-- Check your setup and configuration when something behaves oddly, before you debug the thing itself.
-- Check your usage early in the session, not when you hit the limit mid-demonstration.
-- Resume a previous session when you need the reasoning, not just the result.
+- **`/doctor`** — a setup checkup that diagnoses, and can fix, installation and configuration problems. `/checkup` is an alias for it. Reach for it when behaviour is odd, *before* you start debugging the thing you were working on.
+- **Check your usage early** in the session, not when you hit a limit mid-demonstration.
+- **Resume a previous session** when you need the reasoning behind a result, not just the result.
 
 </v-clicks>
 
 <div v-click class="mt-6 text-sm opacity-80">
 
-**Version-fragile.** Command names, flags and behaviours change between releases. These
-are correct as recorded, and get re-checked in the week before the session rather than
-trusted from a slide written months earlier.
+**Version-fragile — and now there is something to hedge.** Command names, flags and
+behaviours change between releases; `/doctor` was extended in a recent version to audit
+memory files and unused components. These are correct as recorded and get re-fetched in the
+week before the session, per `DECISIONS.md` item 6.
 
 </div>
 

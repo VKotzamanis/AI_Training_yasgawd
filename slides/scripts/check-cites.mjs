@@ -14,8 +14,11 @@ const decks = readdirSync(slidesDir).filter(f => /^\d\d-.*\.md$/.test(f))
 const KEY = /<Cite\s+[^>]*k="([^"]+)"/g
 
 let unknown = 0, unverified = 0, cited = 0
+const uncited = []
 for (const deck of decks) {
   const text = readFileSync(join(slidesDir, deck), 'utf8')
+  if (!KEY.test(text)) uncited.push(deck)
+  KEY.lastIndex = 0
   for (const m of text.matchAll(KEY)) {
     const key = m[1]
     cited++
@@ -31,6 +34,12 @@ for (const deck of decks) {
 }
 
 console.log(`check:cites — ${decks.length} deck(s), ${cited} citation(s)`)
+if (uncited.length) {
+  // A deck with no <Cite> passes every other check trivially. Both peer reviews found
+  // unverified claims sitting exactly there, so absence of citations is now reported.
+  console.warn(`check:cites — ${uncited.length} deck(s) cite nothing; claims in them are unchecked:`)
+  for (const d of uncited) console.warn(`    ${d}`)
+}
 const failed = unknown || unverified
 if (expectFail) {
   // Self-test: a build check nobody tests is a build check that silently stops working.

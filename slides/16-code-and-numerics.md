@@ -57,8 +57,11 @@ Model performance on MATLAB is materially worse than on Python.
 
 <div v-click class="mt-6 p-4 border-l-4" style="border-color:#0E5C68; background:#F2F7F8">
 
-**TODO(capture)** — instructor to record the paired demonstration in advance, with model ID
-and date, so the point survives a bad live run.
+**TODO(capture)** — instructor records the demonstration in advance: **several tasks, and
+more than one run of each**, with model ID and date. One task at one run per language is
+the design Chapter 4 spent forty minutes forbidding, and this room will remember that.
+Report what was measured rather than asserting "materially worse" in advance — if the gap
+is smaller than expected, that is the finding.
 
 </div>
 
@@ -103,7 +106,7 @@ the room. That it is caused by how much MATLAB appears in training corpora is a
 
 - Ask for the vectorised form, then time both. The rewrite is often right and occasionally slower.
 - Profile before optimising. Chapter 7's lesson generalises: find the binding constraint before working on anything.
-- A vectorised rewrite changes numerical behaviour at the edges. Check the edges.
+- A vectorised rewrite **can** change results — floating-point addition is not associative, and vectorising reorders the reductions. The change is not confined to edge cases; it is wherever the summation order moved. Compare against the original, not against intuition.
 
 </v-clicks>
 
@@ -121,8 +124,8 @@ the room. That it is caused by how much MATLAB appears in training corpora is a
 
 <div v-click class="mt-6 text-lg">
 
-State the check before you run the work. That sentence has appeared in every chapter of
-this course and it is the same sentence here.
+State the check before you run the work. It is the same demand Chapter 4 made of a prompt
+and Chapter 14 made of a citation, arriving here for a tolerance.
 
 </div>
 

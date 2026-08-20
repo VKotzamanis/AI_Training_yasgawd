@@ -105,11 +105,13 @@ actual policies you write under.
 ## The detection question, from both sides
 
 Chapter 5 said AI-text detectors are unreliable in both directions, and that their false
-positives fall disproportionately on non-native English writers.
+positives fall disproportionately on non-native English writers — **seven detectors, as
+tested in March 2023.** The direction is well evidenced; the specific rates are a snapshot
+of products that have since changed.
 
 <v-clicks>
 
-- **From your side:** you use language support and someone accuses you. The accusation is unfalsifiable by design — you cannot prove you wrote something.
+- **From your side:** you use language support and someone accuses you. You cannot prove authorship from the text itself — which is why the answer is never textual.
 - **From the other side:** you suspect a student's text and have no reliable instrument.
 - These are the same question, and the honest answer to both is the same: **the detector is not evidence.**
 
@@ -121,6 +123,8 @@ What protects you is process, not proof: version history, drafts, notes, and a d
 you wrote before anyone asked. Chapter 18 turns that into a lab standard.
 
 </div>
+
+<Cite k="liang2023" />
 
 ---
 

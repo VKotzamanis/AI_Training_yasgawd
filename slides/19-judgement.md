@@ -24,35 +24,37 @@ down.
 <v-clicks>
 
 - **Not for a novel derivation.** If the step has never been written down, there is nothing to predict from. You are asking a next-token predictor to be first.
-- **Not for anything you cannot verify.** If checking the answer is harder than producing it, you have moved work, not saved it.
+- **Not for anything you cannot verify.** If there is no check you can actually run, stop. If a check exists but costs more than doing the work yourself, that is a different judgement — you have moved work rather than saved it, which is a trade, not a prohibition.
 - **Not where the failure would be silent.** A wrong sign that still runs, a plausible coefficient, a citation that resolves to a real paper saying something else.
 - **Not with data that cannot leave the building.** Unpublished results, sponsor-confidential geometry, anything under an NDA.
+- **Not where the input is untrusted and the output gets acted on.** A poisoned document plus file access is Chapter 6, and none of the four tests above catches it — they all govern what goes *out*, and this one comes *in*.
 
 </v-clicks>
 
 <div v-click class="mt-8 text-lg">
 
-Four tests. If a task fails any one of them, the tool is the wrong instrument — not a
-risky instrument, the wrong one.
+Five tests. Four are about what you send and what you can check. **The fifth is about what
+you let in**, and it is the one a confidentiality rule will not cover for you.
 
 </div>
 
 ---
 
-## Why these four and not a longer list
+## Why these five and not a longer list
 
 <v-clicks>
 
-- **Novel derivation** follows from Chapter 1. The objective is next-token prediction over what has been written. Genuinely new mathematics is the case with no support in the distribution.
+- **Novel derivation** follows from Chapter 5, not Chapter 1. Prediction over a corpus plainly produces sentences that were never in it — the course spends eighteen chapters on that. The real argument is density: where the data was thin, plausible and true come apart, **and nothing in the system detects which regime it is in.** A step nobody has written down is the thinnest region there is.
 - **Cannot verify** follows from Chapter 4. Without a check you cannot tell an improvement from a coincidence, and Chapter 5 says fluent output is not evidence of correctness.
-- **Silent failure** follows from the failure gallery. Every item in it was caught by something. The dangerous class is the one with nothing to catch it.
+- **Silent failure** follows from the failure gallery, once it is built: every item in it will be there *because something caught it*. The dangerous class is the one with nothing to catch it, and by construction it cannot appear in the gallery.
 - **Data that cannot leave** follows from Chapters 12 and 18. You opened those channels deliberately; this is the boundary you set.
+- **Untrusted input** follows from Chapter 6, which the architecture makes the gate for everything in Part III. Instructions and data share one channel and there is no complete defence, so the control is what you point it at.
 
 </v-clicks>
 
 <div v-click class="mt-6 text-lg">
 
-A longer list would be forgotten by Thursday. These four are derivable from the course,
+A longer list would be forgotten by Thursday. These five are derivable from the course,
 which is why they will survive it.
 
 </div>
@@ -85,10 +87,18 @@ sessions.
 
 </v-clicks>
 
-<div v-click class="mt-6 text-sm opacity-80">
+<div v-click class="mt-6 p-4 border-l-4" style="border-color:#0E5C68; background:#F2F7F8">
 
-If a piece of that stack is missing, that is the honest finding of the day, and it is
-more useful than a finished artefact.
+**The check, stated before you start:** at the end of the hour you can name what you
+verified, how you verified it, and what you could not. A finished artefact with none of
+those three is a failed capstone.
+
+</div>
+
+<div v-click class="mt-4 text-sm opacity-80">
+
+If a piece of that stack is missing, that is the honest finding of the day, and it is more
+useful than a finished artefact.
 
 </div>
 

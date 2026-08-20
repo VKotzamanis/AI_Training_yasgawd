@@ -71,8 +71,10 @@ flowchart LR
 
 <div v-click class="mt-6 text-sm opacity-80">
 
-This deck follows the same rule. Its computed figures come from a script in the
-repository, and the illustrative inputs are labelled in the image.
+**This course follows the same rule.** Chapters 1 and 5 carry computed figures generated
+by a script in the repository, with illustrative inputs labelled inside the image itself
+rather than in a caption. This chapter has no figures of its own — the diagram below is
+text.
 
 </div>
 
@@ -90,8 +92,10 @@ repository, and the illustrative inputs are labelled in the image.
 
 <div v-click class="mt-6 text-lg">
 
-And for anything else: generated imagery has no provenance and cannot be regenerated
-deterministically. In a document that carries claims, that is the wrong trade.
+And for anything else: generated imagery carries **no provenance you control**, and
+reproducing it depends on pinning a model, a seed and a sampler you do not own. In a
+document that carries claims, that is the wrong trade — not because it is impossible to
+reproduce, but because the reproducibility is somebody else's to withdraw.
 
 </div>
 
@@ -114,7 +118,7 @@ deterministically. In a document that carries claims, that is the wrong trade.
 <v-clicks>
 
 - A supervisor, a collaborator, or you in eighteen months.
-- Ask for the explanation, then **check it against what the code does**, not against what you meant it to do. The gap between those two is the useful output.
+- Ask for the explanation, then **check it against what the code does**, not against what you meant it to do. The gap between those two is the useful output. Chapter 16 takes the same move on code you inherited and cannot read; here the audience is someone else.
 - Where the explanation is wrong, that is usually the code being unclear rather than the reader being wrong.
 
 </v-clicks>

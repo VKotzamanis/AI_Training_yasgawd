@@ -369,8 +369,15 @@ Primary sources are official documentation. Re-check the week before delivery; a
 - Claude Cowork availability and capabilities, support.claude.com — **[V]**
 - Paid Claude subscriptions do not include API or Console access; API is billed via prepaid usage credits. — **[V]**
 - Anthropic does not support routing Claude Code to non-Claude models through any gateway, though gateways exposing a supported API format do work. — **[V]**
-- Graphify: `/graphify` skill building a local knowledge graph from code, docs and PDFs via tree-sitter AST; edges tagged EXTRACTED or INFERRED; output directory intended for commit; semantic pass over documents uses an API. — **[P]** confirm against the current repository and pin a version.
+- Graphify **0.9.16**: `/graphify` builds a local knowledge graph from code, docs and PDFs via tree-sitter AST; edges tagged EXTRACTED or INFERRED; output directory intended for commit. **The local/remote split is now confirmed by direct observation, version pinned** — running it on this repository on 2026-08-19 failed with: *"no LLM API key found (12 doc/paper/image file(s) need semantic extraction)… A code-only corpus needs no key. Or pass `--code-only` to index just the code (local AST, no key)"*. So the document pass requires an external API and the code pass does not, in 0.9.16. — **[V]** {#graphify | Graphify project | 2026 | graphify 0.9.16, behaviour observed directly on this machine 2026-08-19 | version 0.9.16 | paper | -}
+  - **Re-check on upgrade.** This is a version-pinned observation, not a documented guarantee. Chapter 18 routes an NDA decision through it, so the pin matters more here than anywhere else in the file.
 - Antigravity (Google) as the group's Gemini access path — **[U]** *instructor-supplied. Working configuration needed before Chapter 12 is written; see `DECISIONS.md` item 2.*
+
+- Model Context Protocol specification, version **2025-06-18**, modelcontextprotocol.io — **[V]**, fetched 2026-08-20 {#mcp-spec | Model Context Protocol | 2025-06-18 | modelcontextprotocol.io — protocol specification | version 2025-06-18 | paper | -}
+  - Roles, verbatim: *"**Hosts**: LLM applications that initiate connections; **Clients**: Connectors within the host application; **Servers**: Services that provide context and capabilities."*
+  - Server features, verbatim: *"**Resources**: Context and data… **Prompts**: Templated messages and workflows… **Tools**: Functions for the AI model to execute."* The Chapter 12 slide's three primitives match the spec exactly.
+  - **Not on the slide, and worth adding:** clients may also offer Sampling, Roots and Elicitation to servers. The deck covers server features only.
+  - **Security section, load-bearing for Chapter 6 and 12:** *"Tools represent arbitrary code execution and must be treated with appropriate caution… descriptions of tool behavior such as annotations should be considered untrusted, unless obtained from a trusted server."* That is the trust boundary stated by the protocol itself.
 
 ### The Chapter 13 worked example
 Reverse-engineering KV cache bytes-per-token from a published price break at 200K context, arriving at roughly 1.7 kB per token, then sanity-checking against plausible head dimensions and KV head counts. **[V]** from the Pope lecture. Verify current pricing before delivery — the price structure may have changed.

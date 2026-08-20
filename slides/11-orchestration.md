@@ -42,7 +42,7 @@ The unit of delegation is a context window, not a task. That reframing is most o
 <v-clicks>
 
 - On a large change, the plan is the artefact you review — not the diff, which arrives too late and too long.
-- Rejecting a plan costs a minute. Rejecting forty files of edits costs an afternoon and your patience.
+- Chapter 9 made the cost asymmetry at the scale of one change. At forty files it stops being an argument and becomes the only workable review point.
 - A plan you cannot follow is a plan the model cannot execute either. Chapter 3's colleague test applies unchanged.
 
 </v-clicks>
@@ -57,14 +57,22 @@ The unit of delegation is a context window, not a task. That reframing is most o
 
 - A subagent is a fresh session with its own window, given one scoped task, returning a result rather than a transcript.
 - Good for breadth: search several places at once, review several dimensions independently, sweep a directory.
-- Bad for anything needing the judgement you are holding. A subagent reasoning from priors returns fluent, ungrounded output that reads exactly like verification.
+- Bad for anything needing the judgement you are holding.
 
 </v-clicks>
 
-<div v-click class="mt-6 text-lg">
+<div v-click class="mt-6 p-4 border-l-4" style="border-color:#0E5C68; background:#F2F7F8">
 
-**Give a subagent the evidence, not the question.** File paths, the actual numbers, the
-exact claim — and permission to answer "insufficient evidence".
+**The rest of this slide is the instructor's practice, not documentation.** A subagent
+reasoning from priors returns fluent, ungrounded output that reads exactly like
+verification. **Give it the evidence, not the question** — file paths, the actual numbers,
+the exact claim — and permission to answer "insufficient evidence".
+
+</div>
+
+<div class="text-sm opacity-70 mt-2">
+
+Mechanism from the documentation; the framing above the line is mine.
 
 </div>
 
@@ -101,6 +109,7 @@ automatically, and the rewrite is announced.
 - A workflow is orchestration written down: what fans out, what verifies, what synthesises — deterministic control flow around non-deterministic workers.
 - It can be saved and re-run, which turns a good session into a group procedure.
 - **Ultracode** is the session-scoped setting that pairs the highest reasoning effort with automatic workflow orchestration.
+- Three ways in, as recorded: `/effort ultracode` in a session, `claude --effort ultracode` at launch (from **v2.1.203**), or the bare keyword to apply it to a single task.
 
 </v-clicks>
 
@@ -113,8 +122,8 @@ automatically, and the rewrite is announced.
 <v-clicks>
 
 1. **It is session-scoped.** Put it in a persistent settings field and it is *silently ignored* — no error, no warning, and you believe it is on for weeks.
-2. **Subagents inside a workflow auto-approve file edits.** The diff-review discipline from Chapter 9 does not hold inside the fan-out. That is the trade you are making.
-3. **It carries a significant cost premium.** On individual subscriptions this is where limits actually get hit.
+2. **Subagents auto-approve file edits.** The diff-review discipline from Chapter 9 does not hold inside a fan-out — that is the trade you are making. **The record does not say this is limited to workflows**, so assume it applies to any subagent until you have checked the current documentation yourself.
+3. **It carries a significant cost premium.** On individual subscriptions this is where limits actually get hit. **No multiplier is published**, and this deck does not invent one — treat "significant" as the whole of what is known.
 
 </v-clicks>
 
@@ -188,8 +197,8 @@ agent is for before you spawn it.
 <v-clicks>
 
 - Chapter 7 priced one forward pass. Orchestration runs many, concurrently, at the highest effort setting.
-- The premium is not a rounding error, and the room is on individual subscriptions.
-- Teach `/usage` early, run heavy blocks before the afternoon, and pair when someone hits a limit.
+- The premium is not a rounding error — though its size is unpublished — and the room is on individual subscriptions.
+- Teach the usage check early, run heavy blocks before the afternoon, and pair when someone hits a limit. `TODO(cite)` — the exact command name is not in `references.md`; confirm it against the documentation in delivery week rather than reading it off this slide.
 
 </v-clicks>
 

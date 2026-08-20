@@ -21,8 +21,8 @@ quietly wrong.
 
 ## Start from the failure gallery
 
-You have already seen a fabricated citation from your own field, and what it took to
-catch it.
+By this point in the course you will have seen a fabricated citation from your own field,
+and what it took to catch it.
 
 <v-clicks>
 
@@ -54,6 +54,14 @@ Everything in this chapter is downstream of that one demonstration.
 
 **Check the extraction before you reason about the content.** A wrong number extracted
 cleanly looks exactly like a right one.
+
+<div class="mt-3 text-sm opacity-80">
+
+These failure modes are **extractor-dependent** — they are not properties of PDFs. Name the
+tool you used when you report them, and re-check when you change it. `TODO(capture)` — run
+one extraction live on a two-column paper with equations rather than describing it.
+
+</div>
 
 </div>
 
@@ -110,9 +118,9 @@ That is a five-case eval wearing different clothes.
 
 <div v-click class="mt-6 text-sm opacity-80">
 
-You have seen this failure twice in this course already — a prompting result that held on
-one model family being quoted as general, and a hardware result true on a benchmark being
-quoted as deployed.
+You have seen this failure in this course already: a hardware result, true on a specific
+benchmark, circulating as though the technology were deployed. Chapter 7 corrected it in
+front of you.
 
 </div>
 
@@ -130,15 +138,17 @@ quoted as deployed.
 
 - Resolve the DOI or the arXiv ID. Open the record. Confirm the title, the authors and the year.
 - A citation you have not resolved is a candidate, not a reference.
-- This costs about thirty seconds per source and it is the entire defence.
+- It costs a few seconds per source once the habit is formed, and it is the entire defence.
 
 </v-clicks>
 
 <div v-click class="mt-8 text-sm opacity-75 border-t pt-3">
 
-**Thread — truthfulness, closed.** Introduced in Chapter 2 as a rated rubric dimension,
-explained in Chapter 5 as a structural property rather than a bug, and enforced here as a
-work habit you can actually perform.
+**Thread — truthfulness.** Introduced in Chapter 2 as a rated rubric dimension, explained
+in Chapter 5 as a structural property rather than a bug, and closed here **for citations** —
+the one part of the problem with a mechanical check. The general case does not close: a
+fluent, uncitable, wrong sentence has no identifier to resolve. That is what Chapter 17 is
+for.
 
 </div>
 
