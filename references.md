@@ -43,6 +43,20 @@ Two slides need an explicit COI note:
 ### Still needed
 A tokenizer demo run on a MATLAB snippet and an abstract from the shared domain (mechanics, concrete or fluids), captured as screenshots so it doesn't depend on live internet.
 
+### Teaching exemplars — pedagogy only, never citable on a slide
+
+Read in full for `curriculum/research-teaching-exemplars.md` and drawn on for the structure of the
+rebuilt Chapter 1. **None carries a `{#key}` marker, so none can reach a slide through the footer
+component.** They are recorded because Chapter 1 borrows teaching moves from them and a course about
+citation discipline should say where its own methods came from. Fetches are in `SOURCE-LOG.md`.
+
+- Karpathy, A., 2023, *[1hr Talk] Intro to Large Language Models*, archive.org/details/youtube-zjkBMFhNj_g — **[P]**. The page and the author's own chapter markers were read; the 42 MB slide PDF was not opened. **Borrowed:** a model defined as a concrete artefact — files on a disk — in one slide. Used on Chapter 1 slide 4.
+- Wolfram, S., 2023, *What Is ChatGPT Doing … and Why Does It Work?*, writings.stephenwolfram.com — **[P]**. Primary HTML, fetched with certificate verification disabled because the server sends an incomplete chain. **Borrowed:** state the objective plainly, then show the simplest selection rule failing. Used on Chapter 1 slide 16. Also the parenthetical deferral of a term, used on slide 7.
+- Sanderson, G. (3Blue1Brown), 2024, *But what is a GPT? Visual intro to transformers*, 3blue1brown.com/lessons/gpt — **[V]**, fetched and read. **Borrowed:** show the whole pipeline before explaining any stage of it. Used on Chapter 1 slide 7.
+- Douglas, M. R., 2023, *Large Language Models*, arXiv:2307.05782 — **[V]**, abstract record and HTML of v2 read. **Borrowed:** a token example drawn from the reader's own field. Used on Chapter 1 slide 8.
+- Carpenter, B., 2023, *Language models for statisticians*, github.com/bob-carpenter/talks/tree/master/llm2023 — **[V]**, LaTeX source read via `gh api`. **Borrowed:** reach the mechanism through the reader's own discipline. Used on Chapter 1 slide 6, where training is given as curve fitting.
+- Murgia, M., et al., 2023, *Generative AI exists because of the transformer*, ig.ft.com/generative-ai — **[P]**. WebFetch blocked; narrative text recovered verbatim from the page's JavaScript bundle. **The rendered graphics were never seen**, so nothing about their appearance is relied on. **Borrowed:** expand every acronym in the sentence that introduces it. Used on Chapter 1 slide 3.
+
 ---
 
 # Chapter 2 — Formation

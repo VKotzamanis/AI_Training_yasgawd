@@ -26,6 +26,11 @@
 
 /* Diagrams and figures should dominate the slide, not sit in a corner. */
 .slidev-layout .mermaid { display: flex; justify-content: center; }
+/* Do not try to size Mermaid diagrams from here. Slidev renders each one inside a shadow
+   root, so no rule in this file reaches the SVG. Size is controlled by the {scale: n} option
+   on the fence, which sets the SVG height only. A long left-to-right chain saturates the
+   slide width at its natural size, so the lever for a diagram that looks small is fewer
+   nodes per row, not a larger scale. Measured 2026-08-20 on @slidev/cli 52.19.1. */
 .slidev-layout img { display: block; margin-inline: auto; }
 
 /* Tables were spreading to full width with huge gaps between columns. */
