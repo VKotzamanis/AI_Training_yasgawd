@@ -103,7 +103,7 @@ Structure to reconstruct:
 # Chapter 3 — Control
 
 ### Citations
-- Wei et al., 2022, *Chain-of-Thought Prompting Elicits Reasoning*, arXiv:2201.11903 — **[U]**
+- Wei et al., 2022, *Chain-of-Thought Prompting Elicits Reasoning*, arXiv:2201.11903 — **[U]** {#wei2022 | Wei et al. | 2022 | Chain-of-Thought Prompting Elicits Reasoning | arXiv:2201.11903 | paper | -}
 - Kojima et al., 2022, *Large Language Models are Zero-Shot Reasoners* ("let's think step by step") — **[U]**
 - Anthropic prompt engineering documentation, docs.claude.com — **[V]**
 
@@ -115,9 +115,15 @@ Structure to reconstruct:
 # Chapter 4 — Measurement
 
 ### Citations
-- **The OPRO erratum.** A reader comment on the Pope transcript notes that the compute-time equation defines its denominator as multiply-accumulates per second, so substituting spec-sheet FLOPs makes the result wrong by a factor of two; the numerator needs a factor of 2. **[V]** — visible in the gist comment thread, dated May 2026.
+- **The MACs-versus-FLOPs erratum.** A reader comment on the Pope transcript notes that the compute-time equation defines its denominator as multiply-accumulates per second, so substituting spec-sheet FLOPs makes the result wrong by a factor of two; the numerator needs a factor of 2. **[V]** — visible in the gist comment thread, dated May 2026.
   - **This is the anchor artefact of the chapter.** A unit-definition error, in an expert lecture, caught by an outside reader, producing a clean factor of two.
 - Later re-evaluations finding the "take a deep breath" phrasing does not transfer to newer models — **[P]**. Find a primary re-evaluation rather than a blog summary.
+- Zheng, Pei, Logeswaran, Lee & Jurgens, 2024, *When "A Helpful Assistant" Is Not Really Helpful: Personas in System Prompts Do Not Improve Performances of Large Language Models*, Findings of the ACL: EMNLP 2024, pp. 15126–15154, DOI 10.18653/v1/2024.findings-emnlp.888 — **[V]**. ACL Anthology record fetched 2026-08-19. {#zheng2024 | Zheng, M., Pei, J., Logeswaran, L., Lee, M. & Jurgens, D. | 2024 | Findings of the ACL: EMNLP 2024, pp. 15126–15154 | DOI 10.18653/v1/2024.findings-emnlp.888 | paper | -} 162 roles, four model families, 2,410 factual questions; personas in system prompts do not improve performance over the no-persona control.
+  - **Second finding, and the one Chapter 4 needs:** aggregating the best persona per question does improve accuracy, but identifying it in advance performs no better than random selection. Post-hoc selection of the winning condition.
+  - **Caveat for the slide:** those model families, that question set. Not Opus 5 on civil engineering.
+- Meincke, Mollick, Mollick & Shapiro, 8 June 2025, *The Decreasing Value of Chain of Thought in Prompting*, Wharton Generative AI Labs technical report, SSRN — **[P]**. Publisher page fetched 2026-08-19; the SSRN report itself has not been read. **TODO(verify)** — read the report and check the figures before any reach a slide. Search terms: `Meincke Mollick decreasing value chain of thought SSRN` · `GPQA Diamond chain of thought reasoning models`.
+  - Reported on GPQA Diamond: reasoning models o3-mini +2.9%, o4-mini +3.1%, Gemini Flash 2.5 −3.3%, at 20–80% more time; non-reasoning Gemini Flash 2.0 +13.5%, Sonnet 3.5 +11.7%, GPT-4o-mini +4.4% (n.s.).
+  - Not peer reviewed. Label it a technical report on the slide.
 
 ### Search terms
 `LLM evaluation small sample size` · `prompt A/B testing methodology` · `blinded evaluation LLM outputs` · `inter-annotator agreement small n` · `benchmark contamination LLM` · `eval harness lightweight custom`
@@ -207,7 +213,7 @@ Poisoned-document demo assets, held in an isolated directory. Build and test the
 
 # Chapter 7 — Physical limits
 
-**Primary source: the Reiner Pope blackboard lecture (Dwarkesh Podcast, April 2026), transcript published as a public gist. [V]** — fetched and read. Label as expert testimony, declare the COI, and cite underlying papers wherever the lecture points at one.
+**Primary source: the Reiner Pope blackboard lecture (Dwarkesh Podcast, April 2026), transcript published as a public gist. [V]** — fetched and read. {#pope2026 | Pope, R. | 2026 | Dwarkesh Podcast, blackboard lecture; transcript published as a public gist | - | testimony | coi} Label as expert testimony, declare the COI, and cite underlying papers wherever the lecture points at one.
 
 ### What the lecture supports
 - Roofline framing: time bounded below by the maximum of compute time and memory time
@@ -223,7 +229,7 @@ Poisoned-document demo assets, held in an isolated directory. Build and test the
 **It says nothing about accuracy degradation with context length.** Cost and latency only. Conflating this with Chapter 5 is the most likely error in the whole course.
 
 ### Also from the lecture
-- Feistel networks and RevNets, arXiv:1707.04585 — **[P]** — trading compute for memory by making the network invertible. Optional; a nice engineering parallel.
+- Feistel networks and RevNets, arXiv:1707.04585 — **[P]** — trading compute for memory by making the network invertible. {#revnets | TODO(cite) author unverified | TODO(cite) | RevNets, reached via the Pope lecture | arXiv:1707.04585 | paper | -} Optional; a nice engineering parallel.
 
 ### Energy
 - **[X]** Do not use any per-query energy figure without a primary source. Published figures are contested and routinely conflate one-off training cost with per-query inference cost.

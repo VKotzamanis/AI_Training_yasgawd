@@ -60,10 +60,12 @@ DECISIONS.md                    locked decisions and open questions
 references.md                   citations with verification status, search terms
 curriculum/architecture.md      chapters, threads, sequencing constraints
 curriculum/chapter-briefs.md    content inventory per chapter
+curriculum/production-plan.md   chapter categories, production order, review gate
 slides/                         Slidev deck source, one file per chapter
 assets/                         figures, demo repos, failure gallery
 assets/injection-demo/          poisoned-document demo. ISOLATED. Do not execute.
 assets/rating-exercise/         Chapter 2 live rating exercise. Write from scratch.
+assets/eval-worksheet/          Chapter 4 eval. Instructor runs it in advance.
 assets/failure-gallery/         Chapter 5 domain-specific wrong outputs
 ```
 

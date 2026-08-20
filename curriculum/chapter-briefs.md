@@ -88,7 +88,7 @@ Explicit warning that prompts do not port between providers. Sets up Chapter 12.
 
 Converts the course from advice into method. Highest-value chapter in Session 1.
 
-Contains: why prompting advice circulates as folklore; the minimal eval — ten fixed cases from your own work, a pass criterion defined before you look at output, run A, run B, count; blinding yourself to condition; what ten cases can and cannot support; recording the model version alongside the result.
+Contains: why prompting advice circulates as folklore; the minimal eval — five fixed cases from your own work, a pass criterion defined before you look at output, run A, run B, count; an A-vs-A null strip on the same five cases, measuring run-to-run variance before any A/B result is read; blinding yourself to condition; what five cases can and cannot support — a paired sign test on five cases cannot reach two-sided p<0.05 under any outcome, so five buys a screen, not a finding; recording the model version alongside the result.
 
 Framed as a control experiment with small n. The audience already has this skill and does not know it applies here.
 
@@ -96,7 +96,7 @@ Framed as a control experiment with small n. The audience already has this skill
 
 **Starts thread:** verification.
 
-**To produce:** two or three prompting claims tested by the instructor in advance, with results. A demo where the folklore loses is more valuable than one where it wins.
+**To produce:** two or three prompting claims tested by the instructor in advance, with results. A demo where the folklore loses is more valuable than one where it wins. Full specification in `../assets/eval-worksheet/README.md`; claims selected and evidenced there.
 
 ---
 

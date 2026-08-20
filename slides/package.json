@@ -1,0 +1,22 @@
+{
+  "name": "ai-training-slides",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "slidev",
+    "build": "slidev build",
+    "export": "slidev export",
+    "sources": "node scripts/gen-sources.mjs",
+    "check:cites": "node scripts/gen-sources.mjs && node scripts/check-cites.mjs",
+    "check:cites:selftest": "node scripts/check-cites.mjs fixtures --expect-fail"
+  },
+  "devDependencies": {
+    "@slidev/cli": "52.19.1",
+    "@slidev/theme-default": "0.25.0",
+    "playwright-chromium": "^1.62.1",
+    "vue": "3.5.41"
+  }
+}
