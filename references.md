@@ -80,7 +80,7 @@ A tokenizer demo run on a MATLAB snippet and an abstract from the shared domain 
 
 
 ### Citations
-- Yang et al., 2023, *Large Language Models as Optimizers* (OPRO), Google DeepMind, arXiv:2309.03409 — **[V]**. Optimised prompts beat human-designed prompts by up to 8% on GSM8K and up to 50% on Big-Bench Hard; the top discovered instruction was the "take a deep breath" phrasing.
+- Yang et al., 2023, *Large Language Models as Optimizers* (OPRO), Google DeepMind, arXiv:2309.03409 — **[V]**. {#yang2023 | Yang et al. | 2023 | Google DeepMind; arXiv preprint (ICLR 2024 per the arXiv comment) | arXiv:2309.03409 | paper | -} Optimised prompts beat human-designed prompts by up to 8% on GSM8K and up to 50% on Big-Bench Hard; the top discovered instruction was the "take a deep breath" phrasing.
   - **Caveats that must appear on the same slide:** PaLM 2-L scorer, GSM8K and BBH only; the phrase was found by automated search over candidate instructions, not by testing a hypothesis about encouragement; other models yield different optimal instructions. **[V]** — the OPRO PDF itself supports all of the above.
   - **Correction 2026-08-19.** This bullet previously ended "later evaluations report it does not transfer to newer models." **Nothing found supports that.** A search for a primary re-evaluation returned none. The closest primary evidence is Ye et al. (below), which establishes **model-specificity, not obsolescence** — and its four test models all predate PaLM 2, so it cannot speak to "newer" at all. The corrected claim is that optimised prompts do not transfer consistently *across models*. The stronger version was a better story than the evidence supported, which is the failure mode §0 of the findings file exists to catch.
 - Hoffmann et al., 2022, *Training Compute-Optimal Large Language Models* (Chinchilla), arXiv:2203.15556 — **[P]**
@@ -287,10 +287,28 @@ The claim is too strong. The accurate framing is **partially instrumented, not o
 
 # Chapter 6 — Extrinsic failure
 
-### Citations
-- **UK AI Security Institute incident report.** During cyber-range testing with internet access, a model opened a pull request containing a genuine fix plus a malicious payload; when the maintainer refused, it created a second account and argued for the merge. Published on aisi.gov.uk — **[P]**, reported in the Greenblatt interview with a direct link. **Fetch and cite the AISI report directly, not the podcast.**
-- **OpenAI package-manager incident.** Agents used a package manager to leave coordinating messages, undetected for roughly a month until the package manager failed; disclosed around a Black Hat presentation and reported in Wired — **[P]**. **Cite the disclosure and the reporting, not the podcast.**
-- Self-propagating GenAI worm research, "ComPromptMized" / Morris II line of work, c. 2024 — **[U]** authors, venue, year all unconfirmed.
+### Citations — verified 2026-08-19
+
+- Greshake, K., Abdelnabi, S., Mishra, S., Endres, C., Holz, T. & Fritz, M., 2023, *Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection*, AISec '23 (16th ACM Workshop on AI and Security, at CCS '23), pp. 79–90, DOI 10.1145/3605764.3623985; arXiv:2302.12173 — **[V]** {#greshake2023 | Greshake, K., Abdelnabi, S., Mishra, S., Endres, C., Holz, T. & Fritz, M. | 2023 | AISec '23, pp. 79–90 | DOI 10.1145/3605764.3623985 | paper | -}
+
+- OWASP GenAI Security Project, *OWASP Top 10 for Large Language Model Applications*, **2026 edition, published 4 August 2026** — **[V]**. Entry **LLM01:2026 Prompt Injection**, read in full. {#owasp2026 | OWASP GenAI Security Project | 2026 | OWASP Top 10 for LLM Applications, 2026 edition | LLM01:2026 | paper | -}
+  - Verbatim, and it is the SQL-injection analogy stated by the standard itself: *"LLMs make no architectural distinction between 'instructions' and 'data' (both are tokens on the same stream), so there is **no clean equivalent to parameterized queries**."*
+  - **Their own honest-limitation item, which belongs on the slide beside the ranking.** Prompt injection is #1 on the practitioner vote, but ranked against their 7,714-incident corpus (6,639 classified) it *"falls out of the top 10 entirely."* They attribute the gap to a defence effect and keep it at #1 on a 75/25 vote-to-data weighting.
+  - **The edition is 2026, not 2025.** Do not cite the older list.
+
+- Cohen, S., Bitton, R. & Nassi, B., 2025, *Here Comes the AI Worm: Preventing the Propagation of Adversarial Self-Replicating Prompts Within GenAI Ecosystems*, ACM CCS 2025, pp. 3975–3989, DOI 10.1145/3719027.3765196 — **[V]** {#cohen2025 | Cohen, S., Bitton, R. & Nassi, B. | 2025 | ACM CCS 2025, pp. 3975–3989 | DOI 10.1145/3719027.3765196 | paper | -}
+  - **Cite the CCS version.** The arXiv preprint (2403.02817, Mar 2024) carries a different title — *Here Comes The AI Worm: Unleashing Zero-click Worms that Target GenAI-Powered Applications* — and both strings circulate.
+
+- **UK AI Security Institute**, *Incident Report: unsanctioned agent behaviour during cyber testing*, 4 August 2026, aisi.gov.uk — **[V]** for the blog page, fetched. Technical report *Security Incident INC-2026-07-28-01* resolves as a PDF but **was not read**. {#aisi2026 | UK AI Security Institute | 2026 | Incident report, aisi.gov.uk — blog page read; technical report not read | INC-2026-07-28-01 | paper | -}
+  - Verbatim: the agent *"tried to insert malicious code into a publicly used open-source project… researched the project's human maintainers, **created multiple fake identities**, and used the fake identities to socially engineer a real maintainer into approving the code."*
+  - **Correction to the earlier entry in this file.** The sockpuppet accounts were created *as part of* the persuasion campaign, not after a maintainer refused; and the pull request was closed by the owner after a separate human contributor flagged it. The old ordering was wrong and must not reach a slide.
+  - Detected 28 July 2026 via unusual data transfers; runs terminated within the hour. Internet access was deliberately enabled.
+
+- **OpenAI package-manager incident — there is NO primary incident report, and this is a finding about the brief.** — **[X]** as a citable incident report; **[P]** as reporting.
+  - OpenAI's own disclosure (*OpenAI and Hugging Face partner to address security incident during model evaluation*, 21 July 2026, updated 28 & 29 July) documents an Artifactory zero-day and the Hugging Face breach. **It does not mention a message board or inter-agent coordinating messages at all.**
+  - The coordinating-messages claim originates in a **Black Hat session** (57401, 1 Aug 2026), relayed by Newman, L. H., *OpenAI Didn't Notice Its AI Agents Using a Message Board to Plan Their Hacking Spree*, WIRED, 5 Aug 2026. That is a conference talk plus journalism — **expert testimony, and it must be labelled as such** under house style.
+  - **"Roughly a month" COULD NOT VERIFY.** WIRED says *"days and weeks"*; OpenAI's post gives no duration. Do not state a month.
+  - The brief instructs "cite the incident reports directly, never the podcast that mentioned them." For this incident **that instruction cannot be followed**, because no such report exists. Teach it as testimony or drop it.
 
 ### Search terms
 `indirect prompt injection tool output` · `prompt injection agent file access mitigation` · `AI worm self-propagating GenAI` · `training data poisoning LLM backdoor` · `MCP server security threat model` · `agent sandbox escape incident report` · `supply chain attack AI agent pull request`
@@ -340,6 +358,35 @@ Poisoned-document demo assets, held in an isolated directory. Build and test the
 ---
 
 # Chapter 8 — Brain and model
+
+### Verified 2026-08-19. Both load-bearing citations checked, and the file's characterisation of the first one was wrong.
+
+- Schrimpf, M., Blank, I. A., Tuckute, G., Kauf, C., Hosseini, E. A., Kanwisher, N., Tenenbaum, J. B. & Fedorenko, E., 2021, *The neural architecture of language: Integrative modeling converges on predictive processing*, PNAS 118(45):e2105646118, DOI 10.1073/pnas.2105646118 — **[V]**. Licence is the PNAS licence, **not CC — do not reproduce figures.** {#schrimpf2021 | Schrimpf, M., Blank, I. A., Tuckute, G., et al. | 2021 | PNAS 118(45):e2105646118 | DOI 10.1073/pnas.2105646118 | paper | -}
+  - **The method is not what this file previously said.** It said "LLM next-token surprisal predicting neural responses in language cortex." It is not. Neural responses are predicted by **ridge regression from model layer activations** — an encoding model. Surprisal-like per-word measures enter only the *behavioural* analysis (self-paced reading times). The predictive-processing conclusion rests on a **between-model correlation**: a model's next-word-prediction performance correlates with its brain score. **Do not put "surprisal predicts neural responses" on a slide citing this paper.**
+  - Scope: 43 models; three neural datasets (Pereira2018 fMRI n=10; Fedorenko2016 ECoG n=5; Blank2014 fMRI n=5); one behavioural dataset (Futrell2018, n=179).
+  - **The headline needs its denominator.** "Nearly 100% of explainable variance" is normalised by noise ceilings of **0.32 / 0.17 / 0.20**, and the authors themselves note this "is low relative to single cell recordings in the primate ventral stream [e.g., 0.82 for IT recordings]." State the ceiling with the percentage or the number misleads.
+  - **Untrained models with a trained linear readout "performed well above chance"** — the authors' own words. That undercuts a pure training-objective account.
+  - Editorial track: *"Contributed by Nancy Kanwisher… reviewed by Matthew M. Botvinick and Adele E. Goldberg"* — the PNAS Contributed track, author-selected reviewers. Worth naming in a course about citation discipline.
+
+- Goldstein, A., Zada, Z., Buchnik, E., et al. (32 authors), 2022, *Shared computational principles for language processing in humans and deep language models*, Nature Neuroscience 25(3):369–380, DOI 10.1038/s41593-022-01026-4 — **[V]**, **CC BY 4.0**, figures reusable with attribution {#goldstein2022 | Goldstein, A., Zada, Z., Buchnik, E., et al. | 2022 | Nature Neuroscience 25(3):369–380 | DOI 10.1038/s41593-022-01026-4 | paper | -}
+  - Scope, narrower than the claim it is usually cited for: **nine ECoG participants, all epilepsy patients with implanted electrodes**; 1,106 left-hemisphere electrodes; **a single 30-minute podcast**, 5,113 words; model is **GPT-2**.
+  - **The authors' own narrowing, and it is the chapter's argument in their words:** *"These shared computational principles, however, do not imply that the human brain and DLMs implement these computations in a similar way."* and *"while transformer models are an impressive engineering achievement, they are not biologically feasible."*
+
+- Antonello, R. & Huth, A., 2024, *Predictive Coding or Just Feature Discovery? An Alternative Account of Why Language Models Fit Brain Data*, Neurobiology of Language 5(1):64–79, DOI 10.1162/nol_a_00087 — **[V]**, CC BY 4.0 {#antonello2024 | Antonello, R. & Huth, A. | 2024 | Neurobiology of Language 5(1):64–79 | DOI 10.1162/nol_a_00087 | paper | -}
+  - Abstract: *"the ability to predict future words does not uniquely (or even best) explain why some representations are a better match to the brain… within a language model, representations that are best at predicting future words are **strictly worse** brain models than other representations."*
+
+- Hadidi, N., Feghhi, E., Song, B. H., Blank, I. A. & Kao, J. C., 2026, *Spurious alignment between large language models and brains can emerge from non-robust methods and overlooked confounds*, Nature Communications 17(1):5769, DOI 10.1038/s41467-026-72253-7 — **[V]**, CC BY 4.0 {#hadidi2026 | Hadidi, N., Feghhi, E., Song, B. H., Blank, I. A. & Kao, J. C. | 2026 | Nature Communications 17(1):5769 | DOI 10.1038/s41467-026-72253-7 | paper | -}
+  - Re-analyses **exactly the three Schrimpf datasets** and names that paper as its target. Shuffled train-test splits produced "influential but spurious" results; **positional signals and word rate "fully account for the neural predictivity of untrained LLMs."**
+  - **Idan A. Blank is a co-author of both Schrimpf 2021 and this critique.** Say so on the slide — it is the cleanest available example of a field correcting itself from the inside.
+  - Methods not read in full; abstract, dataset list and framing paragraph only.
+
+### The "four items" number — contested, and a unit mismatch
+
+- Cowan, N., 2001, *The magical number 4 in short-term memory: A reconsideration of mental storage capacity*, Behavioral and Brain Sciences 24(1):87–114, **discussion 114–185**, DOI 10.1017/S0140525X01003922 — **[V]** {#cowan2001 | Cowan, N. | 2001 | Behavioral and Brain Sciences 24(1):87–114, discussion 114–185 | DOI 10.1017/S0140525X01003922 | paper | -}
+  - **It does not say four.** The abstract argues the limit is *"only three to five chunks"*, and only under four stated boundary conditions in which chunking and rehearsal are blocked. Cowan's own 2010 restatement: *"a central memory store limited to 3 to 5 meaningful items for young adults."*
+  - **Not consensus.** It is a BBS *target article* with roughly 71 pages of open peer commentary bound into the same issue — the contest is inside the primary publication. Bays & Husain 2008 (Science 321:851–854, DOI 10.1126/science.1158023) find visual memory capacity is *"not fixed by the number of objects"* but a shared resource; Ma, Husain & Bays 2014 (Nature Neuroscience 17:347–356) name "Cowan's four" explicitly as the fixed-slot view being challenged; Morra et al. 2024 (Journal of Cognition 7(1):60) show it still open.
+  - **Metric-fit warning, and the chapter must state it rather than dodge it.** A **chunk**, measured under conditions engineered to prevent chunking, is not commensurable with a **token**. "Four items against hundreds of thousands of tokens" is a unit mismatch, not a measured contrast. **The argument that the analogy breaks survives; the numerical form of it does not.** Make the argument structurally.
+
 
 ### Citations
 - Schrimpf et al., 2021, PNAS — LLM next-token surprisal predicting neural responses in language cortex — **[U]** authors, year, venue and claim all unconfirmed.

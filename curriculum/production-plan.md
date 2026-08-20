@@ -96,12 +96,12 @@ Three items cannot be produced in a sitting. They start immediately, independent
 | 1 | **1 — Substrate** | **Done.** 15 slides, 2 computed figures, PDF committed | Two captures: tokeniser screenshots, temperature demo |
 | 2 | **7 — Physical limits** | **Done.** 18 slides, PDF committed. Two brief claims corrected against verified sources | Nothing |
 | 3 | **3 — Control** | **Done.** 18 slides, PDF committed. Two claims deliberately left open for Ch 4 | Nothing |
-| 4 | **8 — Brain and model** | **Next.** Unblocked, but **both primary citations are unverified and load-bearing** | Nothing; verification is mine |
+| 4 | **8 — Brain and model** | **Done.** 13 slides. Both primary citations verified — and one was mischaracterised in `references.md` | Nothing |
 | 5 | **5 — Intrinsic failure** | Writable except the position curve | Failure gallery accrues alongside |
 | 6 | **19 — Judgement** | Unblocked | Nothing |
-| — | **4 — Measurement** | **Blocked** | The five cases and their pass criteria |
-| — | **2a / 2b** | **Blocked** | The split decision |
-| — | **6 — Extrinsic failure** | Blocked | Isolated machine for the injection demo |
+| — | **4 — Measurement** | Built; results pending | The five cases and their pass criteria |
+| — | **2 — Formation** | **Built**, 23 slides, with the 2a/2b cut point marked on a slide | The split decision — deleting that one slide merges the halves again |
+| — | **6 — Extrinsic failure** | **Built**, 14 slides | Isolated machine for the injection demo assets |
 | — | **9–13** | Deferred by design | Version-fragile; write last. Ch 12 needs the Antigravity config |
 | — | **14–19** | Blocked | Which journals the group publishes in |
 
