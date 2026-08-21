@@ -880,6 +880,559 @@ def fig_surprise():
     plt.close(fig); print("wrote 01-surprise.png")
 
 
+# ---------------------------------------------------------------------------
+# Chapter 2 figures, added 2026-08-20 for "how it became an assistant".
+# CLAUDE.md hard rule 5: no prompt, rubric row, banned-phrase list, persona
+# or project name from any review document is reproduced or paraphrased.
+# Review documents are referred to only as A-E, only by count ("three of
+# five"). Every worked example below is invented from scratch, on this
+# audience's own domain (mechanics, concrete, fluids). Where a figure
+# illustrates a real structural finding from curriculum/ch02-annotation-
+# findings.md (divergence counts, the rebuild, the two labour models, the
+# evidence-vs-force gap), the counts and shape are the finding; the wording,
+# the instrument and the worked example are all built fresh here.
+#
+# The chapter's one running example, used wherever a concrete instance is
+# needed. Physically correct answer, checkable by this audience without a
+# source: lowering the ratio raises compressive strength, because less
+# excess water leaves fewer voids when it evaporates out of the hardened
+# cement paste.
+# ---------------------------------------------------------------------------
+CH2_QUESTION = "What does lowering the water/cement ratio do to compressive strength?"
+
+# The six rating dimensions are named once here and reused unchanged in every
+# Chapter 2 figure that needs them, per the review's own finding that this
+# device is the strongest structural element in the course.
+RUBRIC_DIMS = ["truthfulness", "instruction following", "harmlessness",
+               "formatting", "verbosity", "tone"]
+
+
+def fig_house_style():
+    """The rater does not only judge - they repair, to a written style
+    specification. SCHEMATIC: the specification and both drafts are invented
+    for this course. Only the mechanism recurs from the review documents
+    (a minor-edit checklist that strips hedges, second person and informal
+    asides); no wording, banned-phrase list or example is reproduced.
+
+    Draft and edited text both answer the running question so the room can
+    judge the physics independently of the style edit: lowering the
+    water/cement ratio raises compressive strength because less excess water
+    leaves fewer voids when it evaporates out of the hardened paste.
+    """
+    draft = ["Lowering the water/cement ratio generally increases",
+             "compressive strength — because less water means less",
+             "excess to evaporate — so you'll typically see fewer",
+             "voids forming, though it can vary a bit by mix design."]
+    edited = ["Lowering the water/cement ratio increases",
+              "compressive strength.",
+              "Less water leaves less excess to evaporate.",
+              "Fewer voids form as that excess leaves.",
+              "Fewer voids raise the strength of the",
+              "hardened concrete."]
+
+    fig, ax = plt.subplots(figsize=(12.2, 4.5))
+    ax.set_xlim(0, 12.2); ax.set_ylim(0, 4.6); _blank(ax)
+    ax.text(6.1, 4.40, "“" + CH2_QUESTION + "”", ha="center", va="center",
+            fontsize=10.0, color=INK, style="italic")
+
+    ax.add_patch(FancyBboxPatch((0.3, 0.45), 5.15, 3.55, boxstyle="round,pad=0.08",
+                                fc="#F7F9F9", ec=GRID, lw=1.2))
+    ax.text(2.88, 3.72, "draft", fontsize=11.5, weight="bold", ha="center", color=INK)
+    for i, line in enumerate(draft):
+        ax.text(0.55, 3.28 - i * 0.42, line, fontsize=8.9, color=INK, va="center")
+
+    ax.add_patch(FancyBboxPatch((6.75, 0.45), 5.15, 3.55, boxstyle="round,pad=0.08",
+                                fc="#E0EDEF", ec=ACCENT[0], lw=1.4))
+    ax.text(9.33, 3.72, "after the edit", fontsize=11.5, weight="bold", ha="center", color=INK)
+    for i, line in enumerate(edited):
+        ax.text(7.0, 3.28 - i * 0.40, line, fontsize=8.9, color=INK, va="center")
+
+    edits = [("hedges removed", 2.55, "generally / typically / a bit"),
+             ("second person removed", 1.75, "“you’ll”"),
+             ("one sentence per idea", 0.95, "the dash aside becomes two sentences")]
+    for label, y, sub in edits:
+        ax.annotate("", xy=(6.65, y), xytext=(5.55, y),
+                    arrowprops=dict(arrowstyle="->", color=WARN, lw=1.4))
+        ax.text(6.1, y + 0.20, label, fontsize=7.9, ha="center", color=WARN, weight="bold")
+        ax.text(6.1, y - 0.20, sub, fontsize=6.9, ha="center", color=WARN, style="italic")
+
+    ax.text(6.1, 0.15, "The rater does not only judge. They repair, to a written specification.",
+            fontsize=11, ha="center", color=INK, weight="bold")
+    ax.set_title("SCHEMATIC — the specification and both drafts are invented for this course.",
+                 fontsize=9.3, pad=8, color=WARN)
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "02-house-style.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 02-house-style.png")
+
+
+def fig_rubric():
+    """A synthetic six-dimension rating instrument, invented for this course,
+    scoring one response to the running question. Every criterion is written
+    to be judged from the response text alone - matching how a blind judge
+    grades: a criterion that needs the prompt to check cannot be graded by
+    someone (or something) that never sees it.
+
+    SCHEMATIC: instrument, wording and all six scores are built from scratch;
+    no rubric row is reproduced from any document. The tension marked between
+    truthfulness and verbosity is invented to make the six-axes-conflict
+    point concrete, not drawn from a document's own worked example.
+    """
+    crits = {
+        "truthfulness": "every claim about material behaviour matches established mechanics",
+        "instruction following": "answers the question asked, not a nearby one",
+        "harmlessness": "following it would not risk an unsafe mix or test decision",
+        "formatting": "structure fits the length the answer needs",
+        "verbosity": "as short as it can be while staying complete",
+        "tone": "reads as a peer explaining, not a lecture",
+    }
+    scores = {"truthfulness": 5, "instruction following": 4, "harmlessness": 5,
+              "formatting": 3, "verbosity": 2, "tone": 4}
+    tension = {"truthfulness", "verbosity"}
+
+    fig, ax = plt.subplots(figsize=(12.0, 4.6))
+    ax.set_xlim(0, 12.0); ax.set_ylim(0, 4.7); _blank(ax)
+    ax.text(6.0, 4.55, "rating one response to “" + CH2_QUESTION + "”",
+            ha="center", va="center", fontsize=9.6, color=INK, style="italic")
+    ax.text(0.45, 4.10, "dimension", fontsize=8.6, color=INK, alpha=.65, weight="bold")
+    ax.text(3.15, 4.10, "criterion — judged from the response alone, never the prompt",
+            fontsize=8.6, color=INK, alpha=.65, weight="bold")
+    ax.text(10.44, 4.10, "1–5", fontsize=8.6, color=INK, alpha=.65, weight="bold", ha="center")
+
+    row_y0, step = 3.65, 0.55
+    x0, dstep = 9.6, 0.42
+    for i, name in enumerate(RUBRIC_DIMS):
+        y = row_y0 - i * step
+        emph = name in tension
+        score = scores[name]
+        ax.text(0.45, y, name, fontsize=10.2, color=INK, va="center",
+                weight="bold" if emph else "normal")
+        ax.text(3.15, y, crits[name], fontsize=8.6, color=INK, alpha=.85, va="center")
+        for s in range(1, 6):
+            xs = x0 + (s - 1) * dstep
+            filled = s == score
+            ax.add_patch(Circle((xs, y), 0.15,
+                         fc=(WARN if emph else ACCENT[0]) if filled else "white",
+                         ec=INK, lw=0.8, zorder=3))
+            if filled:
+                ax.text(xs, y, str(s), fontsize=7.0, ha="center", va="center",
+                        color="white", weight="bold", zorder=4)
+        if emph:
+            ax.add_patch(Rectangle((0.05, y - 0.24), 11.55, 0.48, fc="none",
+                                   ec=WARN, lw=1.3, ls="--", zorder=1))
+
+    y_true = row_y0
+    y_verb = row_y0 - RUBRIC_DIMS.index("verbosity") * step
+    ax.annotate("", xy=(0.16, y_verb), xytext=(0.16, y_true),
+                arrowprops=dict(arrowstyle="<->", color=WARN, lw=1.6))
+    ax.text(6.0, 0.62, "the double arrow marks two dimensions in tension on the same response",
+            fontsize=8.4, ha="center", color=WARN, style="italic")
+    ax.text(6.0, 0.20, "Six axes, one judgement — and they conflict.",
+            fontsize=11, ha="center", color=INK, weight="bold")
+    ax.set_title("SCHEMATIC — instrument invented for this course.",
+                 fontsize=9.3, pad=6, color=WARN)
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "02-rubric.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 02-rubric.png")
+
+
+def fig_scale_designs():
+    """Two opposite scale designs, both making 'these are equally good'
+    unrecordable. Left: an even-numbered forced-choice scale with no
+    midpoint. Right: an odd-numbered scale whose midpoint the instructions
+    forbid using. ILLUSTRATIVE - both scales are invented for this course;
+    only the mechanism (structural vs. instructional removal of the tie
+    option) is drawn from the review documents' finding.
+    """
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(13.8, 4.3))
+
+    a1.set_xlim(0, 10); a1.set_ylim(0, 5.3); _blank(a1)
+    a1.text(5, 4.90, "six-point scale — no midpoint exists", fontsize=10.3,
+            weight="bold", ha="center", color=INK)
+    a1.text(5, 4.48, "comparing two candidate answers to the running question",
+            fontsize=8.2, ha="center", color=INK, alpha=.75)
+    for i in range(6):
+        x = 0.4 + i * 1.53
+        a1.add_patch(FancyBboxPatch((x, 2.1), 1.2, 1.1, boxstyle="round,pad=0.04",
+                                    fc="#E0EDEF", ec=ACCENT[0], lw=1.2))
+        a1.text(x + 0.6, 2.65, str(i + 1), fontsize=13, ha="center", va="center",
+                color=INK, weight="bold")
+    a1.text(0.4, 1.72, "A much better", fontsize=8, ha="left", color=INK, alpha=.8)
+    a1.text(9.6, 1.72, "B much better", fontsize=8, ha="right", color=INK, alpha=.8)
+    a1.annotate("no box for ‘about equal’", xy=(4.925, 3.22), xytext=(4.925, 3.95),
+                fontsize=8.3, ha="center", color=WARN,
+                arrowprops=dict(arrowstyle="->", color=WARN, lw=1.1))
+    a1.text(5, 0.60, "equivalence engineered out — structurally",
+            fontsize=9.3, ha="center", color=WARN, weight="bold")
+
+    a2.set_xlim(0, 10); a2.set_ylim(0, 5.3); _blank(a2)
+    a2.text(5, 4.90, "five-point scale — midpoint forbidden", fontsize=10.3,
+            weight="bold", ha="center", color=INK)
+    a2.text(5, 4.48, "same two candidate answers, same instrument family",
+            fontsize=8.2, ha="center", color=INK, alpha=.75)
+    for i in range(5):
+        x = 0.55 + i * 1.78
+        mid = i == 2
+        a2.add_patch(FancyBboxPatch((x, 2.1), 1.35, 1.1, boxstyle="round,pad=0.04",
+                                    fc="#F8F1E7" if mid else "#E0EDEF",
+                                    ec=WARN if mid else ACCENT[0], lw=1.6 if mid else 1.2))
+        a2.text(x + 0.675, 2.85, str(i + 1), fontsize=13, ha="center", va="center",
+                color=INK, weight="bold")
+        if mid:
+            a2.text(x + 0.675, 2.38, "about\nequal", fontsize=7, ha="center", va="center", color=INK)
+            a2.plot([x + 0.15, x + 1.20], [2.20, 3.00], color=PROB, lw=1.5)
+            a2.plot([x + 0.15, x + 1.20], [3.00, 2.20], color=PROB, lw=1.5)
+    a2.text(0.55, 1.72, "A much better", fontsize=8, ha="left", color=INK, alpha=.8)
+    a2.text(9.45, 1.72, "B much better", fontsize=8, ha="right", color=INK, alpha=.8)
+    a2.annotate("selectable — but instructions forbid it", xy=(4.925, 3.22), xytext=(4.925, 3.95),
+                fontsize=8.1, ha="center", color=WARN,
+                arrowprops=dict(arrowstyle="->", color=WARN, lw=1.1))
+    a2.text(5, 0.60, "equivalence engineered out — by instruction",
+            fontsize=9.3, ha="center", color=WARN, weight="bold")
+
+    fig.text(0.5, -0.05, "The resulting dataset therefore contains no ties, whatever the "
+                         "rater actually thought.", fontsize=10.8, ha="center", color=INK,
+             weight="bold")
+    fig.suptitle("ILLUSTRATIVE — both scales invented for this course.",
+                 fontsize=9.3, y=1.06, color=WARN)
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "02-scale-designs.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 02-scale-designs.png")
+
+
+def fig_labour_models():
+    """Two incompatible answers to 'who is qualified to judge', drawn with
+    identical row labels so the shared vocabulary is visible and the
+    different jobs underneath it are too. SCHEMATIC - both columns are
+    invented for this course; the shape (generalist raters constrained to a
+    style spec vs. domain professionals authoring their own tasks) reflects
+    the review documents' finding that both labour models appear in the
+    document set and are not reconcilable; no job description is reproduced.
+    """
+    rows = ["who rates", "what ‘good’ means", "constraint", "who sets the task"]
+    left = ["a hired generalist rater",
+            "matches a written style specification",
+            "prose fixed down to which punctuation is allowed",
+            "someone else supplies the question"]
+    right = ["a practising domain professional",
+             "matches the professional's own working judgement",
+             "near-total discretion over the answer's form",
+             "the professional designs their own question"]
+
+    fig, ax = plt.subplots(figsize=(12.4, 4.15))
+    ax.set_xlim(0, 12.4); ax.set_ylim(0, 4.4); _blank(ax)
+
+    ax.add_patch(FancyBboxPatch((0.3, 0.5), 5.6, 3.35, boxstyle="round,pad=0.08",
+                                fc="#F7F9F9", ec=GRID, lw=1.2))
+    ax.text(3.1, 3.58, "generalist raters", fontsize=12, weight="bold", ha="center", color=INK)
+    ax.add_patch(FancyBboxPatch((6.5, 0.5), 5.6, 3.35, boxstyle="round,pad=0.08",
+                                fc="#E0EDEF", ec=ACCENT[0], lw=1.4))
+    ax.text(9.3, 3.58, "domain professionals", fontsize=12, weight="bold", ha="center", color=INK)
+
+    for i, (rowlab, lval, rval) in enumerate(zip(rows, left, right)):
+        y = 3.00 - i * 0.72
+        ax.text(0.55, y + 0.24, rowlab, fontsize=8.6, color=WARN, weight="bold")
+        ax.text(0.55, y - 0.08, lval, fontsize=9.0, color=INK)
+        ax.text(6.75, y + 0.24, rowlab, fontsize=8.6, color=WARN, weight="bold")
+        ax.text(6.75, y - 0.08, rval, fontsize=9.0, color=INK)
+        if i < 3:
+            ax.plot([0.5, 5.75], [y - 0.32, y - 0.32], color=GRID, lw=0.8)
+            ax.plot([6.65, 11.85], [y - 0.32, y - 0.32], color=GRID, lw=0.8)
+
+    ax.text(6.4, 0.15, "Same vocabulary describes both jobs. Both appear in the "
+                       "same set of review documents. They are not reconcilable.",
+            fontsize=9.6, ha="center", color=INK, weight="bold")
+    ax.set_title("SCHEMATIC — both columns invented for this course.",
+                 fontsize=9.3, pad=8, color=WARN)
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "02-labour-models.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 02-labour-models.png")
+
+
+def fig_disagreement():
+    """Two competent raters, same instrument, same pair of responses,
+    different verdict on two of six dimensions - and what happens to it.
+    ILLUSTRATIVE - the two raters' scores and the reviewer's note are
+    invented for this course; the three-stage shape (disagreement, audit,
+    unresolved-into-dataset) is the mechanism the review documents describe.
+    """
+    r1 = {"truthfulness": 5, "instruction following": 4, "harmlessness": 5,
+          "formatting": 4, "verbosity": 2, "tone": 3}
+    r2 = {"truthfulness": 5, "instruction following": 4, "harmlessness": 5,
+          "formatting": 2, "verbosity": 2, "tone": 5}
+    differ = {d for d in RUBRIC_DIMS if r1[d] != r2[d]}
+
+    fig, (a1, a2, a3) = plt.subplots(1, 3, figsize=(13.6, 4.15))
+
+    a1.set_xlim(0, 10); a1.set_ylim(0, 6.4); _blank(a1)
+    for i, d in enumerate(RUBRIC_DIMS):
+        y = 5.35 - i * 0.92
+        emph = d in differ
+        a1.text(0.1, y, d, fontsize=9.0, color=INK, va="center",
+                weight="bold" if emph else "normal")
+        for label, val, colr, dx in (("R1", r1[d], ACCENT[0], 6.2), ("R2", r2[d], WARN, 8.4)):
+            a1.add_patch(Circle((dx, y), 0.30, fc=colr, ec=INK, lw=0.8, zorder=3))
+            a1.text(dx, y, str(val), fontsize=8.6, ha="center", va="center",
+                    color="white", weight="bold", zorder=4)
+        if emph:
+            a1.plot([6.55, 8.05], [y, y], color=WARN, lw=1.6, ls="--", zorder=2)
+    a1.text(6.2, 6.10, "R1", fontsize=9.4, ha="center", color=ACCENT[0], weight="bold")
+    a1.text(8.4, 6.10, "R2", fontsize=9.4, ha="center", color=WARN, weight="bold")
+    a1.text(5, 0.35, "differ on 2 of 6 dimensions", fontsize=8.6, ha="center",
+            color=WARN, style="italic")
+    a1.set_title("1. two competent raters, same response pair", fontsize=10, pad=6, color=INK)
+
+    a2.set_xlim(0, 10); a2.set_ylim(0, 6.3); _blank(a2)
+    a2.add_patch(FancyBboxPatch((1.2, 3.4), 7.6, 1.7, boxstyle="round,pad=0.08",
+                                fc="#F7F9F9", ec=GRID, lw=1.2))
+    a2.text(5, 4.55, "reviewer layer", fontsize=10.5, ha="center", weight="bold", color=INK)
+    a2.text(5, 4.05, "audits both scores against the written instrument",
+            fontsize=8.6, ha="center", color=INK, alpha=.85)
+    a2.annotate("", xy=(5, 3.35), xytext=(5, 2.55),
+                arrowprops=dict(arrowstyle="->", color=INK, lw=1.3))
+    a2.add_patch(FancyBboxPatch((1.2, 1.15), 7.6, 1.35, boxstyle="round,pad=0.08",
+                                fc="#F8F1E7", ec=WARN, lw=1.3))
+    a2.text(5, 1.83, "no rule in the instrument says which\nrater is right about tone or formatting",
+            fontsize=8.4, ha="center", va="center", color=INK)
+    a2.set_title("2. audited, not resolved", fontsize=10, pad=6, color=INK)
+
+    a3.set_xlim(0, 10); a3.set_ylim(0, 6.3); _blank(a3)
+    a3.add_patch(FancyBboxPatch((1.0, 3.55), 8.0, 1.85, boxstyle="round,pad=0.08",
+                                fc="#E0EDEF", ec=ACCENT[0], lw=1.3))
+    a3.text(5, 4.95, "enters the dataset as-is", fontsize=10.5, ha="center",
+            weight="bold", color=INK)
+    a3.text(5, 4.35, "two scored dimensions, one pair,\ntwo different numbers", fontsize=8.6,
+            ha="center", va="center", color=INK)
+    a3.annotate("", xy=(5, 3.50), xytext=(5, 2.75),
+                arrowprops=dict(arrowstyle="->", color=INK, lw=1.3))
+    a3.text(5, 1.55, "the reward model fits this variance\nas noise, or as signal —\n"
+                     "nothing downstream says which",
+            fontsize=8.8, ha="center", va="center", color=WARN, weight="bold")
+    a3.set_title("3. inconsistency, fitted anyway", fontsize=10, pad=6, color=INK)
+
+    fig.suptitle("ILLUSTRATIVE — scores and reviewer note invented for this course.",
+                 fontsize=9.2, y=1.04, color=WARN)
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "02-disagreement.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 02-disagreement.png")
+
+
+def fig_instrument_divergence():
+    """Presence grid: five documents of unknown provenance (A-E) against ten
+    things a rating instrument might measure. Fills only mark presence or
+    absence of a category, never wording, so nothing document-specific is
+    reproduced. Counts are fixed by the review's own finding: instruction
+    following recurs in three, truthfulness/accuracy in three, and almost
+    nothing else recurs. Which three documents realise each count is chosen
+    here for legibility, not read out of the underlying instruments.
+    """
+    cats = ["instruction\nfollowing", "truthfulness /\naccuracy", "formatting",
+            "verbosity", "tone", "harmlessness", "citation &\nsourcing",
+            "numerical /\nderivation", "reading-level\nmatch", "creativity /\noriginality"]
+    docs = ["A", "B", "C", "D", "E"]
+    present = {
+        "A": {"instruction\nfollowing", "formatting", "numerical /\nderivation"},
+        "B": {"truthfulness /\naccuracy", "verbosity", "creativity /\noriginality"},
+        "C": {"instruction\nfollowing", "tone", "reading-level\nmatch"},
+        "D": {"instruction\nfollowing", "truthfulness /\naccuracy", "citation &\nsourcing"},
+        "E": {"truthfulness /\naccuracy", "harmlessness", "creativity /\noriginality"},
+    }
+    highlight = {"instruction\nfollowing", "truthfulness /\naccuracy"}
+
+    fig, ax = plt.subplots(figsize=(12.8, 4.3))
+    ax.set_xlim(-1.9, len(cats)); ax.set_ylim(-1.6, len(docs) + 0.6); _blank(ax)
+    for r, doc in enumerate(docs):
+        y = len(docs) - 1 - r
+        ax.text(-1.6, y, doc, fontsize=12, ha="left", va="center", weight="bold", color=INK)
+        for c, cat in enumerate(cats):
+            on = cat in present[doc]
+            ax.add_patch(Rectangle((c - 0.42, y - 0.42), 0.84, 0.84,
+                         fc=(WARN if (on and cat in highlight) else ACCENT[0]) if on else "white",
+                         ec=INK if on else GRID, lw=1.0))
+    for c, cat in enumerate(cats):
+        col_n = sum(1 for doc in docs if cat in present[doc])
+        ax.text(c, len(docs) + 0.15, cat, fontsize=7.6, ha="center", va="bottom",
+                color=WARN if cat in highlight else INK, rotation=0,
+                weight="bold" if cat in highlight else "normal")
+        ax.text(c, -0.85, f"{col_n} of 5", fontsize=7.8, ha="center", color=INK, alpha=.75)
+    ax.text(-1.6, len(docs) + 0.15, "document", fontsize=8.0, color=INK, alpha=.6, va="bottom")
+    ax.text(4.5, -1.35, "five documents of unknown provenance — which is not a sample",
+            fontsize=8.8, ha="center", color=INK, style="italic")
+    ax.set_title("Instruction following and truthfulness recur in three of five each. "
+                 "Almost nothing else does.", fontsize=10.6, pad=8, color=INK)
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "02-instrument-divergence.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 02-instrument-divergence.png")
+
+
+def fig_instrument_rebuild():
+    """A three-week schematic timeline with a one-week window in which the
+    rating instrument itself was rebuilt. ILLUSTRATIVE - the day numbering is
+    schematic, not a reproduction of any document's dated changelog; the
+    three listed changes are the general shape of the review documents'
+    finding, not quoted entries. Two data batches, a fortnight apart, sit on
+    either side of the window."""
+    fig, ax = plt.subplots(figsize=(12.4, 4.15))
+    ax.set_xlim(-0.5, 22); ax.set_ylim(-1.0, 5.1); _blank(ax)
+    axis_y = 1.6
+    ax.annotate("", xy=(21.5, axis_y), xytext=(0, axis_y),
+                arrowprops=dict(arrowstyle="-|>", color=INK, lw=1.5))
+    ax.text(21.5, axis_y + 0.28, "day (schematic — about three weeks)", fontsize=8.6,
+            ha="right", color=INK, alpha=.85)
+
+    ax.add_patch(Rectangle((7, axis_y - 0.3), 7, 0.6, fc=WARN, ec=WARN, lw=0, alpha=.28))
+    ax.text(10.5, 4.85, "the instrument is rebuilt — one week", fontsize=10.2,
+            ha="center", weight="bold", color=WARN)
+    changes = ["grading categories deleted", "task authorship moves: contributor → vendor",
+               "mandatory rewrites imposed"]
+    for i, c in enumerate(changes):
+        ax.text(10.5, 4.35 - i * 0.42, "• " + c, fontsize=8.8, ha="center", color=INK)
+    ax.plot([10.5, 10.5], [axis_y + 0.3, 3.30], color=WARN, lw=1.1, ls=":")
+
+    # batch collection markers sit ABOVE the axis; the "fortnight apart" gauge
+    # sits BELOW it, in its own lane, so neither crosses the change-list text.
+    for x in (3, 17):
+        ax.plot([x, x], [axis_y, axis_y + 0.75], color=ACCENT[0], lw=1.6)
+        ax.plot([x], [axis_y + 0.75], "o", color=ACCENT[0], ms=7, zorder=5)
+        ax.text(x, axis_y + 1.02, "batch collected", fontsize=8.4, ha="center",
+                color=ACCENT[0], weight="bold")
+        ax.text(x, axis_y - 0.55, f"day {x}", fontsize=8.2, ha="center", color=INK, alpha=.8)
+
+    ax.annotate("", xy=(17, -0.15), xytext=(3, -0.15),
+                arrowprops=dict(arrowstyle="<->", color=INK, lw=1.1))
+    ax.text(10, 0.10, "a fortnight apart", fontsize=8.4, ha="center", color=INK, alpha=.85)
+
+    ax.text(10.5, -0.75, "Nothing in the output distinguishes data from either batch.",
+            fontsize=10.4, ha="center", color=INK, weight="bold")
+    ax.set_title("One changelog, one document. ILLUSTRATIVE — the day numbering is schematic.",
+                 fontsize=9.6, pad=8, color=WARN)
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "02-instrument-rebuild.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 02-instrument-rebuild.png")
+
+
+def fig_evidence_vs_force():
+    """A slopegraph: eight findings ordered by evidential strength (left) and
+    by how persuasive each one reads (right). Labels are short and invented
+    for this figure, not quoted from the findings document. Rank orders and
+    the highlighted item follow the review's own accounting: one finding
+    (mid-collection instrument rebuild) rests on a single document - weakest
+    evidence, rank 8 - but is named there as maybe the most persuasive item
+    in the chapter, which is why it is drawn near the top of the force
+    column. That gap is the figure's subject."""
+    labels = ["instruments diverge", "equivalence removed", "two labour models",
+              "style is a spec", "blind judge, blind criteria", "rater attempts task first",
+              "staleness designed against", "instrument rebuilt mid-run"]
+    evidence_rank = {l: i + 1 for i, l in enumerate(labels)}   # 1 = strongest
+    force_order = ["equivalence removed", "instrument rebuilt mid-run", "two labour models",
+                   "instruments diverge", "blind judge, blind criteria", "style is a spec",
+                   "rater attempts task first", "staleness designed against"]
+    force_rank = {l: i + 1 for i, l in enumerate(force_order)}
+    highlight = "instrument rebuilt mid-run"
+
+    fig, ax = plt.subplots(figsize=(13.6, 4.6))
+    ax.set_xlim(-0.3, 1.3); ax.set_ylim(0, 9.2); _blank(ax)
+    ax.text(0, 8.85, "ranked by evidence", fontsize=10.5, ha="center", weight="bold", color=INK)
+    ax.text(1, 8.85, "ranked by force", fontsize=10.5, ha="center", weight="bold", color=INK)
+    for l in labels:
+        y_e = 8.2 - (evidence_rank[l] - 1) * 0.98
+        y_f = 8.2 - (force_rank[l] - 1) * 0.98
+        emph = l == highlight
+        ax.plot([0, 1], [y_e, y_f], color=WARN if emph else GRID,
+                lw=2.4 if emph else 1.1, zorder=3 if emph else 1,
+                alpha=1.0 if emph else 0.85)
+        ax.plot([0], [y_e], "o", color=WARN if emph else ACCENT[0], ms=7, zorder=4)
+        ax.plot([1], [y_f], "o", color=WARN if emph else ACCENT[0], ms=7, zorder=4)
+        ax.text(-0.05, y_e, f"{evidence_rank[l]}. {l}", fontsize=8.6, ha="right", va="center",
+                color=WARN if emph else INK, weight="bold" if emph else "normal")
+        ax.text(1.05, y_f, f"{force_rank[l]}. {l}", fontsize=8.6, ha="left", va="center",
+                color=WARN if emph else INK, weight="bold" if emph else "normal")
+    y_e_h = 8.2 - (evidence_rank[highlight] - 1) * 0.98
+    y_f_h = 8.2 - (force_rank[highlight] - 1) * 0.98
+    ax.annotate("rests on one document —\nweakest evidence, most force",
+                xy=(0.5, (y_e_h + y_f_h) / 2), xytext=(0.5, 1.1),
+                fontsize=8.6, ha="center", color=WARN, weight="bold",
+                arrowprops=dict(arrowstyle="->", color=WARN, lw=1.1))
+    ax.text(0.5, 0.15, "The ordering used in this chapter is the left one.",
+            fontsize=11, ha="center", color=INK, weight="bold")
+    ax.set_title("Findings invented for this figure; the evidence/force gap is the "
+                 "review's own accounting.", fontsize=9.2, pad=8, color=WARN)
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "02-evidence-vs-force.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 02-evidence-vs-force.png")
+
+
+def fig_best_of_eleven():
+    """Eleven bars, one per emotional-prompting stimulus, on BIG-Bench.
+
+    Four numbers are real, verified [V] in references.md, and are not
+    altered: the headline +115% (best of eleven stimuli); the mean of all
+    eleven, +4.42%; the independent replication's +1% across six current
+    models; and chi2 = 0.11, p = .74 for that replication (Li et al. 2023,
+    arXiv:2307.11760; Vaugrante, Niepert & Hagendorff 2024, arXiv:2409.20303).
+
+    The other ten bar heights are illustrative - the source reports the
+    headline, the mean and the replication, not the other ten individual
+    stimulus results. They are constructed, not invented freely, so the
+    figure stays internally consistent: given max = 115 and mean = 4.42 over
+    eleven, the other ten MUST sum to 11*4.42 - 115 = -66.38 (checked by
+    assertion below). That some of the ten are negative is not an
+    embellishment; it is the arithmetic forced by a mean far below a max that
+    large, and it is the same fact the replication's re-derivation makes:
+    the headline is an extreme order statistic, not a typical stimulus.
+    """
+    MAX_PCT, MEAN_PCT, REPL_PCT = 115.0, 4.42, 1.0
+    other = np.array([-2.1, -18.4, 6.3, -9.7, 3.1, -14.2, -1.5, -22.8, 7.9, -14.98])
+    target_sum_other = 11 * MEAN_PCT - MAX_PCT
+    assert abs(other.sum() - target_sum_other) < 0.01, "illustrative bars must reproduce the real mean exactly"
+    assert abs((other.sum() + MAX_PCT) / 11 - MEAN_PCT) < 1e-9
+
+    max_idx = 5
+    vals = np.insert(other, max_idx, MAX_PCT)
+    assert abs(vals.mean() - MEAN_PCT) < 1e-9, "mean of the 11 plotted bars must equal 4.42 exactly"
+
+    fig, ax = plt.subplots(figsize=(13.4, 4.4))
+    x = np.arange(11)
+    cols = [WARN if i == max_idx else ACCENT[1] for i in range(11)]
+    hatch = [None if i == max_idx else "///" for i in range(11)]
+    for xi, v, c, h in zip(x, vals, cols, hatch):
+        ax.bar([xi], [v], color=c, edgecolor=INK, linewidth=.7, hatch=h, alpha=.92 if h else 1.0)
+    ax.set_xlim(-0.8, 13.6)   # right margin so the two reference-line labels
+                              # sit in open space, never on top of a bar
+    ax.axhline(MEAN_PCT, color=INK, lw=1.6, ls="--", zorder=4)
+    ax.text(11.4, MEAN_PCT + 3, f"mean of all eleven: {MEAN_PCT:.2f}%", fontsize=8.8,
+            ha="left", va="bottom", color=INK, weight="bold")
+    ax.axhline(REPL_PCT, color=PROB, lw=1.6, ls="--", zorder=4)
+    ax.text(11.4, REPL_PCT - 3, "independent replication,\n6 current models: "
+                                 f"+{REPL_PCT:.0f}%\n(χ² = 0.11, p = .74)",
+            fontsize=8.2, ha="left", va="top", color=PROB, weight="bold")
+    ax.annotate(f"+{MAX_PCT:.0f}% — the headline\n(best of eleven, not the average)",
+                xy=(max_idx, MAX_PCT), xytext=(max_idx + 1.05, MAX_PCT - 8),
+                fontsize=9.2, color=WARN, weight="bold",
+                arrowprops=dict(arrowstyle="->", color=WARN, lw=1.2))
+    ax.set_xticks(x); ax.set_xticklabels([f"stimulus {i+1}" for i in range(11)],
+                                          rotation=45, ha="right", fontsize=8.3)
+    ax.set_ylabel("reported change, BIG-Bench  [%]")
+    ax.yaxis.grid(True, color=GRID, linewidth=.6); ax.set_axisbelow(True)
+    ax.set_title("Eleven stimuli, one benchmark suite. The headline is the tallest bar.",
+                 fontsize=11, pad=10, color=INK)
+    ax.text(0.0, -0.34, "Hatched bars ILLUSTRATIVE and constructed to reproduce the real "
+                        "mean exactly (see docstring). Solid bar, both dashed lines and "
+                        "χ²/p are verified [V] published numbers, unaltered.",
+            transform=ax.transAxes, fontsize=7.6, color=WARN, style="italic")
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "02-best-of-eleven.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 02-best-of-eleven.png")
+
+
 if __name__ == "__main__":
     fig_temperature()
     fig_kv_growth()
@@ -900,6 +1453,16 @@ if __name__ == "__main__":
     fig_persistence()
     fig_corpus_density()
     fig_surprise()
+    # Chapter 2, "how it became an assistant"
+    fig_house_style()
+    fig_rubric()
+    fig_scale_designs()
+    fig_labour_models()
+    fig_disagreement()
+    fig_instrument_divergence()
+    fig_instrument_rebuild()
+    fig_evidence_vs_force()
+    fig_best_of_eleven()
 
     # ---------------------------------------------------------------------
     # Aspect-ratio audit. Reads every PNG this run just wrote (OUT, not PUB -
