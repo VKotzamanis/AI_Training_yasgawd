@@ -23,4 +23,8 @@ echo "  Overfull vbox:  $over   (a frame whose content runs into the footline)"
 [ "$errs" -gt 0 ] && { grep -nE '^!' -A2 /tmp/uh-$deck.log | head -20; exit 1; }
 [ "$over" -gt 0 ] && { grep -oE 'Overfull \\vbox \([0-9.]+pt too high\) detected at line [0-9]+' /tmp/uh-$deck.log; exit 1; }
 pdfinfo "$deck.pdf" | grep -E '^Pages|^Page size'
+
+# Stamp for the review round trip: a hash of the source travels in the PDF metadata, so
+# comments made on it can be resolved back to lines, and a stale PDF is detectable.
+python3 "$ROOT/stamp.py" "$deck"
 echo "build ok"
