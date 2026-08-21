@@ -262,7 +262,7 @@ def fig_token_cost():
 # figure and no generated imagery is used. Where a figure needs values that were
 # not measured, the figure says SCHEMATIC on its own face.
 # ---------------------------------------------------------------------------
-from matplotlib.patches import FancyBboxPatch, Rectangle, FancyArrowPatch
+from matplotlib.patches import FancyBboxPatch, Rectangle, FancyArrowPatch, Circle
 
 WARN = "#97591A"
 

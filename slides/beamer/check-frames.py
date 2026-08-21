@@ -21,7 +21,8 @@ FRAME = re.compile(
 KEYS = re.compile(r"\\citesource\{([^}]*)\}")
 PROV = re.compile(r"\\provenance(?:\[[^\]]*\])?\{([^}]*)\}")
 TITLE = re.compile(r"\\frametitle\{(.*?)\}|\\begin\{(?:frame|consoleframe)\}(?:\[[^\]]*\])?\{(.*?)\}", re.S)
-VALID_PROV = {"definition", "derived", "computed", "observation", "schematic", "none"}
+VALID_PROV = {"definition", "derived", "computed", "observation", "schematic",
+              "none", "instrument"}
 
 
 def load_sources():
