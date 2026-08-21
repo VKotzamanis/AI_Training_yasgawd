@@ -6,6 +6,19 @@
 
 **Companion to:** `architecture.md` (sequence and threads), `chapter-briefs.md` (content per chapter), `../DECISIONS.md` (what is locked and open).
 
+<!-- decision: production-plan-serial-gate | status: superseded | supersedes: none -->
+
+> **Partly superseded 2026-08-21 by `rebuild-plan.md`.** That file governs the remaining fifteen
+> chapters. Four things here are now wrong and are corrected there rather than in place, so the
+> reasoning stays readable: §4's order table lists Chapter 8 as done when it is withdrawn and lists
+> Slidev drafts as delivered decks; §6's definition of done names Slidev commands that no longer
+> exist; §6's **Budget** rating axis contradicts the 2026-08-20 ruling that delivery length is not a
+> criterion; and §3's accrual track is described as running when none of it has started.
+>
+> **What still governs:** the A/B/C/D categories in §2, the ordering principle in §4 (order by what
+> is unblocked, not by what is most valuable), the figure rules in §4a, and every per-chapter
+> correction in §5.
+
 ---
 
 ## 0. Applied this session
@@ -146,6 +159,12 @@ Only chapters where the brief is now wrong or thin. Everything not listed stands
 ---
 
 ## 6. The review gate
+
+> **Superseded by `rebuild-plan.md` §7 and §8.** The definition of done below is written for the
+> Slidev toolchain, and the **Budget** axis is deleted outright. The one-chapter-per-cycle gate is
+> replaced by two parallel tracks, because a human annotating PDFs in series would mean fifteen
+> round trips.
+
 
 One chapter per cycle. Produced, rated, corrected, then the next.
 
