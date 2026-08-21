@@ -1471,16 +1471,27 @@ if __name__ == "__main__":
     # is the only place that ratio is decided - figsize is a starting point,
     # not the final word once tight-bbox has trimmed whitespace.
     # ---------------------------------------------------------------------
+    # The target band is NOT a house preference - it is forced by the slide geometry.
+    # A deck gives a figure 144 mm of width and a fixed height in millimetres, so a
+    # figure fills the width only when its aspect equals 144/height. Measured 2026-08-20:
+    # at the old 2.6-3.4:1 band every figure was height-limited and used 61-92% of the
+    # available width, averaging 75%, which made the text inside every figure smaller on
+    # the projected slide than it needed to be. The band below is 144/h for the heights
+    # actually used in slides/beamer/, which are 31 mm to 42 mm.
     from PIL import Image
-    print("\n--- aspect-ratio audit (target 2.6:1 to 3.4:1) ---")
+    LO, HI = 3.4, 4.7
+    print(f"\n--- aspect-ratio audit (target {LO}:1 to {HI}:1, set by 144 mm / slide height) ---")
+    # Figures not placed at those heights, so the band does not apply to them.
+    EXEMPT = {"01-kv-growth.png", "05-position-schematic.png", "01-chat-artefact.png",
+              "01-softmax-T.png"}
     rows = []
     for png in sorted(OUT.glob("*.png")):
         with Image.open(png) as im:
             w, h = im.size
         ratio = w / h
-        ok = 2.6 <= ratio <= 3.4
-        rows.append((png.name, w, h, ratio, ok))
+        ok = png.name in EXEMPT or LO <= ratio <= HI
+        rows.append((png.name, w, h, ratio, ok, png.name in EXEMPT))
     name_w = max(len(r[0]) for r in rows)
-    for name, w, h, ratio, ok in rows:
-        flag = "PASS" if ok else "OUT OF RANGE"
+    for name, w, h, ratio, ok, exempt in rows:
+        flag = "not placed at a slide height" if exempt else ("PASS" if ok else "OUT OF RANGE")
         print(f"{name:<{name_w}}  {w:5d} x {h:4d} px   {ratio:5.2f} : 1   {flag}")
