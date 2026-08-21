@@ -1,0 +1,41 @@
+%% Animation slots.
+%%
+%% The deck exports to PDF and then to PPTX, where every slide becomes a page image. An
+%% animation cannot be layered onto a picture of a slide without covering what is printed
+%% underneath. So the deck reserves a box of known size: it reads sensibly in the PDF, and it
+%% gives PowerPoint a clean rectangle to drop media into.
+%%
+%%   \slotF{caption}   full   144 x 38 mm   author at 1600 x 422 px
+%%   \slotW{caption}   wide   144 x 30 mm   author at 1600 x 333 px
+%%   \slotH{caption}   half    70 x 46 mm   author at  760 x 500 px
+%%
+%% Sizes derived from the UH theme's real chrome: 58 mm of content height and 148 mm of width
+%% once the logo band, a two-line frame title and the footline are taken out, MINUS the ~6 mm the
+%% citation footer occupies. The first version of these numbers forgot the footer and every slot
+%% slide overflowed.
+\ProvidesPackage{uhslot}[2026/08/20 animation slots]
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+
+\definecolor{uhslotline}{HTML}{B97800}
+\definecolor{uhslotfill}{HTML}{FBF6EF}
+
+%% #1 width mm, #2 height mm, #3 authoring size, #4 caption
+\newcommand{\uh@slot}[4]{%
+  \begin{center}
+  \begin{tikzpicture}[x=1mm,y=1mm]
+    \fill[uhslotfill] (0,0) rectangle (#1,#2);
+    \draw[uhslotline,dashed,line width=0.9pt] (0,0) rectangle (#1,#2);
+    \node[align=center,text width=#1 mm-8mm] at (#1/2,#2/2)
+      {{\color{uhslotline}\bfseries animation}\\[0.35em]
+       {\small #4}\\[0.5em]
+       {\scriptsize\ttfamily\color{uhslotline}#3}};
+  \end{tikzpicture}
+  \end{center}%
+}
+
+\newcommand{\slotF}[1]{\uh@slot{144}{38}{1600 x 422 px}{#1}}
+\newcommand{\slotW}[1]{\uh@slot{144}{30}{1600 x 333 px}{#1}}
+\newcommand{\slotH}[1]{\uh@slot{70}{46}{760 x 500 px}{#1}}
+
+\endinput
