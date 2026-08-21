@@ -42,7 +42,9 @@ CANDIDATES = [" absent", " corroded", " undersized", " blue"]
 CAND_PROBS = [0.41, 0.27, 0.19, 0.02]          # illustrative; deliberately do not sum to 1
 # Ordinary-English fillers for panels that need low-probability company for the four
 # candidates. Chosen to be unremarkable completions nobody would rank highly here.
-FILLERS = [" purple", " hungry", " triangular", " sleepy"]
+FILLERS = [" purple", " hungry", " musical", " sleepy"]  # implausible on purpose;
+# "triangular" was rejected as a filler - stirrups genuinely are triangular in torsion
+# reinforcement and in bridge girders, so it reads as a real completion to this audience.
 
 
 def softmax(z, T):
@@ -173,21 +175,29 @@ def fig_position_schematic():
 
 
 def fig_scores():
-    """Logits, then probabilities, for the running example. Two panels: the raw
-    scores the network emits, and probabilities for the same eight candidates.
+    """Logits, then probabilities, for the running example.
 
-    The probability panel is NOT softmax(logits shown) - softmax over a closed set
-    of 8 numbers necessarily sums to 1, which would misstate the point. Instead the
-    four running candidates carry their fixed table values (0.41 + 0.27 + 0.19 + 0.02
-    = 0.89) and the four fillers carry small illustrative values, so the eight shown
-    bars total under 1 and the remainder is explicitly the unshown vocabulary. The
-    exact softmax transform, applied honestly to a closed two-token set, is
-    fig_softmax_curve; this figure is a wide-vocabulary sketch, not a computation.
+    The transform IS exact softmax, which matters: Chapter 1 teaches softmax as the thing
+    that converts these scores, and a figure disclaiming the link would undercut the slide
+    that follows it. Softmax over a closed set of eight sums to one, which would misstate
+    the point, so a ninth aggregate term stands for the rest of the vocabulary. Logits are
+    log(p) shifted by a constant, which softmax is invariant to, so the eight shown bars
+    reproduce their table values exactly and the remainder sits on the unshown term.
     """
     labels = CANDIDATES + FILLERS
-    logits = np.array([3.9, 3.2, 2.6, 0.3, -0.5, -0.9, -1.4, -1.9])      # illustrative
-    filler_p = [0.012, 0.008, 0.005, 0.003]                              # illustrative
-    probs = np.array(CAND_PROBS + filler_p)
+    filler_p = [0.012, 0.008, 0.006, 0.004]
+    shown_p = np.array(CAND_PROBS + filler_p)          # sums to 0.92 by construction
+    rest_p = 1.0 - shown_p.sum()                       # the unshown vocabulary
+    assert abs(shown_p.sum() + rest_p - 1.0) < 1e-12
+
+    SHIFT = 4.0                                        # softmax is invariant to this
+    logits = np.log(shown_p) + SHIFT
+    rest_logit = np.log(rest_p) + SHIFT
+    # recovering the probabilities from the logits, exactly as the next slide's equation does
+    allz = np.append(logits, rest_logit)
+    recovered = np.exp(allz - allz.max()) / np.exp(allz - allz.max()).sum()
+    assert np.allclose(recovered[:-1], shown_p, atol=1e-12), "softmax must reproduce the table"
+    probs = recovered[:-1]
     shown_total = probs.sum()
 
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(11.0, 3.55))
@@ -196,18 +206,19 @@ def fig_scores():
     a1.set_title("1. logits — raw scores out of the network", fontsize=10.5, pad=8)
     a1.set_ylabel("logit  [—]")
     a2.bar(x, probs, color=PROB, edgecolor=INK, linewidth=.6)
-    a2.set_title("2. probabilities", fontsize=10.5, pad=8)
+    a2.set_title("2. probabilities, after softmax", fontsize=10.5, pad=8)
     a2.set_ylabel("probability  [—]"); a2.set_ylim(0, 0.5)
     for a in (a1, a2):
         a.set_xticks(x); a.set_xticklabels([t.strip() for t in labels],
                                             rotation=60, ha="right", fontsize=9)
         a.yaxis.grid(True, color=GRID, linewidth=.6); a.set_axisbelow(True)
     a2.annotate(f"these eight sum to {shown_total:.2f}, not 1 —\nthe rest of the "
-                f"vocabulary carries\nthe other {1 - shown_total:.2f}",
+                f"vocabulary carries\nthe other {rest_p:.2f}",
                 xy=(3, probs[3]), xytext=(3.3, 0.30), fontsize=8.6, color=INK,
                 arrowprops=dict(arrowstyle="->", color=INK, lw=.9))
-    fig.suptitle("illustrative — probabilities are assigned directly here, not derived "
-                 "by softmax from the logits shown", fontsize=9.2, y=1.05, color=WARN)
+    fig.suptitle("illustrative logits — the softmax transform applied to them is exact, "
+                 "over these eight plus one term for the rest of the vocabulary",
+                 fontsize=9.2, y=1.05, color=WARN)
     fig.tight_layout()
     for d in (OUT, PUB): fig.savefig(d / "01-scores.png", dpi=200, bbox_inches="tight")
     plt.close(fig); print("wrote 01-scores.png")
