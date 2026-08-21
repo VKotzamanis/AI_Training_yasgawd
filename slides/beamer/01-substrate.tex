@@ -165,7 +165,8 @@ dimensions, and the bowl is a one-dimensional slice of it.}
 \begin{frame}{What training minimises is how surprised the model was by the token that actually came next}
   \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-surprise}\end{center}
   {\small You cannot define \emph{surprised} without a \prob{probability}. So the thing training
-   shaped is a distribution over every token in the list.}
+   shaped is a distribution over every \kw{token} --- a chunk of text from a fixed list, defined on
+   slide 12 --- that could come next.}
   \provenance{derived}
 \end{frame}
 \note{%
@@ -266,8 +267,8 @@ time.}
     \draw[uhardot] (x)-- node[right,font=\scriptsize\itshape,pos=0.4]{not supplied} (n);
   \end{tikzpicture}}
   \end{center}
-  {\small Re-read in full on every pass. \kw{Standing instructions} --- text placed in the window
-   at the start of every session.}
+  {\small Re-read in full every time the network runs. \kw{Standing instructions} --- text placed
+   in the window at the start of every session.}
   \provenance{definition}
 \end{frame}
 \note{%
@@ -281,7 +282,7 @@ If asked how a conversation carries over: the application re-sends the whole con
 turn. The network remembers nothing between turns; something outside it re-supplies the history.}
 
 % ---------------------------------------------------------------- 12
-\begin{frame}{A token is a chunk of characters drawn from a fixed list settled before training}
+\begin{frame}{A token is a chunk of characters taken from a fixed list settled before training}
   \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-tokens}\end{center}
   \begin{columns}[t]
     \begin{column}{0.31\linewidth}\centering

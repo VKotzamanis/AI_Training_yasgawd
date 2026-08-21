@@ -20,9 +20,18 @@ content height and 148 mm of width**. Three slot sizes fit inside that, with mar
 
 | Slot | Author at | Aspect | On the slide | Use |
 |---|---|---|---|---|
-| **F** — full | **1600 × 600 px** | 2.67 : 1 | 144 × 54 mm | The animation is the slide |
-| **W** — wide | **1600 × 450 px** | 3.56 : 1 | 144 × 40.5 mm | Animation plus a label row beneath |
-| **H** — half | **800 × 600 px** | 4 : 3 | 70 × 52.5 mm | Animation beside a text column |
+| **F** — full | **1600 × 422 px** | 3.79 : 1 | 144 × 38 mm | The animation is the slide |
+| **W** — wide | **1600 × 333 px** | 4.80 : 1 | 144 × 30 mm | A short banner |
+| **H** — half | **760 × 500 px** | 1.52 : 1 | 70 × 46 mm | Animation beside a text column |
+
+**Corrected 2026-08-20.** The first version of these numbers was derived from the theme's content
+height without allowing for the citation footer, which takes about 6 mm. Every slot slide
+overflowed its frame. The build now gates on overfull vboxes, which is what caught it.
+
+**These are letterbox, and that is the theme's chrome talking.** The logo band takes 8 mm, a
+two-line frame title up to 14.5 mm, the footline 9.4 mm and the footer 6 mm, out of 90 mm. If a
+taller slot is wanted, the lever is a title-less animation frame carrying its assertion as a
+caption beneath the slot instead, which buys back about 14 mm. Not built; ask if you want it.
 
 Author at those pixel dimensions exactly. The slot scales to fit, so anything at the right aspect
 ratio works, but authoring at the stated size means no resampling.
@@ -88,7 +97,7 @@ to two candidates so the sum can be checked by hand.
 Four are load-bearing. Three are worth having and work as static panels if you would rather not
 build them.
 
-### A1 — The answer arrives a piece at a time · **Slot F** · ESSENTIAL · real capture
+### A1 — The answer arrives a piece at a time · **Slot F** (1600 × 422) · ESSENTIAL · real capture
 
 **Contains.** A screen recording of a real session: the question typed, then the reply appearing
 left to right at natural speed. No editing, no speed-up — the pace is the point.
@@ -99,7 +108,7 @@ already seen this*. A drawn imitation of a chat window undercuts that in the fir
 **Capture note.** Record at 1600 × 600 or crop to it. Include the model name and the date in frame
 if the interface shows them.
 
-### A2 — One sentence becomes tokens · **Slot W** · optional
+### A2 — One sentence becomes tokens · **Slot W** (1600 × 333) · optional
 
 **Contains.** The running sentence in plain text. Vertical cuts fall between tokens one at a time,
 left to right. Each piece lifts slightly into its own block. Then the integer **token ID** flips in
@@ -110,7 +119,7 @@ beneath each block, in Slate.
 **Must show.** A leading space belonging to its token — ` stirrups` not `stirrups`. It is the
 detail that makes token counts make sense later.
 
-### A3 — Which earlier words the next one leans on · **Slot F** · ESSENTIAL
+### A3 — Which earlier words the next one leans on · **Slot F** (1600 × 422) · ESSENTIAL
 
 **Contains.** The running sentence with a boxed `?` at the end. Arcs grow one at a time from
 `beam`, `shear` and `stirrups` to the `?`, thickening in proportion to weight, while `The`, `in`,
@@ -123,7 +132,7 @@ the animation implies otherwise the room concludes the output is noise.
 
 **Ends on.** Arcs at full weight, candidates listed, `absent` highlighted.
 
-### A4 — The distribution, and the draw · **Slot F** · ESSENTIAL — this is the one that matters
+### A4 — The distribution, and the draw · **Slot F** (1600 × 422) · ESSENTIAL — this is the one that matters
 
 **Contains.** Three beats.
 
@@ -141,7 +150,7 @@ baseline and Chapter 5's calibration rests on the room seeing that once.
 **Must not show.** The bars changing between draws. If they move, the animation teaches that the
 model is unstable, which is the opposite of the lesson.
 
-### A5 — Temperature reshapes the distribution · **Slot W** · optional
+### A5 — Temperature reshapes the distribution · **Slot W** (1600 × 333) · optional
 
 **Contains.** The same four bars with a temperature scale beneath running 0.2 to 2.0. As it moves
 right the bars flatten toward even; as it moves left `absent` grows until it takes almost
@@ -149,7 +158,7 @@ everything. The word `blue` is visible throughout so the tail can be seen appear
 
 **Ends on.** T = 1.0, the bars at their stated values.
 
-### A6 — Always taking the top · **Slot F** · ESSENTIAL · real capture
+### A6 — Always taking the top · **Slot F** (1600 × 422) · ESSENTIAL · real capture
 
 **Contains.** A screen recording at temperature zero, run long enough that the output visibly falls
 into a repeating phrase. Let it run past the point where the loop is obvious.
@@ -164,7 +173,7 @@ the policy Chapter 6 already uses for its demo.
 
 **Capture note.** Model ID and date in frame or in the filename. Both go on the slide.
 
-### A7 — Append and run again · **Slot W** · optional
+### A7 — Append and run again · **Slot W** (1600 × 333) · optional
 
 **Contains.** The sentence growing one token at a time. On each pass a small bar chart at the right
 recomputes and a token is taken. Four passes.

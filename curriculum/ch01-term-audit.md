@@ -3,9 +3,12 @@
 Required by `HANDOFF.md` §6.5: every technical term the chapter uses, with the slide where it is
 defined. A term with no defining slide is a defect.
 
-Slide numbers are positions in `slides/01-substrate.md`, counting the title slide as 1.
-**Renumbered 2026-08-20** when the brain slide was inserted at position 7; everything from the old
-slide 7 onward shifted by one.
+Frame numbers are positions in `slides/beamer/01-substrate.tex`, counting the title frame as 1.
+
+**Rewritten 2026-08-20** when the chapter moved to Beamer and was restructured against the
+instructor's review: the order now follows the pipeline diagram left to right, one running example
+(the stirrups sentence) replaces two, and a new frame carries the minimisation-to-distribution
+bridge. Twenty-four frames, up from twenty-one.
 
 ## Terms defined in this chapter
 
@@ -13,53 +16,83 @@ slide 7 onward shifted by one.
 |---|---|---|
 | prompt | 2 | the text you send |
 | artificial intelligence | 3 | umbrella label for a family of methods, with no single technical definition |
-| machine learning | 3 | behaviour fitted from data instead of written down as rules |
-| neural network | 3, 4, 7 | a fitted function built from layers of weighted sums; named on 7 as a borrowed word |
+| machine learning | 3 | **defined in the figure, not the text** — behaviour fitted from data instead of written down as rules |
+| neural network | 3, 5, 9 | a fitted function built from layers of weighted sums; named on 9 as a borrowed word |
 | language model | 3 | a model fitted to predict text |
 | large language model, LLM | 3 | a neural network fitted to predict text; acronym expanded where it appears |
-| model | 4 | a stored list of numbers together with the program that does arithmetic with them |
-| parameters | 4 | the numbers in that list |
-| weights | 4 | named on the slide as the other word for parameters |
-| network | 4 | the layered arithmetic that reads the parameters |
-| size (of a model) | 4 | how many parameters it has |
-| training | 5, 6 | the phase in which the numbers are changed; then, concretely, a search for parameter values minimising total error |
-| inference | 5 | running the finished numbers on your text |
-| knowledge cutoff | 5 | the date training stopped |
-| session | 5 | one continuous conversation, from opening it to closing it |
-| error, minimising error | 6 | the summed discrepancy between the fitted function and the data, shown as residuals |
-| learning | 7 | a search for values that lower the error; given as a borrowed word |
-| token | 8 (glossed), 9 (defined) | a chunk of characters drawn from a fixed list settled before training |
-| token ID | 8, 9 | the integer each token corresponds to |
-| vocabulary | 9 | the fixed list the tokens are drawn from |
-| logits | 11 | the raw scores the network emits, one per token |
-| pass | 11 | one run of the network over the tokens in the window |
-| attention | 12 | a weighted sum in which each earlier position's weight comes from comparing it against the position being scored |
-| transformer | 12 | the arrangement of arithmetic built out of that operation |
-| softmax | 13 | the function converting scores into probabilities that add to one |
-| temperature | 13, 14 | the divisor on the scores inside softmax, annotated on the equation itself |
-| sampling, sampler | 15 | drawing one token according to the probabilities |
+| the corpus | 4 | the text training ran over, and what it decides about where the model is reliable |
+| model | 5 | a stored list of numbers together with the program that reads them |
+| parameters | 5 | the numbers in that list |
+| weights | 5 | named on the frame as the other word for parameters |
+| network | 5 | the layered arithmetic that reads the parameters |
+| size (of a model) | 5 | how many parameters it has |
+| training | 6, 7 | the phase in which the numbers are changed; then, concretely, a search for values minimising total error |
+| inference | 6 | running the finished numbers on your text |
+| knowledge cutoff | 6 | the date training stopped |
+| session | 6 | one continuous conversation, from opening it to closing it |
+| error, minimising error | 7 | the summed discrepancy between the fitted function and the data, shown as residuals |
+| surprise | 8 | how low a probability the model gave the token that actually came next |
+| distribution | 8 | what training shaped, because surprise cannot be defined without a probability |
+| token | 8 (glossed), 12 (defined) | a chunk of characters taken from a fixed list settled before training |
+| learning | 9 | the search of frame 7, given as a borrowed word |
+| context window | 11 | everything the model is given, up to a fixed maximum |
+| standing instructions | 11 | text placed in the window at the start of every session |
+| vocabulary | 12 | the fixed list the tokens are taken from |
+| token ID | 12 | the integer each token corresponds to; a label, not a quantity |
+| logits | 14 | the raw scores the network emits, one per token |
+| pass | 14 | one run of the network over the window |
+| attention | 15 | a weighted sum in which each earlier position's weight comes from comparing it against the position being scored |
+| transformer | 15 | the arrangement of arithmetic built out of that operation |
+| softmax | 16 | the function converting scores into probabilities that add to one |
+| temperature | 16, 19 | the divisor on the scores inside softmax, annotated on the equation itself |
 | greedy selection | 17 | taking the top-scoring token every time |
-| context window | 18 | the tokens supplied to one pass, up to a fixed maximum |
-| standing instructions | 18 | text placed in the window at the start of every session |
-| tool | 19 | a program the system can run alongside the network, whose result is written into the window |
+| drawing, sampling | 18 | taking one token according to the probabilities |
+| tool | 22 | a program the system runs alongside the network, whose result is written into the window |
 
-## The check that was actually run
+## The checks that were actually run
 
-A term appearing in the table above is not enough; it has to appear for the first time on or after
-the slide that defines it. That is checked mechanically over the slide bodies with the presenter
-notes stripped, and it passes for every term.
+Three gates, all mechanical, all currently passing.
 
-Two defects were found by that check and fixed:
+- **`check-frames.py`** — every frame carries a footer; every cited key resolves and is tagged
+  `[V]`. 24 of 24.
+- **Overfull vbox count** — an overfull vbox is precisely a frame whose content runs into the
+  chevron footline. It found **seventeen** such frames on the first build. Now zero.
+- **Term order** — every term first appears on or after the frame that defines it, checked over
+  frame bodies with the speaker notes stripped, because the rule is about what the room reads.
 
-- **softmax** appeared inside the slide-11 figure, two slides before slide 13 defines it. The
-  figure's panel title now reads "the same scores turned into probabilities".
-- **tool** was used on slides 5 and 20 in the everyday sense of "the thing you are using", which
-  collides with the narrow definition on slide 19 — a program the system runs alongside the
-  network. Both were reworded.
+Three defects were found by the term-order check and fixed:
 
-**Two accepted exceptions, on the title slide.** *Language model* and *model* appear in the
-chapter's subtitle before slide 3 and slide 4 define them. A chapter cannot be titled without
-naming its subject, and the title slide says on its face that nothing is assumed.
+- **token** appeared on frame 8, two frames before it is glossed. Frame 8 now glosses it in the
+  same sentence, which is the rule.
+- **pass** appeared on frame 11, three frames before frame 14 defines it. Frame 11 now says
+  "every time the network runs".
+- **drawn** carried two meanings — a token *drawn from a list* on frame 12, and a token *drawn from
+  a distribution* on frame 18. One word, two senses, in a chapter that is careful about vocabulary.
+  Frame 12 now says *taken from*; **drawn** is reserved for sampling.
+
+**Two accepted exceptions, on the title frame.** *Language model* and *model* appear in the
+chapter's subtitle before frames 3 and 5 define them. A chapter cannot be titled without naming its
+subject.
+
+## Frames without a figure
+
+Twenty-three of twenty-four carry a visual: eleven figures, four TikZ diagrams, two animation
+slots, one annotated equation, and the full-bleed title page.
+
+**Frame 24 is text only**, by design — the instructor asked for the closing frame to be a summary
+beside a set of open questions rather than a diagram. The Slidev version carried an annotated
+pipeline diagram there and this one does not, which is a deliberate trade rather than an oversight.
+
+## Animation slots
+
+| Frame | Slot | What goes in it | Who makes it |
+|---|---|---|---|
+| 2 | F, 1600 × 422 px | a question typed, the reply appearing left to right at natural speed | instructor, screen recording |
+| 17 | F, 1600 × 422 px | temperature zero, run long enough that the output falls into a loop | instructor, screen recording |
+
+Frames 15, 18, 19 and 20 carry a static figure with an `animation A3/A4/A5/A7 replaces this`
+marker, so the PDF stays complete whether or not the animation is ever built. Specification in
+`ch01-animation-slots.md`.
 
 ## Terms deliberately not used in this chapter
 

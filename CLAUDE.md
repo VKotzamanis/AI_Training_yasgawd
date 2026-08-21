@@ -15,6 +15,14 @@ Teaching materials for a three-session AI training for PhD researchers in civil 
 
 **1b. A slide may *discuss* a non-`[V]` source, provided it rests no claim on it.** Chapter 6 teaches an incident whose only sources are a conference talk and an unreachable article. The slide's assertions are about the *sourcing situation* — which this project established and can defend — not about the incident. Such a slide carries **no citation footer**, and says on its face that the absence is deliberate. This is the only permitted exception to the every-slide-carries-a-footer rule, and it is not a route for smuggling `[P]` material onto a slide by declining to cite it.
 
+**1c. Every slide carries a footer.** Ruled 2026-08-20, no exceptions. A slide either rests on an
+external source or it does not, and the reader is told which. Because rule 2 forbids inventing a
+citation, a slide that makes no external claim declares its **provenance** instead, from a fixed
+vocabulary: `definition`, `derived`, `computed`, `observation`, `schematic`, `none`. This is
+enforced, not requested — `slides/beamer/check-frames.py` fails the build on a frame with no
+footer, and on any key not tagged `[V]`. It supersedes §1b, which named the only exception under
+the old rule.
+
 **2. Never invent a citation.** No author names, years, venues, or arXiv identifiers from memory. If you don't have it, write `TODO(cite)` and list the search terms.
 
 **3. Distinguish cost from accuracy in long-context material.** The roofline analysis in Chapter 7 explains why long context is expensive and slow. It says nothing about accuracy. Chapter 5 covers accuracy degradation, which has empirical curves and mechanisms but no closed-form equation. Conflating these is the single most likely error in this project.
@@ -39,19 +47,41 @@ Teaching materials for a three-session AI training for PhD researchers in civil 
 
 - **Units and notation:** SI throughout. State sign conventions for any quantity whose sign is a convention rather than a measurement — bending moment, axial force, flow direction, and any wave or hydrodynamic quantity. Define every symbol on first use, including in equations lifted from a source.
 - **Equations:** carry dimensional analysis. If an equation's denominator is defined non-obviously (see the MACs-vs-FLOPs erratum in Chapter 4), state the definition alongside it.
-- **Filenames:** `NN-short-name.md`, zero-padded, matching chapter numbers.
+- **Filenames:** `NN-short-name.tex`, zero-padded, matching chapter numbers.
 - **Chapter numbering is stable.** Threads in `curriculum/architecture.md` reference chapters by number. Renumbering breaks the thread map. Don't renumber without updating it.
 
 ## Slides
 
-Toolchain is **Slidev**, on trial. Reversal triggers are in `DECISIONS.md` — check them before sinking effort into workarounds.
+Toolchain is **pandoc/Beamer with the `UHTraining` theme**. Slidev was adopted on trial in August
+2026 and reversed on 2026-08-20; the evidence is in `slides/format-trial/README.md`. The decks are
+raw LaTeX rather than pandoc markdown, because console frames and animation slots cannot be
+expressed in markdown and the translation layer breaks on exactly those constructs.
 
-- **Pin versions.** Node and Slidev versions are fixed and recorded in `slides/README.md`. Do not upgrade mid-project.
-- **One file per chapter**, `slides/NN-short-name.md`, matching chapter numbers.
-- **Citations go through the footer component**, never hand-typed. Keys resolve against the source list generated from `references.md`. The build check fails if a key tagged `[U]` appears in a slide — do not disable it.
-- **Nothing load-bearing may be interactive-only.** Interactive features do not survive PDF export, and PDF is the fallback if the build breaks. Live code stepping is fine as an enhancement; it must not be the only way a point lands.
-- **Export to PDF and commit it whenever a chapter is finished.** There must always be a presentable deck independent of the toolchain.
-- Equations are KaTeX. Build Chapter 7's hardest derivation first as a spike before writing the rest of that chapter.
+- **The theme lives outside this repository**, at `~/Desktop/Claude/beamer-uhtraining`. Run its
+  `install.sh` once so `\usetheme{UHTraining}` resolves. Requires **xelatex or lualatex** —
+  pdflatex is not supported, because the theme uses real Times New Roman through `fontspec`.
+- **One file per chapter**, `slides/beamer/NN-short-name.tex`, matching chapter numbers.
+- **Citations go through `\citesource{key}`**, never hand-typed. Keys resolve against
+  `slides/beamer/uh-sources.tex`, generated from `references.md` by
+  `slides/scripts/gen-sources-tex.mjs`.
+- **Slides with no external source carry `\provenance{...}`** from the fixed vocabulary in §1c.
+- **Build with `slides/beamer/build.sh`.** It gates on three things: the frame check, LaTeX errors,
+  and **overfull vboxes** — an overfull vbox is precisely a frame whose content runs into the
+  chevron footline, and that check found seventeen such frames in Chapter 1 that the eye would have
+  had to catch one at a time.
+- **Size figures by height, not width.** The theme leaves about 58 mm of content once the logo
+  band, a two-line frame title and the footline are taken out, and the citation footer takes 6 mm
+  of that. A figure at `width=0.93\linewidth` is already over.
+- **Animation slots** are reserved with `\slotF` / `\slotW` / `\slotH` from `uhslot.sty`. The
+  deck exports to PDF and then to PPTX, where every slide becomes a page image, so an animation
+  cannot be layered on without covering what is printed underneath. Specification and authoring
+  sizes: `curriculum/ch01-animation-slots.md`.
+- **The four kinds of number each have one colour**, used identically in slides, figures and
+  animations: token ID slate, parameter ochre, logit teal, probability UH red. Colour is a
+  redundant cue — every coloured number carries its word too.
+- **Nothing load-bearing may be interactive-only.** PDF is the deliverable and the fallback.
+- **Export and commit the PDF whenever a chapter is finished.**
+- Equations are ordinary LaTeX. The theme sets TeX Gyre Termes Math so they match the body text.
 
 ## Directory map
 
@@ -63,7 +93,10 @@ references.md                   citations with verification status, search terms
 curriculum/architecture.md      chapters, threads, sequencing constraints
 curriculum/chapter-briefs.md    content inventory per chapter
 curriculum/production-plan.md   chapter categories, production order, review gate
-slides/                         Slidev deck source, one file per chapter
+slides/beamer/                  deck source, one .tex per chapter, plus uhcite/uhslot and the frame check
+slides/format-trial/            the six-way format comparison that decided pandoc/Beamer
+slides/scripts/                 source-table generators and the PDF-review stamping tools
+slides/*.md                     the superseded Slidev decks, kept until each chapter is rebuilt
 assets/                         figures, demo repos, failure gallery
 assets/injection-demo/          poisoned-document demo. ISOLATED. Do not execute.
 assets/rating-exercise/         Chapter 2 live rating exercise. Write from scratch.

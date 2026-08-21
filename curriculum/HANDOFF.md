@@ -231,8 +231,20 @@ convention, or judgement. Read that file for the sources and the caveats.
    Cap self-contained prose instead.
 8. **Speaker notes carry the argument, the caveats and the transitions.**
 
-Graphics come from Mermaid, matplotlib scripts committed to the repository, ASCII, or
-hand-written SVG. Generated imagery is not needed and should not be used.
+9. **Every slide carries a footer.** Added 2026-08-20. A slide either cites an external source or
+   declares its provenance — `definition`, `derived`, `computed`, `observation`, `schematic`,
+   `none`. Enforced by `slides/beamer/check-frames.py`, not requested.
+10. **A term is defined before it is used, and that is checked mechanically**, over slide bodies
+    with the speaker notes stripped, because the rule is about what the room reads.
+
+Graphics come from TikZ, matplotlib scripts committed to the repository, or hand-written SVG.
+Generated imagery is not needed and should not be used, and an image model must not be used to
+produce animation frames — no frame-to-frame consistency, unreliable text rendering, and no way to
+guarantee the numbers match the slide beside them.
+
+**Toolchain note.** Sections 5 and 7 were written for Slidev. The decks are now pandoc/Beamer with
+the `UHTraining` theme; see `../slides/README.md`. Every prose and design rule below survives the
+move unchanged — the greps in §5.3 apply to a `.tex` file exactly as they applied to a `.md` one.
 
 ---
 
