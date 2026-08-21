@@ -75,7 +75,7 @@ def fig_temperature():
     logits = np.log(p1)                            # exact inverse of softmax at T = 1
     temps = [0.2, 0.7, 1.0, 1.8]
 
-    fig, axes = plt.subplots(1, 4, figsize=(11.6, 3.55), sharey=True)
+    fig, axes = plt.subplots(1, 4, figsize=(11.6, 2.27), sharey=True)
     x = np.arange(len(labels))
     for ax, T in zip(axes, temps):
         p = softmax(logits, T)
@@ -200,7 +200,7 @@ def fig_scores():
     probs = recovered[:-1]
     shown_total = probs.sum()
 
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(11.0, 3.55))
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(11.0, 2.71))
     x = np.arange(len(labels))
     a1.bar(x, logits, color=LOGIT, edgecolor=INK, linewidth=.6)
     a1.set_title("1. logits — raw scores out of the network", fontsize=10.5, pad=8)
@@ -234,7 +234,7 @@ def fig_token_cost():
     counts = [1, 1, 2, 2, 3, 3, 4]                      # schematic, not measured
     letters = [len(t) for t in terms]
     labels = [f"{t}   ({n} letters)" for t, n in zip(terms, letters)]
-    fig, ax = plt.subplots(figsize=(10.6, 3.75))
+    fig, ax = plt.subplots(figsize=(12.2, 3.42))
     cols = [WARN if t in ("rebar", "international") else ACCENT[0] for t in terms]
     ax.barh(range(len(terms)), counts, color=cols, edgecolor=INK, linewidth=.6)
     ax.set_yticks(range(len(terms))); ax.set_yticklabels(labels, fontsize=10)
@@ -347,7 +347,7 @@ def fig_what_is_ai():
          "", ACCENT[0]),
     ]
     tops = [5.35, 4.20, 3.05, 1.90]
-    fig, ax = plt.subplots(figsize=(12.6, 4.55))
+    fig, ax = plt.subplots(figsize=(12.6, 3.74))
     ax.set_xlim(0, 10); ax.set_ylim(0, 5.9); _blank(ax)
     for i, (name, defn, examples, colour) in enumerate(bands):
         x = 0.30 + i * 0.38
@@ -383,7 +383,7 @@ def fig_model_artefact():
     """A model as a concrete object: a long list of numbers, and the program that
     does arithmetic with them. No file size is asserted - the count is left as a
     symbol, because a specific figure would be a claim about a specific model."""
-    fig, ax = plt.subplots(figsize=(11.4, 3.9))
+    fig, ax = plt.subplots(figsize=(11.4, 3.08))
     ax.set_xlim(0, 10); ax.set_ylim(0, 4.4); _blank(ax)
 
     ax.add_patch(FancyBboxPatch((0.3, 1.15), 4.5, 2.55, boxstyle="round,pad=0.08",
@@ -418,7 +418,7 @@ def fig_model_artefact():
 def fig_train_vs_run():
     """Timeline: the numbers change during training, then stop changing. Every
     session the audience will ever run sits to the right of the line."""
-    fig, ax = plt.subplots(figsize=(11.2, 3.5))
+    fig, ax = plt.subplots(figsize=(11.2, 2.64))
     ax.set_xlim(0, 10); ax.set_ylim(0, 4.0); _blank(ax)
     ax.annotate("", xy=(9.9, 0.55), xytext=(0.2, 0.55),
                 arrowprops=dict(arrowstyle="-|>", color=INK, lw=1.6))
@@ -465,7 +465,7 @@ def fig_fitting():
     m, c = np.polyfit(x, y, 1)                        # least-squares fit, exact
     resid = y - (m * x + c)                           # exactly zero here, to float precision
 
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(10.6, 3.5))
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(12.5, 3.0))
     a1.plot(x, y, "o", color=ACCENT[1], ms=7, mec=INK, mew=.7, zorder=5)
     xs = np.linspace(0, 6, 100)
     a1.plot(xs, m * xs + c, color=ACCENT[0], lw=2.2)
@@ -513,7 +513,7 @@ def fig_tokens():
               " the", " stir", "rups", " were"]
     ids = [791, 24001, 8710, 304, 1364, 277, 1606,
            279, 2941, 32516, 1051]                                # illustrative
-    fig, ax = plt.subplots(figsize=(11.9, 3.95))
+    fig, ax = plt.subplots(figsize=(11.9, 3.07))
     ax.set_xlim(0, 12.6); ax.set_ylim(0, 3.0); _blank(ax)
     ax.text(1.55, 2.28, "what you typed", fontsize=9.5, ha="right", va="center",
             color=INK, alpha=.78)
@@ -556,7 +556,7 @@ def fig_attention():
     words = ["The", "beam", "failed", "in", "shear", "because", "the", "stirrups", "were"]
     weights = [0.02, 0.24, 0.09, 0.01, 0.28, 0.03, 0.01, 0.30, 0.02]
 
-    fig, ax = plt.subplots(figsize=(12.0, 4.05))
+    fig, ax = plt.subplots(figsize=(12.0, 2.99))
     ax.set_xlim(0, 13.2); ax.set_ylim(0, 3.6); _blank(ax)
     xs, xpos = [], 0.25
     for w in words:
@@ -656,7 +656,7 @@ def fig_loop():
              [.58, .20, .13, .09], [.50, .24, .16, .10]]
     pick = 0                                  # the sampler happened to take the top one
 
-    fig, axes = plt.subplots(4, 1, figsize=(12.8, 4.55))
+    fig, axes = plt.subplots(4, 1, figsize=(12.8, 3.39))
     for r, ax in enumerate(axes):
         ax.set_xlim(0, 10); ax.set_ylim(0, 1); _blank(ax)
         ax.text(0.05, 0.5, f"pass {r+1}", fontsize=9.5, va="center", color=INK, alpha=.7)
@@ -696,7 +696,7 @@ def fig_loop():
 def fig_persistence():
     """Three sessions over time. The window fills and vanishes each time; the
     parameter list below it never changes."""
-    fig, ax = plt.subplots(figsize=(11.2, 3.7))
+    fig, ax = plt.subplots(figsize=(11.2, 2.64))
     ax.set_xlim(0, 10); ax.set_ylim(0, 4.2); _blank(ax)
     for i, lab in enumerate(["session 1", "session 2", "session 3"]):
         x = 0.6 + i * 3.1
@@ -732,7 +732,7 @@ def fig_what_training_changed():
     start = rng.uniform(-1, 1, 6)
     end = start + rng.normal(0, 0.55, 6)
 
-    fig, ax = plt.subplots(figsize=(11.6, 4.05))
+    fig, ax = plt.subplots(figsize=(11.6, 2.58))
     ax.set_xlim(0, 11); ax.set_ylim(0, 4.2); _blank(ax)
 
     ax.add_patch(FancyBboxPatch((0.35, 1.35), 3.6, 2.45, boxstyle="round,pad=0.07",
@@ -788,7 +788,7 @@ def fig_corpus_density():
         (4.0, 7.3, "the band between", "believes it knows, gets it wrong", WARN),
         (7.3, 10.0, "genuinely obscure", "usually declines, or says so", "#9AA0A0"),
     ]
-    fig, ax = plt.subplots(figsize=(11.8, 3.85))
+    fig, ax = plt.subplots(figsize=(11.8, 2.86))
     ax.set_xlim(0, 10); ax.set_ylim(0, 4.3); _blank(ax)
     strip_y, strip_h = 1.55, 0.95
     for x0, x1, name, sub, colour in bands:
@@ -831,7 +831,7 @@ def fig_surprise():
     after_p = CAND_PROBS                     # [0.41, 0.27, 0.19, 0.02] — the fixed table
     x = np.arange(len(CANDIDATES))
 
-    fig, (a1, a2, a3) = plt.subplots(1, 3, figsize=(13.4, 3.85))
+    fig, (a1, a2, a3) = plt.subplots(1, 3, figsize=(13.4, 3.26))
 
     # Panel 1 — the training sentence, next word hidden
     a1.set_xlim(0, 10); a1.set_ylim(0, 4); _blank(a1)
@@ -930,7 +930,7 @@ def fig_house_style():
               "Fewer voids raise the strength of the",
               "hardened concrete."]
 
-    fig, ax = plt.subplots(figsize=(12.2, 4.5))
+    fig, ax = plt.subplots(figsize=(12.2, 2.76))
     ax.set_xlim(0, 12.2); ax.set_ylim(0, 4.6); _blank(ax)
     ax.text(6.1, 4.40, "“" + CH2_QUESTION + "”", ha="center", va="center",
             fontsize=10.0, color=INK, style="italic")
@@ -990,7 +990,7 @@ def fig_rubric():
               "formatting": 3, "verbosity": 2, "tone": 4}
     tension = {"truthfulness", "verbosity"}
 
-    fig, ax = plt.subplots(figsize=(12.0, 4.6))
+    fig, ax = plt.subplots(figsize=(12.0, 3.06))
     ax.set_xlim(0, 12.0); ax.set_ylim(0, 4.7); _blank(ax)
     ax.text(6.0, 4.55, "rating one response to “" + CH2_QUESTION + "”",
             ha="center", va="center", fontsize=9.6, color=INK, style="italic")
@@ -1045,7 +1045,7 @@ def fig_scale_designs():
     only the mechanism (structural vs. instructional removal of the tie
     option) is drawn from the review documents' finding.
     """
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(13.8, 4.3))
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(13.8, 3.10))
 
     a1.set_xlim(0, 10); a1.set_ylim(0, 5.3); _blank(a1)
     a1.text(5, 4.90, "six-point scale — no midpoint exists", fontsize=10.3,
@@ -1121,7 +1121,7 @@ def fig_labour_models():
              "near-total discretion over the answer's form",
              "the professional designs their own question"]
 
-    fig, ax = plt.subplots(figsize=(12.4, 4.15))
+    fig, ax = plt.subplots(figsize=(12.4, 3.17))
     ax.set_xlim(0, 12.4); ax.set_ylim(0, 4.4); _blank(ax)
 
     ax.add_patch(FancyBboxPatch((0.3, 0.5), 5.6, 3.35, boxstyle="round,pad=0.08",
@@ -1165,7 +1165,7 @@ def fig_disagreement():
           "formatting": 2, "verbosity": 2, "tone": 5}
     differ = {d for d in RUBRIC_DIMS if r1[d] != r2[d]}
 
-    fig, (a1, a2, a3) = plt.subplots(1, 3, figsize=(13.6, 4.15))
+    fig, (a1, a2, a3) = plt.subplots(1, 3, figsize=(13.6, 3.22))
 
     a1.set_xlim(0, 10); a1.set_ylim(0, 6.4); _blank(a1)
     for i, d in enumerate(RUBRIC_DIMS):
@@ -1243,7 +1243,7 @@ def fig_instrument_divergence():
     }
     highlight = {"instruction\nfollowing", "truthfulness /\naccuracy"}
 
-    fig, ax = plt.subplots(figsize=(12.8, 4.3))
+    fig, ax = plt.subplots(figsize=(12.8, 3.28))
     ax.set_xlim(-1.9, len(cats)); ax.set_ylim(-1.6, len(docs) + 0.6); _blank(ax)
     for r, doc in enumerate(docs):
         y = len(docs) - 1 - r
@@ -1277,7 +1277,7 @@ def fig_instrument_rebuild():
     three listed changes are the general shape of the review documents'
     finding, not quoted entries. Two data batches, a fortnight apart, sit on
     either side of the window."""
-    fig, ax = plt.subplots(figsize=(12.4, 4.15))
+    fig, ax = plt.subplots(figsize=(12.4, 3.17))
     ax.set_xlim(-0.5, 22); ax.set_ylim(-1.0, 5.1); _blank(ax)
     axis_y = 1.6
     ax.annotate("", xy=(21.5, axis_y), xytext=(0, axis_y),
@@ -1336,7 +1336,7 @@ def fig_evidence_vs_force():
     force_rank = {l: i + 1 for i, l in enumerate(force_order)}
     highlight = "instrument rebuilt mid-run"
 
-    fig, ax = plt.subplots(figsize=(13.6, 4.6))
+    fig, ax = plt.subplots(figsize=(13.6, 3.03))
     ax.set_xlim(-0.3, 1.3); ax.set_ylim(0, 9.2); _blank(ax)
     ax.text(0, 8.85, "ranked by evidence", fontsize=10.5, ha="center", weight="bold", color=INK)
     ax.text(1, 8.85, "ranked by force", fontsize=10.5, ha="center", weight="bold", color=INK)
@@ -1398,7 +1398,7 @@ def fig_best_of_eleven():
     vals = np.insert(other, max_idx, MAX_PCT)
     assert abs(vals.mean() - MEAN_PCT) < 1e-9, "mean of the 11 plotted bars must equal 4.42 exactly"
 
-    fig, ax = plt.subplots(figsize=(13.4, 4.4))
+    fig, ax = plt.subplots(figsize=(15.6, 3.70))
     x = np.arange(11)
     cols = [WARN if i == max_idx else ACCENT[1] for i in range(11)]
     hatch = [None if i == max_idx else "///" for i in range(11)]
