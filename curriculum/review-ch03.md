@@ -191,8 +191,14 @@ Ordered by what each lever steers, which makes the premise the structure.
 - **I did not re-fetch the vendor documentation.** Its `[V]` tag dates from 2026-08-19. The two
   version-fragile facts on the thinking frame need re-checking before delivery, and I have not done
   it.
-- **I did not source the model-choice frame.** It is new, it makes claims about a product, and
-  under hard rule 1 it does not reach a frame until it is verified. That is work still to do.
+- ~~I did not source the model-choice frame.~~ **Done after this review was written.** Two vendor
+  pages were fetched as primary text and verified, and both are logged. The frame that resulted is
+  not the recommendation table the review imagined: the vendor's own guidance is written for API
+  callers, and it does not put the effort dial in the chat app for the current models, so the slide
+  cannot tell this room to set it. What survived verification is better suited to the audience —
+  the **reliable knowledge cutoff**, published per model and defined as distinct from the
+  training-data cutoff. Whichever model is picked, there is a date past which the literature is not
+  in it, and that decides more answers for this room than the capability ordering does.
 - **I did not check whether the three anti-patterns overlap Chapter 17**, which teaches asking for
   analysis rather than a verdict as a deliberate technique. That may be intended reinforcement or
   duplication; deciding needs the two read together.

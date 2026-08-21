@@ -1433,6 +1433,388 @@ def fig_best_of_eleven():
     plt.close(fig); print("wrote 02-best-of-eleven.png")
 
 
+# ---------------------------------------------------------------------------
+# Chapter 3 — Control. "The levers that work, and why they work."
+#
+# The chapter is organised by the six rated dimensions Chapter 2 teaches, so most
+# of these figures are about the MAPPING from a lever to the thing it steers,
+# not about the lever in isolation.
+#
+# CLAUDE.md rule 5 applies throughout: every prompt, response and rubric row below
+# is synthetic and built on this group's own domain. Nothing is reproduced or
+# paraphrased from any vendor document.
+# ---------------------------------------------------------------------------
+
+# The Chapter 3 running example, written once so it cannot drift between figures.
+# A weak prompt a civil engineer would plausibly type, and the same request after
+# each lever has been applied to it.
+WEAK_PROMPT = "Check my concrete mix design."
+
+
+def fig_prompt_anatomy():
+    """What a prompt actually is: four separate things that arrive in one window.
+
+    Chapter 1 defined the context window; Chapter 2 defined the system prompt.
+    This figure is the join, and every lever in the chapter is a statement about
+    one of these four boxes. Sizes are schematic, not measured - the point is
+    that four sources land in one place, and only one of them is what the user
+    typed."""
+    fig, ax = plt.subplots(figsize=(13.2, 3.30))
+    ax.set_xlim(0, 13.2); ax.set_ylim(0, 3.30); _blank(ax)
+
+    parts = [
+        ("the system prompt",   "set by whoever built\nthe product, not by you", TOKENID),
+        ("the conversation\nso far", "every earlier turn,\nresent each time",     TOKENID),
+        ("anything attached",   "a file, an image,\na pasted page",               PARAM),
+        ("your message",        "the only part you\nwrite this turn",             PROB),
+    ]
+    x0, w, gap = 0.25, 2.55, 0.30
+    for i, (title, sub, col) in enumerate(parts):
+        x = x0 + i * (w + gap)
+        ax.add_patch(FancyBboxPatch((x, 1.42), w, 1.62, boxstyle="round,pad=0.06",
+                                    fc=col, ec=col, alpha=0.13, lw=1.4))
+        ax.add_patch(FancyBboxPatch((x, 1.42), w, 1.62, boxstyle="round,pad=0.06",
+                                    fc="none", ec=col, lw=1.4))
+        ax.text(x + w / 2, 2.62, title, fontsize=10.2, ha="center", va="center",
+                weight="bold", color=col)
+        ax.text(x + w / 2, 1.92, sub, fontsize=8.4, ha="center", va="center", color=INK)
+        ax.annotate("", xy=(x + w / 2, 1.02), xytext=(x + w / 2, 1.36),
+                    arrowprops=dict(arrowstyle="-|>", color=col, lw=1.6))
+
+    ax.add_patch(FancyBboxPatch((0.25, 0.30), 12.7, 0.70, boxstyle="round,pad=0.06",
+                                fc=INK, ec=INK, alpha=0.07, lw=1.6))
+    ax.add_patch(FancyBboxPatch((0.25, 0.30), 12.7, 0.70, boxstyle="round,pad=0.06",
+                                fc="none", ec=INK, lw=1.6))
+    ax.text(6.60, 0.65, "one context window  —  the model sees this, and nothing else",
+            fontsize=11.2, ha="center", va="center", weight="bold", color=INK)
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "03-prompt-anatomy.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 03-prompt-anatomy.png")
+
+
+def fig_levers_map():
+    """The chapter's organising figure: each rated dimension, and the lever that steers it.
+
+    The six dimensions are the ones Chapter 2's rubric figure teaches. Five have a
+    lever; harmlessness does not, and that asymmetry is the informative part - it
+    is why a request can be refused no matter how it is phrased."""
+    rows = [
+        ("instruction following", "say exactly what you want,\nand give the reason", True),
+        ("formatting",            "show the format in an example\nrather than describing it", True),
+        ("tone",                  "a role, and examples\nof the voice you want", True),
+        ("verbosity",             "ask for the length\nyou actually want", True),
+        ("truthfulness",          "ask for the working,\nnot the verdict", True),
+        ("harmlessness",          "no lever— this is the one\nyou cannot prompt around", False),
+    ]
+    fig, ax = plt.subplots(figsize=(13.4, 3.42))
+    ax.set_xlim(0, 13.4); ax.set_ylim(0, 3.42); _blank(ax)
+    ax.text(2.15, 3.18, "rated in Chapter 2", fontsize=10.4, ha="center",
+            weight="bold", color=INK)
+    ax.text(8.60, 3.18, "the lever in Chapter 3", fontsize=10.4, ha="center",
+            weight="bold", color=INK)
+
+    top, dy = 2.72, 0.475
+    for i, (dim, lever, has) in enumerate(rows):
+        y = top - i * dy
+        col = ACCENT[0] if has else WARN
+        ax.add_patch(FancyBboxPatch((0.25, y - 0.185), 3.80, 0.37, boxstyle="round,pad=0.04",
+                                    fc=col, ec=col, alpha=0.12, lw=1.1))
+        ax.text(2.15, y, dim, fontsize=9.6, ha="center", va="center",
+                weight="bold", color=col)
+        ax.annotate("", xy=(4.85, y), xytext=(4.15, y),
+                    arrowprops=dict(arrowstyle="-|>", color=col, lw=1.5,
+                                    linestyle="-" if has else ":"))
+        ax.text(4.95, y, lever, fontsize=8.7, ha="left", va="center",
+                color=INK if has else WARN, weight="normal" if has else "bold")
+    ax.text(6.70, 0.13,
+            "Five of six can be steered from the prompt. The sixth is why a request "
+            "is sometimes refused however it is worded.",
+            fontsize=9.0, ha="center", color=WARN, style="italic")
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "03-levers-map.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 03-levers-map.png")
+
+
+def fig_specificity():
+    """The running example, before and after. Each added clause is tagged with the
+    rated dimension it steers, so the improvement is legible as a set of choices
+    rather than as 'a longer prompt'."""
+    additions = [
+        ("Check my concrete mix design", "the request", None),
+        ("for a marine tidal-zone pile cap", "states the exposure class", "truthfulness"),
+        ("against BS 8500-1", "names the standard to check against", "truthfulness"),
+        ("flag anything non-compliant\nand say which clause", "says what the output is for", "instruction following"),
+        ("as a table, one row per parameter", "fixes the format", "formatting"),
+    ]
+    fig, ax = plt.subplots(figsize=(13.2, 3.32))
+    ax.set_xlim(0, 13.2); ax.set_ylim(0, 3.32); _blank(ax)
+
+    ax.text(0.25, 3.08, "what gets typed", fontsize=10.2, ha="left",
+            weight="bold", color=WARN)
+    ax.add_patch(FancyBboxPatch((0.25, 2.48), 5.4, 0.46, boxstyle="round,pad=0.05",
+                                fc=WARN, ec=WARN, alpha=0.10, lw=1.3))
+    ax.text(2.95, 2.71, f'"{WEAK_PROMPT}"', fontsize=10.6, ha="center", va="center",
+            style="italic", color=WARN)
+    ax.text(6.05, 2.71, "answerable, but the model must guess the exposure class,\n"
+                        "the standard, and what you want back",
+            fontsize=8.5, ha="left", va="center", color=WARN)
+
+    ax.text(0.25, 2.14, "the same request, lever by lever", fontsize=10.2, ha="left",
+            weight="bold", color=ACCENT[0])
+    top, dy = 1.80, 0.40
+    for i, (clause, why, dim) in enumerate(additions):
+        y = top - i * dy
+        first = dim is None
+        ax.text(0.35, y, ("" if first else "+ ") + clause, fontsize=9.3, ha="left",
+                va="center", color=INK, weight="bold" if first else "normal")
+        ax.text(6.20, y, why, fontsize=8.4, ha="left", va="center", color=TOKENID)
+        if dim:
+            ax.text(13.05, y, dim, fontsize=8.4, ha="right", va="center",
+                    color=ACCENT[0], weight="bold")
+    ax.text(13.05, 2.14, "steers", fontsize=9.0, ha="right", weight="bold", color=ACCENT[0])
+    ax.set_title("Synthetic example built for this course. Nothing here is quoted "
+                 "from a vendor document.", fontsize=8.8, pad=6, color=WARN)
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "03-specificity.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 03-specificity.png")
+
+
+def fig_verdict_vs_working():
+    """Why asking for the working beats asking for the verdict.
+
+    The two axes are cost to produce and cost to check. A verdict is cheap on both
+    counts to produce and impossible to check; the working is slightly dearer to
+    produce and checkable line by line. The figure's subject is the checking cost,
+    because that is the one the reader pays."""
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(13.2, 3.16))
+    for ax in (a1, a2):
+        ax.set_xlim(0, 6.4); ax.set_ylim(0, 3.16); _blank(ax)
+
+    a1.text(3.2, 2.90, "you asked for a verdict", fontsize=10.6, ha="center",
+            weight="bold", color=WARN)
+    a1.add_patch(FancyBboxPatch((0.30, 1.95), 5.8, 0.72, boxstyle="round,pad=0.05",
+                                fc=WARN, ec=WARN, alpha=0.10, lw=1.3))
+    a1.text(3.2, 2.31, '"The mix is compliant."', fontsize=11.4, ha="center",
+            va="center", style="italic", color=WARN)
+    a1.text(3.2, 1.55, "one sentence. nothing in it can be checked\n"
+                       "without redoing the whole job yourself.",
+            fontsize=9.0, ha="center", va="center", color=INK)
+    a1.text(3.2, 0.62, "checkable claims:  0", fontsize=11.0, ha="center",
+            weight="bold", color=WARN)
+
+    a2.text(3.2, 2.90, "you asked for the working", fontsize=10.6, ha="center",
+            weight="bold", color=ACCENT[0])
+    lines = ["w/c ratio 0.45, limit 0.45 for XS3", "cover 45 mm, limit 50 mm  — short",
+             "cement type CEM I, permitted", "min strength C35/45, specified C32/40  — short"]
+    for i, ln in enumerate(lines):
+        y = 2.48 - i * 0.32
+        bad = "short" in ln
+        a2.text(0.35, y, "• " + ln, fontsize=8.8, ha="left", va="center",
+                color=WARN if bad else INK, weight="bold" if bad else "normal")
+    a2.text(3.2, 0.90, "four claims, each one a number you can look up",
+            fontsize=9.0, ha="center", va="center", color=INK)
+    a2.text(3.2, 0.44, "checkable claims:  4", fontsize=11.0, ha="center",
+            weight="bold", color=ACCENT[0])
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "03-verdict-vs-working.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 03-verdict-vs-working.png")
+
+
+def fig_constraint_stack():
+    """Constraint stacking: four requirements that cannot all hold at once.
+
+    Something gives, and nothing in the output says which. The figure marks the
+    constraint that was silently dropped, which is the part a reader never sees."""
+    cons = [
+        ("under 200 words", True),
+        ("cite every clause you rely on", False),
+        ("cover all six exposure classes", True),
+        ("no tables, prose only", True),
+    ]
+    fig, ax = plt.subplots(figsize=(13.0, 3.10))
+    ax.set_xlim(0, 13.0); ax.set_ylim(0, 3.10); _blank(ax)
+    ax.text(3.05, 2.85, "four constraints, all reasonable", fontsize=10.4,
+            ha="center", weight="bold", color=INK)
+    for i, (c, kept) in enumerate(cons):
+        y = 2.34 - i * 0.46
+        col = ACCENT[0] if kept else WARN
+        ax.add_patch(FancyBboxPatch((0.30, y - 0.17), 5.5, 0.34, boxstyle="round,pad=0.04",
+                                    fc=col, ec=col, alpha=0.12, lw=1.2))
+        ax.text(3.05, y, c, fontsize=9.4, ha="center", va="center",
+                color=col, weight="bold" if not kept else "normal")
+    ax.annotate("", xy=(6.85, 1.45), xytext=(6.05, 1.45),
+                arrowprops=dict(arrowstyle="-|>", color=INK, lw=1.8))
+    ax.add_patch(FancyBboxPatch((7.05, 0.72), 5.65, 1.48, boxstyle="round,pad=0.06",
+                                fc=INK, ec=INK, alpha=0.06, lw=1.4))
+    ax.text(9.88, 1.92, "what comes back", fontsize=10.0, ha="center",
+            weight="bold", color=INK)
+    ax.text(9.88, 1.38, "190 words of prose covering\nall six classes, and not one\nclause reference",
+            fontsize=9.4, ha="center", va="center", color=INK)
+    ax.text(9.88, 0.40, "the dropped constraint is not reported",
+            fontsize=9.6, ha="center", weight="bold", color=WARN)
+    ax.text(3.05, 0.30, "Word limits win. They are the easiest\nto satisfy and the easiest to check.",
+            fontsize=8.8, ha="center", va="center", color=WARN, style="italic")
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "03-constraint-stack.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 03-constraint-stack.png")
+
+
+def fig_attachments():
+    """Describing a figure versus handing the figure over.
+
+    The left column is what a described plot survives as; the right is what the
+    window receives when the image itself is attached. The gap is the chapter's
+    largest missing lever."""
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(13.2, 3.20))
+    for ax in (a1, a2):
+        ax.set_xlim(0, 6.4); ax.set_ylim(0, 3.20); _blank(ax)
+
+    a1.text(3.2, 2.94, "you describe the plot", fontsize=10.6, ha="center",
+            weight="bold", color=WARN)
+    a1.add_patch(FancyBboxPatch((0.30, 1.60), 5.8, 1.06, boxstyle="round,pad=0.05",
+                                fc=WARN, ec=WARN, alpha=0.10, lw=1.3))
+    a1.text(3.2, 2.13, '"I have a load-displacement curve\n'
+                       'with a weird kink about two thirds\nof the way along."',
+            fontsize=9.4, ha="center", va="center", style="italic", color=WARN)
+    a1.text(3.2, 0.92, "the model works from your description,\n"
+                       "so it can only be as good as the description",
+            fontsize=8.9, ha="center", va="center", color=INK)
+    a1.text(3.2, 0.28, "your reading of the plot is the input",
+            fontsize=9.4, ha="center", weight="bold", color=WARN)
+
+    a2.text(3.2, 2.94, "you attach the plot", fontsize=10.6, ha="center",
+            weight="bold", color=ACCENT[0])
+    xs = np.linspace(0, 1, 220)
+    ys = np.where(xs < 0.66, 2.2 * xs, 2.2 * 0.66 + 0.35 * (xs - 0.66))
+    a2.plot(0.75 + xs * 4.9, 1.62 + ys * 0.42, color=ACCENT[0], lw=2.0)
+    a2.add_patch(FancyBboxPatch((0.30, 1.52), 5.8, 1.18, boxstyle="round,pad=0.05",
+                                fc="none", ec=ACCENT[0], lw=1.3))
+    a2.text(3.2, 0.92, "the pixels go into the window\n"
+                       "alongside your question",
+            fontsize=8.9, ha="center", va="center", color=INK)
+    a2.text(3.2, 0.28, "the plot itself is the input",
+            fontsize=9.4, ha="center", weight="bold", color=ACCENT[0])
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "03-attachments.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 03-attachments.png")
+
+
+def fig_knowledge_cutoff():
+    """Reliable knowledge cutoff by model, on a time axis.
+
+    Every date here is a verified [V] figure from the vendor's own models-overview
+    page, fetched 2026-08-20 (see references.md {#anthropic-models}). The page
+    defines reliable knowledge cutoff as 'the date through which a model's
+    knowledge is most extensive and reliable' and distinguishes it from the
+    broader training-data cutoff.
+
+    This is the model-choice fact that matters to a research audience: whichever
+    model is picked, there is a date past which the literature is not in it.
+    Units: calendar months, plotted as decimal years."""
+    # (label, reliable knowledge cutoff, context window in tokens, latency word)
+    models = [
+        ("Haiku 4.5",  2025 + 1 / 12,  "200k", "fastest"),
+        ("Sonnet 5",   2026 + 0 / 12,  "1M",   "fast"),
+        ("Fable 5",    2026 + 0 / 12,  "1M",   "slower"),
+        ("Opus 5",     2026 + 4 / 12,  "1M",   "moderate"),
+    ]
+    today = 2026 + 7 / 12          # August 2026, the delivery month
+    fig, ax = plt.subplots(figsize=(13.2, 3.28))
+    ax.set_xlim(2024.9, 2026.95); ax.set_ylim(0, 3.28); _blank(ax)
+
+    ax.annotate("", xy=(2026.90, 0.62), xytext=(2025.00, 0.62),
+                arrowprops=dict(arrowstyle="-|>", color=INK, lw=1.6))
+    for yr in (2025.0, 2025.5, 2026.0, 2026.5):
+        ax.plot([yr, yr], [0.54, 0.70], color=INK, lw=1.2)
+        lab = f"{int(yr)}" if yr % 1 == 0 else "mid"
+        ax.text(yr, 0.34, lab, fontsize=8.6, ha="center", color=INK)
+
+    ax.plot([today, today], [0.54, 2.90], color=WARN, lw=1.6, ls="--")
+    ax.text(today + 0.02, 2.96, "today", fontsize=9.2, ha="left",
+            weight="bold", color=WARN)
+
+    top, dy = 2.62, 0.50
+    for i, (name, cut, ctx, lat) in enumerate(sorted(models, key=lambda m: m[1])):
+        y = top - i * dy
+        ax.plot([2025.00, cut], [y, y], color=ACCENT[0], lw=3.2, solid_capstyle="round")
+        ax.plot([cut, today], [y, y], color=WARN, lw=1.4, ls=":")
+        ax.plot([cut], [y], "o", color=ACCENT[0], ms=7, zorder=4)
+        ax.text(2024.97, y, name, fontsize=9.6, ha="right", va="center",
+                weight="bold", color=INK)
+        ax.text(cut + 0.02, y + 0.155, f"{ctx} window · {lat}", fontsize=8.0,
+                ha="left", va="center", color=TOKENID)
+    ax.text((2025.0 + today) / 2, 0.08,
+            "Solid: the model's knowledge is most extensive and reliable. "
+            "Dotted: it is not, whichever model you pick.",
+            fontsize=9.0, ha="center", color=WARN, style="italic")
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "03-knowledge-cutoff.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 03-knowledge-cutoff.png")
+
+
+def fig_thinking_ladder():
+    """What the thinking and effort controls do, and which of them a chat user has.
+
+    Effort levels and their described behaviour are verified [V] from the vendor's
+    steering-thinking page (references.md {#anthropic-thinking}); that page documents
+    effort for the API and Claude Code, and does not place the dial in the chat app
+    for the current models. The right-hand panel is therefore the lever this room
+    actually has: the same decision, moved by wording."""
+    levels = [
+        ("max",    "always thinks, no limit on depth"),
+        ("xhigh",  "always thinks deeply"),
+        ("high",   "almost always thinks   (the default)"),
+        ("medium", "may skip thinking on simple queries"),
+        ("low",    "skips thinking where speed matters"),
+    ]
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(13.4, 3.24),
+                                 gridspec_kw={"width_ratios": [1.25, 1.0]})
+    a1.set_xlim(0, 7.4); a1.set_ylim(0, 3.24); _blank(a1)
+    a2.set_xlim(0, 5.9); a2.set_ylim(0, 3.24); _blank(a2)
+
+    a1.text(3.70, 2.98, "the effort dial — not in the chat app",
+            fontsize=10.2, ha="center", weight="bold", color=TOKENID)
+    top, dy = 2.50, 0.46
+    for i, (lv, desc) in enumerate(levels):
+        y = top - i * dy
+        shade = 0.30 - i * 0.05
+        a1.add_patch(FancyBboxPatch((0.25, y - 0.17), 1.42, 0.34, boxstyle="round,pad=0.04",
+                                    fc=TOKENID, ec=TOKENID, alpha=shade, lw=1.0))
+        a1.text(0.96, y, lv, fontsize=9.4, ha="center", va="center",
+                weight="bold", color=INK)
+        a1.text(1.82, y, desc, fontsize=8.7, ha="left", va="center", color=TOKENID)
+    a1.text(3.70, 0.22, "Documented for the API and Claude Code.",
+            fontsize=8.6, ha="center", color=WARN, style="italic")
+
+    a2.text(2.95, 2.98, "what you can steer by wording",
+            fontsize=10.2, ha="center", weight="bold", color=ACCENT[0])
+    a2.add_patch(FancyBboxPatch((0.25, 1.96), 5.4, 0.62, boxstyle="round,pad=0.05",
+                                fc=ACCENT[0], ec=ACCENT[0], alpha=0.12, lw=1.3))
+    a2.text(2.95, 2.27, '"Please think hard before responding."',
+            fontsize=9.6, ha="center", va="center", style="italic", color=ACCENT[0])
+    a2.text(2.95, 1.72, "more thinking on this turn", fontsize=8.6,
+            ha="center", color=INK)
+    a2.add_patch(FancyBboxPatch((0.25, 0.86), 5.4, 0.62, boxstyle="round,pad=0.05",
+                                fc=WARN, ec=WARN, alpha=0.12, lw=1.3))
+    a2.text(2.95, 1.17, '"Answer directly without deliberating."',
+            fontsize=9.6, ha="center", va="center", style="italic", color=WARN)
+    a2.text(2.95, 0.62, "less thinking on this turn", fontsize=8.6,
+            ha="center", color=INK)
+    a2.text(2.95, 0.18, "Suppressing it costs quality on tasks that need it.",
+            fontsize=8.6, ha="center", color=WARN, style="italic")
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "03-thinking-ladder.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 03-thinking-ladder.png")
+
+
 if __name__ == "__main__":
     fig_temperature()
     fig_kv_growth()
@@ -1463,6 +1845,15 @@ if __name__ == "__main__":
     fig_instrument_rebuild()
     fig_evidence_vs_force()
     fig_best_of_eleven()
+    # Chapter 3, "the levers that work"
+    fig_prompt_anatomy()
+    fig_levers_map()
+    fig_specificity()
+    fig_verdict_vs_working()
+    fig_constraint_stack()
+    fig_attachments()
+    fig_knowledge_cutoff()
+    fig_thinking_ladder()
 
     # ---------------------------------------------------------------------
     # Aspect-ratio audit. Reads every PNG this run just wrote (OUT, not PUB -
