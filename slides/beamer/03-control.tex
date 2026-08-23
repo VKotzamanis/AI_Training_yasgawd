@@ -71,12 +71,13 @@ techniques.}
 % ---------------------------------------------------------------- 2
 \begin{frame}{The instructions that steer it are the ones aimed at what was rated}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=7mm]
     \node[uhwide]              (a) {people rated outputs\\on six dimensions};
     \node[uhhi, right=of a]    (b) {the model was\\optimised toward\\those ratings};
     \node[uhamber, right=of b] (c) {those six dimensions\\are what a prompt\\can move};
     \draw[uhar] (a)--(b); \draw[uhar] (b)--(c);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small Chapter 2 established the first two boxes. \kw{The third is this chapter}, and it is
    why the techniques here are not interchangeable with a list of tips: a lever works when it
@@ -131,13 +132,14 @@ This also sets up Chapter 6, where the refusal boundary is the subject.}
           better, and the improvement is attributed to the edit rather than to sampling.
   \end{itemize}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=6mm]
     \node[uhghost]              (a) {success criteria};
     \node[uhghost, right=of a]  (b) {a way to test\\against them};
     \node[uhhi, right=of b]     (c) {then: prompt\\engineering};
     \node[uhamber, right=of c]  (d) {Chapter 4 builds\\the middle box};
     \draw[uhar] (a)--(b); \draw[uhar] (b)--(c); \draw[uhardot] (c)--(d);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   \citesource{anthropic-prompting}
 \end{frame}
@@ -240,13 +242,14 @@ XML-style tags are conventional but nothing depends on the syntax. Headers or de
           the shape of the easy case.
   \end{itemize}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=6mm]
     \node[uhghost]             (a) {``return a table\\with the limits''};
     \node[uhbox, right=of a]   (b) {the model picks\\columns, order,\\units, precision};
     \node[uhhi, right=of b]    (c) {one worked row,\\written out};
     \node[uhamber, right=of c] (d) {every later row\\matches it};
     \draw[uhar] (a)--(b); \draw[uhar] (c)--(d);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   \standing{documented, with stated bounds on how many and what kind.}
   \citesource{anthropic-prompting}
@@ -419,6 +422,7 @@ Version-fragile. Re-fetch these dates in the week before delivery.}
 % ---------------------------------------------------------------- 17
 \begin{frame}{The anti-patterns pull the same levers backwards}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=6mm]
     \node[uhbox]               (a) {a rated\\dimension};
     \node[uhhi, right=of a]    (b) {pull the lever\\forward};
@@ -427,7 +431,7 @@ Version-fragile. Re-fetch these dates in the week before delivery.}
     \node[uhwide, right=of c]  (e) {the behaviour\\that was rewarded};
     \draw[uhar] (a)--(b); \draw[uhar] (b)--(d);
     \draw[uhardot] (a)|-(c); \draw[uhar] (c)--(e);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small Three prompts follow that ask, without meaning to, for exactly the behaviour the
    rating layer rewarded. \kw{Each one is a lever from earlier in this chapter, reversed},

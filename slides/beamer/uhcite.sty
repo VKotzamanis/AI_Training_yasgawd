@@ -64,20 +64,19 @@
 \newcommand{\provenance}[2][]{%
   \vfill
   {\usebeamercolor[fg]{normal text}%
-   \tiny\color{fg!62}\raggedright
-   \textcolor{fg!28}{\rule{\linewidth}{0.4pt}}\par\vspace{0.25em}%
-   {\ttfamily\bfseries\color{fg!50}[--]}\;%
+   \tiny\color{fg!45}\raggedright
+   \textcolor{fg!22}{\rule{\linewidth}{0.4pt}}\par\vspace{0.2em}%
    \itshape
    \IfEqCase{#2}{%
-     {definition}{Definition --- this term is introduced by the course. No external source.}%
-     {derived}{Follows from earlier slides in this chapter. No external source.}%
-     {computed}{Computed in this repository --- see \texttt{assets/figures/gen-figures.py}. No external source.}%
-     {observation}{Direct observation, made by running it. No external source.}%
-     {schematic}{Schematic drawn for this course. Values illustrative and labelled on the figure.}%
-     {none}{No claim is made on this slide.}%
-     {instrument}{Structural observation from five annotation instruments held by the instructor. Not citable, and never becomes a citation.}%
+     {definition}{definition}%
+     {derived}{derived}%
+     {computed}{computed}%
+     {observation}{observed}%
+     {schematic}{schematic}%
+     {none}{no external source}%
+     {instrument}{instrument}%
    }[{\upshape\bfseries\color{uhcitered}Unknown provenance "#2"}]%
-   \if\relax\detokenize{#1}\relax\else\ #1\fi
+   \if\relax\detokenize{#1}\relax\else\ (#1)\fi
    \par}%
 }
 

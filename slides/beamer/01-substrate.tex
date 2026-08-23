@@ -62,7 +62,7 @@ Caveat worth saying: some interfaces buffer and show the reply whole. The pieces
 produced one at a time; only the display differs.}
 
 % ---------------------------------------------------------------- 3
-\begin{frame}{Artificial intelligence names a family of methods, and language models are one branch of it}
+\begin{frame}{Language models are one branch of AI}
   \begin{center}\includegraphics[height=42mm,width=\linewidth,keepaspectratio]{01-what-is-ai}\end{center}
   {\small \kw{Large language model} --- a neural network fitted to predict text. Shortened to \kw{LLM}.}
   \provenance{definition}
@@ -79,7 +79,7 @@ One caveat if asked: not every language model is a neural network. Word-frequenc
 them. Every model in this course is one.}
 
 % ---------------------------------------------------------------- 4
-\begin{frame}{It is reliable where a great deal has been written, and unreliable where little has}
+\begin{frame}{Reliability follows how much was written}
   \begin{center}\includegraphics[height=42mm,width=\linewidth,keepaspectratio]{01-corpus-density}\end{center}
   {\small The corpus decides where it is strong. Nobody has trained a model mainly on your literature.}
   \provenance{definition}
@@ -96,7 +96,7 @@ in the middle band where the tool feels confident and is not.\\[0.3em]
 This figure is reused by Chapter 5. Do not add Chapter 1 wording to it.}
 
 % ---------------------------------------------------------------- 5
-\begin{frame}{A model is a long list of numbers together with the program that reads them}
+\begin{frame}{A model is numbers plus a program}
   \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-model-artefact}\end{center}
   \begin{columns}[t]
     \begin{column}{0.31\linewidth}\centering
@@ -142,7 +142,7 @@ Caveat: models are retrained and replaced. A given model's numbers never change;
 are pointed at can.}
 
 % ---------------------------------------------------------------- 7
-\begin{frame}{Training searches for the numbers that make the total error smallest}
+\begin{frame}{Training searches for the smallest total error}
   \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-fitting}\end{center}
   {\small Two parameters here: \param{slope 2.00} and \param{intercept 1.00}. A language model
    does the same search over billions of them, and the data is text.}
@@ -162,7 +162,7 @@ Caveat: the right-hand panel varies one parameter. A real run searches a space w
 dimensions, and the bowl is a one-dimensional slice of it.}
 
 % ---------------------------------------------------------------- 8
-\begin{frame}{What training minimises is how surprised the model was by the token that actually came next}
+\begin{frame}{Training minimises surprise at the next token}
   \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-surprise}\end{center}
   {\small You cannot define \emph{surprised} without a \prob{probability}. So the thing training
    shaped is a distribution over every \kw{token} --- a chunk of text from a fixed list, defined on
@@ -192,7 +192,7 @@ Chapter 4's reason for recording the model ID. It is NOT the reason the same pro
 answers today --- those weights were frozen before anyone here touched the tool.}
 
 % ---------------------------------------------------------------- 9
-\begin{frame}{Training moved these numbers, and nothing else about the system changed}
+\begin{frame}{Training changed the numbers, nothing else}
   \begin{center}\includegraphics[height=31mm,width=\linewidth,keepaspectratio]{01-what-training-changed}\end{center}
   \begin{columns}[t]
     \begin{column}{0.31\linewidth}\centering
@@ -222,9 +222,10 @@ different and more useful thing.\\[0.3em]
 Chapter 8 is now the appendix deck --- distributed, not presented.}
 
 % ---------------------------------------------------------------- 10
-\begin{frame}{The whole path runs from text to numbers to scores to one piece of text, and repeats}
+\begin{frame}{Text becomes numbers, then scores, then text}
   \begin{center}
-  \begin{tikzpicture}[node distance=5mm]
+\fitwidth{%
+    \begin{tikzpicture}[node distance=5mm]
     \node[uhbox]                        (a) {your text};
     \node[uhwide, right=of a]           (b) {cut into tokens,\\each one an integer};
     \node[uhhi,   right=of b]           (c) {the network};
@@ -235,7 +236,7 @@ Chapter 8 is now the appendix deck --- distributed, not presented.}
     \draw[uhar] (d)--(e); \draw[uhar] (e)--(f);
     \draw[uhar] (e.south) -- ++(0,-5mm) -| node[pos=0.25,below,font=\scriptsize\itshape]
       {append it and run again} (b.south);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small Every box gets its own slide, in this order. \kw{Token} --- a chunk of characters from a
    fixed list, defined next.}
@@ -251,7 +252,7 @@ The arrow labelled "append it and run again" is the whole reason the answer arri
 time.}
 
 % ---------------------------------------------------------------- 11
-\begin{frame}{Everything the model is given sits in the context window}
+\begin{frame}{Everything given sits in the context window}
   \begin{center}
   \scalebox{0.86}{\begin{tikzpicture}[node distance=4mm]
     \node[uhbox]                       (a) {your prompt};
@@ -282,7 +283,7 @@ If asked how a conversation carries over: the application re-sends the whole con
 turn. The network remembers nothing between turns; something outside it re-supplies the history.}
 
 % ---------------------------------------------------------------- 12
-\begin{frame}{A token is a chunk of characters taken from a fixed list settled before training}
+\begin{frame}{Tokens come from a fixed list}
   \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-tokens}\end{center}
   \begin{columns}[t]
     \begin{column}{0.31\linewidth}\centering
@@ -310,7 +311,7 @@ TODO(capture): run a real tokeniser on this sentence and on a MATLAB snippet. Th
 SCHEMATIC until that is done.}
 
 % ---------------------------------------------------------------- 13
-\begin{frame}{Token count follows how often a word was written, not how long it is}
+\begin{frame}{Token count follows frequency, not length}
   \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-token-cost}\end{center}
   \begin{columns}[t]
     \begin{column}{0.31\linewidth}\centering\kw{Billed}\\[0.2em]{\small per token}\end{column}
@@ -328,7 +329,7 @@ wrong when that happens.\\[0.3em]
 This is the cost thread's first appearance. Chapter 7 prices it and Chapter 13 bills it.}
 
 % ---------------------------------------------------------------- 14
-\begin{frame}{The network returns one score for every token in the list}
+\begin{frame}{The network returns one score per token}
   \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-scores}\end{center}
   {\small The raw scores are \logit{logits}. One run of the network over the window is one
    \kw{pass}. The four shown do not add to one --- the rest of the vocabulary carries the
@@ -345,7 +346,7 @@ every time they appear.\\[0.3em]
 Values are illustrative and the figure says so.}
 
 % ---------------------------------------------------------------- 15
-\begin{frame}{Attention decides which earlier tokens the next score leans on}
+\begin{frame}{Attention decides which earlier tokens matter}
   \begin{center}\includegraphics[height=35mm,width=\linewidth,keepaspectratio]{01-attention}\end{center}
   \animatable{A3}{1600 $\times$ 600 px}
   {\small A \kw{weighted sum}: the weight on each earlier position comes from comparing it against
@@ -369,7 +370,7 @@ positional encoding are all excluded, because none of them changes a decision an
 The arc thicknesses are drawn to show the operation. They were not extracted from a model.}
 
 % ---------------------------------------------------------------- 16
-\begin{frame}{Softmax turns the scores into probabilities that add up to one}
+\begin{frame}{Softmax turns scores into probabilities}
   \vspace{1em}
   \begin{columns}[c]
     \begin{column}{0.52\linewidth}
@@ -396,7 +397,7 @@ Worth naming: the form is the Boltzmann distribution with the score standing in 
 over kT. Several people in the room will recognise it.}
 
 % ---------------------------------------------------------------- 17
-\begin{frame}{Taking the top-scoring token every time makes the text repeat}
+\begin{frame}{Always taking the top token repeats}
   \slotF{temperature zero, run long enough that the output falls into a loop}
 
   {\small Same input, same scores, same top token --- so a recurring phrase recreates the
@@ -416,7 +417,7 @@ take. Show it and narrate the difference between "it was patched" and "it is fix
 policy Chapter 6 already uses for its demo.}
 
 % ---------------------------------------------------------------- 18
-\begin{frame}{So a token is drawn from the distribution rather than taken from the top}
+\begin{frame}{The token is drawn, not taken}
   \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-scores}\end{center}
   \animatable{A4}{1600 $\times$ 600 px --- the bars must be identical on every draw}
   {\small The bars are computed from the frozen numbers and never change. The \prob{draw} does.}
@@ -450,7 +451,7 @@ Watch the tail: at high temperature "blue" becomes reachable. That is the slide'
 showing that the distribution covers every token in the vocabulary, not four.}
 
 % ---------------------------------------------------------------- 20
-\begin{frame}{Each chosen token is appended and the whole program runs again}
+\begin{frame}{Each token is appended and everything reruns}
   \begin{center}\includegraphics[height=40mm,width=\linewidth,keepaspectratio]{01-loop}\end{center}
   \animatable{A7}{1600 $\times$ 450 px}
   {\small Four passes here. A paragraph is a few hundred. The \param{parameters} are unchanged on
@@ -467,9 +468,10 @@ produced. Training can be, which is why training a model is fast relative to the
 generation is not.}
 
 % ---------------------------------------------------------------- 21
-\begin{frame}{Two runs of the same prompt give the same scores and different answers}
+\begin{frame}{Two runs give different answers}
   \begin{center}
-  \begin{tikzpicture}[node distance=7mm]
+\fitwidth{%
+    \begin{tikzpicture}[node distance=7mm]
     \node[uhwide]                 (a) {the same\\tokens in};
     \node[uhhi, right=of a]       (b) {the network};
     \node[uhwide, right=of b]     (c) {the same\\scores out};
@@ -479,7 +481,7 @@ generation is not.}
     \node[uhbox, right=9mm of d, yshift=-9mm] (g) {\prob{undersized}};
     \draw[uhar] (a)--(b); \draw[uhar] (b)--(c); \draw[uhar] (c)--(d);
     \draw[uhar] (d)--(e); \draw[uhar] (d)--(f); \draw[uhar] (d)--(g);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small The puzzle from the first slide, resolved. Everything left of \kw{draw one} is fixed.}
   \provenance{derived}
@@ -491,8 +493,9 @@ be measured before any prompt comparison means anything.\\[0.3em]
 TODO(capture): one prompt, five runs, five answers, recorded with the model ID and the date.}
 
 % ---------------------------------------------------------------- 22
-\begin{frame}{Tools write into the window and can run code beside the network}
+\begin{frame}{Tools write into the window}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=4mm]
     \node[uhwide]                  (a) {a tool that fetches ---\\web search, a file};
     \node[uhamber, below=of a]     (b) {a tool that computes ---\\code run, and its result};
@@ -502,7 +505,7 @@ TODO(capture): one prompt, five runs, five answers, recorded with the model ID a
     \node[uhbox, right=8mm of n]   (s) {\logit{scores}};
     \draw[uhar] (a)-|(w); \draw[uhar] (b)--(w); \draw[uhar] (c)-|(w);
     \draw[uhar] (w)--(n); \draw[uhar] (n)--(s);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small A \kw{tool} is a program the system runs alongside the network. Its result is written
    into the window as tokens, and the pass that follows is the one already described.}
@@ -520,7 +523,7 @@ Version-fragile: which tools exist and when they fire changes between releases. 
 week before delivery.}
 
 % ---------------------------------------------------------------- 23
-\begin{frame}{The window is discarded when the session ends and the numbers are left as they were}
+\begin{frame}{The session ends and the window goes}
   \begin{center}\includegraphics[height=33mm,width=\linewidth,keepaspectratio]{01-persistence}\end{center}
   \begin{columns}[t]
     \begin{column}{0.46\linewidth}\centering

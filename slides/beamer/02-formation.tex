@@ -80,6 +80,7 @@ the slide must say which it is.}
 % ---------------------------------------------------------------- 3
 \begin{frame}{Four stages turn a predictor into something that answers}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=6mm]
     \node[uhwide]                  (a) {a very large\\corpus};
     \node[uhhi, right=of a]        (b) {pretraining};
@@ -89,7 +90,7 @@ the slide must say which it is.}
     \node[uhbox, right=of e]       (f) {optimise\\against it};
     \draw[uhar] (a)--(b); \draw[uhar] (b)--(c); \draw[uhar] (c)--(d);
     \draw[uhar] (d)--(e); \draw[uhar] (e)--(f);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small Every stage after the first is a person's judgement, written down and turned into a
    number. \kw{Each name on this diagram is defined on the frame that expands it}, and the chapter
@@ -108,6 +109,7 @@ this chapter spends most of its time.}
 % ---------------------------------------------------------------- 4
 \begin{frame}{Pretraining runs one objective over a very large corpus, and then it stops}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=7mm]
     \node[uhwide]                    (a) {text, at a scale\\nobody reads};
     \node[uhhi, right=of a]          (b) {predict the\\next token};
@@ -117,7 +119,7 @@ this chapter spends most of its time.}
     \draw[uhar] (c) -- node[above,font=\scriptsize\itshape]{it ends} (d);
     \draw[uhar] (c.south) -- ++(0,-6mm) -| node[pos=0.25,below,font=\scriptsize\itshape]
       {repeat over the corpus} (b.south);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   \begin{columns}[t]
     \begin{column}{0.31\linewidth}\centering
@@ -144,13 +146,14 @@ result promised an assistant. They describe how a loss falls, not how behaviour 
 % ---------------------------------------------------------------- 5
 \begin{frame}{People write the answer that should have come out, and the model is trained on the pair}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=8mm]
     \node[uhwide, text width=34mm]        (q) {\textbf{request}\\\footnotesize lowering the water/cement ratio, and compressive strength};
     \node[uhamber, right=of q, text width=30mm] (h) {\textbf{a person writes\\the response}};
     \node[uhwide, right=of h, text width=26mm]  (p) {the pair is\\stored};
     \node[uhhi, right=of p, text width=26mm]    (t) {trained on};
     \draw[uhar] (q)--(h); \draw[uhar] (h)--(p); \draw[uhar] (p)--(t);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   \begin{columns}[t]
     \begin{column}{0.31\linewidth}\centering
@@ -194,6 +197,7 @@ This is where model voice comes from, and the next frame is the qualification th
 % ---------------------------------------------------------------- 7
 \begin{frame}{In two of the five instruments, the repaired text is what gets collected}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=7mm]
     \node[uhwide, text width=28mm]              (d) {the draft the\\model produced};
     \node[uhamber, right=of d, text width=28mm] (e) {the person's\\repaired version};
@@ -201,7 +205,7 @@ This is where model voice comes from, and the next frame is the qualification th
     \node[uhghost, below=8mm of c, text width=30mm] (n) {or used only to sharpen\\the person's judgement};
     \draw[uhar] (d)--(e); \draw[uhar] (e)--(c);
     \draw[uhardot] (e.south) |- (n.west);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small The labour recurs in three documents. The repaired text entering the data is a separate
    claim on weaker evidence, and in one instrument the repaired version is explicitly not trained on.}
@@ -218,6 +222,7 @@ test that habit against everything else in the course.}
 % ---------------------------------------------------------------- 8
 \begin{frame}{Demonstrations cannot cover everything, so preferences are collected instead}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=7mm]
     \node[uhwide, text width=30mm]              (q) {one request};
     \node[uhbox, right=of q, text width=24mm, yshift=7mm]  (a) {response A};
@@ -226,7 +231,7 @@ test that habit against everything else in the course.}
     \node[uhhi, right=of h, text width=26mm]               (n) {a comparison,\\stored};
     \draw[uhar] (q)--(a); \draw[uhar] (q)--(b);
     \draw[uhar] (a)--(h); \draw[uhar] (b)--(h); \draw[uhar] (h)--(n);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small Writing the ideal answer to every possible request is impossible. Judging which of two
    answers is better is not.}
@@ -259,13 +264,14 @@ and what survives the compression is what the reward model learns.}
 % ---------------------------------------------------------------- 10
 \begin{frame}{The person is made to attempt the task before judging it}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=7mm]
     \node[uhwide, text width=27mm]              (r) {read the request};
     \node[uhamber, right=of r, text width=30mm] (a) {\textbf{do the task}\\yourself, first};
     \node[uhwide, right=of a, text width=27mm]  (j) {then judge the\\two responses};
     \node[uhhi, right=of j, text width=27mm]    (v) {a verdict worth\\something};
     \draw[uhar] (r)--(a); \draw[uhar] (a)--(j); \draw[uhar] (j)--(v);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small The pipeline buys the attempt in order to get a reliable verdict. It is the most
    expensive step in the job and it is required in three of the five documents.}
@@ -281,13 +287,14 @@ attempted.}
 % ---------------------------------------------------------------- 11
 \begin{frame}{Verification is time-boxed at about fifteen minutes, against a ranked source list}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=6mm]
     \node[uhamber, text width=30mm]              (t) {about fifteen\\minutes, per task};
     \node[uhwide, right=10mm of t, text width=32mm, yshift=9mm]  (s1) {check the ranked\\sources first};
     \node[uhwide, right=10mm of t, text width=32mm]              (s2) {then anything\\else available};
     \node[uhhi, right=10mm of t, text width=32mm, yshift=-9mm]   (s3) {\textbf{or mark it\\unassessable}};
     \draw[uhar] (t)--(s1); \draw[uhar] (t)--(s2); \draw[uhar] (t)--(s3);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small A claim that would take longer than the box to check does not get checked. It gets a
    band of its own.}
@@ -335,6 +342,7 @@ result produces a literature without null results.}
 % ---------------------------------------------------------------- 14
 \begin{frame}{One instrument collects comparisons only where a model has already failed}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=6mm]
     \node[uhwide, text width=30mm]                (t) {build a task};
     \node[uhamber, right=of t, text width=32mm]   (c) {does at least one\\response fail?};
@@ -343,7 +351,7 @@ result produces a literature without null results.}
     \draw[uhar] (t)--(c);
     \draw[uhar] (c) -- node[above,font=\scriptsize]{yes} (k);
     \draw[uhardot] (c) -- node[right,font=\scriptsize,pos=0.35]{no} (d);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small The preference data from that instrument is conditioned on failure. It is not a sample of
    how the model behaves in use.}
@@ -360,12 +368,13 @@ the resulting model.}
 % ---------------------------------------------------------------- 15
 \begin{frame}{Realism in the data is manufactured to a specification}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=7mm]
     \node[uhwide, text width=32mm]                (s) {a written rule for\\what "realistic"\\means};
     \node[uhamber, right=of s, text width=32mm]   (w) {the contributor\\writes to it};
     \node[uhhi, right=of w, text width=34mm]      (d) {data that looks\\like it was captured\\from use};
     \draw[uhar] (s)--(w); \draw[uhar] (w)--(d);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small One line in one instrument, and it complicates the picture of preference data as
    behaviour observed in the wild.}
@@ -427,12 +436,13 @@ against the same instrument.}
 % ---------------------------------------------------------------- 19
 \begin{frame}{The reward model is a model of a rater}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=7mm]
     \node[uhwide, text width=30mm]              (c) {comparisons made\\by particular people};
     \node[uhhi, right=of c, text width=28mm]    (r) {\textbf{a reward model}\\fitted to them};
     \node[uhamber, right=of r, text width=34mm] (s) {scores \emph{any} response,\\including ones no\\person ever saw};
     \draw[uhar] (c)--(r); \draw[uhar] (r)--(s);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small A finite set of comparisons, made by particular people, under particular instructions,
    becomes a function that returns a number for anything. \kw{Hold on to that sentence.}}
@@ -450,6 +460,7 @@ anything it was fitted on. Chapter 5 is what that costs.}
 % ---------------------------------------------------------------- 20
 \begin{frame}{The model is then adjusted to score higher against that function}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=7mm]
     \node[uhwide, text width=26mm]            (g) {generate a\\response};
     \node[uhamber, right=of g, text width=26mm] (s) {score it with the\\reward model};
@@ -457,7 +468,7 @@ anything it was fitted on. Chapter 5 is what that costs.}
     \draw[uhar] (g)--(s); \draw[uhar] (s)--(a);
     \draw[uhar] (a.south) -- ++(0,-7mm) -| node[pos=0.25,below,font=\scriptsize\itshape]
       {repeat} (g.south);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small Generate, score, adjust, repeat. This loop is \kw{reinforcement learning from human
    feedback}, shortened to \kw{RLHF}. The reported result: outputs from a \param{1.3 billion}
@@ -478,6 +489,7 @@ preference, not in correctness --- and preference is exactly what was optimised.
 % ---------------------------------------------------------------- 21
 \begin{frame}{Helpful and harmless are collected separately, and they conflict}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=9mm]
     \node[uhamber, text width=32mm]                 (h) {\textbf{helpful}\\answer the question};
     \node[uhhi, right=26mm of h, text width=32mm]   (s) {\textbf{harmless}\\decline some questions};
@@ -485,7 +497,7 @@ preference, not in correctness --- and preference is exactly what was optimised.
     \draw[uhar] (h)--(o); \draw[uhar] (s)--(o);
     \draw[uhardot] (h) -- node[above,font=\scriptsize\itshape]{a maximally helpful answer to some
       requests is a harmful one} (s);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small Refusal is trained in, from the same kind of human judgement as everything else. The
    tension is the method rather than a defect in it.}
@@ -503,6 +515,7 @@ chapter on the frame.}
 % ---------------------------------------------------------------- 22
 \begin{frame}{Where a model does the grading, every criterion must be checkable on its own}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=7mm]
     \node[uhghost, text width=26mm]                (p) {the prompt};
     \node[uhghost, below=4mm of p, text width=26mm](f) {the input files};
@@ -512,7 +525,7 @@ chapter on the frame.}
     \draw[uhardot] (p) -- node[above,font=\scriptsize,pos=0.6]{not supplied} (j);
     \draw[uhardot] (f)--(j); \draw[uhardot] (o)--(j);
     \draw[uhar] (j)--(c);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small The blindness is deliberate, and it dictates how criteria are written: stripped of
    everything except the observable surface.}
@@ -529,12 +542,13 @@ That constraint is also why an automated grader rewards form. Chapter 4 exists b
 % ---------------------------------------------------------------- 23
 \begin{frame}{Part of the human layer is then replaced by the model itself}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=7mm]
     \node[uhwide, text width=30mm]              (p) {principles,\\written down};
     \node[uhhi, right=of p, text width=32mm]    (m) {the \textbf{model} critiques\\and revises its own\\responses against them};
     \node[uhamber, right=of m, text width=28mm] (t) {trained on\\the result};
     \draw[uhar] (p)--(m); \draw[uhar] (m)--(t);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small The named instance is \kw{Constitutional AI}; the general pattern is \kw{RLAIF} ---
    reinforcement learning from \emph{AI} feedback, with the model standing in for the rater. Human
@@ -555,7 +569,7 @@ frame is a property of that chain.}
 \begin{frame}{Behaviour traces back to the mechanism, and the traces are not equally strong}
   \vspace{2mm}
   {\small
-  \begin{tabular}{p{0.30\linewidth} p{0.34\linewidth} p{0.28\linewidth}}
+  \begin{tabular}{p{0.29\linewidth} p{0.32\linewidth} p{0.26\linewidth}}
     \textbf{What you see} & \textbf{Where it comes from} & \textbf{Standing} \\[0.4em]
     \hline \\[-0.6em]
     Refuses some requests firmly & harmlessness trained as a competing objective & published \\[0.5em]
@@ -567,7 +581,7 @@ frame is a property of that chain.}
   {\scriptsize The verbosity row is the interesting one. The folk story says raters liked long
    answers, so models got long. One instrument breaks ties toward \emph{brevity}; another
    \emph{deleted} length as a grading category partway through. And models are verbose anyway.}
-  \provenance[The middle column is an argument; the right column says how far each one goes.]{derived}
+  \provenance[middle column argues; right column says how far it goes]{derived}
 \end{frame}
 \note{%
 The frame the whole chapter has been building toward, and the one to deliver slowly.\\[0.3em]
@@ -602,13 +616,14 @@ One document. Say so.}
 % ---------------------------------------------------------------- 26
 \begin{frame}{Attribution goes wrong: a phrasing found by search, given a story afterwards}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=7mm]
     \node[uhwide, text width=30mm]              (s) {an automated search\\over candidate\\instructions};
     \node[uhhi, right=of s, text width=28mm]    (b) {one phrasing\\scores best};
     \node[uhamber, right=of b, text width=30mm] (n) {it looks like\\encouragement};
     \node[uhghost, right=of n, text width=28mm] (e) {a story about\\why, invented\\afterwards};
     \draw[uhar] (s)--(b); \draw[uhar] (b)--(n); \draw[uhardot] (n)--(e);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small Reported gains up to 8\% and up to 50\% on two benchmarks, scored on one model. The
    winning instruction is specific to the model it was scored on; change the model and the best
@@ -705,12 +720,13 @@ Chapter 17 asks them to apply the same habit to their own arguments.}
 % ---------------------------------------------------------------- 29
 \begin{frame}{Now you do it}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=7mm]
     \node[uhwide, text width=30mm]              (a) {two responses to\\one request};
     \node[uhamber, right=of a, text width=26mm] (b) {one instrument};
     \node[uhhi, right=of b, text width=30mm]    (c) {eight minutes,\\visible time pressure};
     \draw[uhar] (a)--(b); \draw[uhar] (b)--(c);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   \begin{columns}[t]
     \begin{column}{0.31\linewidth}\centering
@@ -762,12 +778,13 @@ The minutes here are the exercise's internal pacing, not a claim about the chapt
 % ---------------------------------------------------------------- 31
 \begin{frame}{What to say after the reveal}
   \begin{center}
+\fitwidth{%
   \begin{tikzpicture}[node distance=6mm]
     \node[uhwide, text width=32mm]                (t) {read the tally back};
     \node[uhamber, right=of t, text width=34mm]   (c) {put confidence beside\\preference};
     \node[uhhi, right=of c, text width=36mm]      (u) {ask who marked the\\citation \textbf{unassessable}};
     \draw[uhar] (t)--(c); \draw[uhar] (c)--(u);
-  \end{tikzpicture}
+  \end{tikzpicture}}
   \end{center}
   {\small Whatever the tally says, \kw{call it a tally}. Five or six raters is not a distribution,
    and this course does not present six points as one.}

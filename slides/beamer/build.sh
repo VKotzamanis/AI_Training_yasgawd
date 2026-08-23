@@ -17,11 +17,11 @@ for pass in 1 2; do
   xelatex -interaction=nonstopmode "$deck.tex" >/tmp/uh-$deck.log 2>&1
 done
 errs=$(grep -cE '^!' /tmp/uh-$deck.log)
-over=$(grep -c 'Overfull \\vbox' /tmp/uh-$deck.log)
+over=$(grep -cE 'Overfull \\(v|h)box' /tmp/uh-$deck.log)
 echo "  LaTeX errors:   $errs"
-echo "  Overfull vbox:  $over   (a frame whose content runs into the footline)"
+echo "  Overfull vbox:  $over   (vbox = runs into the footline, hbox = runs off the side)"
 [ "$errs" -gt 0 ] && { grep -nE '^!' -A2 /tmp/uh-$deck.log | head -20; exit 1; }
-[ "$over" -gt 0 ] && { grep -oE 'Overfull \\vbox \([0-9.]+pt too high\) detected at line [0-9]+' /tmp/uh-$deck.log; exit 1; }
+[ "$over" -gt 0 ] && { grep -oE 'Overfull \\(v|h)box \([0-9.]+pt too (high|wide)\)[^)]*' /tmp/uh-$deck.log; exit 1; }
 pdfinfo "$deck.pdf" | grep -E '^Pages|^Page size'
 
 # Stamp for the review round trip: a hash of the source travels in the PDF metadata, so

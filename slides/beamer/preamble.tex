@@ -25,6 +25,15 @@
 \newcommand{\animatable}[2]{%
   \vspace{-0.5em}{\scriptsize\color{uhocher}\textbf{animation #1} replaces this figure --- #2}\par}
 
+%% --- keep a diagram inside the slide -----------------------------------------
+%% A tikzpicture wider than the text block runs off the SIDE of the slide, which
+%% produces an Overfull \hbox rather than a vbox. build.sh gated only on vbox until
+%% 2026-08-22, so this went unseen: Chapter 1 frame 10 was 53pt over and Chapter 2
+%% frame 4 was 88pt over, about 31mm off-slide. \fitwidth shrinks an over-wide box
+%% to the text width and leaves a narrower one alone, so it is safe to apply to every
+%% diagram rather than only the ones known to overflow.
+\newcommand{\fitwidth}[1]{\resizebox{\ifdim\width>\linewidth \linewidth\else \width\fi}{!}{#1}}
+
 %% --- diagram styles ----------------------------------------------------------
 \tikzset{
   uhbox/.style   ={draw=uhslate!70, fill=uhslate!7,  rounded corners=1pt, align=center,
