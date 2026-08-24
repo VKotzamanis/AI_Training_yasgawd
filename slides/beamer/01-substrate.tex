@@ -123,7 +123,7 @@ Do not state a file size or a parameter count. Those are per-model claims and no
 
 % ---------------------------------------------------------------- 6
 \begin{frame}{Training set those numbers and then stopped}
-  \begin{center}\includegraphics[height=27mm,width=\linewidth,keepaspectratio]{01-train-vs-run}\end{center}
+  \begin{center}\includegraphics[height=27mm,width=\linewidth,keepaspectratio]{01-training-pipeline}\end{center}
   \begin{columns}[t]
     \begin{column}{0.31\linewidth}\centering
       \kw{Training}\\[0.2em]{\small the phase in which the numbers were changed}
@@ -380,12 +380,15 @@ over kT. Several people in the room will recognise it.}
 \begin{frame}{Always taking the top token repeats}
   \slotF{temperature zero, run long enough that the output falls into a loop}
 
-  {\small Taking the top token every time is \kw{greedy decoding}. It is observed to fall into
-   loops: once a phrase appears, it raises the probability of its own continuation.
-   \textcolor{uhocher}{TODO(cite)}}
-  \provenance{observation}
+  {\small Taking the top token every time is \kw{greedy decoding}, published as producing
+   \emph{``bland and strangely repetitive''} text.}
+  \citesource{holtzman2020}
 \end{frame}
 \note{%
+Scope, and say it if anyone asks how solid this is: Holtzman et al. is about maximisation-based
+decoding generally, with beam search as the worked case, on the language models of 2019. Greedy
+is the width-one case of that family. It is not a measurement of the model in the room, which is
+why the recording still matters and why some current models resist repetition.\\[0.3em]
 The objective shown breaking. Stating what a system optimises and then showing it fail is the move
 every reviewed explainer uses, and it is what stops next-token prediction sounding either trivial or
 magical.\\[0.3em]

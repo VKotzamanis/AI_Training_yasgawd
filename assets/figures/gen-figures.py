@@ -1940,6 +1940,49 @@ def fig_brain_model():
     _fig_brain(MODEL_WORDS, "01-brain-model.png", "What does the same job in the model")
 
 
+def fig_training_pipeline():
+    """A6, from the instructor's annotation on frame 6: the old graphic showed the
+    knowledge cutoff, but the frame is about how the numbers get built. This shows
+    the build and the stop in one line - unlabelled text goes in, the numbers move
+    during training, training ends, and the frozen numbers are what every later use
+    runs on. RLHF is named, not taught; that is Chapter 2's."""
+    fig, ax = plt.subplots(figsize=(13.0, 3.05))
+    ax.set_xlim(0, 13.0); ax.set_ylim(0, 3.05); _blank(ax)
+
+    boxes = [
+        (0.30, 2.55, "a very large amount\nof unlabelled text", TOKENID, 0.10),
+        (3.35, 2.55, "training\nthe numbers move", PARAM, 0.16),
+        (6.40, 2.55, "the finished model\nthe numbers are frozen", PARAM, 0.10),
+        (9.70, 2.95, "answering a question\nwriting code\nreading a document", INK, 0.06),
+    ]
+    for x, w, label, col, al in boxes:
+        ax.add_patch(FancyBboxPatch((x, 1.15), w, 0.95, boxstyle="round,pad=0.07",
+                                    fc=col, ec=col, alpha=al, lw=1.5))
+        ax.add_patch(FancyBboxPatch((x, 1.15), w, 0.95, boxstyle="round,pad=0.07",
+                                    fc="none", ec=col, lw=1.5))
+        ax.text(x + w/2, 1.62, label, fontsize=10.2, ha="center", va="center", color=INK)
+    for x0, x1 in ((2.90, 3.30), (5.95, 6.35), (9.05, 9.65)):
+        ax.annotate("", xy=(x1, 1.62), xytext=(x0, 1.62),
+                    arrowprops=dict(arrowstyle="-|>", color=INK, lw=1.7))
+
+    # the stop, marked where it happens
+    ax.plot([9.35, 9.35], [1.00, 2.42], color=PROB, lw=2.0, ls="--")
+    ax.text(9.35, 2.56, "training stops here", fontsize=10.0, ha="center",
+            color=PROB, weight="bold")
+    ax.text(9.35, 0.78, "nothing after this point changes the numbers",
+            fontsize=9.2, ha="center", color=PROB, style="italic")
+
+    ax.text(4.65, 0.78, "a second stage adds instruction following — Chapter 2",
+            fontsize=9.0, ha="center", color=TOKENID, style="italic")
+    ax.text(0.30, 0.20, "No labels anywhere in the first box: the text is not marked up, "
+                        "and the objective is the same for all of it.",
+            fontsize=9.0, ha="left", color=INK)
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / "01-training-pipeline.png", dpi=200, bbox_inches="tight")
+    plt.close(fig); print("wrote 01-training-pipeline.png")
+
+
 if __name__ == "__main__":
     fig_temperature()
     fig_kv_growth()
@@ -1953,6 +1996,7 @@ if __name__ == "__main__":
     fig_train_vs_run()
     fig_fitting()
     fig_what_training_changed()
+    fig_training_pipeline()
     fig_tokens()
     fig_attention()
     fig_softmax_curve()
