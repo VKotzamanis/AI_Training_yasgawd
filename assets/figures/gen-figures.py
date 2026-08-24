@@ -200,8 +200,26 @@ def fig_scores():
     probs = recovered[:-1]
     shown_total = probs.sum()
 
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(11.0, 2.71))
+    # --- panel 1 alone, for the logits frame -------------------------------------
+    # Peer review 2026-08-21, blocking item 3: the logits frame was displaying the
+    # softmax panel, so the slide that establishes "the network can only produce
+    # numbers" was already showing probabilities. The two frames now get two figures.
     x = np.arange(len(labels))
+    f1, b1 = plt.subplots(figsize=(11.6, 3.45))
+    b1.bar(x, logits, color=LOGIT, edgecolor=INK, linewidth=.6)
+    b1.set_title("logits — raw scores out of the network, one per token",
+                 fontsize=11, pad=8)
+    b1.set_ylabel("logit  [—]")
+    b1.set_xticks(x); b1.set_xticklabels([t.strip() for t in labels],
+                                          rotation=60, ha="right", fontsize=9)
+    b1.yaxis.grid(True, color=GRID, linewidth=.6); b1.set_axisbelow(True)
+    b1.text(0.0, -0.62, "Unbounded and able to go negative. These are not probabilities yet.",
+            transform=b1.transAxes, fontsize=9.4, color=WARN, style="italic")
+    f1.tight_layout()
+    for d in (OUT, PUB): f1.savefig(d / "01-logits.png", dpi=200, bbox_inches="tight")
+    plt.close(f1); print("wrote 01-logits.png")
+
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(11.0, 2.71))
     a1.bar(x, logits, color=LOGIT, edgecolor=INK, linewidth=.6)
     a1.set_title("1. logits — raw scores out of the network", fontsize=10.5, pad=8)
     a1.set_ylabel("logit  [—]")

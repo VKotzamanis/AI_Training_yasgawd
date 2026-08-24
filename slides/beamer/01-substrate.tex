@@ -50,8 +50,8 @@
 \begin{frame}{The answer arrives a piece at a time}
   \slotF{a question typed, and the reply appearing left to right at natural speed}
 
-  {\small The text you send is the \kw{prompt}. It writes left to right, in pieces --- and if
-   you ask the same question twice, the two answers differ.}
+  {\small The text you send is the \kw{prompt}. Every character counts, spaces and typos included,
+   and it can carry images too. The reply comes back a piece at a time.}
   \provenance{observation}
 \end{frame}
 \note{%
@@ -63,8 +63,9 @@ produced one at a time; only the display differs.}
 
 % ---------------------------------------------------------------- 3
 \begin{frame}{Language models are one branch of AI}
-  \begin{center}\includegraphics[height=42mm,width=\linewidth,keepaspectratio]{01-what-is-ai}\end{center}
-  {\small \kw{Large language model} --- a neural network fitted to predict text. Shortened to \kw{LLM}.}
+  \begin{center}\includegraphics[height=39mm,width=\linewidth,keepaspectratio]{01-what-is-ai}\end{center}
+  {\small A \kw{neural network} is a fitted function of layered weighted sums. A \kw{large
+   language model} is one fitted to predict text.}
   \provenance{definition}
 \end{frame}
 \note{%
@@ -80,8 +81,10 @@ them. Every model in this course is one.}
 
 % ---------------------------------------------------------------- 4
 \begin{frame}{Reliability follows how much was written}
-  \begin{center}\includegraphics[height=42mm,width=\linewidth,keepaspectratio]{01-corpus-density}\end{center}
-  {\small The corpus decides where it is strong. Nobody has trained a model mainly on your literature.}
+  \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-corpus-density}\end{center}
+  \vspace{-0.6em}
+  {\small The \kw{corpus} is the text training ran over. A prediction can be fluent and still
+   wrong; what governs which is how much was written. \textcolor{uhocher}{TODO(verify)}}
   \provenance{definition}
 \end{frame}
 \note{%
@@ -97,16 +100,16 @@ This figure is reused by Chapter 5. Do not add Chapter 1 wording to it.}
 
 % ---------------------------------------------------------------- 5
 \begin{frame}{A model is numbers plus a program}
-  \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-model-artefact}\end{center}
+  \begin{center}\includegraphics[height=34mm,width=\linewidth,keepaspectratio]{01-model-artefact}\end{center}
   \begin{columns}[t]
     \begin{column}{0.31\linewidth}\centering
-      \kw{Parameters}\\[0.2em]{\small also called \kw{weights}}
+      \kw{Parameters}\\[0.2em]{\small also \kw{weights}; \emph{fitted}, not designed}
     \end{column}
     \begin{column}{0.31\linewidth}\centering
-      \kw{Network}\\[0.2em]{\small the layered arithmetic}
+      \kw{Network}\\[0.2em]{\small layered weighted sums}
     \end{column}
     \begin{column}{0.31\linewidth}\centering
-      \kw{Size}\\[0.2em]{\small how many parameters}
+      \kw{Size}\\[0.2em]{\small how many were fitted}
     \end{column}
   \end{columns}
   \provenance{definition}
@@ -120,7 +123,7 @@ Do not state a file size or a parameter count. Those are per-model claims and no
 
 % ---------------------------------------------------------------- 6
 \begin{frame}{Training set those numbers and then stopped}
-  \begin{center}\includegraphics[height=33mm,width=\linewidth,keepaspectratio]{01-train-vs-run}\end{center}
+  \begin{center}\includegraphics[height=27mm,width=\linewidth,keepaspectratio]{01-train-vs-run}\end{center}
   \begin{columns}[t]
     \begin{column}{0.31\linewidth}\centering
       \kw{Training}\\[0.2em]{\small the phase in which the numbers were changed}
@@ -129,7 +132,8 @@ Do not state a file size or a parameter count. Those are per-model claims and no
       \kw{Inference}\\[0.2em]{\small running the finished numbers on your text}
     \end{column}
     \begin{column}{0.31\linewidth}\centering
-      \kw{Knowledge cutoff}\\[0.2em]{\small the date training stopped}
+      \kw{Knowledge cutoff}\\[0.2em]{\small the date training stopped}\\[0.5em]
+      \kw{Session}\\[0.2em]{\small one continuous conversation}
     \end{column}
   \end{columns}
   \provenance{definition}
@@ -143,9 +147,10 @@ are pointed at can.}
 
 % ---------------------------------------------------------------- 7
 \begin{frame}{Training searches for the smallest total error}
-  \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-fitting}\end{center}
+  \begin{center}\includegraphics[height=33mm,width=\linewidth,keepaspectratio]{01-fitting}\end{center}
   {\small Two parameters here: \param{slope 2.00} and \param{intercept 1.00}. A language model
-   does the same search over billions of them, and the data is text.}
+   runs the same kind of search over billions of them, with text as the data. There is no closed
+   form, and it stops at a good enough set rather than the best possible.}
   \provenance{computed}
 \end{frame}
 \note{%
@@ -208,7 +213,7 @@ Chapter 8 is now the appendix deck --- distributed, not presented.}
       {append it and run again} (b.south);
   \end{tikzpicture}}
   \end{center}
-  {\small Every box gets its own slide, in this order. \kw{Token} --- a chunk of characters from a
+  {\small We walk this left to right. Some boxes take more than one slide. \kw{Token} is a chunk of characters from a
    fixed list, defined next.}
   \provenance{definition}
 \end{frame}
@@ -223,13 +228,14 @@ time.}
 
 % ---------------------------------------------------------------- 10   (was 12)
 \begin{frame}{Tokens come from a fixed list}
-  \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-tokens}\end{center}
+  \begin{center}\includegraphics[height=29mm,width=\linewidth,keepaspectratio]{01-tokens}\end{center}
   \begin{columns}[t]
     \begin{column}{0.31\linewidth}\centering
-      \kw{The vocabulary}\\[0.2em]{\small tens of thousands of entries}
+      \kw{The vocabulary}\\[0.2em]{\small the model's list, not English}
     \end{column}
     \begin{column}{0.31\linewidth}\centering
-      \kw{Token IDs}\\[0.2em]{\small \tokid{labels}, not quantities}
+      \kw{Token IDs}\\[0.2em]{\small \tokid{labels}, not quantities}\\[0.4em]
+      {\footnotesize \emph{shear} may split as \emph{she}+\emph{ar}: common letter runs, not words}
     \end{column}
     \begin{column}{0.31\linewidth}\centering
       \kw{No letters}\\[0.2em]{\small the network is handed integers}
@@ -270,7 +276,7 @@ This is the cost thread's first appearance. Chapter 7 prices it and Chapter 13 b
 % ---------------------------------------------------------------- 12   (was 8)
 \begin{frame}{Training minimises surprise at the next token}
   \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-surprise}\end{center}
-  {\small You cannot define \emph{surprised} without a \prob{probability}. So the thing training
+  {\small \kw{Surprise} is $-\log \mprob{p}$ for the token that actually came next, so the thing training
    shaped is a distribution over every \kw{token} that could come next.}
   \provenance{derived}
 \end{frame}
@@ -298,9 +304,9 @@ answers today --- those weights were frozen before anyone here touched the tool.
 
 % ---------------------------------------------------------------- 13   (was 14)
 \begin{frame}{The network returns one score per token}
-  \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-scores}\end{center}
-  {\small The raw scores are \logit{logits}. One run of the network over the window is one
-   \kw{pass}. The eight shown do not add to one, because the rest of the vocabulary carries the
+  \begin{center}\includegraphics[height=33mm,width=\linewidth,keepaspectratio]{01-logits}\end{center}
+  {\small A \logit{logit} is a raw score for one token, unbounded and able to go negative. One run
+   of the network over the window is one \kw{pass}. These are not probabilities yet, and the
    remainder.}
   \provenance{definition}
 \end{frame}
@@ -318,7 +324,7 @@ Values are illustrative and the figure says so.}
   \begin{center}\includegraphics[height=35mm,width=\linewidth,keepaspectratio]{01-attention}\end{center}
   \animatable{A3}{1600 $\times$ 600 px}
   {\small A \kw{weighted sum}: the weight on each earlier position comes from comparing it against
-   the position being scored. \kw{Transformer} --- the arrangement of arithmetic built from it.}
+   the position being scored. A \kw{transformer} is the arrangement of that arithmetic.}
   \citesource{vaswani2017}
 \end{frame}
 \note{%
@@ -374,9 +380,10 @@ over kT. Several people in the room will recognise it.}
 \begin{frame}{Always taking the top token repeats}
   \slotF{temperature zero, run long enough that the output falls into a loop}
 
-  {\small Same input, same scores, same top token --- so a recurring phrase recreates the
-   context that produced it. Taking the top every time is \kw{greedy} selection.}
-  \provenance{derived}
+  {\small Taking the top token every time is \kw{greedy decoding}. It is observed to fall into
+   loops: once a phrase appears, it raises the probability of its own continuation.
+   \textcolor{uhocher}{TODO(cite)}}
+  \provenance{observation}
 \end{frame}
 \note{%
 The objective shown breaking. Stating what a system optimises and then showing it fail is the move
@@ -428,7 +435,7 @@ showing that the distribution covers every token in the vocabulary, not four.}
 \begin{frame}{Each token is appended and everything reruns}
   \begin{center}\includegraphics[height=40mm,width=\linewidth,keepaspectratio]{01-loop}\end{center}
   \animatable{A7}{1600 $\times$ 450 px}
-  {\small Four passes here. A paragraph is a few hundred. The \param{parameters} are unchanged on
+  {\small The \param{parameters} are unchanged on
    every one of them.}
   \provenance{schematic}
 \end{frame}

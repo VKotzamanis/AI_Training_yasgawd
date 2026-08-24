@@ -149,3 +149,65 @@ and the movement is the claim, not the numbers. It needs no capture.
 
 The chapter is deliverable without the three captures. It is weaker without them, because slide 17
 argues repetition from the mechanism and never shows it happening.
+
+---
+
+## Round 2 — rebuild of 2026-08-24
+
+24 frames. Rebuilt against the instructor's 52 PDF annotations, the blind peer review's 27
+findings, and rulings C1/C2/C3.
+
+**Structure.** Tokens now precede the training-objective frame, which deleted the inline gloss that
+existed only to work around the old order. The pipeline map opens the mechanism. Context and
+session frames are adjacent, with the tools frame merged into the context frame. One frame cut
+(C1). Two brain-comparison frames added (C2), back to back.
+
+**Terms newly defined on the slide face**, each previously missing or trapped in a figure:
+
+| Term | Frame | Was |
+|---|---|---|
+| neural network | 3 | defined only inside a figure, rendering at roughly 4 pt |
+| corpus | 4 | used with a definite article, never defined |
+| session | 6 | defined only in a speaker note, then used in a headline |
+| surprise | 12 | used as a plain-English word; now $-\log p$ for the token that came next |
+| logit | 13 | used before definition |
+| transformer | 14 | glossed with an em dash, not defined |
+| greedy decoding | 16 | called "greedy selection" inside an invalid derivation |
+
+**Evidence balance after the rebuild**
+
+| Footer | Frames |
+|---|---|
+| `\citesource` | 4 — vaswani2017, anthropic-code-exec, schrimpf2021+hadidi2026, fedorenko2024 |
+| `\provenance{definition}` | 7 |
+| `\provenance{schematic}` | 4 |
+| `\provenance{computed}` | 3 |
+| `\provenance{derived}` | 3 |
+| `\provenance{observation}` | 2 |
+| `\provenance{none}` | 1 |
+
+**Four `TODO` markers are visible on slides**, not hidden: `TODO(verify)` on the reliability claim,
+`TODO(cite)` on greedy degeneration, and `TODO(capture)` on the token-count figure and the
+tokeniser frames. Each marks a claim that has not reached `[V]`.
+
+## Checks run, round 2
+
+| Check | Result |
+|---|---|
+| Frame check: every frame has a footer, every key `[V]` | PASS, 24 frames |
+| LaTeX errors | 0 |
+| Overfull vboxes | 0 |
+| **Overfull hboxes** (content off the side of the slide) | **0 — newly gated; the gate was blind to these until 2026-08-22** |
+| Headlines at or under 8 words | 24 of 24 |
+| Figure aspect ratios in band | all, with the two brain figures exempt |
+| One value per quantity in the running example | PASS — p(absent) reconciled |
+
+## Known gaps carried forward
+
+- Frame 4's reliability claim has no `[V]` source. Ruling C3 keeps it at position 4, where it
+  cannot be derived from anything earlier.
+- The greedy-degeneration frame rests on a recording that has not been made.
+- Token counts in the cost figure are schematic; no tokeniser has been run.
+- Peer-review item 9, deck-wide in-figure text size, is deferred pending measurement.
+- Peer-review item 19, the COI flag on `anthropic-code-exec`, is still unverified.
+- Two animation slots remain empty.
