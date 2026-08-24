@@ -123,7 +123,7 @@ Do not state a file size or a parameter count. Those are per-model claims and no
   \begin{center}\includegraphics[height=33mm,width=\linewidth,keepaspectratio]{01-train-vs-run}\end{center}
   \begin{columns}[t]
     \begin{column}{0.31\linewidth}\centering
-      \kw{Training}\\[0.2em]{\small the numbers are being changed}
+      \kw{Training}\\[0.2em]{\small the phase in which the numbers were changed}
     \end{column}
     \begin{column}{0.31\linewidth}\centering
       \kw{Inference}\\[0.2em]{\small running the finished numbers on your text}
@@ -161,37 +161,7 @@ Naming the limit of an analogy is the discipline this course teaches.\\[0.3em]
 Caveat: the right-hand panel varies one parameter. A real run searches a space with billions of
 dimensions, and the bowl is a one-dimensional slice of it.}
 
-% ---------------------------------------------------------------- 8
-\begin{frame}{Training minimises surprise at the next token}
-  \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-surprise}\end{center}
-  {\small You cannot define \emph{surprised} without a \prob{probability}. So the thing training
-   shaped is a distribution over every \kw{token} --- a chunk of text from a fixed list, defined on
-   slide 12 --- that could come next.}
-  \provenance{derived}
-\end{frame}
-\note{%
-THIS IS THE SLIDE THE CHAPTER WAS MISSING, and it is the bridge from deterministic to
-probabilistic. Deliver it slowly.\\[0.3em]
-The chain, said out loud: training minimises surprise at the true next token, so the output has to
-be a distribution --- there would be nothing to minimise otherwise. For a fixed input that
-distribution is computed deterministically, the same every time. Take its maximum every time and
-the text loops. So a token is drawn from it instead. Therefore two runs of the same prompt differ.
-Every step has a reason; nothing is asserted.\\[0.3em]
-An engineering analogy that works: cast fifty specimens from one mix and you get fifty compressive
-strengths, and you infer a distribution from them. Name the joint where it fails, because it is
-worth teaching --- with fifty cylinders you discover the distribution by testing fifty. The model
-computes the distribution first, in one pass, and then throws almost all of it away by picking one
-token. You never see it unless you look.\\[0.3em]
-That is also why Chapter 4 makes you run the same prompt several times: you only ever observe the
-picks, never the distribution.\\[0.3em]
-Do NOT link this to temperature. Temperature is a sampler setting applied at inference, after the
-numbers are frozen. It has nothing to do with the minimisation.\\[0.3em]
-If asked about local minima and random starts: yes, training is genuinely stochastic, and two
-training runs give different weights. That explains why one model differs from another, and it is
-Chapter 4's reason for recording the model ID. It is NOT the reason the same prompt gives two
-answers today --- those weights were frozen before anyone here touched the tool.}
-
-% ---------------------------------------------------------------- 9
+% ---------------------------------------------------------------- 8   (was 9)
 \begin{frame}{Training changed the numbers, nothing else}
   \begin{center}\includegraphics[height=31mm,width=\linewidth,keepaspectratio]{01-what-training-changed}\end{center}
   \begin{columns}[t]
@@ -221,7 +191,7 @@ Do not say the comparison has been refuted. It has been qualified by its own aut
 different and more useful thing.\\[0.3em]
 Chapter 8 is now the appendix deck --- distributed, not presented.}
 
-% ---------------------------------------------------------------- 10
+% ---------------------------------------------------------------- 9   (was 10)
 \begin{frame}{Text becomes numbers, then scores, then text}
   \begin{center}
 \fitwidth{%
@@ -251,38 +221,7 @@ chapter did, and it was the loudest complaint in review.\\[0.3em]
 The arrow labelled "append it and run again" is the whole reason the answer arrives a piece at a
 time.}
 
-% ---------------------------------------------------------------- 11
-\begin{frame}{Everything given sits in the context window}
-  \begin{center}
-  \scalebox{0.86}{\begin{tikzpicture}[node distance=4mm]
-    \node[uhbox]                       (a) {your prompt};
-    \node[uhbox, below=of a]           (b) {files you pasted};
-    \node[uhbox, below=of b]           (c) {the conversation\\so far};
-    \node[uhbox, below=of c]           (d) {standing\\instructions};
-    \node[uhhi, right=16mm of b, yshift=-6mm, text width=30mm, minimum height=26mm]
-                                       (w) {\textbf{the context window}\\[0.4em]a fixed maximum,\\counted in tokens};
-    \node[uhbox, right=10mm of w]      (n) {the network};
-    \node[uhghost, below=10mm of n]    (x) {everything else\\you ever wrote};
-    \draw[uhar] (a)-|(w); \draw[uhar] (b)--(w); \draw[uhar] (c)-|(w); \draw[uhar] (d)-|(w);
-    \draw[uhar] (w)--(n);
-    \draw[uhardot] (x)-- node[right,font=\scriptsize\itshape,pos=0.4]{not supplied} (n);
-  \end{tikzpicture}}
-  \end{center}
-  {\small Re-read in full every time the network runs. \kw{Standing instructions} --- text placed
-   in the window at the start of every session.}
-  \provenance{definition}
-\end{frame}
-\note{%
-Box zero of the diagram, and it belongs here rather than at the end: the window is what the
-model is handed, so it comes with the input stage.\\[0.3em]
-The window is neither storage nor a database. It is an input buffer, and its contents are supplied
-fresh on every pass.\\[0.3em]
-Do not state a maximum size. Window sizes are per-model and per-plan, they change, and none is
-cited here.\\[0.3em]
-If asked how a conversation carries over: the application re-sends the whole conversation on every
-turn. The network remembers nothing between turns; something outside it re-supplies the history.}
-
-% ---------------------------------------------------------------- 12
+% ---------------------------------------------------------------- 10   (was 12)
 \begin{frame}{Tokens come from a fixed list}
   \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-tokens}\end{center}
   \begin{columns}[t]
@@ -310,7 +249,7 @@ one, and this is the line that stops the next slide looking false when they do.\
 TODO(capture): run a real tokeniser on this sentence and on a MATLAB snippet. The figure says
 SCHEMATIC until that is done.}
 
-% ---------------------------------------------------------------- 13
+% ---------------------------------------------------------------- 11   (was 13)
 \begin{frame}{Token count follows frequency, not length}
   \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-token-cost}\end{center}
   \begin{columns}[t]
@@ -328,11 +267,40 @@ Practical effect: a page of your writing costs more tokens than a page of a news
 wrong when that happens.\\[0.3em]
 This is the cost thread's first appearance. Chapter 7 prices it and Chapter 13 bills it.}
 
-% ---------------------------------------------------------------- 14
+% ---------------------------------------------------------------- 12   (was 8)
+\begin{frame}{Training minimises surprise at the next token}
+  \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-surprise}\end{center}
+  {\small You cannot define \emph{surprised} without a \prob{probability}. So the thing training
+   shaped is a distribution over every \kw{token} that could come next.}
+  \provenance{derived}
+\end{frame}
+\note{%
+THIS IS THE SLIDE THE CHAPTER WAS MISSING, and it is the bridge from deterministic to
+probabilistic. Deliver it slowly.\\[0.3em]
+The chain, said out loud: training minimises surprise at the true next token, so the output has to
+be a distribution --- there would be nothing to minimise otherwise. For a fixed input that
+distribution is computed deterministically, the same every time. Take its maximum every time and
+the text loops. So a token is drawn from it instead. Therefore two runs of the same prompt differ.
+Every step has a reason; nothing is asserted.\\[0.3em]
+An engineering analogy that works: cast fifty specimens from one mix and you get fifty compressive
+strengths, and you infer a distribution from them. Name the joint where it fails, because it is
+worth teaching --- with fifty cylinders you discover the distribution by testing fifty. The model
+computes the distribution first, in one pass, and then throws almost all of it away by picking one
+token. You never see it unless you look.\\[0.3em]
+That is also why Chapter 4 makes you run the same prompt several times: you only ever observe the
+picks, never the distribution.\\[0.3em]
+Do NOT link this to temperature. Temperature is a sampler setting applied at inference, after the
+numbers are frozen. It has nothing to do with the minimisation.\\[0.3em]
+If asked about local minima and random starts: yes, training is genuinely stochastic, and two
+training runs give different weights. That explains why one model differs from another, and it is
+Chapter 4's reason for recording the model ID. It is NOT the reason the same prompt gives two
+answers today --- those weights were frozen before anyone here touched the tool.}
+
+% ---------------------------------------------------------------- 13   (was 14)
 \begin{frame}{The network returns one score per token}
   \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-scores}\end{center}
   {\small The raw scores are \logit{logits}. One run of the network over the window is one
-   \kw{pass}. The four shown do not add to one --- the rest of the vocabulary carries the
+   \kw{pass}. The eight shown do not add to one, because the rest of the vocabulary carries the
    remainder.}
   \provenance{definition}
 \end{frame}
@@ -345,7 +313,7 @@ Note the colours doing work here: \logit{logits} in teal come out of the network
 every time they appear.\\[0.3em]
 Values are illustrative and the figure says so.}
 
-% ---------------------------------------------------------------- 15
+% ---------------------------------------------------------------- 14   (was 15)
 \begin{frame}{Attention decides which earlier tokens matter}
   \begin{center}\includegraphics[height=35mm,width=\linewidth,keepaspectratio]{01-attention}\end{center}
   \animatable{A3}{1600 $\times$ 600 px}
@@ -369,34 +337,40 @@ Scope: one sentence and one diagram. How the weights are computed, multi-head at
 positional encoding are all excluded, because none of them changes a decision anyone here makes.\\[0.3em]
 The arc thicknesses are drawn to show the operation. They were not extracted from a model.}
 
-% ---------------------------------------------------------------- 16
+% ---------------------------------------------------------------- 15   (was 16)
 \begin{frame}{Softmax turns scores into probabilities}
   \vspace{1em}
   \begin{columns}[c]
     \begin{column}{0.52\linewidth}
       \[ \mprob{p_i} \;=\; \frac{\exp\!\big(\overbrace{\mlogit{z_i}}^{\text{score for token } i}\big/\underbrace{T}_{\text{temperature}}\big)}
          {\underbrace{\sum_j \exp(\mlogit{z_j}/T)}_{\substack{\text{sum over every token,}\\ \text{so the result adds to } 1}}} \]
+      \vspace{0.3em}
+      {\footnotesize As $T \to 0$ the top score wins outright. \kw{$T=0$ means take the
+       maximum}, not divide by zero.}
     \end{column}
     \begin{column}{0.44\linewidth}
-      {\small \kw{Worked case} --- restricted to two candidates so the sum can be checked by hand.}
-      \[ \mlogit{z_{\text{absent}}} = 2.0 \qquad \mlogit{z_{\text{corroded}}} = 1.0 \]
-      \[ \mprob{p} = \frac{e^{2.0}}{e^{2.0}+e^{1.0}} = \frac{7.389}{10.107} = \mprob{0.731} \]
-      {\small All quantities dimensionless.}
+      {\small \kw{Worked case}, two candidates only, so the sum checks by hand.}
+      \[ \mlogit{z_{\text{absent}}} = \ln 0.41 \qquad \mlogit{z_{\text{corroded}}} = \ln 0.27 \]
+      \[ \mprob{p} = \frac{0.41}{0.41+0.27} = \mprob{0.603} \]
+      {\small Two in the denominator gives \mprob{0.603}. Over the whole vocabulary it is
+       \mprob{0.41}, which is the number the figures carry. All quantities dimensionless.}
     \end{column}
   \end{columns}
   \provenance{computed}
 \end{frame}
 \note{%
 The only equation in the chapter, and the one the room can check by hand in ten seconds.
-$e^2 = 7.389$, $e^1 = 2.718$, sum $10.107$, ratio $0.731$.\\[0.3em]
+Because the scores are written as $\ln p$, the exponentials are the probabilities themselves:
+$0.41$ and $0.27$, sum $0.68$, ratio $0.603$.\\[0.3em]
 Say why it is restricted to two candidates: the real denominator runs over the whole vocabulary and
 cannot be shown. Two is enough to check the arithmetic.\\[0.3em]
-The three marked points on the figure are 0.881 at T = 0.5, 0.731 at T = 1.0 and 0.622 at T = 2.0,
-computed by the committed script rather than typed, so the slide and the figure cannot drift.\\[0.3em]
+State the two denominators out loud. Restricted to two candidates the answer is 0.603; over the
+whole vocabulary it is 0.41. Both are correct and they are answers to different questions. The
+temperature sweep is shown as a curve on the temperature frame, not here.\\[0.3em]
 Worth naming: the form is the Boltzmann distribution with the score standing in for negative energy
 over kT. Several people in the room will recognise it.}
 
-% ---------------------------------------------------------------- 17
+% ---------------------------------------------------------------- 16   (was 17)
 \begin{frame}{Always taking the top token repeats}
   \slotF{temperature zero, run long enough that the output falls into a loop}
 
@@ -416,7 +390,7 @@ If the recording does not loop --- some models resist repetition --- that is a r
 take. Show it and narrate the difference between "it was patched" and "it is fixed", which is the
 policy Chapter 6 already uses for its demo.}
 
-% ---------------------------------------------------------------- 18
+% ---------------------------------------------------------------- 17   (was 18)
 \begin{frame}{The token is drawn, not taken}
   \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-scores}\end{center}
   \animatable{A4}{1600 $\times$ 600 px --- the bars must be identical on every draw}
@@ -433,7 +407,7 @@ Honest caveat: identical scores assume identical input and the same model versio
 service the hardware and the way requests are grouped on the server can perturb the arithmetic
 slightly. What you actually see is dominated by the draw.}
 
-% ---------------------------------------------------------------- 19
+% ---------------------------------------------------------------- 18   (was 19)
 \begin{frame}{Temperature sets how sharply the top score wins}
   \begin{center}\includegraphics[height=31mm,width=\linewidth,keepaspectratio]{01-temperature}\end{center}
   \animatable{A5}{1600 $\times$ 450 px}
@@ -450,7 +424,7 @@ inside the network and nothing about training.\\[0.3em]
 Watch the tail: at high temperature "blue" becomes reachable. That is the slide's second job ---
 showing that the distribution covers every token in the vocabulary, not four.}
 
-% ---------------------------------------------------------------- 20
+% ---------------------------------------------------------------- 19   (was 20)
 \begin{frame}{Each token is appended and everything reruns}
   \begin{center}\includegraphics[height=40mm,width=\linewidth,keepaspectratio]{01-loop}\end{center}
   \animatable{A7}{1600 $\times$ 450 px}
@@ -467,67 +441,46 @@ Generation cannot be parallelised across positions, because pass four needs the 
 produced. Training can be, which is why training a model is fast relative to the text it reads and
 generation is not.}
 
-% ---------------------------------------------------------------- 21
-\begin{frame}{Two runs give different answers}
+% ---------------------------------------------------------------- 20   (was 11)
+\begin{frame}{Everything given sits in the context window}
   \begin{center}
-\fitwidth{%
-    \begin{tikzpicture}[node distance=7mm]
-    \node[uhwide]                 (a) {the same\\tokens in};
-    \node[uhhi, right=of a]       (b) {the network};
-    \node[uhwide, right=of b]     (c) {the same\\scores out};
-    \node[uhamber, right=of c]    (d) {draw one};
-    \node[uhbox, right=9mm of d, yshift=9mm]  (e) {\prob{absent}};
-    \node[uhbox, right=9mm of d]              (f) {\prob{corroded}};
-    \node[uhbox, right=9mm of d, yshift=-9mm] (g) {\prob{undersized}};
-    \draw[uhar] (a)--(b); \draw[uhar] (b)--(c); \draw[uhar] (c)--(d);
-    \draw[uhar] (d)--(e); \draw[uhar] (d)--(f); \draw[uhar] (d)--(g);
+  \scalebox{0.58}{\begin{tikzpicture}[node distance=4mm]
+    \node[uhbox]                       (a) {your prompt};
+    \node[uhbox, below=of a]           (b) {files you pasted};
+    \node[uhbox, below=of b]           (c) {the conversation\\so far};
+    \node[uhbox, below=of c]           (d) {standing\\instructions};
+    \node[uhbox, below=of d]           (e) {what a tool\\returned};
+    \node[uhhi, right=16mm of b, yshift=-6mm, text width=30mm, minimum height=26mm]
+                                       (w) {\textbf{the context window}\\[0.4em]a fixed maximum,\\counted in tokens};
+    \node[uhbox, right=10mm of w]      (n) {the network};
+    \node[uhghost, below=10mm of n]    (x) {everything else\\you ever wrote};
+    \draw[uhar] (a)-|(w); \draw[uhar] (b)--(w); \draw[uhar] (c)-|(w); \draw[uhar] (d)-|(w);
+    \draw[uhar] (e)-|(w);
+    \draw[uhar] (w)--(n);
+    \draw[uhardot] (x)-- node[right,font=\scriptsize\itshape,pos=0.4]{not supplied} (n);
   \end{tikzpicture}}
   \end{center}
-  {\small The puzzle from the first slide, resolved. Everything left of \kw{draw one} is fixed.}
-  \provenance{derived}
-\end{frame}
-\note{%
-Pay off the puzzle planted on slide 2. Ask the room whether anyone noticed it earlier.\\[0.3em]
-Makes variation predictable rather than mysterious, and sets up Chapter 4, where the spread has to
-be measured before any prompt comparison means anything.\\[0.3em]
-TODO(capture): one prompt, five runs, five answers, recorded with the model ID and the date.}
-
-% ---------------------------------------------------------------- 22
-\begin{frame}{Tools write into the window}
-  \begin{center}
-\fitwidth{%
-  \begin{tikzpicture}[node distance=4mm]
-    \node[uhwide]                  (a) {a tool that fetches ---\\web search, a file};
-    \node[uhamber, below=of a]     (b) {a tool that computes ---\\code run, and its result};
-    \node[uhwide, below=of b]      (c) {your prompt};
-    \node[uhhi, right=12mm of b]   (w) {context window};
-    \node[uhbox, right=8mm of w]   (n) {the network};
-    \node[uhbox, right=8mm of n]   (s) {\logit{scores}};
-    \draw[uhar] (a)-|(w); \draw[uhar] (b)--(w); \draw[uhar] (c)-|(w);
-    \draw[uhar] (w)--(n); \draw[uhar] (n)--(s);
-  \end{tikzpicture}}
-  \end{center}
-  {\small A \kw{tool} is a program the system runs alongside the network. Its result is written
-   into the window as tokens, and the pass that follows is the one already described.}
+  {\small Re-read in full every time the network runs. \kw{Standing instructions} are placed in the
+   window at the start of every session. A \kw{tool} is a program run alongside the network, and its
+   result is written into the window as tokens.}
   \citesource{anthropic-code-exec}
 \end{frame}
 \note{%
-Corrects two over-simplifications at once: that the model never looks anything up, and that every
-number it reports was predicted rather than calculated.\\[0.3em]
-Chapter 5 depends on this. Whether arithmetic was predicted or computed depends on whether a code
-tool ran, and the vendor documents the routing: code runs for large or precision-sensitive
-calculations, and the model answers directly for simple arithmetic AND simple unit conversions.
-That documented exception is exactly the failure class this audience cares about. The transcript
-shows which happened, so it is a check they can run.\\[0.3em]
-Version-fragile: which tools exist and when they fire changes between releases. Re-check in the
-week before delivery.}
+Box zero of the diagram, and it belongs here rather than at the end: the window is what the
+model is handed, so it comes with the input stage.\\[0.3em]
+The window is neither storage nor a database. It is an input buffer, and its contents are supplied
+fresh on every pass.\\[0.3em]
+Do not state a maximum size. Window sizes are per-model and per-plan, they change, and none is
+cited here.\\[0.3em]
+If asked how a conversation carries over: the application re-sends the whole conversation on every
+turn. The network remembers nothing between turns; something outside it re-supplies the history.}
 
-% ---------------------------------------------------------------- 23
+% ---------------------------------------------------------------- 21   (was 23)
 \begin{frame}{The session ends and the window goes}
   \begin{center}\includegraphics[height=33mm,width=\linewidth,keepaspectratio]{01-persistence}\end{center}
   \begin{columns}[t]
     \begin{column}{0.46\linewidth}\centering
-      \kw{Discarded}\\[0.2em]{\small the window, the conversation, anything you pasted}
+      \kw{The network keeps nothing}\\[0.2em]{\small nothing you sent changed it}
     \end{column}
     \begin{column}{0.46\linewidth}\centering
       \kw{Unchanged}\\[0.2em]{\small the \param{parameters}, in every session}
@@ -541,7 +494,59 @@ the window at the start of the next session, and Chapter 10 is where they write 
 Caveat: providers may retain transcripts for their own purposes. That is a data-governance question
 rather than a memory one, and Chapter 18 handles it.}
 
-% ---------------------------------------------------------------- 24
+% ---------------------------------------------------------------- 22   (new)
+\begin{frame}{Your brain divides the work into parts}
+  \begin{center}\includegraphics[height=46mm,width=\linewidth,keepaspectratio]{01-brain-human}\end{center}
+  \provenance{schematic}
+\end{frame}
+\note{%
+Deliver this orally. The slide carries one word per region on purpose.\\[0.3em]
+Walk the nine and say what each does, briefly: the brainstem keeps you alive without being asked;
+the basal ganglia and their dopamine signal are the reinforcement system, which is where habits and
+rewards are learned; the hypothalamus holds the set points, so hunger and temperature are drives
+you did not choose; the amygdala is fast, coarse threat detection that fires before you have
+deliberated; the hippocampus holds recent experience and writes it into cortex; the cortex is where
+consolidated knowledge sits; the fronto-parietal network does effortful reasoning; the language
+network produces and understands language; sensory cortex turns light and pressure into
+features.\\[0.3em]
+The point of the frame is the picture, not the words. Every region is a separable part that can be
+damaged on its own. Say that explicitly, because the next frame turns on it.\\[0.3em]
+This is a left lateral view, which is the correct side: the language network is left-lateralised.\\[0.3em]
+The illustration was generated; every label was placed by hand against anatomical sources. Regions
+are shown schematically and boundaries are approximate. Do not defend the exact outlines.}
+
+% ---------------------------------------------------------------- 23   (new)
+\begin{frame}{One set of weights does every job}
+  \begin{center}\includegraphics[height=38mm,width=\linewidth,keepaspectratio]{01-brain-model}\end{center}
+  \vspace{-0.2em}
+  {\small\textbf{Language and thought are separable systems in people, a double dissociation, and
+   one set of weights in the model.}}
+  \citesource{fedorenko2024}
+\end{frame}
+\note{%
+Same picture, same colours, the words swapped. Let the room notice before you say anything.\\[0.3em]
+Then give the pairs and, for each, where it breaks. Next-token prediction is the base drive, the
+thing that never stops, and everything else was installed on top of it. The reward model and RLHF
+are the reinforcement layer, and the maths is genuinely the same idea as the dopamine prediction
+error, but yours runs for life and this ran once and stopped. The trained dispositions are the
+drives, and here is the sharp difference: a paragraph of system prompt can change the model's
+drives, and nothing anybody says will talk you out of being hungry. Refusal behaves like threat
+detection, fast and coarse and fired by surface features, which is exactly why a harmless request
+sometimes gets refused. The context window is the holding part of memory with the writing part
+missing, which is why Chapter 10 exists. The weights are the consolidated knowledge, frozen where
+yours keeps updating. Thinking is effortful reasoning, except that it is a dial someone outside can
+turn, and it spends tokens rather than building capacity.\\[0.3em]
+On effort, if asked: it controls tokens. Thinking is the model generating reasoning text before the
+answer, through the same network, so more effort means more passes, and time and cost follow from
+that. Thinking and the answer share one output budget.\\[0.3em]
+The closing line is the payoff and it is sourced. In people, language and thought can be damaged
+independently, which is what a double dissociation means. In the model there is nothing to
+dissociate. That is not a defect: it is why one model moves between summarising, coding and arguing
+without switching systems. It is also why fluency tells you nothing about whether the content is
+right, because there is no second system whose health the fluency could be reporting.\\[0.3em]
+That is the argument for everything the rest of the course does about verification.}
+
+% ---------------------------------------------------------------- 24   (was 24)
 \begin{frame}{What we covered, and what is still open}
   \begin{columns}[t]
     \begin{column}{0.49\linewidth}

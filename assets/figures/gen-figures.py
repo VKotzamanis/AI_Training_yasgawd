@@ -1815,6 +1815,87 @@ def fig_thinking_ladder():
     plt.close(fig); print("wrote 03-thinking-ladder.png")
 
 
+# ---------------------------------------------------------------------------
+# Chapter 1, frames 22-23 - the brain comparison.
+#
+# One generated base image (agy / Nano Banana, 2026-08-24, retained in
+# agy-artifacts/brain-insitu.jpg), used twice with different overlaid labels.
+#
+# THE LABELS ARE NOT GENERATED. Region identities were checked against anatomical
+# sources 2026-08-24 before placement: the amygdala sits immediately anterior to the
+# hippocampal head in the temporal lobe; the hippocampus curves through the medial
+# temporal region; the basal ganglia are deep and central; thalamus, hypothalamus and
+# mammillary bodies are diencephalic. An earlier midsagittal render was rejected
+# because amygdala, hippocampus and basal ganglia are lateral to that plane and could
+# not have been labelled honestly.
+#
+# Slide colours pair the two frames: region N carries the same colour on both, so the
+# eye maps human function to model counterpart without a connecting line. These are
+# NOT the four number colours - Chapter 1's colour code answers "what kind of number
+# is this", and these frames contain no numbers, so there is no collision.
+# ---------------------------------------------------------------------------
+
+BRAIN_BASE = OUT / "01-brain-base.jpg"
+
+# (label_xy, anchor_xy, colour) in pixel coords of the 1376 x 768 base image.
+BRAIN_REGIONS = [
+    # name             label pos      points at      colour
+    ("neocortex",      (300,  95),   (470, 190),  "#4A6FA5"),
+    ("fronto-parietal",(690,  40),   (700, 150),  "#1F6F54"),
+    ("sensory cortex", (1090, 120),  (960, 210),  "#7A4E9E"),
+    ("basal ganglia",  (1180, 300),  (720, 340),  "#B8860B"),
+    ("hippocampus",    (1180, 430),  (790, 460),  "#0E7C86"),
+    ("hypothalamus",   (235,  400),  (600, 428),  "#B5379B"),
+    ("amygdala",       (235,  505),  (585, 495),  "#A62B2B"),
+    ("language",       (235,  660),  (650, 610),  "#C8102E"),
+    ("brainstem",      (600,  735),  (800, 645),  "#6E7377"),
+]
+
+HUMAN_WORDS = {
+    "neocortex": "knowledge", "fronto-parietal": "reasoning", "sensory cortex": "senses",
+    "basal ganglia": "reward", "hippocampus": "memory", "amygdala": "threat",
+    "hypothalamus": "drives", "brainstem": "vital", "language": "language",
+}
+MODEL_WORDS = {
+    "neocortex": "weights", "fronto-parietal": "thinking", "sensory cortex": "tokens",
+    "basal ganglia": "reward", "hippocampus": "context", "amygdala": "refusal",
+    "hypothalamus": "drives", "brainstem": "prediction", "language": "language",
+}
+
+
+def _fig_brain(words, outname, title):
+    """Overlay colour-coded one-word labels on the shared brain base."""
+    import matplotlib.image as mpimg
+    img = mpimg.imread(str(BRAIN_BASE))
+    H, W = img.shape[0], img.shape[1]
+    fig, ax = plt.subplots(figsize=(13.4, 7.48))
+    ax.imshow(img)
+    ax.set_xlim(0, W); ax.set_ylim(H, 0); ax.axis("off")
+    for name, lab_xy, pt_xy, col in BRAIN_REGIONS:
+        lx, ly = lab_xy; px, py = pt_xy
+        ax.annotate("", xy=(px, py), xytext=(lx, ly),
+                    arrowprops=dict(arrowstyle="-", color=col, lw=1.6,
+                                    shrinkA=6, shrinkB=2,
+                                    connectionstyle="arc3,rad=0.05"))
+        ha = "right" if lx < W * 0.35 else ("left" if lx > W * 0.65 else "center")
+        ax.text(lx, ly, words[name], fontsize=36, color=col, weight="bold",
+                ha=ha, va="center",
+                bbox=dict(boxstyle="round,pad=0.28", fc="white", ec=col, lw=1.6))
+    ax.set_title(title, fontsize=30, color=INK, pad=14)
+    fig.tight_layout()
+    for d in (OUT, PUB):
+        fig.savefig(d / outname, dpi=170, bbox_inches="tight", facecolor="white")
+    plt.close(fig); print(f"wrote {outname}")
+
+
+def fig_brain_human():
+    _fig_brain(HUMAN_WORDS, "01-brain-human.png", "What each part does in you")
+
+
+def fig_brain_model():
+    _fig_brain(MODEL_WORDS, "01-brain-model.png", "What does the same job in the model")
+
+
 if __name__ == "__main__":
     fig_temperature()
     fig_kv_growth()
@@ -1845,6 +1926,8 @@ if __name__ == "__main__":
     fig_instrument_rebuild()
     fig_evidence_vs_force()
     fig_best_of_eleven()
+    fig_brain_human()
+    fig_brain_model()
     # Chapter 3, "the levers that work"
     fig_prompt_anatomy()
     fig_levers_map()
@@ -1873,7 +1956,8 @@ if __name__ == "__main__":
     LO, HI = 3.4, 4.7
     print(f"\n--- aspect-ratio audit (target {LO}:1 to {HI}:1, set by 144 mm / slide height) ---")
     # Figures not placed at those heights, so the band does not apply to them.
-    EXEMPT = {"01-kv-growth.png", "05-position-schematic.png", "01-chat-artefact.png",
+    EXEMPT = {"01-brain-human.png", "01-brain-model.png", "01-brain-base.jpg",
+              "01-kv-growth.png", "05-position-schematic.png", "01-chat-artefact.png",
               "01-softmax-T.png"}
     rows = []
     for png in sorted(OUT.glob("*.png")):
