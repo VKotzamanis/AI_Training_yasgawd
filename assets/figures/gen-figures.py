@@ -633,24 +633,29 @@ def fig_softmax_curve():
     only other candidate in this restricted pair. Computed exactly; the three marked
     points are the three rows of the worked table on the slide, so the slide and the
     figure cannot drift. Values unchanged from the original derivation."""
+    # Logit gap taken from the committed probability table, NOT from the old z = 2.0 / 1.0
+    # pair. The slide's worked case reads z = ln p, so the gap is ln(0.41) - ln(0.27) and
+    # the T = 1 point is 0.41/(0.41+0.27) = 0.603, matching the frame exactly. The earlier
+    # 2.0/1.0 pair gave 0.731 and disagreed with every figure in the chapter.
+    GAP = np.log(CAND_PROBS[0]) - np.log(CAND_PROBS[1])
     T = np.linspace(0.12, 3.0, 400)
-    p = 1.0 / (1.0 + np.exp(-(2.0 - 1.0) / T))       # exact for two logits
+    p = 1.0 / (1.0 + np.exp(-GAP / T))               # exact for two logits
     fig, ax = plt.subplots(figsize=(8.2, 3.15))
     ax.plot(T, p, color=ACCENT[0], lw=2.4)
     ax.axhline(0.5, color=GRID, lw=1.0, ls="--")
     ax.text(2.92, 0.525, "0.5 — absent and corroded become equally likely", fontsize=8.5,
             ha="right", color=INK, alpha=.75)
     for t in (0.5, 1.0, 2.0):
-        pv = 1.0 / (1.0 + np.exp(-1.0 / t))
+        pv = 1.0 / (1.0 + np.exp(-GAP / t))
         ax.plot([t], [pv], "o", color=WARN, ms=7, zorder=5)
         ax.annotate(f"T = {t}\np = {pv:.3f}", xy=(t, pv), xytext=(t + 0.12, pv + 0.055),
                     fontsize=9, color=INK)
     ax.set_xlabel("temperature  T  [—]")
     ax.set_ylabel("p( absent )  [—]")
-    ax.set_xlim(0, 3.0); ax.set_ylim(0.45, 1.02)
+    ax.set_xlim(0, 3.0); ax.set_ylim(0.45, 0.92)
     ax.grid(True, color=GRID, lw=.6); ax.set_axisbelow(True)
-    ax.set_title("p( absent ) vs. temperature — absent scores 2.0, corroded 1.0. Computed exactly.",
-                 fontsize=10.3, pad=9)
+    ax.set_title("p( absent ) against temperature, for the two-candidate case on the previous "
+                 "frame. Computed exactly.", fontsize=10.3, pad=9)
     fig.tight_layout()
     for d in (OUT, PUB):
         fig.savefig(d / "01-softmax-T.png", dpi=200, bbox_inches="tight")
@@ -806,9 +811,9 @@ def fig_corpus_density():
         (4.0, 7.3, "the band between", "believes it knows, gets it wrong", WARN),
         (7.3, 10.0, "genuinely obscure", "usually declines, or says so", "#9AA0A0"),
     ]
-    fig, ax = plt.subplots(figsize=(11.8, 2.86))
-    ax.set_xlim(0, 10); ax.set_ylim(0, 4.3); _blank(ax)
-    strip_y, strip_h = 1.55, 0.95
+    fig, ax = plt.subplots(figsize=(11.8, 3.36))
+    ax.set_xlim(0, 10); ax.set_ylim(0, 5.35); _blank(ax)
+    strip_y, strip_h = 2.30, 0.95
     for x0, x1, name, sub, colour in bands:
         ax.add_patch(Rectangle((x0, strip_y), x1 - x0, strip_h, fc=colour, ec=INK,
                                lw=1.1, alpha=.60))
@@ -823,10 +828,31 @@ def fig_corpus_density():
             ha="right", color=INK)
     ax.text(0.1, strip_y - 0.62, "very little", fontsize=8.3, ha="left", color=INK, alpha=.72)
 
+    # One worked instance per band, so the three regimes are concrete rather than named.
+    # The icons are GENERATED ILLUSTRATION (agy / Nano Banana, 2026-08-24, retained in
+    # agy-artifacts/band-icons.jpg). They carry no claim: the claim is the band they sit
+    # under, and that is drawn here. The third is deliberately the reader's own unpublished
+    # data rather than a second public topic - the peer review noted the audience's own
+    # experimental work never appears anywhere in this course.
+    import matplotlib.image as _mpimg
+    from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+    icons = [(2.00, "01-band-common.png",  "boiling an egg"),
+             (5.65, "01-band-middle.png",  "a one-off clutch design"),
+             (8.65, "01-band-obscure.png", "your own unpublished data")]
+    for cx, fname, caption in icons:
+        fpath = OUT / fname
+        if not fpath.exists():
+            continue
+        im = _mpimg.imread(str(fpath))
+        ab = AnnotationBbox(OffsetImage(im, zoom=0.20), (cx, 1.15),
+                            frameon=False, box_alignment=(0.5, 0.5))
+        ax.add_artist(ab)
+        ax.text(cx, 0.12, caption, fontsize=8.8, ha="center", color=INK, style="italic")
+
     pin_x = 5.35                      # inside "the band between"
-    ax.plot([pin_x, pin_x], [strip_y + strip_h, 3.55], color=INK, lw=1.2)
+    ax.plot([pin_x, pin_x], [strip_y + strip_h, 4.25], color=INK, lw=1.2)
     ax.plot([pin_x], [strip_y + strip_h], marker="v", color=INK, ms=8, zorder=5)
-    ax.text(pin_x, 3.68, "roughly where your own research\nliterature sits",
+    ax.text(pin_x, 4.38, "roughly where your own research\nliterature sits",
             fontsize=8.6, ha="center", va="bottom", color=INK, weight="bold")
 
     ax.set_title("Reliability tracks how much has been written, not how important the topic is.",
@@ -1975,6 +2001,7 @@ if __name__ == "__main__":
     print(f"\n--- aspect-ratio audit (target {LO}:1 to {HI}:1, set by 144 mm / slide height) ---")
     # Figures not placed at those heights, so the band does not apply to them.
     EXEMPT = {"01-brain-human.png", "01-brain-model.png", "01-brain-base.jpg",
+              "01-band-common.png", "01-band-middle.png", "01-band-obscure.png",
               "01-kv-growth.png", "05-position-schematic.png", "01-chat-artefact.png",
               "01-softmax-T.png"}
     rows = []

@@ -416,13 +416,19 @@ slightly. What you actually see is dominated by the draw.}
 
 % ---------------------------------------------------------------- 18   (was 19)
 \begin{frame}{Temperature sets how sharply the top score wins}
-  \begin{center}\includegraphics[height=31mm,width=\linewidth,keepaspectratio]{01-temperature}\end{center}
-  \animatable{A5}{1600 $\times$ 450 px}
-  \begin{columns}[t]
-    \begin{column}{0.31\linewidth}\centering\kw{Low T}\\[0.2em]{\small one token takes almost everything}\end{column}
-    \begin{column}{0.31\linewidth}\centering\kw{T = 1}\\[0.2em]{\small the scores used as they are}\end{column}
-    \begin{column}{0.31\linewidth}\centering\kw{High T}\\[0.2em]{\small the \prob{probability} spreads}\end{column}
+  \begin{columns}[c]
+    \begin{column}{0.53\linewidth}
+      \includegraphics[height=30mm,width=\linewidth,keepaspectratio]{01-temperature}
+    \end{column}
+    \begin{column}{0.45\linewidth}
+      \includegraphics[height=30mm,width=\linewidth,keepaspectratio]{01-softmax-T}
+    \end{column}
   \end{columns}
+  \vspace{0.2em}
+  \[ \mprob{p_i} = \frac{\exp(\mlogit{z_i}/{\color{uhred}\mathbf{T}})}{\sum_j \exp(\mlogit{z_j}/{\color{uhred}\mathbf{T}})} \]
+  \vspace{-0.4em}
+  {\small \kw{Low T} sharpens until one token takes almost everything; \kw{high T} spreads the
+   \prob{probability} out. \kw{T} is a setting, not something the model computes.}
   \provenance{computed}
 \end{frame}
 \note{%
