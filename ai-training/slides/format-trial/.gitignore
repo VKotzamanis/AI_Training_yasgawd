@@ -1,0 +1,4 @@
+# LibreOffice round-trip renders, produced only to inspect the pptx variants
+out/v5-editable.pdf
+out/v6-house-light-images.pdf
+out/graphicspath.tex

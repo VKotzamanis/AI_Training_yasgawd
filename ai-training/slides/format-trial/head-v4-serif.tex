@@ -1,0 +1,22 @@
+% V4 — house layout, serif face, rule instead of a colour band. The printed-paper
+% aesthetic: reads like a journal figure page rather than a presentation.
+\usepackage{xcolor}
+\definecolor{houseInk}{HTML}{14201F}
+\definecolor{houseTeal}{HTML}{0E5C68}
+\definecolor{houseGrid}{HTML}{C8D2D2}
+
+\usetheme{default}
+\usefonttheme{serif}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{normal text}{fg=houseInk}
+\setbeamercolor{structure}{fg=houseTeal}
+\setbeamercolor{frametitle}{fg=houseInk}
+\setbeamerfont{frametitle}{size=\normalsize,series=\bfseries,family=\rmfamily}
+\setbeamerfont{normal text}{size=\small}
+\setbeamertemplate{frametitle}{%
+  \vspace{0.5em}\raggedright\insertframetitle\par
+  \vspace{0.25em}\textcolor{houseTeal}{\rule{\linewidth}{1.1pt}}\par\vspace{0.2em}}
+\setbeamertemplate{footline}{}
+\setbeamersize{text margin left=1.1em,text margin right=1.1em}
+\newcommand{\sourceline}[1]{\vfill{\tiny\color{houseInk!50}%
+  \textcolor{houseGrid}{\rule{\linewidth}{0.4pt}}\par\vspace{0.15em}\raggedright #1\par}}

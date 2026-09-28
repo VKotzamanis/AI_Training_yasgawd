@@ -1,0 +1,83 @@
+%% Course citation footers for the Beamer decks.
+%%
+%% Every frame carries a footer. Ruled 2026-08-20, no exceptions. A frame either rests on an
+%% external source or it does not, and a reader needs to know which. Inventing a citation to
+%% satisfy the rule would be the exact failure this course spends three sessions warning
+%% against, so frames that make no external claim declare their provenance instead.
+%%
+%%   \citesource{vaswani2017}                      one key, or several comma-separated
+%%   \provenance{definition}                       a term this course introduces
+%%   \provenance[slides 4 to 7]{derived}           follows from what is already on the board
+%%   \provenance{computed}                         arithmetic checkable in this repository
+%%   \provenance{observation}                      established by running it, not by reading it
+%%   \provenance{schematic}                        a drawn figure, values illustrative
+%%   \provenance{none}                             no claim is made on this frame
+%%
+%% Keys resolve against uh-sources.tex, generated from references.md. They are never typed by
+%% hand, and check-frames.py refuses any key that is not tagged [V].
+\ProvidesPackage{uhcite}[2026/08/20 course citation and provenance footers]
+\RequirePackage{xcolor}
+
+\definecolor{uhcitegrey}{HTML}{6B7A7A}
+\definecolor{uhcitegreen}{HTML}{2F7D3A}
+\definecolor{uhcitered}{HTML}{B3261E}
+
+\newcommand{\uhdefsource}[4]{%
+  \expandafter\gdef\csname uh@src@#1\endcsname{#3}%
+  \expandafter\gdef\csname uh@tag@#1\endcsname{#2}%
+  \expandafter\gdef\csname uh@flg@#1\endcsname{#4}%
+}
+
+\newif\ifuh@known
+\newcommand{\uh@onesource}[1]{%
+  \uh@knownfalse
+  \expandafter\ifx\csname uh@src@#1\endcsname\relax\else\uh@knowntrue\fi
+  \ifuh@known
+    \edef\uh@t{\csname uh@tag@#1\endcsname}%
+    {\ttfamily\bfseries
+     \ifx\uh@t\uh@Vletter\color{uhcitegreen}\else\color{uhcitered}\fi[\uh@t]}\;%
+    \csname uh@src@#1\endcsname
+    \edef\uh@f{\csname uh@flg@#1\endcsname}%
+    \IfSubStr{\uh@f}{testimony}{\ \textbf{Expert testimony, not a primary source.}}{}%
+    \IfSubStr{\uh@f}{coi}{\ \textbf{COI declared.}}{}%
+  \else
+    {\color{uhcitered}\bfseries Unresolved citation key "#1"}%
+  \fi
+  \par
+}
+\def\uh@Vletter{V}
+\RequirePackage{xstring}
+\RequirePackage{etoolbox}
+
+%% One or more comma-separated keys, each on its own line.
+\newcommand{\citesource}[1]{%
+  \vfill
+  {\usebeamercolor[fg]{normal text}%
+   \tiny\color{fg!62}\raggedright
+   \textcolor{fg!28}{\rule{\linewidth}{0.4pt}}\par\vspace{0.25em}%
+   \renewcommand*{\do}[1]{\uh@onesource{##1}}%
+   \expandafter\docsvlist\expandafter{#1}%
+  }%
+}
+
+%% Fixed provenance vocabulary. An unrecognised word prints as an error, exactly like a bad key.
+\newcommand{\provenance}[2][]{%
+  \vfill
+  {\usebeamercolor[fg]{normal text}%
+   \tiny\color{fg!45}\raggedright
+   \textcolor{fg!22}{\rule{\linewidth}{0.4pt}}\par\vspace{0.2em}%
+   \itshape
+   \IfEqCase{#2}{%
+     {definition}{definition}%
+     {derived}{derived}%
+     {computed}{computed}%
+     {observation}{observed}%
+     {schematic}{schematic}%
+     {none}{no external source}%
+     {instrument}{instrument}%
+   }[{\upshape\bfseries\color{uhcitered}Unknown provenance "#2"}]%
+   \if\relax\detokenize{#1}\relax\else\ (#1)\fi
+   \par}%
+}
+
+\endinput

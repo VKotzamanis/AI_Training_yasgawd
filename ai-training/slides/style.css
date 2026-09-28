@@ -1,0 +1,41 @@
+/* Global slide layout.
+   The default theme pins content to the top-left, which left half of every slide
+   empty and forced diagrams to render small. Centre the content column and give
+   headings a size that suits full-sentence assertion headlines. */
+
+.slidev-layout.default {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.2rem 3rem 3.2rem;
+}
+
+.slidev-layout h1 {
+  font-size: 2.0rem;
+  line-height: 1.18;
+  margin-bottom: 0.9rem;
+  text-wrap: balance;
+}
+
+.slidev-layout h2 {
+  font-size: 1.85rem;
+  line-height: 1.2;
+  margin-bottom: 1.0rem;
+  text-wrap: balance;
+}
+
+/* Diagrams and figures should dominate the slide, not sit in a corner. */
+.slidev-layout .mermaid { display: flex; justify-content: center; }
+/* Do not try to size Mermaid diagrams from here. Slidev renders each one inside a shadow
+   root, so no rule in this file reaches the SVG. Size is controlled by the {scale: n} option
+   on the fence, which sets the SVG height only. A long left-to-right chain saturates the
+   slide width at its natural size, so the lever for a diagram that looks small is fewer
+   nodes per row, not a larger scale. Measured 2026-08-20 on @slidev/cli 52.19.1. */
+.slidev-layout img { display: block; margin-inline: auto; }
+
+/* Tables were spreading to full width with huge gaps between columns. */
+.slidev-layout table { width: auto; margin-inline: auto; font-size: 0.86em; }
+.slidev-layout th, .slidev-layout td { padding: 0.35em 1.4em 0.35em 0; }
+
+/* KaTeX display equations centred rather than left-drifting. */
+.slidev-layout .katex-display { margin: 0.6em 0; }

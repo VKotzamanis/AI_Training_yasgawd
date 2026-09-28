@@ -1,0 +1,47 @@
+%% Shared preamble for the course decks.
+\usepackage{uhcite}
+\usepackage{uhslot}
+\usepackage{amsmath}
+\usetikzlibrary{arrows.meta,positioning}
+
+%% --- the four kinds of number ------------------------------------------------
+%% A review found parameters, token IDs, logits and probabilities were all appearing as
+%% bare numbers with nothing telling them apart. Each now has one colour, used identically
+%% in the slides, the figures and the animations. Colour is a redundant cue: every coloured
+%% number carries its word too, so nothing depends on hue alone.
+\newcommand{\tokid}[1]{\textcolor{uhslate}{\textbf{#1}}}   % a label, no magnitude
+\newcommand{\param}[1]{\textcolor{uhocher}{\textbf{#1}}}   % the fitted numbers
+\newcommand{\logit}[1]{\textcolor{uhteal}{\textbf{#1}}}    % raw scores out of the network
+\newcommand{\prob}[1]{\textcolor{uhred}{\textbf{#1}}}      % probabilities
+%% Defined terms are bold and black. Colour is reserved for number kinds, so that a colour
+%% on a slide always answers the same question: what sort of number is this?
+\newcommand{\kw}[1]{\textbf{#1}}
+%% Inside an equation the same colours apply without \textbf, which is text-mode and breaks
+%% on a subscript. Colour only; maths keeps its own italic.
+\newcommand{\mlogit}[1]{\textcolor{uhteal}{#1}}
+\newcommand{\mprob}[1]{\textcolor{uhred}{#1}}
+
+%% --- a figure that an animation replaces in the PowerPoint version ------------
+\newcommand{\animatable}[2]{%
+  \vspace{-0.5em}{\scriptsize\color{uhocher}\textbf{animation #1} replaces this figure --- #2}\par}
+
+%% --- keep a diagram inside the slide -----------------------------------------
+%% A tikzpicture wider than the text block runs off the SIDE of the slide, which
+%% produces an Overfull \hbox rather than a vbox. build.sh gated only on vbox until
+%% 2026-08-22, so this went unseen: Chapter 1 frame 10 was 53pt over and Chapter 2
+%% frame 4 was 88pt over, about 31mm off-slide. \fitwidth shrinks an over-wide box
+%% to the text width and leaves a narrower one alone, so it is safe to apply to every
+%% diagram rather than only the ones known to overflow.
+\newcommand{\fitwidth}[1]{\resizebox{\ifdim\width>\linewidth \linewidth\else \width\fi}{!}{#1}}
+
+%% --- diagram styles ----------------------------------------------------------
+\tikzset{
+  uhbox/.style   ={draw=uhslate!70, fill=uhslate!7,  rounded corners=1pt, align=center,
+                   font=\scriptsize, inner sep=3pt, minimum height=8mm, text width=19mm},
+  uhwide/.style  ={uhbox, text width=26mm},
+  uhhi/.style    ={uhbox, draw=uhred, fill=uhred!8, thick},
+  uhamber/.style ={uhbox, draw=uhocher, fill=uhocher!12, thick},
+  uhghost/.style ={uhbox, draw=uhslate!45, fill=none, dashed},
+  uhar/.style    ={-{Latex[length=1.8mm]}, draw=uhslate!80, thick},
+  uhardot/.style ={-{Latex[length=1.8mm]}, draw=uhslate!55, thick, dashed},
+}

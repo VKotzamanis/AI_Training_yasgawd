@@ -1,0 +1,25 @@
+% V2 — house theme, light. Built to the assertion-evidence spec rather than to a
+% generic beamer theme: a full-sentence headline in a coloured band, the body given
+% over to evidence, no navigation chrome, and a citation footer on every frame.
+\usepackage{xcolor}
+\definecolor{houseInk}{HTML}{14201F}
+\definecolor{houseTeal}{HTML}{0E5C68}
+\definecolor{houseAmber}{HTML}{97591A}
+\definecolor{houseGrid}{HTML}{C8D2D2}
+
+\usetheme{default}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{normal text}{fg=houseInk}
+\setbeamercolor{structure}{fg=houseTeal}
+\setbeamercolor{frametitle}{fg=white,bg=houseTeal}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,sep=0.45em,leftskip=0.9em,rightskip=0.9em]{frametitle}
+    \raggedright\insertframetitle\par
+  \end{beamercolorbox}}
+\setbeamertemplate{footline}{}
+\setbeamersize{text margin left=0.9em,text margin right=0.9em}
+\newcommand{\sourceline}[1]{\vfill{\scriptsize\color{houseInk!45}%
+  \textcolor{houseGrid}{\rule{\linewidth}{0.4pt}}\par\vspace{0.15em}\raggedright #1\par}}
