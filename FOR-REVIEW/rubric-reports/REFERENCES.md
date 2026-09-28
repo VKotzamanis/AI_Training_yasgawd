@@ -1,0 +1,9 @@
+# References — FOR-REVIEW rubric reports
+
+Web sources fetched while running `RUBRIC.md` chapter reviews. One line per source.
+Format: `- <URL> — <YYYY-MM-DD HH:MM> — <method> — session <id> — <why>`
+
+- https://arxiv.org/abs/2307.11760 — 2026-08-27 23:52 — WebFetch — session fa4fff58-1e02-46a0-9e27-b82f6d002096 — ch02 review, finding [ch02-007]: confirm whether Li et al.'s +115% EmotionPrompt figure is a relative or absolute gain. Abstract states "8.00% relative performance improvement in Instruction Induction and 115% in BIG-Bench" — both relative.
+- https://arxiv.org/abs/2309.03409 — 2026-08-27 23:52 — WebFetch — session fa4fff58-1e02-46a0-9e27-b82f6d002096 — ch02 review, finding [ch02-007]: check the scale of OPRO's "up to 8% on GSM8K / up to 50% on Big-Bench Hard". Abstract does not disambiguate accuracy points from relative gain; left unresolved in the report's Checks not run.
+- https://platform.claude.com/en/docs/build-with-claude/extended-thinking — 2026-08-28 12:05 — WebFetch — session fa4fff58-1e02-46a0-9e27-b82f6d002096 — ch04 review, finding [ch04-001]: check whether "extended thinking off" is a runnable configuration for the B3 arm. Page states `thinking: {type: "enabled", budget_tokens}` returns 400 on Opus 5, and that adaptive thinking "may skip thinking entirely on easy inputs" at lower effort.
+- https://platform.claude.com/en/docs/build-with-claude/effort — 2026-08-28 12:07 — WebFetch — session fa4fff58-1e02-46a0-9e27-b82f6d002096 — ch04 review, findings [ch04-001] and [ch04-010]: effort ladder and disable-thinking availability. Page states Opus 5 supports max/xhigh/high/medium/low, default high, and "thinking cannot be disabled at `xhigh` or `max` effort: requests that set `thinking: {"type": "disabled"}` at those levels return a 400 error". Platform list omits claude.ai.

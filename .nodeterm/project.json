@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "rev": 18,
+  "savedAt": "2026-09-11T05:19:09.693Z",
+  "id": "project-4xthen",
+  "name": "AI Training",
+  "color": "#ff453a",
+  "viewport": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "nodes": [],
+  "bridges": [],
+  "ropes": [],
+  "kanban": {
+    "columns": [
+      {
+        "id": "kcol-mzdes5q1",
+        "title": "To Do",
+        "color": "#0a84ff"
+      },
+      {
+        "id": "kcol-k3skr05t",
+        "title": "In Progress",
+        "color": "#ffd60a"
+      },
+      {
+        "id": "kcol-z9m0fsgl",
+        "title": "Done",
+        "color": "#32d74b"
+      }
+    ],
+    "assignments": [],
+    "labels": [
+      {
+        "id": "klbl-82gjncf1",
+        "name": "Reworking the AI training after Chapter 1",
+        "color": "gray"
+      }
+    ],
+    "meta": [
+      {
+        "nodeId": "term-mtcbd5mc-9e10b630",
+        "assignees": [
+          {
+            "name": "you",
+            "color": "#8e8e93"
+          }
+        ],
+        "labels": [
+          "klbl-82gjncf1"
+        ],
+        "priority": "medium"
+      }
+    ]
+  }
+}
