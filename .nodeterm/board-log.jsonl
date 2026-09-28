@@ -1,0 +1,3 @@
+{"id":"6b2fbdb8-320a-41ce-820b-9b0c2a2a12db","ts":1787882981556,"author":{"name":"you","color":"#8e8e93"},"kind":"event","nodeId":"term-mtcbd5mc-9e10b630","event":{"type":"card-created","to":"Ungrouped","title":"Claude Code"}}
+{"id":"68e4994b-bded-468f-badd-f91184575162","ts":1787883047568,"author":{"name":"you","color":"#8e8e93"},"kind":"event","nodeId":"term-mtcbd5mc-9e10b630","event":{"type":"member-assigned","to":"you"}}
+{"id":"4431045f-5210-4553-8089-455de6d778b1","ts":1787883068324,"author":{"name":"you","color":"#8e8e93"},"kind":"event","nodeId":"term-mtcbd5mc-9e10b630","event":{"type":"priority-set","to":"medium"}}

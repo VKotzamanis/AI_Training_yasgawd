@@ -1,0 +1,152 @@
+[
+  {
+    "url": "https://mikexcohen.substack.com/p/drawing-text-heatmaps-to-visualize",
+    "title": "Drawing text heatmaps to visualize LLM calculations",
+    "date": "2025-08-22T11:37:14.917Z",
+    "slug": "drawing-text-heatmaps-to-visualize",
+    "section": "ml-on-llms",
+    "is_paid": false
+  },
+  {
+    "url": "https://mikexcohen.substack.com/p/llm-breakdown-16-tokenization-words",
+    "title": "LLM breakdown 1/6: Tokenization (words to integers)",
+    "date": "2025-08-26T12:23:54.155Z",
+    "slug": "llm-breakdown-16-tokenization-words",
+    "section": "ml-on-llms",
+    "is_paid": false,
+    "series_no": 1
+  },
+  {
+    "url": "https://mikexcohen.substack.com/p/llm-breakdown-26-logits-and-next",
+    "title": "LLM breakdown 2/6: Logits and next-token prediction",
+    "date": "2025-08-27T19:26:10.319Z",
+    "slug": "llm-breakdown-26-logits-and-next",
+    "section": "ml-on-llms",
+    "is_paid": false,
+    "series_no": 2
+  },
+  {
+    "url": "https://mikexcohen.substack.com/p/llm-breakdown-36-embeddings",
+    "title": "LLM breakdown 3/6: Embeddings",
+    "date": "2025-08-29T16:40:02.733Z",
+    "slug": "llm-breakdown-36-embeddings",
+    "section": "ml-on-llms",
+    "is_paid": false,
+    "series_no": 3
+  },
+  {
+    "url": "https://mikexcohen.substack.com/p/llm-breakdown-46-transformer-outputs",
+    "title": "LLM breakdown 4/6: Transformer outputs (hidden states)",
+    "date": "2025-09-01T15:09:26.917Z",
+    "slug": "llm-breakdown-46-transformer-outputs",
+    "section": "ml-on-llms",
+    "is_paid": false,
+    "series_no": 4
+  },
+  {
+    "url": "https://mikexcohen.substack.com/p/llm-breakdown-56-attention",
+    "title": "LLM breakdown 5/6: Attention",
+    "date": "2025-09-02T18:04:07.969Z",
+    "slug": "llm-breakdown-56-attention",
+    "section": "ml-on-llms",
+    "is_paid": false,
+    "series_no": 5
+  },
+  {
+    "url": "https://mikexcohen.substack.com/p/llm-breakdown-66-mlp",
+    "title": "LLM breakdown 6/6: MLP",
+    "date": "2025-09-03T14:38:16.985Z",
+    "slug": "llm-breakdown-66-mlp",
+    "section": "ml-on-llms",
+    "is_paid": false,
+    "series_no": 6
+  },
+  {
+    "url": "https://mikexcohen.substack.com/p/effective-dimensionality-analysis",
+    "title": "Effective dimensionality analysis of LLM transformers",
+    "date": "2025-09-10T11:52:26.378Z",
+    "slug": "effective-dimensionality-analysis",
+    "section": "ml-on-llms",
+    "is_paid": false
+  },
+  {
+    "url": "https://mikexcohen.substack.com/p/lessons-on-life-and-humor-from-gpt2",
+    "title": "Lessons on life and humor from GPT2",
+    "date": "2025-09-11T13:00:48.605Z",
+    "slug": "lessons-on-life-and-humor-from-gpt2",
+    "section": "ml-on-llms",
+    "is_paid": false
+  },
+  {
+    "url": "https://mikexcohen.substack.com/p/king-man-woman-queen-is-fake-news",
+    "title": "\"King - man + woman = queen\" is fake news",
+    "date": "2025-10-12T15:59:57.482Z",
+    "slug": "king-man-woman-queen-is-fake-news",
+    "section": "ml-on-llms",
+    "is_paid": false
+  },
+  {
+    "url": "https://mikexcohen.substack.com/p/false-claims-about-llms-ive-seen",
+    "title": "False claims about LLMs I've seen on social media",
+    "date": "2025-10-16T18:51:40.399Z",
+    "slug": "false-claims-about-llms-ive-seen",
+    "section": "ml-on-llms",
+    "is_paid": false
+  },
+  {
+    "url": "https://mikexcohen.substack.com/p/gender-bias-in-large-language-models",
+    "title": "Gender bias in large language models, part 1 (measuring the bias)",
+    "date": "2025-11-06T14:54:49.365Z",
+    "slug": "gender-bias-in-large-language-models",
+    "section": "ml-on-llms",
+    "is_paid": false
+  },
+  {
+    "url": "https://mikexcohen.substack.com/p/gender-bias-in-large-language-models-f59",
+    "title": "Gender bias in large language models, part 2 (correcting the bias)",
+    "date": "2025-11-13T20:35:13.523Z",
+    "slug": "gender-bias-in-large-language-models-f59",
+    "section": "ml-on-llms",
+    "is_paid": false
+  },
+  {
+    "url": "https://mikexcohen.substack.com/p/about-my-new-book-in-2026",
+    "title": "About my new book in 2026",
+    "date": "2026-01-04T00:38:18.706Z",
+    "slug": "about-my-new-book-in-2026",
+    "section": "ml-on-llms",
+    "is_paid": false
+  },
+  {
+    "url": "https://mikexcohen.substack.com/p/what-neuroscience-and-ai-really-have",
+    "title": "What neuroscience and AI really have in common",
+    "date": "2026-02-24T00:28:07.493Z",
+    "slug": "what-neuroscience-and-ai-really-have",
+    "section": "ml-on-llms",
+    "is_paid": false
+  },
+  {
+    "url": "https://mikexcohen.substack.com/p/exploring-the-reve-eeg-transformer",
+    "title": "Exploring the REVE EEG transformer model",
+    "date": "2026-02-25T05:05:11.621Z",
+    "slug": "exploring-the-reve-eeg-transformer",
+    "section": "ml-on-llms",
+    "is_paid": false
+  },
+  {
+    "url": "https://mikexcohen.substack.com/p/exploring-the-wav2vec2-model",
+    "title": "Exploring the Wav2vec2 model",
+    "date": "2026-03-26T01:45:30.650Z",
+    "slug": "exploring-the-wav2vec2-model",
+    "section": "ml-on-llms",
+    "is_paid": false
+  },
+  {
+    "url": "https://mikexcohen.substack.com/p/exploring-a-residual-vector-quantization",
+    "title": "Exploring a residual vector quantization (RVQ) model",
+    "date": "2026-03-30T23:38:17.589Z",
+    "slug": "exploring-a-residual-vector-quantization",
+    "section": "ml-on-llms",
+    "is_paid": false
+  }
+]
